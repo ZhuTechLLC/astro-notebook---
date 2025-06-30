@@ -322,11 +322,11 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
       /* 章节导航 */
       .chapter-nav {
         position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
+        top: 70px; /* 56px nav + margin */
+        right: 20px;
         display: flex;
-        gap: 16px;
+        flex-direction: column;
+        gap: 12px;
         z-index: 900;
       }
 
@@ -632,26 +632,26 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
 
       // 侧边栏管理
       function initializeSidebar() {
-        const sidebarToggle = document.getElementById('sidebarToggle');
-        const sidebar = document.getElementById('sidebar');
+      const sidebarToggle = document.getElementById('sidebarToggle');
+      const sidebar = document.getElementById('sidebar');
         const mainContent = document.getElementById('mainContent');
-        
-        sidebarToggle?.addEventListener('click', () => {
-          sidebar?.classList.toggle('open');
-          mainContent?.classList.toggle('sidebar-open');
-        });
-        
+      
+      sidebarToggle?.addEventListener('click', () => {
+        sidebar?.classList.toggle('open');
+        mainContent?.classList.toggle('sidebar-open');
+      });
+      
         // 点击外部关闭侧边栏
-        document.addEventListener('click', (e) => {
-          const target = e.target as Node;
-          if (sidebar && sidebarToggle && target &&
-              !sidebar.contains(target) && 
-              !sidebarToggle.contains(target)) {
-            sidebar.classList.remove('open');
-            mainContent?.classList.remove('sidebar-open');
-          }
-        });
-        
+      document.addEventListener('click', (e) => {
+        const target = e.target as Node;
+        if (sidebar && sidebarToggle && target &&
+            !sidebar.contains(target) && 
+            !sidebarToggle.contains(target)) {
+          sidebar.classList.remove('open');
+          mainContent?.classList.remove('sidebar-open');
+        }
+      });
+      
         // 生成侧边栏内容
         generateSidebarContent();
       }
@@ -841,7 +841,7 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           window.removeEventListener('scroll', updateReadingProgress);
         }
       }
-
+      
       function updateReadingProgress() {
         const progressBar = document.getElementById('readingProgressBar');
         if (!progressBar) return;
@@ -878,6 +878,72 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           }
         });
       }
+    </script>
+
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        /* Self Reflection Form Handling */
+        const form = document.querySelector('.self-reflection-form');
+        if (form) {
+          const questions = form.querySelectorAll('.form-question');
+          questions.forEach((q, idx) => {
+            const answerSpace = q.querySelector('.answer-space');
+            if (answerSpace) {
+              const key = `self_reflection_q${idx + 1}`;
+              const textarea = document.createElement('textarea');
+              textarea.rows = 3;
+              textarea.placeholder = '示例：请在此填写你的答案';
+              textarea.style.width = '100%';
+              textarea.style.padding = '10px';
+              textarea.style.border = '1px solid var(--border-color)';
+              textarea.style.borderRadius = '8px';
+              textarea.style.background = 'var(--bg-secondary)';
+              textarea.style.color = 'var(--text-primary)';
+              // load saved value
+              const saved = localStorage.getItem(key);
+              if (saved) textarea.value = saved;
+              answerSpace.replaceWith(textarea);
+            }
+          });
+          // Append action buttons
+          const actionWrapper = document.createElement('div');
+          actionWrapper.style.marginTop = '20px';
+          actionWrapper.style.display = 'flex';
+          actionWrapper.style.gap = '12px';
+
+          const saveBtn = document.createElement('button');
+          saveBtn.textContent = '保存';
+          saveBtn.className = 'form-action-btn';
+          const resetBtn = document.createElement('button');
+          resetBtn.textContent = '清空';
+          resetBtn.className = 'form-action-btn';
+
+          actionWrapper.appendChild(saveBtn);
+          actionWrapper.appendChild(resetBtn);
+          form.appendChild(actionWrapper);
+
+          saveBtn.addEventListener('click', () => {
+            questions.forEach((q, idx) => {
+              const ta = q.querySelector('textarea');
+              if (ta) {
+                localStorage.setItem(`self_reflection_q${idx + 1}`, ta.value);
+              }
+            });
+            alert('已保存至本地浏览器！');
+          });
+
+          resetBtn.addEventListener('click', () => {
+            if (!confirm('确定要清空所有回答？')) return;
+            questions.forEach((q, idx) => {
+              const ta = q.querySelector('textarea');
+              if (ta) {
+                ta.value = '';
+                localStorage.removeItem(`self_reflection_q${idx + 1}`);
+              }
+            });
+          });
+        }
+      });
     </script>
   </body>
 </html> 

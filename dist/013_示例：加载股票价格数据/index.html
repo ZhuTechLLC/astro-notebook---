@@ -1,0 +1,13 @@
+<!DOCTYPE html><meta charset="utf-8"><h1 id="示例加载股票价格数据">示例：加载股票价格数据</h1>
+<p>import yfinance as yf</p>
+<p>tickers = [“AAPL”, “MSFT”, “GOOGL”]</p>
+<p>data = yf.download(tickers, start=“2015-01-01”, end=“2025-01-01”)[‘Adj Close’]</p>
+<p>2.2 因子计算</p>
+<p>因子是量化策略的核心，用于筛选优质股票和优化投资组合。</p>
+<p>常用因子：</p>
+<p>技术因子：</p>
+<p>动量：过去 30 天的收益率，用于捕捉趋势。</p>
+<p>波动率：过去一段时间的价格波动，用于评估风险。</p>
+<p>均线：如 MA50（50 日均线）和 MA200，用于识别趋势。</p>
+<p>基本面因子：</p>
+<p>P/E、P/B、ROE、净利润增长率等，用于衡量企业质量。</p>

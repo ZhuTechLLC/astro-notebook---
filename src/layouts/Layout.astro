@@ -1,0 +1,414 @@
+---
+export interface Props {
+  title: string;
+  lang?: string;
+  alt?: string;
+}
+
+const { title, lang = 'zh-CN', alt = '' } = Astro.props;
+const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.pathname.startsWith('/en/'));
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="美股投资实操手册I - 高倍股分析与策略实践" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- 左上角 -->
+      <header class="top-nav">
+        <div style="display: flex; align-items: center;">
+          <button class="sidebar-toggle" id="sidebarToggle" aria-label="切换侧边栏">📚</button>
+        </div>
+        <div class="right-buttons">
+          <button id="toggleReadingMode" class="reading-btn" title="专注阅读模式">📖</button>
+          <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+            <span class="theme-icon">🌙</span>
+          </button>
+          <button id="decreaseFont" class="font-btn" title="缩小字体">A-</button>
+          <button id="increaseFont" class="font-btn" title="放大字体">A+</button>
+          <a class="lang-btn" id="langSwitchEn" href={alt} title="English">EN</a>
+          <a class="lang-btn" id="langSwitchCn" href={alt} title="中文">CN</a>
+        </div>
+      </header>
+      
+      <!-- 侧边栏 -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <h2>{isEn ? 'EN Stock Investment Handbook I' : '📈 美股投资实操手册I'}</h2>
+        </div>
+        
+        <nav class="sidebar-nav">
+          <a href={isEn ? '/en/index' : '/'} class="nav-item">
+            <span class="chapter-number">🏠</span>
+            <span class="chapter-title">{isEn ? 'Home' : '首页'}</span>
+          </a>
+          <a href={isEn ? '/en/000_Preface_en' : '/000_序言'} class="nav-item">
+            <span class="chapter-number">📖</span>
+            <span class="chapter-title">{isEn ? 'Preface' : '序言'}</span>
+          </a>
+          <a href={isEn ? '/en/001_Chapter1_Know_Yourself_and_the_World_en' : '/001_Chapter1_Know_Yourself_and_the_World_CN'} class="nav-item">
+            <span class="chapter-number">1️⃣</span>
+            <span class="chapter-title">{isEn ? 'Chapter 1: Know Yourself & the World' : '第一章：看清自己，看懂世界'}</span>
+          </a>
+          <a href={isEn ? '/en/002_Chapter2_Investment_Psychology_and_Risk_Management_en' : '/002_Chapter2_Investment_Psychology_and_Risk_Management_CN'} class="nav-item">
+            <span class="chapter-number">2️⃣</span>
+            <span class="chapter-title">{isEn ? 'Chapter 2: Investment Psychology & Risk Management' : '第二章：投资心理与风险管理'}</span>
+          </a>
+          <a href={isEn ? '/en/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_en' : '/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_CN'} class="nav-item">
+            <span class="chapter-number">3️⃣</span>
+            <span class="chapter-title">{isEn ? 'Chapter 3: Historical Patterns & Multibagger Stocks' : '第三章：历史规律与高倍股研究'}</span>
+          </a>
+          <a href={isEn ? '/en/004_Chapter4_Track_Selection_and_Industry_Trends_en' : '/004_Chapter4_Track_Selection_and_Industry_Trends_CN'} class="nav-item">
+            <span class="chapter-number">4️⃣</span>
+            <span class="chapter-title">{isEn ? 'Chapter 4: Track Selection & Industry Trends' : '第四章：赛道选择与行业趋势'}</span>
+          </a>
+          <a href={isEn ? '/en/005_Chapter5_Stock_Screening_Strategies_en' : '/005_Chapter5_Stock_Screening_Strategies_CN'} class="nav-item">
+            <span class="chapter-number">5️⃣</span>
+            <span class="chapter-title">{isEn ? 'Chapter 5: Stock Screening Strategies' : '第五章：股票筛选策略'}</span>
+          </a>
+          <a href={isEn ? '/en/006_Chapter6_Trading_Strategies_and_Execution_en' : '/006_Chapter6_Trading_Strategies_and_Execution_CN'} class="nav-item">
+            <span class="chapter-number">6️⃣</span>
+            <span class="chapter-title">{isEn ? 'Chapter 6: Trading Strategies & Execution' : '第六章：交易策略与执行'}</span>
+          </a>
+          <a href={isEn ? '/en/007_Chapter7_Investment_Decision_Tools_and_Resources_en' : '/007_Chapter7_Investment_Decision_Tools_and_Resources_CN'} class="nav-item">
+            <span class="chapter-number">7️⃣</span>
+            <span class="chapter-title">{isEn ? 'Chapter 7: Investment Decision Tools & Resources' : '第七章：投资决策工具与资源'}</span>
+          </a>
+          <a href={isEn ? '/en/008_Chapter8_Case_Review_and_Strategy_Improvement_en' : '/008_Chapter8_Case_Review_and_Strategy_Improvement_CN'} class="nav-item">
+            <span class="chapter-number">8️⃣</span>
+            <span class="chapter-title">{isEn ? 'Chapter 8: Case Review & Strategy Improvement' : '第八章：案例复盘与策略改进'}</span>
+          </a>
+          <a href={isEn ? '/en/009_Chapter9_Building_an_Investment_System_en' : '/009_Chapter9_Building_Investment_System_CN'} class="nav-item">
+            <span class="chapter-number">9️⃣</span>
+            <span class="chapter-title">{isEn ? 'Chapter 9: Building an Investment System' : '第九章：构建投资体系'}</span>
+          </a>
+          <a href={isEn ? '/en/010_Chapter10_Trading_Execution_and_Practical_Guide_en' : '/010_Chapter10_Trading_Execution_and_Practical_Guide_CN'} class="nav-item">
+            <span class="chapter-number">🔟</span>
+            <span class="chapter-title">{isEn ? 'Chapter 10: Trading Execution & Practical Guide' : '第十章：交易执行与实战指南'}</span>
+          </a>
+          <a href={isEn ? '/en/011_Appendix_en' : '/011_Appendix_CN'} class="nav-item">
+            <span class="chapter-number">📋</span>
+            <span class="chapter-title">{isEn ? 'Appendix' : '附录'}</span>
+          </a>
+          <a href={isEn ? '/en/012_Strategy_Logic_en' : '/012_Strategy_Logic_CN'} class="nav-item">
+            <span class="chapter-number">🧠</span>
+            <span class="chapter-title">{isEn ? 'Strategy Logic' : '策略逻辑'}</span>
+          </a>
+          <a href={isEn ? '/en/013_Example_Loading_Stock_Price_Data_en' : '/013_Example_Loading_Stock_Price_Data_CN'} class="nav-item">
+            <span class="chapter-number">📊</span>
+            <span class="chapter-title">{isEn ? 'Example: Loading Stock Price Data' : '示例：加载股票价格数据'}</span>
+          </a>
+          <a href={isEn ? '/en/014_Example_Calculating_Momentum_Factor_en' : '/014_Example_Calculating_Momentum_Factor_CN'} class="nav-item">
+            <span class="chapter-number">📈</span>
+            <span class="chapter-title">{isEn ? 'Example: Calculating Momentum Factor' : '示例：计算动量因子'}</span>
+          </a>
+          <a href={isEn ? '/en/015_Example_Building_Equal_Weighted_Portfolio_en' : '/015_Example_Building_Equal_Weighted_Portfolio_CN'} class="nav-item">
+            <span class="chapter-number">⚖️</span>
+            <span class="chapter-title">{isEn ? 'Example: Building an Equal-Weighted Portfolio' : '示例：等权构建组合'}</span>
+          </a>
+          <a href={isEn ? '/en/016_Example_Backtesting_Return_Curve_en' : '/016_Example_Backtesting_Return_Curve_CN'} class="nav-item">
+            <span class="chapter-number">📉</span>
+            <span class="chapter-title">{isEn ? 'Example: Backtesting Return Curve' : '示例：回测收益曲线'}</span>
+          </a>
+          <a href={isEn ? '/en/017_Using_scipy_optimize_for_Optimization_en' : '/017_Using_scipy_optimize_for_Optimization_CN'} class="nav-item">
+            <span class="chapter-number">🔧</span>
+            <span class="chapter-title">{isEn ? 'Using scipy.optimize for Optimization' : '使用 scipy.optimize 进行优化'}</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- 主内容区 -->
+      <main class="main-content content-with-sidebar">
+        <slot />
+      </main>
+      <!-- 新的回到顶部按钮，悬浮在右下角 -->
+      <button id="backToTop" class="back-to-top" aria-label="回到顶部" style="display:none;">↑</button>
+    </div>
+
+    <style is:global>
+      @import '../styles/style.css';
+      .top-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 16px;
+        height: 56px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: none !important;
+        border: none !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* 可选，弱阴影提升悬浮感 */
+        z-index: 1100;
+      }
+
+      .right-buttons {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+      }
+
+      .sidebar-toggle,
+      .right-buttons button {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+
+      .sidebar-toggle:hover,
+      .right-buttons button:hover {
+        background: var(--primary-dark);
+        transform: scale(1.1);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }
+
+      @media (max-width: 600px) {
+        .right-buttons {
+          top: 10px;
+          right: 10px;
+          gap: 8px;
+        }
+        .right-buttons button {
+          width: 34px;
+          height: 34px;
+          font-size: 14px;
+        }
+      }
+
+      /* 字体控制按钮整体区域 */
+      .font-controls {
+        position: fixed;
+        top: 20px;
+        right: 110px;
+        display: flex;
+        gap: 5px;      /* 两个按钮之间的间距 */
+        z-index: 1000;
+      }
+
+      /* 字体按钮本身 */
+      .font-controls button {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        /* 其余样式同上 */
+      }
+
+      /* 主题切换按钮 */
+      .theme-control {
+        position: fixed;
+        top: 20px;
+        right: 60px;
+        z-index: 1000;
+      }
+
+      .bottom-nav {
+        display: flex;
+        justify-content: flex-start; /* 左对齐，或 flex-end 右对齐 */
+        gap: 1.5rem;
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+      }
+    </style>
+
+    <script>
+      // 侧边栏切换功能
+      const sidebarToggle = document.getElementById('sidebarToggle');
+      const sidebar = document.getElementById('sidebar');
+      const mainContent = document.querySelector('.main-content');
+      
+      sidebarToggle?.addEventListener('click', () => {
+        sidebar?.classList.toggle('open');
+        mainContent?.classList.toggle('sidebar-open');
+      });
+      
+      // 点击侧边栏外部关闭侧边栏
+      document.addEventListener('click', (e) => {
+        const target = e.target as Node;
+        if (sidebar && sidebarToggle && target &&
+            !sidebar.contains(target) && 
+            !sidebarToggle.contains(target)) {
+          sidebar.classList.remove('open');
+          mainContent?.classList.remove('sidebar-open');
+        }
+      });
+      
+      // 主题切换功能
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = themeToggle?.querySelector('.theme-icon');
+      
+      // 获取保存的主题或默认使用亮色主题
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      
+      // 更新图标
+      if (themeIcon) {
+        themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+      }
+      
+      // 主题切换事件
+      themeToggle?.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        if (themeIcon) {
+          themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        }
+      });
+      
+      // 专注阅读模式
+      const readingModeBtn = document.getElementById('toggleReadingMode');
+      let isFocusMode = localStorage.getItem('focusMode') === 'true';
+      
+      // 初始化专注模式状态
+      if (isFocusMode && readingModeBtn) {
+        document.body.classList.add('focus-mode');
+        readingModeBtn.textContent = '📚';
+        readingModeBtn.title = '退出专注模式';
+      }
+      
+      readingModeBtn?.addEventListener('click', () => {
+        document.body.classList.toggle('focus-mode');
+        isFocusMode = document.body.classList.contains('focus-mode');
+        
+        // 更新按钮状态
+        if (readingModeBtn) {
+          readingModeBtn.textContent = isFocusMode ? '📚' : '📖';
+          readingModeBtn.title = isFocusMode ? '退出专注模式' : '专注阅读模式';
+        }
+        
+        // 保存状态到本地存储
+        localStorage.setItem('focusMode', isFocusMode.toString());
+        
+        // 专注模式下的额外功能
+        if (isFocusMode) {
+          // 隐藏其他控制按钮
+          const sidebarToggle = document.querySelector('.sidebar-toggle');
+          const fontControls = document.querySelector('.font-controls');
+          const themeControl = document.querySelector('.theme-control');
+          
+          if (sidebarToggle) {
+            sidebarToggle.classList.add('hidden');
+          }
+          if (fontControls) {
+            fontControls.classList.add('hidden');
+          }
+          if (themeControl) {
+            themeControl.classList.add('hidden');
+          }
+          
+          // 自动滚动到内容开始位置
+          const mainContent = document.querySelector('main');
+          if (mainContent) {
+            mainContent.scrollIntoView({ behavior: 'smooth' });
+          }
+          
+          // 添加阅读进度条
+          if (!document.querySelector('.reading-progress')) {
+            const progressBar = document.createElement('div');
+            progressBar.className = 'reading-progress';
+            progressBar.innerHTML = '<div class="reading-progress-bar"></div>';
+            document.body.appendChild(progressBar);
+          }
+          
+          // 更新阅读进度
+          updateReadingProgress();
+        } else {
+          // 显示其他控制按钮
+          const sidebarToggle = document.querySelector('.sidebar-toggle');
+          const fontControls = document.querySelector('.font-controls');
+          const themeControl = document.querySelector('.theme-control');
+          
+          if (sidebarToggle) {
+            sidebarToggle.classList.remove('hidden');
+          }
+          if (fontControls) {
+            fontControls.classList.remove('hidden');
+          }
+          if (themeControl) {
+            themeControl.classList.remove('hidden');
+          }
+          
+          // 移除阅读进度条
+          document.querySelector('.reading-progress')?.remove();
+          
+          // 移除滚动监听
+          window.removeEventListener('scroll', updateReadingProgress);
+        }
+      });
+      
+      // 更新阅读进度函数
+      function updateReadingProgress() {
+        const progressBar = document.querySelector('.reading-progress-bar');
+        if (!progressBar) return;
+        
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        
+        (progressBar as any).style.width = scrollPercent + '%';
+      }
+      
+      // 在专注模式下监听滚动
+      if (isFocusMode) {
+        window.addEventListener('scroll', updateReadingProgress);
+      }
+      
+      // 字体大小控制
+      const decreaseFont = document.getElementById('decreaseFont');
+      const increaseFont = document.getElementById('increaseFont');
+      let fontSize = parseInt(localStorage.getItem('fontSize') || '16', 10);
+      document.body.style.fontSize = fontSize + 'px';
+      decreaseFont?.addEventListener('click', () => {
+        if (fontSize > 12) {
+          fontSize -= 2;
+          document.body.style.fontSize = fontSize + 'px';
+          localStorage.setItem('fontSize', fontSize.toString());
+        }
+      });
+      increaseFont?.addEventListener('click', () => {
+        if (fontSize < 24) {
+          fontSize += 2;
+          document.body.style.fontSize = fontSize + 'px';
+          localStorage.setItem('fontSize', fontSize.toString());
+        }
+      });
+
+      // 新回到顶部按钮逻辑
+      const backToTopBtn = document.getElementById('backToTop');
+      if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 300) {
+            backToTopBtn.style.display = 'flex';
+          } else {
+            backToTopBtn.style.display = 'none';
+          }
+        });
+        backToTopBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    </script>
+  </body>
+</html> 

@@ -53,5 +53,5 @@ def read_word_document(file_path):
         print(f"读取文档时出错: {e}")
 
 if __name__ == "__main__":
-    file_path = "public/documents/美股投资实操手册I _06202025优化版本.docx"
+    file_path = "../public/documents/美股投资实操手册I _06202025优化版本.docx"
     read_word_document(file_path) 

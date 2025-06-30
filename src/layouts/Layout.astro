@@ -3,9 +3,11 @@ export interface Props {
   title: string;
   lang?: string;
   alt?: string;
+  currentBook?: string;
+  currentChapter?: string;
 }
 
-const { title, lang = 'zh-CN', alt = '' } = Astro.props;
+const { title, lang = 'zh-CN', alt = '', currentBook = 'theory', currentChapter = '' } = Astro.props;
 const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.pathname.startsWith('/en/'));
 ---
 
@@ -13,7 +15,7 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="美股投资实操手册I - 高倍股分析与策略实践" />
+    <meta name="description" content="美股投资实操手册 - 完整知识体系" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -21,12 +23,12 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
   </head>
   <body>
     <div class="container">
-      <!-- 左上角 -->
-      <header class="top-nav">
-        <div style="display: flex; align-items: center;">
+      <!-- 顶部导航栏 -->
+      <header class="top-nav" id="topNav">
+        <div class="nav-left">
           <button class="sidebar-toggle" id="sidebarToggle" aria-label="切换侧边栏">📚</button>
         </div>
-        <div class="right-buttons">
+        <div class="nav-right">
           <button id="toggleReadingMode" class="reading-btn" title="专注阅读模式">📖</button>
           <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
             <span class="theme-icon">🌙</span>
@@ -37,103 +39,70 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           <a class="lang-btn" id="langSwitchCn" href={alt} title="中文">CN</a>
         </div>
       </header>
+
+      <!-- 阅读进度条（专注模式显示） -->
+      <div class="reading-progress" id="readingProgress" style="display: none;">
+        <div class="reading-progress-bar" id="readingProgressBar"></div>
+      </div>
       
       <!-- 侧边栏 -->
       <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
-          <h2>{isEn ? 'EN Stock Investment Handbook I' : '📈 美股投资实操手册I'}</h2>
+          <h2 id="sidebarTitle">📈 美股投资实操手册</h2>
         </div>
         
-        <nav class="sidebar-nav">
-          <a href={isEn ? '/en/index' : '/'} class="nav-item">
-            <span class="chapter-number">🏠</span>
-            <span class="chapter-title">{isEn ? 'Home' : '首页'}</span>
-          </a>
-          <a href={isEn ? '/en/000_Preface_en' : '/000_序言'} class="nav-item">
-            <span class="chapter-number">📖</span>
-            <span class="chapter-title">{isEn ? 'Preface' : '序言'}</span>
-          </a>
-          <a href={isEn ? '/en/001_Chapter1_Know_Yourself_and_the_World_en' : '/001_Chapter1_Know_Yourself_and_the_World_CN'} class="nav-item">
-            <span class="chapter-number">1️⃣</span>
-            <span class="chapter-title">{isEn ? 'Chapter 1: Know Yourself & the World' : '第一章：看清自己，看懂世界'}</span>
-          </a>
-          <a href={isEn ? '/en/002_Chapter2_Investment_Psychology_and_Risk_Management_en' : '/002_Chapter2_Investment_Psychology_and_Risk_Management_CN'} class="nav-item">
-            <span class="chapter-number">2️⃣</span>
-            <span class="chapter-title">{isEn ? 'Chapter 2: Investment Psychology & Risk Management' : '第二章：投资心理与风险管理'}</span>
-          </a>
-          <a href={isEn ? '/en/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_en' : '/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_CN'} class="nav-item">
-            <span class="chapter-number">3️⃣</span>
-            <span class="chapter-title">{isEn ? 'Chapter 3: Historical Patterns & Multibagger Stocks' : '第三章：历史规律与高倍股研究'}</span>
-          </a>
-          <a href={isEn ? '/en/004_Chapter4_Track_Selection_and_Industry_Trends_en' : '/004_Chapter4_Track_Selection_and_Industry_Trends_CN'} class="nav-item">
-            <span class="chapter-number">4️⃣</span>
-            <span class="chapter-title">{isEn ? 'Chapter 4: Track Selection & Industry Trends' : '第四章：赛道选择与行业趋势'}</span>
-          </a>
-          <a href={isEn ? '/en/005_Chapter5_Stock_Screening_Strategies_en' : '/005_Chapter5_Stock_Screening_Strategies_CN'} class="nav-item">
-            <span class="chapter-number">5️⃣</span>
-            <span class="chapter-title">{isEn ? 'Chapter 5: Stock Screening Strategies' : '第五章：股票筛选策略'}</span>
-          </a>
-          <a href={isEn ? '/en/006_Chapter6_Trading_Strategies_and_Execution_en' : '/006_Chapter6_Trading_Strategies_and_Execution_CN'} class="nav-item">
-            <span class="chapter-number">6️⃣</span>
-            <span class="chapter-title">{isEn ? 'Chapter 6: Trading Strategies & Execution' : '第六章：交易策略与执行'}</span>
-          </a>
-          <a href={isEn ? '/en/007_Chapter7_Investment_Decision_Tools_and_Resources_en' : '/007_Chapter7_Investment_Decision_Tools_and_Resources_CN'} class="nav-item">
-            <span class="chapter-number">7️⃣</span>
-            <span class="chapter-title">{isEn ? 'Chapter 7: Investment Decision Tools & Resources' : '第七章：投资决策工具与资源'}</span>
-          </a>
-          <a href={isEn ? '/en/008_Chapter8_Case_Review_and_Strategy_Improvement_en' : '/008_Chapter8_Case_Review_and_Strategy_Improvement_CN'} class="nav-item">
-            <span class="chapter-number">8️⃣</span>
-            <span class="chapter-title">{isEn ? 'Chapter 8: Case Review & Strategy Improvement' : '第八章：案例复盘与策略改进'}</span>
-          </a>
-          <a href={isEn ? '/en/009_Chapter9_Building_an_Investment_System_en' : '/009_Chapter9_Building_Investment_System_CN'} class="nav-item">
-            <span class="chapter-number">9️⃣</span>
-            <span class="chapter-title">{isEn ? 'Chapter 9: Building an Investment System' : '第九章：构建投资体系'}</span>
-          </a>
-          <a href={isEn ? '/en/010_Chapter10_Trading_Execution_and_Practical_Guide_en' : '/010_Chapter10_Trading_Execution_and_Practical_Guide_CN'} class="nav-item">
-            <span class="chapter-number">🔟</span>
-            <span class="chapter-title">{isEn ? 'Chapter 10: Trading Execution & Practical Guide' : '第十章：交易执行与实战指南'}</span>
-          </a>
-          <a href={isEn ? '/en/011_Appendix_en' : '/011_Appendix_CN'} class="nav-item">
-            <span class="chapter-number">📋</span>
-            <span class="chapter-title">{isEn ? 'Appendix' : '附录'}</span>
-          </a>
-          <a href={isEn ? '/en/012_Strategy_Logic_en' : '/012_Strategy_Logic_CN'} class="nav-item">
-            <span class="chapter-number">🧠</span>
-            <span class="chapter-title">{isEn ? 'Strategy Logic' : '策略逻辑'}</span>
-          </a>
-          <a href={isEn ? '/en/013_Example_Loading_Stock_Price_Data_en' : '/013_Example_Loading_Stock_Price_Data_CN'} class="nav-item">
-            <span class="chapter-number">📊</span>
-            <span class="chapter-title">{isEn ? 'Example: Loading Stock Price Data' : '示例：加载股票价格数据'}</span>
-          </a>
-          <a href={isEn ? '/en/014_Example_Calculating_Momentum_Factor_en' : '/014_Example_Calculating_Momentum_Factor_CN'} class="nav-item">
-            <span class="chapter-number">📈</span>
-            <span class="chapter-title">{isEn ? 'Example: Calculating Momentum Factor' : '示例：计算动量因子'}</span>
-          </a>
-          <a href={isEn ? '/en/015_Example_Building_Equal_Weighted_Portfolio_en' : '/015_Example_Building_Equal_Weighted_Portfolio_CN'} class="nav-item">
-            <span class="chapter-number">⚖️</span>
-            <span class="chapter-title">{isEn ? 'Example: Building an Equal-Weighted Portfolio' : '示例：等权构建组合'}</span>
-          </a>
-          <a href={isEn ? '/en/016_Example_Backtesting_Return_Curve_en' : '/016_Example_Backtesting_Return_Curve_CN'} class="nav-item">
-            <span class="chapter-number">📉</span>
-            <span class="chapter-title">{isEn ? 'Example: Backtesting Return Curve' : '示例：回测收益曲线'}</span>
-          </a>
-          <a href={isEn ? '/en/017_Using_scipy_optimize_for_Optimization_en' : '/017_Using_scipy_optimize_for_Optimization_CN'} class="nav-item">
-            <span class="chapter-number">🔧</span>
-            <span class="chapter-title">{isEn ? 'Using scipy.optimize for Optimization' : '使用 scipy.optimize 进行优化'}</span>
-          </a>
+        <nav class="sidebar-nav" id="sidebarNav">
+          <!-- 动态生成导航内容 -->
         </nav>
       </aside>
 
       <!-- 主内容区 -->
-      <main class="main-content content-with-sidebar">
+      <main class="main-content" id="mainContent">
         <slot />
       </main>
-      <!-- 新的回到顶部按钮，悬浮在右下角 -->
-      <button id="backToTop" class="back-to-top" aria-label="回到顶部" style="display:none;">↑</button>
+
+      <!-- 左侧空间导航按钮 -->
+      <div class="left-nav" id="leftNav">
+        <a href="/" class="nav-btn home-btn" title="返回首页">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-text">返回首页</span>
+        </a>
+        <a href="#" class="nav-btn toc-btn" id="tocBtn" title="返回目录">
+          <span class="nav-icon">📚</span>
+          <span class="nav-text">返回目录</span>
+        </a>
+        <button class="nav-btn back-btn" id="backBtn" title="上一页">
+          <span class="nav-icon">←</span>
+          <span class="nav-text">上一页</span>
+        </button>
+      </div>
+
+      <!-- 章节导航（仅book1章节页面显示） -->
+      <div class="chapter-nav" id="chapterNav" style="display: none;">
+        <button class="chapter-btn prev-chapter" id="prevChapter" disabled>
+          <span class="chapter-icon">←</span>
+          <span class="chapter-text">上一章</span>
+        </button>
+        <button class="chapter-btn next-chapter" id="nextChapter">
+          <span class="chapter-text">下一章</span>
+          <span class="chapter-icon">→</span>
+        </button>
+      </div>
+
+      <!-- 回到顶部按钮 -->
+      <button id="backToTop" class="back-to-top" aria-label="回到顶部" style="display: none;">↑</button>
     </div>
 
     <style is:global>
       @import '../styles/style.css';
+
+      /* 容器 */
+      .container {
+        position: relative;
+        min-height: 100vh;
+      }
+
+      /* 顶部导航栏 */
       .top-nav {
         display: flex;
         justify-content: space-between;
@@ -144,20 +113,24 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         top: 0;
         left: 0;
         right: 0;
-        background: none !important;
-        border: none !important;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* 可选，弱阴影提升悬浮感 */
+        background: var(--bg-primary);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         z-index: 1100;
+        transition: all 0.3s ease;
       }
 
-      .right-buttons {
+      .nav-left, .nav-right {
         display: flex;
-        gap: 18px;
         align-items: center;
+        gap: 12px;
       }
 
+      /* 按钮基础样式 */
       .sidebar-toggle,
-      .right-buttons button {
+      .reading-btn,
+      .theme-toggle,
+      .font-btn {
         width: 44px;
         height: 44px;
         border-radius: 50%;
@@ -174,239 +147,735 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
       }
 
       .sidebar-toggle:hover,
-      .right-buttons button:hover {
+      .reading-btn:hover,
+      .theme-toggle:hover,
+      .font-btn:hover {
         background: var(--primary-dark);
-        transform: scale(1.1);
+        transform: scale(1.05);
         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       }
 
-      @media (max-width: 600px) {
-        .right-buttons {
-          top: 10px;
-          right: 10px;
+      /* 语言切换按钮 */
+      .lang-btn {
+        padding: 8px 16px;
+        border-radius: 20px;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-color);
+      }
+
+      .lang-btn:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: translateY(-1px);
+      }
+
+      /* 阅读进度条 */
+      .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--bg-secondary);
+        z-index: 1200;
+      }
+
+      .reading-progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+        width: 0%;
+        transition: width 0.3s ease;
+      }
+
+      /* 侧边栏 */
+      .sidebar {
+        position: fixed;
+        top: 56px;
+        left: -300px;
+        width: 300px;
+        height: calc(100vh - 56px);
+        background: var(--bg-primary);
+        border-right: 1px solid var(--border-color);
+        overflow-y: auto;
+        transition: left 0.3s ease;
+        z-index: 1000;
+      }
+
+      .sidebar.open {
+        left: 0;
+      }
+
+      .sidebar-header {
+        padding: 20px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .sidebar-header h2 {
+        margin: 0;
+        color: var(--primary-dark);
+        font-size: 1.2rem;
+      }
+
+      .sidebar-nav {
+        padding: 20px 0;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        padding: 12px 20px;
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-left: 3px solid transparent;
+      }
+
+      .nav-item:hover {
+        background: var(--bg-secondary);
+        border-left-color: var(--primary-color);
+        color: var(--primary-color);
+      }
+
+      .nav-item.active {
+        background: var(--primary-color);
+        color: white;
+        border-left-color: var(--primary-dark);
+      }
+
+      .chapter-number {
+        margin-right: 12px;
+        font-size: 1.1rem;
+      }
+
+      .chapter-title {
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+
+      /* 主内容区 */
+      .main-content {
+        margin-top: 56px;
+        padding: 20px;
+        transition: margin-left 0.3s ease;
+        min-height: calc(100vh - 56px);
+      }
+
+      .main-content.sidebar-open {
+        margin-left: 300px;
+      }
+
+      /* 左侧空间导航 */
+      .left-nav {
+        position: fixed;
+        left: 20px;
+        bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        z-index: 900;
+      }
+
+      .nav-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 16px;
+        border-radius: 25px;
+        text-decoration: none;
+        color: white;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        border: none;
+        cursor: pointer;
+      }
+
+      .home-btn {
+        background: linear-gradient(135deg, #4caf50, #66bb6a);
+      }
+
+      .toc-btn {
+        background: linear-gradient(135deg, #ff9800, #ffb74d);
+      }
+
+      .back-btn {
+        background: linear-gradient(135deg, #2196f3, #42a5f5);
+      }
+
+      .nav-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      }
+
+      .nav-icon {
+        font-size: 1.2rem;
+      }
+
+      .nav-text {
+        font-size: 0.9rem;
+      }
+
+      /* 章节导航 */
+      .chapter-nav {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 16px;
+        z-index: 900;
+      }
+
+      .chapter-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        border-radius: 25px;
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      }
+
+      .chapter-btn:hover:not(:disabled) {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      }
+
+      .chapter-btn:disabled {
+        background: var(--bg-secondary);
+        color: var(--text-secondary);
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+
+      .chapter-icon {
+        font-size: 1.1rem;
+      }
+
+      .chapter-text {
+        font-size: 0.9rem;
+      }
+
+      /* 回到顶部按钮 */
+      .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 900;
+      }
+
+      .back-to-top:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      }
+
+      /* 专注阅读模式 */
+      .focus-mode .top-nav {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+      }
+
+      .focus-mode .top-nav .nav-left {
+        display: none;
+      }
+
+      .focus-mode .top-nav .nav-right {
+        display: flex;
+        gap: 12px;
+      }
+
+      .focus-mode .top-nav .reading-btn,
+      .focus-mode .top-nav .theme-toggle {
+        display: flex;
+      }
+
+      .focus-mode .top-nav .font-btn,
+      .focus-mode .top-nav .lang-btn {
+        display: none;
+      }
+
+      .focus-mode .sidebar {
+        display: none;
+      }
+
+      .focus-mode .main-content {
+        margin-left: 0;
+        max-width: 800px;
+        margin: 56px auto 0;
+        padding: 40px;
+      }
+
+      .focus-mode .left-nav,
+      .focus-mode .chapter-nav,
+      .focus-mode .back-to-top {
+        display: none;
+      }
+
+      .focus-mode .reading-progress {
+        display: block;
+      }
+
+      /* 响应式设计 */
+      @media (max-width: 768px) {
+        .top-nav {
+          padding: 0 12px;
+        }
+
+        .nav-left, .nav-right {
           gap: 8px;
         }
-        .right-buttons button {
-          width: 34px;
-          height: 34px;
-          font-size: 14px;
+
+        .sidebar-toggle,
+        .reading-btn,
+        .theme-toggle,
+        .font-btn {
+          width: 40px;
+          height: 40px;
+          font-size: 16px;
+        }
+
+        .lang-btn {
+          padding: 6px 12px;
+          font-size: 0.9rem;
+        }
+
+        .sidebar {
+          width: 280px;
+          left: -280px;
+        }
+
+        .main-content.sidebar-open {
+          margin-left: 280px;
+        }
+
+        .left-nav {
+          left: 10px;
+          bottom: 10px;
+        }
+
+        .nav-btn {
+          padding: 10px 12px;
+        }
+
+        .nav-text {
+          display: none;
+        }
+
+        .chapter-nav {
+          bottom: 10px;
+        }
+
+        .chapter-btn {
+          padding: 10px 16px;
+        }
+
+        .chapter-text {
+          display: none;
+        }
+
+        .back-to-top {
+          bottom: 10px;
+          right: 10px;
+          width: 45px;
+          height: 45px;
+          font-size: 1.3rem;
+        }
+
+        .focus-mode .main-content {
+          padding: 20px;
+          margin: 56px 10px 0;
         }
       }
 
-      /* 字体控制按钮整体区域 */
-      .font-controls {
-        position: fixed;
-        top: 20px;
-        right: 110px;
-        display: flex;
-        gap: 5px;      /* 两个按钮之间的间距 */
-        z-index: 1000;
-      }
+      @media (max-width: 480px) {
+        .top-nav {
+          height: 48px;
+        }
 
-      /* 字体按钮本身 */
-      .font-controls button {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        /* 其余样式同上 */
-      }
+        .main-content {
+          margin-top: 48px;
+        }
 
-      /* 主题切换按钮 */
-      .theme-control {
-        position: fixed;
-        top: 20px;
-        right: 60px;
-        z-index: 1000;
-      }
+        .sidebar {
+          top: 48px;
+          height: calc(100vh - 48px);
+        }
 
-      .bottom-nav {
-        display: flex;
-        justify-content: flex-start; /* 左对齐，或 flex-end 右对齐 */
-        gap: 1.5rem;
-        margin-top: 2rem;
-        padding-top: 1rem;
-        border-top: 1px solid var(--border-color);
+        .focus-mode .main-content {
+          margin-top: 48px;
+        }
       }
     </style>
 
     <script>
-      // 侧边栏切换功能
-      const sidebarToggle = document.getElementById('sidebarToggle');
-      const sidebar = document.getElementById('sidebar');
-      const mainContent = document.querySelector('.main-content');
-      
-      sidebarToggle?.addEventListener('click', () => {
-        sidebar?.classList.toggle('open');
-        mainContent?.classList.toggle('sidebar-open');
+      // 全局状态管理
+      const state = {
+        theme: localStorage.getItem('theme') || 'light',
+        fontSize: parseInt(localStorage.getItem('fontSize') || '16', 10),
+        focusMode: localStorage.getItem('focusMode') === 'true',
+        currentBook: '${currentBook}',
+        currentChapter: '${currentChapter}'
+      };
+
+      // 初始化
+      document.addEventListener('DOMContentLoaded', function() {
+        initializeTheme();
+        initializeFontSize();
+        initializeFocusMode();
+        initializeSidebar();
+        initializeNavigation();
+        initializeBackToTop();
+        initializeReadingProgress();
+        setupKeyboardShortcuts();
       });
-      
-      // 点击侧边栏外部关闭侧边栏
-      document.addEventListener('click', (e) => {
-        const target = e.target as Node;
-        if (sidebar && sidebarToggle && target &&
-            !sidebar.contains(target) && 
-            !sidebarToggle.contains(target)) {
-          sidebar.classList.remove('open');
-          mainContent?.classList.remove('sidebar-open');
-        }
-      });
-      
-      // 主题切换功能
-      const themeToggle = document.getElementById('themeToggle');
-      const themeIcon = themeToggle?.querySelector('.theme-icon');
-      
-      // 获取保存的主题或默认使用亮色主题
-      const savedTheme = localStorage.getItem('theme') || 'light';
-      document.documentElement.setAttribute('data-theme', savedTheme);
-      
-      // 更新图标
-      if (themeIcon) {
-        themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-      }
-      
-      // 主题切换事件
-      themeToggle?.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+      // 主题管理
+      function initializeTheme() {
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle?.querySelector('.theme-icon');
         
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        
+        document.documentElement.setAttribute('data-theme', state.theme);
         if (themeIcon) {
-          themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+          themeIcon.textContent = state.theme === 'dark' ? '☀️' : '🌙';
         }
-      });
-      
-      // 专注阅读模式
-      const readingModeBtn = document.getElementById('toggleReadingMode');
-      let isFocusMode = localStorage.getItem('focusMode') === 'true';
-      
-      // 初始化专注模式状态
-      if (isFocusMode && readingModeBtn) {
-        document.body.classList.add('focus-mode');
-        readingModeBtn.textContent = '📚';
-        readingModeBtn.title = '退出专注模式';
+        
+        themeToggle?.addEventListener('click', () => {
+          state.theme = state.theme === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', state.theme);
+          localStorage.setItem('theme', state.theme);
+          
+          if (themeIcon) {
+            themeIcon.textContent = state.theme === 'dark' ? '☀️' : '🌙';
+          }
+        });
       }
-      
-      readingModeBtn?.addEventListener('click', () => {
-        document.body.classList.toggle('focus-mode');
-        isFocusMode = document.body.classList.contains('focus-mode');
+
+      // 字体大小管理
+      function initializeFontSize() {
+        const decreaseFont = document.getElementById('decreaseFont');
+        const increaseFont = document.getElementById('increaseFont');
         
-        // 更新按钮状态
-        if (readingModeBtn) {
-          readingModeBtn.textContent = isFocusMode ? '📚' : '📖';
-          readingModeBtn.title = isFocusMode ? '退出专注模式' : '专注阅读模式';
+        document.body.style.fontSize = state.fontSize + 'px';
+        
+        decreaseFont?.addEventListener('click', () => {
+          if (state.fontSize > 12) {
+            state.fontSize -= 2;
+            document.body.style.fontSize = state.fontSize + 'px';
+            localStorage.setItem('fontSize', state.fontSize.toString());
+          }
+        });
+        
+        increaseFont?.addEventListener('click', () => {
+          if (state.fontSize < 24) {
+            state.fontSize += 2;
+            document.body.style.fontSize = state.fontSize + 'px';
+            localStorage.setItem('fontSize', state.fontSize.toString());
+          }
+        });
+      }
+
+      // 专注阅读模式
+      function initializeFocusMode() {
+        const readingModeBtn = document.getElementById('toggleReadingMode');
+        
+        if (state.focusMode) {
+          document.body.classList.add('focus-mode');
+          if (readingModeBtn) {
+            readingModeBtn.textContent = '📚';
+            readingModeBtn.title = '退出专注模式';
+          }
         }
         
-        // 保存状态到本地存储
-        localStorage.setItem('focusMode', isFocusMode.toString());
+        readingModeBtn?.addEventListener('click', () => {
+          document.body.classList.toggle('focus-mode');
+          state.focusMode = document.body.classList.contains('focus-mode');
+          
+          if (readingModeBtn) {
+            readingModeBtn.textContent = state.focusMode ? '📚' : '📖';
+            readingModeBtn.title = state.focusMode ? '退出专注模式' : '专注阅读模式';
+          }
+          
+          localStorage.setItem('focusMode', state.focusMode.toString());
+          
+          if (state.focusMode) {
+            showReadingProgress();
+          } else {
+            hideReadingProgress();
+          }
+        });
+      }
+
+      // 侧边栏管理
+      function initializeSidebar() {
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('mainContent');
         
-        // 专注模式下的额外功能
-        if (isFocusMode) {
-          // 隐藏其他控制按钮
-          const sidebarToggle = document.querySelector('.sidebar-toggle');
-          const fontControls = document.querySelector('.font-controls');
-          const themeControl = document.querySelector('.theme-control');
-          
-          if (sidebarToggle) {
-            sidebarToggle.classList.add('hidden');
+        sidebarToggle?.addEventListener('click', () => {
+          sidebar?.classList.toggle('open');
+          mainContent?.classList.toggle('sidebar-open');
+        });
+        
+        // 点击外部关闭侧边栏
+        document.addEventListener('click', (e) => {
+          const target = e.target as Node;
+          if (sidebar && sidebarToggle && target &&
+              !sidebar.contains(target) && 
+              !sidebarToggle.contains(target)) {
+            sidebar.classList.remove('open');
+            mainContent?.classList.remove('sidebar-open');
           }
-          if (fontControls) {
-            fontControls.classList.add('hidden');
+        });
+        
+        // 生成侧边栏内容
+        generateSidebarContent();
+      }
+
+      // 生成侧边栏内容
+      function generateSidebarContent() {
+        const sidebarTitle = document.getElementById('sidebarTitle');
+        const sidebarNav = document.getElementById('sidebarNav');
+        
+        if (!sidebarTitle || !sidebarNav) return;
+        
+        const bookConfigs = {
+          theory: {
+            title: '📖 第一册：理论手册',
+            chapters: [
+              { number: '📖', title: '序言', url: '/000_Preface_CN' },
+              { number: '1️⃣', title: '第一章：投资认知起点', url: '/001_Chapter1_Know_Yourself_and_the_World_CN' },
+              { number: '2️⃣', title: '第二章：投资心理与风险管理', url: '/002_Chapter2_Investment_Psychology_and_Risk_Management_CN' },
+              { number: '3️⃣', title: '第三章：历史规律与高倍股研究', url: '/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_CN' },
+              { number: '4️⃣', title: '第四章：赛道选择与行业趋势', url: '/004_Chapter4_Track_Selection_and_Industry_Trends_CN' },
+              { number: '5️⃣', title: '第五章：股票筛选策略', url: '/005_Chapter5_Stock_Screening_Strategies_CN' },
+              { number: '6️⃣', title: '第六章：交易策略与执行', url: '/006_Chapter6_Trading_Strategies_and_Execution_CN' },
+              { number: '7️⃣', title: '第七章：投资决策工具与资源', url: '/007_Chapter7_Investment_Decision_Tools_and_Resources_CN' },
+              { number: '8️⃣', title: '第八章：案例复盘与策略改进', url: '/008_Chapter8_Case_Review_and_Strategy_Improvement_CN' },
+              { number: '9️⃣', title: '第九章：构建投资体系', url: '/009_Chapter9_Building_Investment_System_CN' },
+              { number: '🔟', title: '第十章：交易执行与实战指南', url: '/010_Chapter10_Trading_Execution_and_Practical_Guide_CN' },
+              { number: '📋', title: '附录', url: '/011_Appendix_CN' }
+            ]
+          },
+          macro: {
+            title: '🌍 第二册：宏观经济',
+            chapters: [
+              { number: '📖', title: '宏观经济分析', url: '/handbook/macro' }
+            ]
+          },
+          stocks: {
+            title: '🔍 第三册：个股研究',
+            chapters: [
+              { number: '📖', title: '个股分析', url: '/handbook/stocks' }
+            ]
+          },
+          technical: {
+            title: '📊 第四册：技术分析',
+            chapters: [
+              { number: '📖', title: '技术分析', url: '/handbook/technical' }
+            ]
+          },
+          quantitative: {
+            title: '⚡ 第五册：量化专题',
+            chapters: [
+              { number: '📖', title: '量化分析', url: '/handbook/quantitative' }
+            ]
           }
-          if (themeControl) {
-            themeControl.classList.add('hidden');
+        };
+        
+        const currentBook = bookConfigs[state.currentBook] || bookConfigs.theory;
+        sidebarTitle.textContent = currentBook.title;
+        
+        // 生成导航链接
+        const navHtml = currentBook.chapters.map(chapter => `
+          <a href="${chapter.url}" class="nav-item ${chapter.url === window.location.pathname ? 'active' : ''}">
+            <span class="chapter-number">${chapter.number}</span>
+            <span class="chapter-title">${chapter.title}</span>
+          </a>
+        `).join('');
+        
+        sidebarNav.innerHTML = navHtml;
+      }
+
+      // 导航管理
+      function initializeNavigation() {
+        const tocBtn = document.getElementById('tocBtn');
+        const backBtn = document.getElementById('backBtn');
+        const prevChapter = document.getElementById('prevChapter');
+        const nextChapter = document.getElementById('nextChapter');
+        
+        // 返回目录按钮
+        tocBtn?.addEventListener('click', (e) => {
+          e.preventDefault();
+          const tocUrl = getTocUrl();
+          if (tocUrl) {
+            window.location.href = tocUrl;
           }
-          
-          // 自动滚动到内容开始位置
-          const mainContent = document.querySelector('main');
-          if (mainContent) {
-            mainContent.scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // 上一页按钮
+        backBtn?.addEventListener('click', () => {
+          window.history.back();
+        });
+        
+        // 章节导航
+        if (state.currentBook === 'theory' && state.currentChapter) {
+          const chapterNav = document.getElementById('chapterNav');
+          if (chapterNav) {
+            chapterNav.style.display = 'flex';
+            setupChapterNavigation();
           }
-          
-          // 添加阅读进度条
-          if (!document.querySelector('.reading-progress')) {
-            const progressBar = document.createElement('div');
-            progressBar.className = 'reading-progress';
-            progressBar.innerHTML = '<div class="reading-progress-bar"></div>';
-            document.body.appendChild(progressBar);
+        }
+      }
+
+      // 获取目录URL
+      function getTocUrl() {
+        const bookUrls = {
+          theory: '/handbook/theory',
+          macro: '/handbook/macro',
+          stocks: '/handbook/stocks',
+          technical: '/handbook/technical',
+          quantitative: '/handbook/quantitative'
+        };
+        return bookUrls[state.currentBook] || '/';
+      }
+
+      // 设置章节导航
+      function setupChapterNavigation() {
+        const chapters = [
+          '/000_Preface_CN',
+          '/001_Chapter1_Know_Yourself_and_the_World_CN',
+          '/002_Chapter2_Investment_Psychology_and_Risk_Management_CN',
+          '/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_CN',
+          '/004_Chapter4_Track_Selection_and_Industry_Trends_CN',
+          '/005_Chapter5_Stock_Screening_Strategies_CN',
+          '/006_Chapter6_Trading_Strategies_and_Execution_CN',
+          '/007_Chapter7_Investment_Decision_Tools_and_Resources_CN',
+          '/008_Chapter8_Case_Review_and_Strategy_Improvement_CN',
+          '/009_Chapter9_Building_Investment_System_CN',
+          '/010_Chapter10_Trading_Execution_and_Practical_Guide_CN',
+          '/011_Appendix_CN'
+        ];
+        
+        const currentIndex = chapters.indexOf(window.location.pathname);
+        const prevChapter = document.getElementById('prevChapter') as HTMLButtonElement;
+        const nextChapter = document.getElementById('nextChapter') as HTMLButtonElement;
+        
+        if (prevChapter) {
+          prevChapter.disabled = currentIndex <= 0;
+          if (currentIndex > 0) {
+            prevChapter.onclick = () => window.location.href = chapters[currentIndex - 1];
           }
-          
-          // 更新阅读进度
-          updateReadingProgress();
-        } else {
-          // 显示其他控制按钮
-          const sidebarToggle = document.querySelector('.sidebar-toggle');
-          const fontControls = document.querySelector('.font-controls');
-          const themeControl = document.querySelector('.theme-control');
-          
-          if (sidebarToggle) {
-            sidebarToggle.classList.remove('hidden');
+        }
+        
+        if (nextChapter) {
+          nextChapter.disabled = currentIndex >= chapters.length - 1;
+          if (currentIndex < chapters.length - 1) {
+            nextChapter.onclick = () => window.location.href = chapters[currentIndex + 1];
           }
-          if (fontControls) {
-            fontControls.classList.remove('hidden');
+        }
+      }
+
+      // 回到顶部
+      function initializeBackToTop() {
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+          if (backToTopBtn) {
+            if (window.scrollY > 300) {
+              backToTopBtn.style.display = 'flex';
+            } else {
+              backToTopBtn.style.display = 'none';
+            }
           }
-          if (themeControl) {
-            themeControl.classList.remove('hidden');
-          }
-          
-          // 移除阅读进度条
-          document.querySelector('.reading-progress')?.remove();
-          
-          // 移除滚动监听
+        });
+        
+        backToTopBtn?.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      // 阅读进度
+      function initializeReadingProgress() {
+        if (state.focusMode) {
+          showReadingProgress();
+        }
+      }
+
+      function showReadingProgress() {
+        const progress = document.getElementById('readingProgress');
+        if (progress) {
+          progress.style.display = 'block';
+          window.addEventListener('scroll', updateReadingProgress);
+        }
+      }
+
+      function hideReadingProgress() {
+        const progress = document.getElementById('readingProgress');
+        if (progress) {
+          progress.style.display = 'none';
           window.removeEventListener('scroll', updateReadingProgress);
         }
-      });
-      
-      // 更新阅读进度函数
+      }
+
       function updateReadingProgress() {
-        const progressBar = document.querySelector('.reading-progress-bar');
+        const progressBar = document.getElementById('readingProgressBar');
         if (!progressBar) return;
         
         const scrollTop = window.pageYOffset;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
         const scrollPercent = (scrollTop / docHeight) * 100;
         
-        (progressBar as any).style.width = scrollPercent + '%';
+        progressBar.style.width = scrollPercent + '%';
       }
-      
-      // 在专注模式下监听滚动
-      if (isFocusMode) {
-        window.addEventListener('scroll', updateReadingProgress);
-      }
-      
-      // 字体大小控制
-      const decreaseFont = document.getElementById('decreaseFont');
-      const increaseFont = document.getElementById('increaseFont');
-      let fontSize = parseInt(localStorage.getItem('fontSize') || '16', 10);
-      document.body.style.fontSize = fontSize + 'px';
-      decreaseFont?.addEventListener('click', () => {
-        if (fontSize > 12) {
-          fontSize -= 2;
-          document.body.style.fontSize = fontSize + 'px';
-          localStorage.setItem('fontSize', fontSize.toString());
-        }
-      });
-      increaseFont?.addEventListener('click', () => {
-        if (fontSize < 24) {
-          fontSize += 2;
-          document.body.style.fontSize = fontSize + 'px';
-          localStorage.setItem('fontSize', fontSize.toString());
-        }
-      });
 
-      // 新回到顶部按钮逻辑
-      const backToTopBtn = document.getElementById('backToTop');
-      if (backToTopBtn) {
-        window.addEventListener('scroll', () => {
-          if (window.scrollY > 300) {
-            backToTopBtn.style.display = 'flex';
-          } else {
-            backToTopBtn.style.display = 'none';
+      // 键盘快捷键
+      function setupKeyboardShortcuts() {
+        document.addEventListener('keydown', (e) => {
+          // ESC: 退出专注模式
+          if (e.key === 'Escape' && state.focusMode) {
+            document.getElementById('toggleReadingMode')?.click();
           }
-        });
-        backToTopBtn.addEventListener('click', () => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          
+          // Ctrl/Cmd + +/-: 调整字体
+          if ((e.ctrlKey || e.metaKey) && e.key === '=') {
+            e.preventDefault();
+            document.getElementById('increaseFont')?.click();
+          }
+          if ((e.ctrlKey || e.metaKey) && e.key === '-') {
+            e.preventDefault();
+            document.getElementById('decreaseFont')?.click();
+          }
+          
+          // Ctrl/Cmd + D: 切换主题
+          if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
+            e.preventDefault();
+            document.getElementById('themeToggle')?.click();
+          }
         });
       }
     </script>

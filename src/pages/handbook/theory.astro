@@ -1,10 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import HandbookLayout from '../../layouts/HandbookLayout.astro';
 
 const title = "第一册：理论手册 - 高倍股分析与策略实践";
 ---
 
-<Layout title={title}>
+<HandbookLayout title={title} book="theory">
   <div class="theory-handbook">
     <div class="hero">
       <div class="hero-content">
@@ -218,7 +218,7 @@ const title = "第一册：理论手册 - 高倍股分析与策略实践";
       <a href="/handbook/macro" class="nav-link">下一册：宏观经济 →</a>
     </div>
   </div>
-</Layout>
+</HandbookLayout>
 
 <style>
   /* 英雄区域 */

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>导航栏演示页</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header.top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: #ffffff;
+      border-bottom: 1px solid #e0e0e0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-left, .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-pages, .nav-controls, .nav-extensions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-btn, .page-nav-btn {
+      background: #f2f2f2;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      color: #333;
+      transition: all 0.2s ease;
+    }
+    .nav-btn:hover, .page-nav-btn:hover {
+      background: #409eff;
+      color: white;
+    }
+    main {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    @media (max-width: 768px) {
+      .nav-extensions { display: none; }
+      .nav-btn, .page-nav-btn { padding: 4px 8px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="top-nav" id="topNav">
+  <div class="nav-left">
+    <button class="nav-btn" id="sidebarToggle" aria-label="切换侧边栏">📚</button>
+  </div>
+
+  <div class="nav-right">
+    <div class="nav-pages">
+      <a href="#" class="page-nav-btn prev-btn" title="上一页">← 上一页</a>
+      <a href="#" class="page-nav-btn next-btn" title="下一页">下一页 →</a>
+    </div>
+
+    <div class="nav-controls">
+      <button id="toggleReadingMode" class="nav-btn" title="专注阅读模式">📖</button>
+      <button class="nav-btn" id="themeToggle" aria-label="切换主题">🌙</button>
+      <button id="decreaseFont" class="nav-btn" title="缩小字体">A-</button>
+      <button id="increaseFont" class="nav-btn" title="放大字体">A+</button>
+      <a class="nav-btn" id="langSwitchEn" href="#" title="English">EN</a>
+      <a class="nav-btn" id="langSwitchCn" href="#" title="中文">CN</a>
+    </div>
+
+    <div class="nav-extensions">
+      <button id="searchBtn" class="nav-btn" title="搜索">🔍</button>
+      <button id="printBtn" class="nav-btn" title="打印/导出">🖨️</button>
+      <button id="noteBtn" class="nav-btn" title="添加笔记">✏️</button>
+      <button id="historyBtn" class="nav-btn" title="历史记录">🕘</button>
+      <a href="/handbook" class="nav-btn" title="返回总目录">🧭</a>
+      <button id="notifyBtn" class="nav-btn" title="通知提醒">🔔</button>
+      <button id="userBtn" class="nav-btn" title="用户中心">👤</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <h1>欢迎来到导航栏演示页面</h1>
+  <p>这是一个整合了上一页、下一页、阅读控制和额外功能按钮的导航栏模板示例。你可以点击顶部按钮测试交互行为，例如搜索、打印、笔记等功能。</p>
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('searchBtn')?.addEventListener('click', () => {
+      const keyword = prompt('请输入搜索关键词：');
+      if (keyword) window.location.href = `/search?q=${encodeURIComponent(keyword)}`;
+    });
+    document.getElementById('printBtn')?.addEventListener('click', () => window.print());
+    document.getElementById('noteBtn')?.addEventListener('click', () => alert('📒 此处可集成个人笔记系统'));
+    document.getElementById('historyBtn')?.addEventListener('click', () => alert('📜 可加载历史记录'));
+    document.getElementById('notifyBtn')?.addEventListener('click', () => alert('🔔 暂无新通知'));
+    document.getElementById('userBtn')?.addEventListener('click', () => alert('👤 用户中心功能'));
+  });
+</script>
+
+</body>
+</html>

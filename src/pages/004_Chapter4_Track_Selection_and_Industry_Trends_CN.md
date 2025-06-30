@@ -3,13 +3,8 @@ title: 第四章：赛道选择与行业趋势
 lang: zh
 alt: /en/004_Chapter4_Track_Selection_and_Industry_Trends_en
 layout: ../layouts/Layout.astro
+currentBook: theory
 ---
-
-<div class="page-nav">
-  <a href="/"> 返回目录</a>
-  <a href="/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_CN"> 上一章</a>
-  <a href="/005_Chapter5_Stock_Screening_Strategies_CN">下一章 </a>
-</div>
 
 # 第四章：赛道选择与行业趋势
 
@@ -143,92 +138,7 @@ layout: ../layouts/Layout.astro
 
 ##  学习建议
 
-1. **系统学习**：按照4.1→4.2→4.3→4.4→4.5→4.6的顺序学习，构建完整的赛道分析体系
-2. **数据验证**：结合行业报告和市场数据验证理论分析
-3. **案例研究**：深入分析各赛道的典型案例，总结投资经验
-4. **持续跟踪**：关注行业动态和政策变化，及时调整投资策略
-
----
-
-<div class="bottom-nav">
-  <a href="/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_CN"> 上一章：历史规律与多倍股研究</a>
-  <a href="/004_Chapter4/4.1_Track_Screening_Methods_CN">开始学习：4.1 如何筛选具备长期成长潜力的赛道 </a>
-</div>
-
-<style>
-  
-  
-  /* 页面导航样式 - 与底部导航一致 */
-  .page-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    padding: 1.5rem 0;
-    margin: 2rem 0;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .page-nav a {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.8rem 1.5rem;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(56, 142, 60, 0.3);
-  }
-
-  .page-nav a:hover {
-    background: linear-gradient(135deg, var(--primary-light) 0%, #81C784 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(56, 142, 60, 0.4);
-  }
-
-  .page-nav a:first-child {
-    background: linear-gradient(135deg, #2196f3 0%, #42a5f5 100%);
-    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
-  }
-
-  .page-nav a:first-child:hover {
-    background: linear-gradient(135deg, #42a5f5 0%, #64b5f6 100%);
-    box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
-  }
-
-  .page-nav a:last-child {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
-    box-shadow: 0 4px 12px rgba(56, 142, 60, 0.3);
-  }
-
-  .page-nav a:last-child:hover {
-    background: linear-gradient(135deg, var(--primary-light) 0%, #81C784 100%);
-    box-shadow: 0 6px 20px rgba(56, 142, 60, 0.4);
-  }
-
-  /* 暗色模式适配 */
-  [data-theme="dark"] .page-nav a:first-child {
-    background: linear-gradient(135deg, #1976d2 0%, #1e88e5 100%);
-  }
-
-  [data-theme="dark"] .page-nav a:first-child:hover {
-    background: linear-gradient(135deg, #1e88e5 0%, #2196f3 100%);
-  }
-
-  /* 响应式设计 */
-  @media (max-width: 768px) {
-    .page-nav {
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .page-nav a {
-      font-size: 0.9rem;
-      padding: 0.7rem 1.2rem;
-    }
-  }
-</style>
+1. **循序渐进**：按照4.1→4.2→4.3→4.4→4.5→4.6的顺序学习，构建完整的赛道选择体系
+2. **实践结合**：每学完一个赛道，及时进行实际研究和分析
+3. **持续更新**：关注行业最新发展，保持投资机会的敏感度
+4. **工具整合**：整合各种研究工具和资源，提升分析效率

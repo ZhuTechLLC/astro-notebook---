@@ -1,0 +1,323 @@
+---
+import HandbookLayout from '../../layouts/HandbookLayout.astro';
+
+const title = "美股投资实操手册III - 个股研究与实战记录";
+---
+
+<HandbookLayout title={title} book="stocks">
+  <div class="stocks-handbook">
+    <div class="hero">
+      <div class="hero-content">
+        <h1>🔍 美股投资实操手册III</h1>
+        <p class="subtitle">个股研究与实战记录</p>
+        <p class="description">深度分析个股投资机会，记录实战经验，构建系统化的个股研究方法论</p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">📊</span>
+            <span class="stat-label">个股分析</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">📈</span>
+            <span class="stat-label">实战记录</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">🔄</span>
+            <span class="stat-label">持续更新</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>📋 工作手册说明</h2>
+      <p>本手册为工作手册，基于《美股投资实操手册III _个股研究与实战记录03122025.docx》源文件，内容将根据市场变化和实战经验持续更新。</p>
+      
+      <div class="update-info">
+        <h3>📅 更新计划</h3>
+        <ul>
+          <li>每周个股深度分析报告</li>
+          <li>实时投资决策记录</li>
+          <li>季度投资组合复盘</li>
+          <li>优质个股筛选方法</li>
+          <li>估值模型实战应用</li>
+        </ul>
+      </div>
+
+      <div class="key-features">
+        <h3>🎯 核心内容</h3>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h4>🔍 个股筛选</h4>
+            <p>基于基本面和技术面的系统化筛选方法</p>
+          </div>
+          <div class="feature-card">
+            <h4>📊 深度分析</h4>
+            <p>财务分析、竞争优势、成长前景评估</p>
+          </div>
+          <div class="feature-card">
+            <h4>💰 估值模型</h4>
+            <p>DCF、相对估值等多种估值方法实战</p>
+          </div>
+          <div class="feature-card">
+            <h4>📝 实战记录</h4>
+            <p>真实投资决策过程和结果跟踪</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="coming-soon">
+        <h3>🚧 内容建设中</h3>
+        <p>个股研究手册内容正在从源文件整理中，将包含完整的个股分析方法论和实战案例...</p>
+        <div class="action-buttons">
+          <a href="/" class="back-home">返回首页</a>
+          <a href="/handbook/theory" class="theory-link">理论基础</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</HandbookLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, #f57c00 0%, #ff9800 50%, #ffb74d 100%);
+    color: white;
+    padding: 4rem 0;
+    margin: -2rem -2rem 3rem -2rem;
+    border-radius: 0 0 30px 30px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(255, 152, 0, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 183, 77, 0.2) 0%, transparent 50%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  .content-section {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .content-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-dark);
+  }
+
+  .content-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .update-info {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+  }
+
+  .update-info h3 {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+  }
+
+  .update-info ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .update-info li {
+    padding: 0.5rem 0;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .update-info li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #ff9800;
+    font-weight: bold;
+  }
+
+  .key-features {
+    margin-bottom: 3rem;
+  }
+
+  .key-features h3 {
+    color: var(--primary-dark);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-color: #ff9800;
+  }
+
+  .feature-card h4 {
+    color: #ff9800;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .feature-card p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .coming-soon {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border-radius: 20px;
+  }
+
+  .coming-soon h3 {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+  }
+
+  .coming-soon p {
+    margin-bottom: 2rem;
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .back-home, .theory-link {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .back-home {
+    background: #ff9800;
+    color: white;
+  }
+
+  .back-home:hover {
+    background: #f57c00;
+    transform: translateY(-2px);
+  }
+
+  .theory-link {
+    background: transparent;
+    color: #ff9800;
+    border: 2px solid #ff9800;
+  }
+
+  .theory-link:hover {
+    background: #ff9800;
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero-stats {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style> 

@@ -3,13 +3,10 @@ title: 第一章：看清自己，看懂世界
 lang: zh
 alt: /en/001_Chapter1_Know_Yourself_and_the_World_en
 layout: ../layouts/Layout.astro
+currentBook: theory
 ---
 
-<div class="page-nav">
-  <a href="/">← 返回目录</a>
-  <a href="/000_Preface_CN">← 上一章</a>
-  <a href="/002_Chapter2_Investment_Psychology_and_Risk_Management_CN">下一章 →</a>
-</div>
+
 
 # 第一章：看清自己，看懂世界
 
@@ -108,10 +105,7 @@ layout: ../layouts/Layout.astro
 
 ---
 
-<div class="bottom-nav">
-  <a href="/000_Preface_CN">← 上一章：序言</a>
-  <a href="/001_Chapter1/1.1_Self_Awareness_and_Investment_Wisdom_CN">开始学习：1.1 自我认知与投资智慧 →</a>
-</div>
+
 <style>
   
   

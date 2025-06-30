@@ -5,11 +5,7 @@ alt: /en/002_Chapter2_Investment_Psychology_and_Risk_Management_en
 layout: ../layouts/Layout.astro
 ---
 
-<div class="page-nav">
-  <a href="/">← 返回目录</a>
-  <a href="/001_Chapter1_Know_Yourself_and_the_World_CN">← 上一章</a>
-  <a href="/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_CN">下一章 →</a>
-</div>
+
 
 # 第二章：投资心理与风险管理
 
@@ -117,91 +113,7 @@ layout: ../layouts/Layout.astro
 
 ## 💡 学习建议
 
-1. **循序渐进**：按照2.1→2.2→2.3→2.4的顺序学习，确保风险管理体系完整
-2. **实践结合**：每学完一小节，及时进行风险评估和策略调整
-3. **工具应用**：充分利用风控工具和平台，建立自动化风险管理
-4. **持续优化**：定期回顾风险管理效果，与后续章节形成实践闭环
-
----
-
-<div class="bottom-nav">
-  <a href="/001_Chapter1_Know_Yourself_and_the_World_CN">← 上一章：看清自己，看懂世界</a>
-  <a href="/002_Chapter2/2.1_Personalized_Risk_Tolerance_Model_CN">开始学习：2.1 建立风险容忍度的个性化模型 →</a>
-</div> 
-<style>
-  
-  
-  /* 页面导航样式 - 与底部导航一致 */
-  .page-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    padding: 1.5rem 0;
-    margin: 2rem 0;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .page-nav a {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.8rem 1.5rem;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(56, 142, 60, 0.3);
-  }
-
-  .page-nav a:hover {
-    background: linear-gradient(135deg, var(--primary-light) 0%, #81C784 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(56, 142, 60, 0.4);
-  }
-
-  .page-nav a:first-child {
-    background: linear-gradient(135deg, #2196f3 0%, #42a5f5 100%);
-    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
-  }
-
-  .page-nav a:first-child:hover {
-    background: linear-gradient(135deg, #42a5f5 0%, #64b5f6 100%);
-    box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
-  }
-
-  .page-nav a:last-child {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
-    box-shadow: 0 4px 12px rgba(56, 142, 60, 0.3);
-  }
-
-  .page-nav a:last-child:hover {
-    background: linear-gradient(135deg, var(--primary-light) 0%, #81C784 100%);
-    box-shadow: 0 6px 20px rgba(56, 142, 60, 0.4);
-  }
-
-  /* 暗色模式适配 */
-  [data-theme="dark"] .page-nav a:first-child {
-    background: linear-gradient(135deg, #1976d2 0%, #1e88e5 100%);
-  }
-
-  [data-theme="dark"] .page-nav a:first-child:hover {
-    background: linear-gradient(135deg, #1e88e5 0%, #2196f3 100%);
-  }
-
-  /* 响应式设计 */
-  @media (max-width: 768px) {
-    .page-nav {
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .page-nav a {
-      font-size: 0.9rem;
-      padding: 0.7rem 1.2rem;
-    }
-  }
-</style>
+1. **循序渐进**：按照2.1→2.2→2.3→2.4的顺序学习，构建完整的风险管理体系
+2. **实践结合**：每学完一个概念，及时进行实际操作和练习
+3. **持续优化**：建立持续优化和改进的机制
+4. **心理建设**：重视投资心理的培养和管理

@@ -1,17 +1,12 @@
 ---
-title: 第三章：历史规律与多倍股研究
+title: 第三章：历史规律与高倍股研究
 lang: zh
 alt: /en/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_en
 layout: ../layouts/Layout.astro
+currentBook: theory
 ---
 
-<div class="page-nav">
-  <a href="/">← 返回目录</a>
-  <a href="/002_Chapter2_Investment_Psychology_and_Risk_Management_CN">← 上一章</a>
-  <a href="/004_Chapter4_Track_Selection_and_Industry_Trends_CN">下一章 →</a>
-</div>
-
-# 第三章：历史规律与多倍股研究
+# 第三章：历史规律与高倍股研究
 
 > **核心摘要：**
 > 

@@ -3,13 +3,8 @@ title: 第六章：交易策略与执行
 lang: zh
 alt: /en/006_Chapter6_Trading_Strategies_and_Execution_en
 layout: ../layouts/Layout.astro
+currentBook: theory
 ---
-
-<div class="page-nav">
-  <a href="/">← 返回目录</a>
-  <a href="/005_Chapter5_Stock_Screening_Strategies_CN">← 上一章</a>
-  <a href="/007_Chapter7_Investment_Decision_Tools_and_Resources_CN">下一章 →</a>
-</div>
 
 # 第六章：交易策略与执行
 
@@ -152,91 +147,7 @@ layout: ../layouts/Layout.astro
 
 ## 学习建议
 
-1. **系统学习**：按照6.1→6.2→6.3→6.4→6.5→6.6的顺序学习，构建完整的交易体系
-2. **策略选择**：根据自身风险偏好和时间精力选择合适的交易策略
-3. **实战练习**：结合具体案例，练习仓位管理和动态调整
-4. **纪律培养**：建立严格的执行纪律，避免情绪化交易
-
----
-
-<div class="bottom-nav">
-  <a href="/005_Chapter5_Stock_Screening_Strategies_CN">← 上一章：股票筛选策略</a>
-  <a href="/006_Chapter6/6.1_Long_term_vs_Short_term_CN">开始学习：6.1 长期投资 vs. 短期波段</a>
-</div> 
-<style>
-  
-  
-  /* 页面导航样式 - 与底部导航一致 */
-  .page-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    padding: 1.5rem 0;
-    margin: 2rem 0;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .page-nav a {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.8rem 1.5rem;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(56, 142, 60, 0.3);
-  }
-
-  .page-nav a:hover {
-    background: linear-gradient(135deg, var(--primary-light) 0%, #81C784 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(56, 142, 60, 0.4);
-  }
-
-  .page-nav a:first-child {
-    background: linear-gradient(135deg, #2196f3 0%, #42a5f5 100%);
-    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
-  }
-
-  .page-nav a:first-child:hover {
-    background: linear-gradient(135deg, #42a5f5 0%, #64b5f6 100%);
-    box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
-  }
-
-  .page-nav a:last-child {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
-    box-shadow: 0 4px 12px rgba(56, 142, 60, 0.3);
-  }
-
-  .page-nav a:last-child:hover {
-    background: linear-gradient(135deg, var(--primary-light) 0%, #81C784 100%);
-    box-shadow: 0 6px 20px rgba(56, 142, 60, 0.4);
-  }
-
-  /* 暗色模式适配 */
-  [data-theme="dark"] .page-nav a:first-child {
-    background: linear-gradient(135deg, #1976d2 0%, #1e88e5 100%);
-  }
-
-  [data-theme="dark"] .page-nav a:first-child:hover {
-    background: linear-gradient(135deg, #1e88e5 0%, #2196f3 100%);
-  }
-
-  /* 响应式设计 */
-  @media (max-width: 768px) {
-    .page-nav {
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .page-nav a {
-      font-size: 0.9rem;
-      padding: 0.7rem 1.2rem;
-    }
-  }
-</style>
+1. **循序渐进**：按照6.1→6.2→6.3→6.4→6.5→6.6的顺序学习，构建完整的交易执行体系
+2. **实践结合**：每学完一个策略，及时进行实际交易和练习
+3. **风险控制**：重视风险管理，建立完善的止损机制
+4. **持续优化**：根据市场变化和个人经验，持续优化交易策略

@@ -5,38 +5,40 @@ const title = "美股投资实操手册 - 完整知识体系";
 ---
 
 <Layout title={title} currentBook="home">
-  <div class="handbook-home">
-    <div class="hero">
+  <div class="homepage">
+    <!-- 英雄区域 -->
+    <section class="hero">
       <div class="hero-content">
-        <h1>📈 美股投资实操手册</h1>
-        <p class="subtitle">完整知识体系 - 从理论到实战</p>
-        <p class="description">五册合一的美股投资知识库，构建从认知升级到实战执行的完整投资方法论</p>
+        <h1 class="hero-title">美股投资实操手册</h1>
+        <p class="hero-subtitle">从认知到行动，构建完整投资知识体系</p>
+        
+        <!-- 统计数据 -->
         <div class="hero-stats">
           <div class="stat">
-            <span class="stat-number">5</span>
-            <span class="stat-label">完整手册</span>
+            <div class="stat-number">5</div>
+            <div class="stat-label">完整手册</div>
           </div>
           <div class="stat">
-            <span class="stat-number">50+</span>
-            <span class="stat-label">核心章节</span>
+            <div class="stat-number">50+</div>
+            <div class="stat-label">核心章节</div>
           </div>
           <div class="stat">
-            <span class="stat-number">∞</span>
-            <span class="stat-label">持续更新</span>
+            <div class="stat-number">∞</div>
+            <div class="stat-label">持续更新</div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <div class="handbooks-overview">
       <h2>📚 五册内容概览</h2>
       <div class="handbooks-grid">
         <!-- 第一册：理论手册 -->
-        <div class="handbook-card primary">
+        <div class="handbook-card handbook-1">
           <div class="handbook-header">
             <span class="handbook-icon">📖</span>
-            <h3>第一册：理论手册</h3>
-            <span class="handbook-status">完整</span>
+            <h3>美股投资实操手册I</h3>
+            <span class="handbook-status">系统理论</span>
           </div>
           <p class="handbook-description">高倍股分析与策略实践 - 系统性理论知识体系</p>
           <div class="handbook-features">
@@ -49,10 +51,10 @@ const title = "美股投资实操手册 - 完整知识体系";
         </div>
 
         <!-- 第二册：宏观经济 -->
-        <div class="handbook-card">
+        <div class="handbook-card handbook-2">
           <div class="handbook-header">
             <span class="handbook-icon">🌍</span>
-            <h3>第二册：宏观经济</h3>
+            <h3>美股投资实操手册II</h3>
             <span class="handbook-status">工作手册</span>
           </div>
           <p class="handbook-description">宏观经济与股市走向追踪 - 市场环境分析</p>
@@ -66,10 +68,10 @@ const title = "美股投资实操手册 - 完整知识体系";
         </div>
 
         <!-- 第三册：个股研究 -->
-        <div class="handbook-card">
+        <div class="handbook-card handbook-3">
           <div class="handbook-header">
             <span class="handbook-icon">🔍</span>
-            <h3>第三册：个股研究</h3>
+            <h3>美股投资实操手册III</h3>
             <span class="handbook-status">工作手册</span>
           </div>
           <p class="handbook-description">个股研究与实战记录 - 深度分析案例</p>
@@ -83,10 +85,10 @@ const title = "美股投资实操手册 - 完整知识体系";
         </div>
 
         <!-- 第四册：技术分析 -->
-        <div class="handbook-card">
+        <div class="handbook-card handbook-4">
           <div class="handbook-header">
             <span class="handbook-icon">📊</span>
-            <h3>第四册：技术分析</h3>
+            <h3>美股投资实操手册IV</h3>
             <span class="handbook-status">工作手册</span>
           </div>
           <p class="handbook-description">技术分析与自动交易 - 量化工具应用</p>
@@ -100,10 +102,10 @@ const title = "美股投资实操手册 - 完整知识体系";
         </div>
 
         <!-- 第五册：量化专题 -->
-        <div class="handbook-card">
+        <div class="handbook-card handbook-5">
           <div class="handbook-header">
             <span class="handbook-icon">⚡</span>
-            <h3>第五册：量化专题</h3>
+            <h3>美股投资实操手册V</h3>
             <span class="handbook-status">工作手册</span>
           </div>
           <p class="handbook-description">量化专题 - 高级策略与模型</p>
@@ -205,8 +207,8 @@ const title = "美股投资实操手册 - 完整知识体系";
       radial-gradient(circle at 40% 40%, rgba(165, 214, 167, 0.2) 0%, transparent 50%),
       linear-gradient(135deg, #2e7d32 0%, #388e3c 50%, #4caf50 100%);
     color: white;
-    padding: 4rem 0;
-    margin: -2rem -2rem 3rem -2rem;
+    padding: 3rem 0;
+    margin: -20px -20px 2rem -20px;
     border-radius: 0 0 30px 30px;
     position: relative;
     overflow: hidden;
@@ -237,7 +239,10 @@ const title = "美股投资实操手册 - 完整知识体系";
     font-size: 3.5rem;
     margin-bottom: 1rem;
     font-weight: 700;
-    text-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2);
+    text-shadow: 
+      0 4px 8px rgba(0, 0, 0, 0.4),
+      0 2px 4px rgba(0, 0, 0, 0.3),
+      0 8px 16px rgba(0, 0, 0, 0.2);
     color: #ffffff;
     letter-spacing: 2px;
   }
@@ -245,10 +250,11 @@ const title = "美股投资实操手册 - 完整知识体系";
   .subtitle {
     font-size: 1.6rem;
     margin-bottom: 1.5rem;
-    font-weight: 400;
-    opacity: 0.95;
+    font-weight: 500;
     color: #ffffff;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.4),
+      0 4px 8px rgba(0, 0, 0, 0.2);
     letter-spacing: 1px;
     text-align: center;
   }
@@ -256,33 +262,69 @@ const title = "美股投资实操手册 - 完整知识体系";
   .description {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    opacity: 0.8;
     line-height: 1.6;
+    color: #ffffff;
+    text-shadow: 
+      0 1px 2px rgba(0, 0, 0, 0.4),
+      0 2px 4px rgba(0, 0, 0, 0.2);
+    opacity: 0.95;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-stats {
     display: flex;
     justify-content: center;
-    gap: 3rem;
-    margin-top: 2rem;
+    gap: 4rem;
+    margin-top: 3rem;
   }
 
   .stat {
     text-align: center;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    min-width: 120px;
+    transition: all 0.3s ease;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .stat:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 
+      0 12px 40px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
 
   .stat-number {
     display: block;
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+    color: #ffffff;
+    text-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.3),
+      0 4px 8px rgba(0, 0, 0, 0.2),
+      0 0 20px rgba(255, 255, 255, 0.1);
+    line-height: 1;
   }
 
   .stat-label {
-    font-size: 0.9rem;
-    opacity: 0.8;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 
+      0 1px 2px rgba(0, 0, 0, 0.4),
+      0 2px 4px rgba(0, 0, 0, 0.2);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    opacity: 0.95;
   }
 
   /* 手册概览区域 */
@@ -314,9 +356,45 @@ const title = "美股投资实操手册 - 完整知识体系";
     position: relative;
   }
 
-  .handbook-card.primary {
-    border-color: var(--primary-color);
-    background: linear-gradient(135deg, rgba(76, 175, 80, 0.05) 0%, rgba(129, 199, 132, 0.05) 100%);
+  /* 每册不同的背景样式 */
+  .handbook-card.handbook-1 {
+    border-color: #4caf50;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(129, 199, 132, 0.1) 100%);
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(76, 175, 80, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(129, 199, 132, 0.1) 0%, transparent 50%);
+  }
+
+  .handbook-card.handbook-2 {
+    border-color: #2196f3;
+    background: linear-gradient(135deg, rgba(33, 150, 243, 0.1) 0%, rgba(100, 181, 246, 0.1) 100%);
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(33, 150, 243, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(100, 181, 246, 0.1) 0%, transparent 50%);
+  }
+
+  .handbook-card.handbook-3 {
+    border-color: #ff9800;
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.1) 0%, rgba(255, 183, 77, 0.1) 100%);
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(255, 152, 0, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 183, 77, 0.1) 0%, transparent 50%);
+  }
+
+  .handbook-card.handbook-4 {
+    border-color: #9c27b0;
+    background: linear-gradient(135deg, rgba(156, 39, 176, 0.1) 0%, rgba(186, 104, 200, 0.1) 100%);
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(156, 39, 176, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(186, 104, 200, 0.1) 0%, transparent 50%);
+  }
+
+  .handbook-card.handbook-5 {
+    border-color: #f44336;
+    background: linear-gradient(135deg, rgba(244, 67, 54, 0.1) 0%, rgba(239, 154, 154, 0.1) 100%);
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(244, 67, 54, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(239, 154, 154, 0.1) 0%, transparent 50%);
   }
 
   .handbook-card:hover {
@@ -341,6 +419,8 @@ const title = "美股投资实操手册 - 完整知识体系";
     margin: 0;
     color: var(--primary-dark);
     flex: 1;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
   }
 
   .handbook-status {
@@ -350,12 +430,36 @@ const title = "美股投资实操手册 - 完整知识体系";
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  /* 每册不同的状态标签颜色 */
+  .handbook-card.handbook-1 .handbook-status {
+    background: #4caf50;
+  }
+
+  .handbook-card.handbook-2 .handbook-status {
+    background: #2196f3;
+  }
+
+  .handbook-card.handbook-3 .handbook-status {
+    background: #ff9800;
+  }
+
+  .handbook-card.handbook-4 .handbook-status {
+    background: #9c27b0;
+  }
+
+  .handbook-card.handbook-5 .handbook-status {
+    background: #f44336;
   }
 
   .handbook-description {
     color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 1.5rem;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05);
   }
 
   .handbook-features {
@@ -372,6 +476,8 @@ const title = "美股投资实操手册 - 完整知识体系";
     border-radius: 15px;
     font-size: 0.8rem;
     border: 1px solid var(--border-color);
+    font-weight: 500;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   }
 
   .handbook-link {
@@ -383,11 +489,54 @@ const title = "美股投资实操手册 - 完整知识体系";
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   }
 
   .handbook-link:hover {
     background: var(--primary-dark);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  /* 每册不同的链接按钮颜色 */
+  .handbook-card.handbook-1 .handbook-link {
+    background: #4caf50;
+  }
+
+  .handbook-card.handbook-1 .handbook-link:hover {
+    background: #388e3c;
+  }
+
+  .handbook-card.handbook-2 .handbook-link {
+    background: #2196f3;
+  }
+
+  .handbook-card.handbook-2 .handbook-link:hover {
+    background: #1976d2;
+  }
+
+  .handbook-card.handbook-3 .handbook-link {
+    background: #ff9800;
+  }
+
+  .handbook-card.handbook-3 .handbook-link:hover {
+    background: #f57c00;
+  }
+
+  .handbook-card.handbook-4 .handbook-link {
+    background: #9c27b0;
+  }
+
+  .handbook-card.handbook-4 .handbook-link:hover {
+    background: #7b1fa2;
+  }
+
+  .handbook-card.handbook-5 .handbook-link {
+    background: #f44336;
+  }
+
+  .handbook-card.handbook-5 .handbook-link:hover {
+    background: #d32f2f;
   }
 
   /* 学习路径 */
@@ -611,9 +760,29 @@ const title = "美股投资实操手册 - 完整知识体系";
       font-size: 1.2rem;
     }
 
+    .description {
+      font-size: 1rem;
+      padding: 0 1rem;
+    }
+
     .hero-stats {
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .stat {
+      padding: 1.5rem 1rem;
+      min-width: 100px;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      letter-spacing: 1px;
     }
 
     .path-container {
@@ -628,5 +797,71 @@ const title = "美股投资实操手册 - 完整知识体系";
       flex-direction: column;
       align-items: center;
     }
+  }
+
+  @media (max-width: 480px) {
+    .hero {
+      padding: 2.5rem 0;
+      margin: -20px -20px 1.5rem -20px;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+    }
+
+    .description {
+      font-size: 0.95rem;
+    }
+
+    .hero-stats {
+      gap: 1rem;
+    }
+
+    .stat {
+      padding: 1.2rem 0.8rem;
+      min-width: 90px;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+    }
+  }
+
+  /* 暗色模式优化 */
+  [data-theme="dark"] .hero {
+    background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #388e3c 100%);
+  }
+
+  [data-theme="dark"] .stat {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  [data-theme="dark"] .stat:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  [data-theme="dark"] .stat-number {
+    color: #ffffff;
+    text-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.5),
+      0 4px 8px rgba(0, 0, 0, 0.3),
+      0 0 20px rgba(255, 255, 255, 0.2);
+  }
+
+  [data-theme="dark"] .stat-label {
+    color: #ffffff;
+    text-shadow: 
+      0 1px 2px rgba(0, 0, 0, 0.6),
+      0 2px 4px rgba(0, 0, 0, 0.3);
   }
 </style> 

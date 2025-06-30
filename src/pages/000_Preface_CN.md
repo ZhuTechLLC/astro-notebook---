@@ -5,10 +5,7 @@ alt: /en/000_Preface_en
 layout: ../layouts/Layout.astro
 ---
 
-<div class="top-nav">
-  <a href="/">← 返回目录</a>
-  <a href="/001_Chapter1_Know_Yourself_and_the_World_CN">下一章 →</a>
-</div>
+
 
 # 序言
 
@@ -106,9 +103,7 @@ layout: ../layouts/Layout.astro
 
 ---
 
-<div class="bottom-nav">
-  <a href="/001_Chapter1_Know_Yourself_and_the_World_CN">下一章：第一章 看清自己，看懂世界 →</a>
-</div>
+
 
 <style>
   .case-studies {

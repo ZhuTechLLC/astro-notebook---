@@ -29,6 +29,8 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           <button class="sidebar-toggle" id="sidebarToggle" aria-label="切换侧边栏">📚</button>
         </div>
         <div class="nav-right">
+          <button id="prevPageBtn" class="page-nav-btn" title="上一页">上一页</button>
+          <button id="nextPageBtn" class="page-nav-btn" title="下一页">下一页</button>
           <button id="toggleReadingMode" class="reading-btn" title="专注阅读模式">📖</button>
           <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
             <span class="theme-icon">🌙</span>
@@ -108,7 +110,7 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         justify-content: space-between;
         align-items: center;
         padding: 0 16px;
-        height: 56px;
+        height: 48px;
         position: fixed;
         top: 0;
         left: 0;
@@ -131,28 +133,103 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
       .reading-btn,
       .theme-toggle,
       .font-btn {
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        background: var(--primary-color);
-        color: white;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
       }
 
       .sidebar-toggle:hover,
       .reading-btn:hover,
       .theme-toggle:hover,
       .font-btn:hover {
-        background: var(--primary-dark);
+        background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
         transform: scale(1.05);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      }
+
+      .sidebar-toggle:active,
+      .reading-btn:active,
+      .theme-toggle:active,
+      .font-btn:active {
+        transform: scale(0.95);
+      }
+
+      /* 翻页按钮样式 */
+      .page-nav-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+        min-width: 50px;
+        height: 40px;
+      }
+
+      .page-nav-btn:hover {
+        background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      }
+
+      .page-nav-btn:active {
+        transform: translateY(0);
+      }
+
+      #prevPageBtn {
+        background: linear-gradient(135deg, #2196f3, #42a5f5);
+      }
+
+      #nextPageBtn {
+        background: linear-gradient(135deg, #ff9800, #ffb74d);
+      }
+
+      #prevPageBtn:hover {
+        background: linear-gradient(135deg, #1976d2, #2196f3);
+      }
+
+      #nextPageBtn:hover {
+        background: linear-gradient(135deg, #f57c00, #ff9800);
+      }
+
+      #prevPageBtn:disabled,
+      #nextPageBtn:disabled {
+        background: var(--bg-secondary);
+        color: var(--text-secondary);
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+
+      #prevPageBtn:disabled:hover,
+      #nextPageBtn:disabled:hover {
+        transform: none;
+        background: var(--bg-secondary);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      }
+
+      /* 重新定义翻页按钮完整样式 */
+      .page-nav-btn {
+        padding: 8px 12px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+        color: white;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        min-width: 60px;
+        height: 40px;
+      }
+
+      .page-nav-btn:hover {
+        background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      }
+
+      .page-nav-btn:active {
+        transform: translateY(0);
       }
 
       /* 语言切换按钮 */
@@ -194,15 +271,16 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
       /* 侧边栏 */
       .sidebar {
         position: fixed;
-        top: 56px;
-        left: -300px;
-        width: 300px;
-        height: calc(100vh - 56px);
-        background: var(--bg-primary);
+        top: 48px;
+        left: -320px;
+        width: 320px;
+        height: calc(100vh - 48px);
+        background: var(--card-bg);
         border-right: 1px solid var(--border-color);
         overflow-y: auto;
         transition: left 0.3s ease;
         z-index: 1000;
+        box-shadow: 4px 0 20px rgba(0,0,0,0.15);
       }
 
       .sidebar.open {
@@ -210,62 +288,122 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
       }
 
       .sidebar-header {
-        padding: 20px;
-        border-bottom: 1px solid var(--border-color);
+        padding: 24px 20px;
+        border-bottom: 2px solid var(--border-color);
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+        position: relative;
+      }
+
+      .sidebar-header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: rgba(255,255,255,0.2);
       }
 
       .sidebar-header h2 {
         margin: 0;
-        color: var(--primary-dark);
-        font-size: 1.2rem;
+        color: white;
+        font-size: 1.3rem;
+        font-weight: 700;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.2);
       }
 
       .sidebar-nav {
-        padding: 20px 0;
+        padding: 16px 0;
+      }
+
+      .nav-group {
+        margin-bottom: 8px;
+      }
+
+      .nav-group-title {
+        padding: 12px 20px 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 8px;
       }
 
       .nav-item {
         display: flex;
         align-items: center;
-        padding: 12px 20px;
+        padding: 14px 20px;
         color: var(--text-primary);
         text-decoration: none;
         transition: all 0.3s ease;
-        border-left: 3px solid transparent;
+        border-left: 4px solid transparent;
+        margin: 2px 0;
+        position: relative;
       }
 
       .nav-item:hover {
         background: var(--bg-secondary);
         border-left-color: var(--primary-color);
         color: var(--primary-color);
+        transform: translateX(4px);
       }
 
       .nav-item.active {
-        background: var(--primary-color);
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
         color: white;
         border-left-color: var(--primary-dark);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+
+      .nav-item.active::after {
+        content: '';
+        position: absolute;
+        right: 16px;
+        width: 8px;
+        height: 8px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 0 0 2px rgba(255,255,255,0.3);
       }
 
       .chapter-number {
-        margin-right: 12px;
-        font-size: 1.1rem;
+        margin-right: 14px;
+        font-size: 1.2rem;
+        min-width: 28px;
+        text-align: center;
       }
 
       .chapter-title {
-        font-size: 0.9rem;
-        line-height: 1.4;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        font-weight: 500;
+      }
+
+      /* 侧边栏滚动条美化 */
+      .sidebar::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .sidebar::-webkit-scrollbar-track {
+        background: var(--bg-secondary);
+      }
+
+      .sidebar::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 3px;
+      }
+
+      .sidebar::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-dark);
       }
 
       /* 主内容区 */
       .main-content {
-        margin-top: 56px;
-        padding: 20px;
-        transition: margin-left 0.3s ease;
-        min-height: calc(100vh - 56px);
-      }
-
-      .main-content.sidebar-open {
-        margin-left: 300px;
+        margin-top: 48px;
+        padding: 0 20px 20px 20px;
+        min-height: calc(100vh - 48px);
       }
 
       /* 左侧空间导航 */
@@ -279,10 +417,10 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         z-index: 900;
       }
 
-      .nav-btn {
+      .left-nav .nav-btn {
         display: flex;
         align-items: center;
-        gap: 8px;
+          gap: 8px;
         padding: 12px 16px;
         border-radius: 25px;
         text-decoration: none;
@@ -306,7 +444,7 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         background: linear-gradient(135deg, #2196f3, #42a5f5);
       }
 
-      .nav-btn:hover {
+      .left-nav .nav-btn:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(0,0,0,0.2);
       }
@@ -322,11 +460,11 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
       /* 章节导航 */
       .chapter-nav {
         position: fixed;
-        top: 70px; /* 56px nav + margin */
-        right: 20px;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
         display: flex;
-        flex-direction: column;
-        gap: 12px;
+        gap: 16px;
         z-index: 900;
       }
 
@@ -395,13 +533,14 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
 
       /* 专注阅读模式 */
       .focus-mode .top-nav {
-        background: transparent;
+        background: var(--bg-overlay);
+        backdrop-filter: blur(10px);
         border: none;
-        box-shadow: none;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
       }
 
       .focus-mode .top-nav .nav-left {
-        display: none;
+        visibility: hidden;
       }
 
       .focus-mode .top-nav .nav-right {
@@ -409,14 +548,24 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         gap: 12px;
       }
 
-      .focus-mode .top-nav .reading-btn,
+      .focus-mode .top-nav .page-nav-btn {
+        display: flex;
+      }
+
+      .focus-mode .top-nav .reading-btn {
+        display: flex;
+      }
+
       .focus-mode .top-nav .theme-toggle {
         display: flex;
       }
 
-      .focus-mode .top-nav .font-btn,
+      .focus-mode .top-nav .font-btn {
+        display: flex;
+      }
+
       .focus-mode .top-nav .lang-btn {
-        display: none;
+        display: flex;
       }
 
       .focus-mode .sidebar {
@@ -426,14 +575,20 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
       .focus-mode .main-content {
         margin-left: 0;
         max-width: 800px;
-        margin: 56px auto 0;
+        margin: 48px auto 0;
         padding: 40px;
+        background: var(--card-bg);
+        border-radius: 15px;
+        box-shadow: var(--shadow);
       }
 
       .focus-mode .left-nav,
-      .focus-mode .chapter-nav,
-      .focus-mode .back-to-top {
+      .focus-mode .chapter-nav {
         display: none;
+      }
+
+      .focus-mode .back-to-top {
+        display: flex;
       }
 
       .focus-mode .reading-progress {
@@ -459,18 +614,21 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           font-size: 16px;
         }
 
+        .page-nav-btn {
+          padding: 6px 10px;
+          font-size: 12px;
+          min-width: 50px;
+          height: 40px;
+        }
+
         .lang-btn {
           padding: 6px 12px;
           font-size: 0.9rem;
         }
 
         .sidebar {
-          width: 280px;
-          left: -280px;
-        }
-
-        .main-content.sidebar-open {
-          margin-left: 280px;
+          width: 300px;
+          left: -300px;
         }
 
         .left-nav {
@@ -478,7 +636,7 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           bottom: 10px;
         }
 
-        .nav-btn {
+        .left-nav .nav-btn {
           padding: 10px 12px;
         }
 
@@ -556,9 +714,9 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
 
       // 主题管理
       function initializeTheme() {
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = themeToggle?.querySelector('.theme-icon');
-        
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = themeToggle?.querySelector('.theme-icon');
+      
         document.documentElement.setAttribute('data-theme', state.theme);
         if (themeIcon) {
           themeIcon.textContent = state.theme === 'dark' ? '☀️' : '🌙';
@@ -569,7 +727,7 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           document.documentElement.setAttribute('data-theme', state.theme);
           localStorage.setItem('theme', state.theme);
           
-          if (themeIcon) {
+      if (themeIcon) {
             themeIcon.textContent = state.theme === 'dark' ? '☀️' : '🌙';
           }
         });
@@ -598,19 +756,29 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           }
         });
       }
-
+      
       // 专注阅读模式
       function initializeFocusMode() {
         const readingModeBtn = document.getElementById('toggleReadingMode');
         
+        // 初始化时设置正确的图标和状态
         if (state.focusMode) {
           document.body.classList.add('focus-mode');
           if (readingModeBtn) {
             readingModeBtn.textContent = '📚';
             readingModeBtn.title = '退出专注模式';
           }
+          showReadingProgress();
+        } else {
+          document.body.classList.remove('focus-mode');
+          if (readingModeBtn) {
+            readingModeBtn.textContent = '📖';
+            readingModeBtn.title = '专注阅读模式';
+          }
+          hideReadingProgress();
         }
         
+        // 添加点击事件监听器
         readingModeBtn?.addEventListener('click', () => {
           document.body.classList.toggle('focus-mode');
           state.focusMode = document.body.classList.contains('focus-mode');
@@ -632,26 +800,23 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
 
       // 侧边栏管理
       function initializeSidebar() {
-      const sidebarToggle = document.getElementById('sidebarToggle');
-      const sidebar = document.getElementById('sidebar');
-        const mainContent = document.getElementById('mainContent');
-      
-      sidebarToggle?.addEventListener('click', () => {
-        sidebar?.classList.toggle('open');
-        mainContent?.classList.toggle('sidebar-open');
-      });
-      
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+        
+        sidebarToggle?.addEventListener('click', () => {
+          sidebar?.classList.toggle('open');
+        });
+        
         // 点击外部关闭侧边栏
-      document.addEventListener('click', (e) => {
-        const target = e.target as Node;
-        if (sidebar && sidebarToggle && target &&
-            !sidebar.contains(target) && 
-            !sidebarToggle.contains(target)) {
-          sidebar.classList.remove('open');
-          mainContent?.classList.remove('sidebar-open');
-        }
-      });
-      
+        document.addEventListener('click', (e) => {
+          const target = e.target as Node;
+          if (sidebar && sidebarToggle && target &&
+              !sidebar.contains(target) && 
+              !sidebarToggle.contains(target)) {
+            sidebar.classList.remove('open');
+          }
+        });
+        
         // 生成侧边栏内容
         generateSidebarContent();
       }
@@ -663,9 +828,42 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         
         if (!sidebarTitle || !sidebarNav) return;
         
+        // 根据当前页面路径判断当前册子
+        const currentPath = window.location.pathname;
+        let currentBook = 'home'; // 默认首页
+        
+        if (currentPath === '/' || currentPath === '/index.html') {
+          currentBook = 'home';
+        } else if (currentPath.startsWith('/000_') || currentPath.startsWith('/001_') || 
+            currentPath.startsWith('/002_') || currentPath.startsWith('/003_') || 
+            currentPath.startsWith('/004_') || currentPath.startsWith('/005_') || 
+            currentPath.startsWith('/006_') || currentPath.startsWith('/007_') || 
+            currentPath.startsWith('/008_') || currentPath.startsWith('/009_') || 
+            currentPath.startsWith('/010_') || currentPath.startsWith('/011_')) {
+          currentBook = 'theory';
+        } else if (currentPath.includes('/macro')) {
+          currentBook = 'macro';
+        } else if (currentPath.includes('/stocks')) {
+          currentBook = 'stocks';
+        } else if (currentPath.includes('/technical')) {
+          currentBook = 'technical';
+        } else if (currentPath.includes('/quantitative')) {
+          currentBook = 'quantitative';
+        }
+        
         const bookConfigs = {
+          home: {
+            title: '📚 美股投资实操手册',
+            chapters: [
+              { number: '📖', title: '美股投资实操手册I', url: '/001_Chapter1_Know_Yourself_and_the_World_CN' },
+              { number: '🌍', title: '美股投资实操手册II', url: '/handbook/macro' },
+              { number: '🔍', title: '美股投资实操手册III', url: '/handbook/stocks' },
+              { number: '📊', title: '美股投资实操手册IV', url: '/handbook/technical' },
+              { number: '⚡', title: '美股投资实操手册V', url: '/handbook/quantitative' }
+            ]
+          },
           theory: {
-            title: '📖 第一册：理论手册',
+            title: '📖 美股投资实操手册I',
             chapters: [
               { number: '📖', title: '序言', url: '/000_Preface_CN' },
               { number: '1️⃣', title: '第一章：投资认知起点', url: '/001_Chapter1_Know_Yourself_and_the_World_CN' },
@@ -676,42 +874,42 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
               { number: '6️⃣', title: '第六章：交易策略与执行', url: '/006_Chapter6_Trading_Strategies_and_Execution_CN' },
               { number: '7️⃣', title: '第七章：投资决策工具与资源', url: '/007_Chapter7_Investment_Decision_Tools_and_Resources_CN' },
               { number: '8️⃣', title: '第八章：案例复盘与策略改进', url: '/008_Chapter8_Case_Review_and_Strategy_Improvement_CN' },
-              { number: '9️⃣', title: '第九章：构建投资体系', url: '/009_Chapter9_Building_Investment_System_CN' },
+              { number: '9️⃣', title: '第九章：构建投资体系', url: '/009_Chapter9_Building_an_Investment_System_CN' },
               { number: '🔟', title: '第十章：交易执行与实战指南', url: '/010_Chapter10_Trading_Execution_and_Practical_Guide_CN' },
               { number: '📋', title: '附录', url: '/011_Appendix_CN' }
             ]
           },
           macro: {
-            title: '🌍 第二册：宏观经济',
+            title: '🌍 美股投资实操手册II',
             chapters: [
               { number: '📖', title: '宏观经济分析', url: '/handbook/macro' }
             ]
           },
           stocks: {
-            title: '🔍 第三册：个股研究',
+            title: '🔍 美股投资实操手册III',
             chapters: [
               { number: '📖', title: '个股分析', url: '/handbook/stocks' }
             ]
           },
           technical: {
-            title: '📊 第四册：技术分析',
+            title: '📊 美股投资实操手册IV',
             chapters: [
               { number: '📖', title: '技术分析', url: '/handbook/technical' }
             ]
           },
           quantitative: {
-            title: '⚡ 第五册：量化专题',
+            title: '⚡ 美股投资实操手册V',
             chapters: [
               { number: '📖', title: '量化分析', url: '/handbook/quantitative' }
             ]
           }
         };
         
-        const currentBook = bookConfigs[state.currentBook] || bookConfigs.theory;
-        sidebarTitle.textContent = currentBook.title;
+        const selectedBook = bookConfigs[currentBook] || bookConfigs.home;
+        sidebarTitle.textContent = selectedBook.title;
         
         // 生成导航链接
-        const navHtml = currentBook.chapters.map(chapter => `
+        const navHtml = selectedBook.chapters.map(chapter => `
           <a href="${chapter.url}" class="nav-item ${chapter.url === window.location.pathname ? 'active' : ''}">
             <span class="chapter-number">${chapter.number}</span>
             <span class="chapter-title">${chapter.title}</span>
@@ -727,6 +925,8 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         const backBtn = document.getElementById('backBtn');
         const prevChapter = document.getElementById('prevChapter');
         const nextChapter = document.getElementById('nextChapter');
+        const prevPageBtn = document.getElementById('prevPageBtn');
+        const nextPageBtn = document.getElementById('nextPageBtn');
         
         // 返回目录按钮
         tocBtn?.addEventListener('click', (e) => {
@@ -741,6 +941,18 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         backBtn?.addEventListener('click', () => {
           window.history.back();
         });
+        
+        // 顶部导航栏翻页按钮
+        prevPageBtn?.addEventListener('click', () => {
+          navigateToPrevPage();
+        });
+        
+        nextPageBtn?.addEventListener('click', () => {
+          navigateToNextPage();
+        });
+        
+        // 初始化翻页按钮状态
+        updateNavigationButtons();
         
         // 章节导航
         if (state.currentBook === 'theory' && state.currentChapter) {
@@ -776,7 +988,7 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           '/006_Chapter6_Trading_Strategies_and_Execution_CN',
           '/007_Chapter7_Investment_Decision_Tools_and_Resources_CN',
           '/008_Chapter8_Case_Review_and_Strategy_Improvement_CN',
-          '/009_Chapter9_Building_Investment_System_CN',
+          '/009_Chapter9_Building_an_Investment_System_CN',
           '/010_Chapter10_Trading_Execution_and_Practical_Guide_CN',
           '/011_Appendix_CN'
         ];
@@ -796,6 +1008,184 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           nextChapter.disabled = currentIndex >= chapters.length - 1;
           if (currentIndex < chapters.length - 1) {
             nextChapter.onclick = () => window.location.href = chapters[currentIndex + 1];
+          }
+        }
+      }
+
+      // 完整的页面顺序 - 包括所有层级
+      function getAllPages() {
+        return [
+          // 1. 首页
+          '/',
+          
+          // 2. 序言
+          '/000_Preface_CN',
+          
+          // 3. 手册I理论导航页
+          '/handbook/theory',
+          
+          // 4. 第一章导航页
+          '/001_Chapter1_Know_Yourself_and_the_World_CN',
+          
+          // 5-7. 第一章子节
+          '/001_Chapter1/1.1_Self_Awareness_and_Investment_Wisdom_CN',
+          '/001_Chapter1/1.2_Understanding_the_World_CN',
+          '/001_Chapter1/1.3_From_Cognition_to_Action_CN',
+          
+          // 8. 第二章导航页
+          '/002_Chapter2_Investment_Psychology_and_Risk_Management_CN',
+          
+          // 9-12. 第二章子节
+          '/002_Chapter2/2.1_Personalized_Risk_Tolerance_Model_CN',
+          '/002_Chapter2/2.2_Stop_Loss_and_Risk_Control_CN',
+          '/002_Chapter2/2.3_Investment_Emotions_and_Decision_Traps_CN',
+          '/002_Chapter2/2.4_Maintaining_Discipline_in_Volatile_Markets_CN',
+          
+          // 13. 第三章导航页
+          '/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_CN',
+          
+          // 14-17. 第三章子节
+          '/003_Chapter3/3.1_Definition_and_Time_Dimensions_CN',
+          '/003_Chapter3/3.2_Industry_Distribution_and_Characteristics_CN',
+          '/003_Chapter3/3.3_Driving_Factors_CN',
+          '/003_Chapter3/3.4_Case_Studies_CN',
+          
+          // 18. 第四章导航页
+          '/004_Chapter4_Track_Selection_and_Industry_Trends_CN',
+          
+          // 19-24. 第四章子节
+          '/004_Chapter4/4.1_Track_Screening_Methods_CN',
+          '/004_Chapter4/4.2_AI_and_Big_Data_Revolution_CN',
+          '/004_Chapter4/4.3_New_Energy_and_EV_Golden_Decade_CN',
+          '/004_Chapter4/4.4_Biotech_and_Precision_Medicine_CN',
+          '/004_Chapter4/4.5_Semiconductor_and_Metaverse_CN',
+          '/004_Chapter4/4.6_Chinese_Stocks_Opportunities_CN',
+          
+          // 25. 第五章导航页
+          '/005_Chapter5_Stock_Screening_Strategies_CN',
+          
+          // 26-31. 第五章子节
+          '/005_Chapter5/5.1_Stock_Screening_Methods_CN',
+          '/005_Chapter5/5.2_Fundamental_Screening_Parameters_CN',
+          '/005_Chapter5/5.3_Technical_Analysis_CN',
+          '/005_Chapter5/5.4_Valuation_Methodology_CN',
+          '/005_Chapter5/5.5_Stock_Screening_Practice_CN',
+          '/005_Chapter5/5.6_Derivatives_Enhancement_CN',
+          
+          // 32. 第六章导航页
+          '/006_Chapter6_Trading_Strategies_and_Execution_CN',
+          
+          // 33-38. 第六章子节
+          '/006_Chapter6/6.1_Long_term_vs_Short_term_CN',
+          '/006_Chapter6/6.2_Position_Management_CN',
+          '/006_Chapter6/6.3_ETF_Optimization_CN',
+          '/006_Chapter6/6.4_Dynamic_Adjustment_CN',
+          '/006_Chapter6/6.5_Growth_Stock_Exit_CN',
+          '/006_Chapter6/6.6_Strategy_Execution_CN',
+          
+          // 39. 第七章导航页
+          '/007_Chapter7_Investment_Decision_Tools_and_Resources_CN',
+          
+          // 40-45. 第七章子节
+          '/007_Chapter7/7.1_GuruFocus_Morningstar_CN',
+          '/007_Chapter7/7.2_Technical_Analysis_Tools_CN',
+          '/007_Chapter7/7.3_Data_Driven_Decision_CN',
+          '/007_Chapter7/7.4_Research_News_Resources_CN',
+          '/007_Chapter7/7.5_Broker_Platform_Tools_CN',
+          '/007_Chapter7/7.6_ChatGPT_Integration_CN',
+          
+          // 46. 第八章导航页
+          '/008_Chapter8_Case_Review_and_Strategy_Improvement_CN',
+          
+          // 47-49. 第八章子节
+          '/008_Chapter8/8.1_Broadcom_Case_Study_CN',
+          '/008_Chapter8/8.2_NVIDIA_Case_Study_CN',
+          '/008_Chapter8/8.3_Case_Review_Methodology_CN',
+          
+          // 50. 第九章导航页
+          '/009_Chapter9_Building_an_Investment_System_CN',
+          
+          // 51-53. 第九章子节
+          '/009_Chapter9/9.1_Efficient_Investment_Lifestyle_CN',
+          '/009_Chapter9/9.2_Strategy_Review_Optimization_CN',
+          '/009_Chapter9/9.3_Personal_Investment_System_CN',
+          
+          // 54. 第十章导航页
+          '/010_Chapter10_Trading_Execution_and_Practical_Guide_CN',
+          
+          // 55-57. 第十章子节
+          '/010_Chapter10/10.1_Preparation_CN',
+          '/010_Chapter10/10.2_Gurufocus_Screening_CN',
+          '/010_Chapter10/10.3_Trading_Execution_CN',
+          
+          // 58. 附录导航页
+          '/011_Appendix_CN',
+          
+          // 59-67. 附录子节
+          '/011_Appendix/A.1_Financial_Indicators_and_Formulas_CN',
+          '/011_Appendix/B.1_Recommended_Reading_List_CN',
+          '/011_Appendix/C.1_Quantitative_Analysis_and_Backtesting_CN',
+          '/011_Appendix/D.1_Trading_Plan_Templates_CN',
+          '/011_Appendix/E.1_Broker_Platform_Guide_CN',
+          '/011_Appendix/F.1_GuruFocus_Plus_Case_Study_CN',
+          '/011_Appendix/G.1_Charlie_Munger_Wisdom_CN',
+          '/011_Appendix/H.1_Intelligent_Trading_System_CN',
+          '/011_Appendix/I.1_US_Stock_Investment_FAQ_CN',
+          
+          // 68-71. 其他手册导航页
+          '/handbook/macro',
+          '/handbook/stocks', 
+          '/handbook/technical',
+          '/handbook/quantitative'
+        ];
+      }
+
+      // 翻页功能
+      function navigateToPrevPage() {
+        const pages = getAllPages();
+        const currentPath = window.location.pathname;
+        const currentIndex = pages.indexOf(currentPath);
+        
+        if (currentIndex > 0) {
+          window.location.href = pages[currentIndex - 1];
+        }
+      }
+
+      function navigateToNextPage() {
+        const pages = getAllPages();
+        const currentPath = window.location.pathname;
+        const currentIndex = pages.indexOf(currentPath);
+        
+        if (currentIndex >= 0 && currentIndex < pages.length - 1) {
+          window.location.href = pages[currentIndex + 1];
+        }
+      }
+
+      // 更新翻页按钮状态
+      function updateNavigationButtons() {
+        const pages = getAllPages();
+        const currentPath = window.location.pathname;
+        const currentIndex = pages.indexOf(currentPath);
+        
+        const prevBtn = document.getElementById('prevPageBtn');
+        const nextBtn = document.getElementById('nextPageBtn');
+        
+        if (prevBtn && nextBtn) {
+          // 更新按钮状态
+          prevBtn.disabled = currentIndex <= 0;
+          nextBtn.disabled = currentIndex >= pages.length - 1;
+          
+          // 更新按钮文字显示页面信息
+          if (currentIndex > 0) {
+            prevBtn.title = `上一页`;
+          } else {
+            prevBtn.title = '已是第一页';
+          }
+          
+          if (currentIndex < pages.length - 1) {
+            nextBtn.title = `下一页`;
+          } else {
+            nextBtn.title = '已是最后一页';
           }
         }
       }
@@ -878,72 +1268,6 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           }
         });
       }
-    </script>
-
-    <script is:inline>
-      document.addEventListener('DOMContentLoaded', () => {
-        /* Self Reflection Form Handling */
-        const form = document.querySelector('.self-reflection-form');
-        if (form) {
-          const questions = form.querySelectorAll('.form-question');
-          questions.forEach((q, idx) => {
-            const answerSpace = q.querySelector('.answer-space');
-            if (answerSpace) {
-              const key = `self_reflection_q${idx + 1}`;
-              const textarea = document.createElement('textarea');
-              textarea.rows = 3;
-              textarea.placeholder = '示例：请在此填写你的答案';
-              textarea.style.width = '100%';
-              textarea.style.padding = '10px';
-              textarea.style.border = '1px solid var(--border-color)';
-              textarea.style.borderRadius = '8px';
-              textarea.style.background = 'var(--bg-secondary)';
-              textarea.style.color = 'var(--text-primary)';
-              // load saved value
-              const saved = localStorage.getItem(key);
-              if (saved) textarea.value = saved;
-              answerSpace.replaceWith(textarea);
-            }
-          });
-          // Append action buttons
-          const actionWrapper = document.createElement('div');
-          actionWrapper.style.marginTop = '20px';
-          actionWrapper.style.display = 'flex';
-          actionWrapper.style.gap = '12px';
-
-          const saveBtn = document.createElement('button');
-          saveBtn.textContent = '保存';
-          saveBtn.className = 'form-action-btn';
-          const resetBtn = document.createElement('button');
-          resetBtn.textContent = '清空';
-          resetBtn.className = 'form-action-btn';
-
-          actionWrapper.appendChild(saveBtn);
-          actionWrapper.appendChild(resetBtn);
-          form.appendChild(actionWrapper);
-
-          saveBtn.addEventListener('click', () => {
-            questions.forEach((q, idx) => {
-              const ta = q.querySelector('textarea');
-              if (ta) {
-                localStorage.setItem(`self_reflection_q${idx + 1}`, ta.value);
-              }
-            });
-            alert('已保存至本地浏览器！');
-          });
-
-          resetBtn.addEventListener('click', () => {
-            if (!confirm('确定要清空所有回答？')) return;
-            questions.forEach((q, idx) => {
-              const ta = q.querySelector('textarea');
-              if (ta) {
-                ta.value = '';
-                localStorage.removeItem(`self_reflection_q${idx + 1}`);
-              }
-            });
-          });
-        }
-      });
     </script>
   </body>
 </html> 

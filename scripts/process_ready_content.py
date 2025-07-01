@@ -755,3 +755,6 @@ layout: ../../layouts/Layout.astro
 if __name__ == "__main__":
     processor = ReadyContentProcessor()
     processor.process_all_files() 
+ 
+ 
+ 

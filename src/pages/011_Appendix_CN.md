@@ -142,6 +142,20 @@ currentBook: theory
     </div>
     <a href="/011_Appendix/I.1_US_Stock_Investment_FAQ_CN" class="chapter-link">开始学习 →</a>
   </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-number">J</span>
+      <h3>高效文档系统构建指南</h3>
+    </div>
+    <p>详细介绍基于Astro框架的金融投资学习文档系统构建过程，包括技术架构、功能实现、优化策略等核心内容，可作为类似项目的参考模板。</p>
+    <div class="chapter-features">
+      <span class="feature-tag">🏗️ 技术架构</span>
+      <span class="feature-tag">🚀 系统开发</span>
+      <span class="feature-tag">📖 构建指南</span>
+    </div>
+    <a href="/011_Appendix/J.1_Document_System_Construction_Guide_CN" class="chapter-link">开始学习 →</a>
+  </div>
 </div>
 
 ## 🎯 学习目标
@@ -194,6 +208,6 @@ currentBook: theory
 
 1. **工具优先**：先掌握财务指标和量化工具，再深入理论学习
 2. **实践结合**：将工具应用到实际投资分析中，验证其有效性
-3. **系统学习**：按照A→I的顺序系统学习，建立完整知识体系
+3. **系统学习**：按照A→J的顺序系统学习，建立完整知识体系
 4. **持续更新**：关注新工具和方法，保持知识体系的时效性
 5. **个性化应用**：根据个人投资风格选择合适的工具组合

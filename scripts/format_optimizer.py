@@ -617,3 +617,6 @@ class FormatOptimizer:
 if __name__ == "__main__":
     optimizer = FormatOptimizer()
     optimizer.optimize_all() 
+ 
+ 
+ 

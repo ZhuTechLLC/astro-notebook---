@@ -29,6 +29,8 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           <button class="sidebar-toggle" id="sidebarToggle" aria-label="切换侧边栏">📚</button>
         </div>
         <div class="nav-right">
+          <button id="homeBtn" class="nav-control-btn home-btn" title="返回首页">🏠</button>
+          <button id="tocBtn" class="nav-control-btn toc-btn" title="返回目录">📚</button>
           <button id="prevPageBtn" class="page-nav-btn" title="上一页">上一页</button>
           <button id="nextPageBtn" class="page-nav-btn" title="下一页">下一页</button>
           <button id="toggleReadingMode" class="reading-btn" title="专注阅读模式">📖</button>
@@ -63,21 +65,7 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         <slot />
       </main>
 
-      <!-- 左侧空间导航按钮 -->
-      <div class="left-nav" id="leftNav">
-        <a href="/" class="nav-btn home-btn" title="返回首页">
-          <span class="nav-icon">🏠</span>
-          <span class="nav-text">返回首页</span>
-        </a>
-        <a href="#" class="nav-btn toc-btn" id="tocBtn" title="返回目录">
-          <span class="nav-icon">📚</span>
-          <span class="nav-text">返回目录</span>
-        </a>
-        <button class="nav-btn back-btn" id="backBtn" title="上一页">
-          <span class="nav-icon">←</span>
-          <span class="nav-text">上一页</span>
-        </button>
-      </div>
+
 
       <!-- 章节导航（仅book1章节页面显示） -->
       <div class="chapter-nav" id="chapterNav" style="display: none;">
@@ -230,6 +218,40 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
 
       .page-nav-btn:active {
         transform: translateY(0);
+      }
+
+      /* 导航控制按钮样式 */
+      .nav-control-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        color: white;
+        font-weight: 600;
+      }
+
+      .nav-control-btn.home-btn {
+        background: linear-gradient(135deg, #4caf50, #66bb6a);
+      }
+
+      .nav-control-btn.toc-btn {
+        background: linear-gradient(135deg, #ff9800, #ffb74d);
+      }
+
+      .nav-control-btn:hover {
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      }
+
+      .nav-control-btn:active {
+        transform: translateY(0) scale(0.95);
       }
 
       /* 语言切换按钮 */
@@ -406,56 +428,7 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         min-height: calc(100vh - 48px);
       }
 
-      /* 左侧空间导航 */
-      .left-nav {
-        position: fixed;
-        left: 20px;
-        bottom: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        z-index: 900;
-      }
 
-      .left-nav .nav-btn {
-        display: flex;
-        align-items: center;
-          gap: 8px;
-        padding: 12px 16px;
-        border-radius: 25px;
-        text-decoration: none;
-        color: white;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        border: none;
-        cursor: pointer;
-      }
-
-      .home-btn {
-        background: linear-gradient(135deg, #4caf50, #66bb6a);
-      }
-
-      .toc-btn {
-        background: linear-gradient(135deg, #ff9800, #ffb74d);
-      }
-
-      .back-btn {
-        background: linear-gradient(135deg, #2196f3, #42a5f5);
-      }
-
-      .left-nav .nav-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-      }
-
-      .nav-icon {
-        font-size: 1.2rem;
-      }
-
-      .nav-text {
-        font-size: 0.9rem;
-      }
 
       /* 章节导航 */
       .chapter-nav {
@@ -631,18 +604,7 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           left: -300px;
         }
 
-        .left-nav {
-          left: 10px;
-          bottom: 10px;
-        }
 
-        .left-nav .nav-btn {
-          padding: 10px 12px;
-        }
-
-        .nav-text {
-          display: none;
-        }
 
         .chapter-nav {
           bottom: 10px;
@@ -921,25 +883,25 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
 
       // 导航管理
       function initializeNavigation() {
+        const homeBtn = document.getElementById('homeBtn');
         const tocBtn = document.getElementById('tocBtn');
-        const backBtn = document.getElementById('backBtn');
         const prevChapter = document.getElementById('prevChapter');
         const nextChapter = document.getElementById('nextChapter');
         const prevPageBtn = document.getElementById('prevPageBtn');
         const nextPageBtn = document.getElementById('nextPageBtn');
         
-        // 返回目录按钮
+        // 返回首页按钮
+        homeBtn?.addEventListener('click', () => {
+          window.location.href = '/';
+        });
+        
+        // 智能返回目录按钮
         tocBtn?.addEventListener('click', (e) => {
           e.preventDefault();
-          const tocUrl = getTocUrl();
+          const tocUrl = getSmartTocUrl();
           if (tocUrl) {
             window.location.href = tocUrl;
           }
-        });
-        
-        // 上一页按钮
-        backBtn?.addEventListener('click', () => {
-          window.history.back();
         });
         
         // 顶部导航栏翻页按钮
@@ -964,16 +926,73 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         }
       }
 
-      // 获取目录URL
-      function getTocUrl() {
-        const bookUrls = {
-          theory: '/handbook/theory',
-          macro: '/handbook/macro',
-          stocks: '/handbook/stocks',
-          technical: '/handbook/technical',
-          quantitative: '/handbook/quantitative'
-        };
-        return bookUrls[state.currentBook] || '/';
+      // 智能获取目录URL - 根据当前页面层级返回上一级导航页
+      function getSmartTocUrl() {
+        const currentPath = window.location.pathname;
+        
+        // 如果在首页，返回首页
+        if (currentPath === '/') {
+          return '/';
+        }
+        
+        // 如果在子节页面，返回章节导航页
+        if (currentPath.includes('/001_Chapter1/')) {
+          return '/001_Chapter1_Know_Yourself_and_the_World_CN';
+        }
+        if (currentPath.includes('/002_Chapter2/')) {
+          return '/002_Chapter2_Investment_Psychology_and_Risk_Management_CN';
+        }
+        if (currentPath.includes('/003_Chapter3/')) {
+          return '/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_CN';
+        }
+        if (currentPath.includes('/004_Chapter4/')) {
+          return '/004_Chapter4_Track_Selection_and_Industry_Trends_CN';
+        }
+        if (currentPath.includes('/005_Chapter5/')) {
+          return '/005_Chapter5_Stock_Screening_Strategies_CN';
+        }
+        if (currentPath.includes('/006_Chapter6/')) {
+          return '/006_Chapter6_Trading_Strategies_and_Execution_CN';
+        }
+        if (currentPath.includes('/007_Chapter7/')) {
+          return '/007_Chapter7_Investment_Decision_Tools_and_Resources_CN';
+        }
+        if (currentPath.includes('/008_Chapter8/')) {
+          return '/008_Chapter8_Case_Review_and_Strategy_Improvement_CN';
+        }
+        if (currentPath.includes('/009_Chapter9/')) {
+          return '/009_Chapter9_Building_an_Investment_System_CN';
+        }
+        if (currentPath.includes('/010_Chapter10/')) {
+          return '/010_Chapter10_Trading_Execution_and_Practical_Guide_CN';
+        }
+        if (currentPath.includes('/011_Appendix/')) {
+          return '/011_Appendix_CN';
+        }
+        
+        // 如果在章节导航页，返回手册导航页
+        if (currentPath.startsWith('/001_Chapter') || 
+            currentPath.startsWith('/002_Chapter') || 
+            currentPath.startsWith('/003_Chapter') || 
+            currentPath.startsWith('/004_Chapter') || 
+            currentPath.startsWith('/005_Chapter') || 
+            currentPath.startsWith('/006_Chapter') || 
+            currentPath.startsWith('/007_Chapter') || 
+            currentPath.startsWith('/008_Chapter') || 
+            currentPath.startsWith('/009_Chapter') || 
+            currentPath.startsWith('/010_Chapter') || 
+            currentPath.startsWith('/011_Appendix') ||
+            currentPath.startsWith('/000_Preface')) {
+          return '/handbook/theory';
+        }
+        
+        // 如果在手册导航页，返回首页
+        if (currentPath.includes('/handbook/')) {
+          return '/';
+        }
+        
+        // 默认返回首页
+        return '/';
       }
 
       // 设置章节导航
@@ -1121,7 +1140,7 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           // 58. 附录导航页
           '/011_Appendix_CN',
           
-          // 59-67. 附录子节
+          // 59-68. 附录子节
           '/011_Appendix/A.1_Financial_Indicators_and_Formulas_CN',
           '/011_Appendix/B.1_Recommended_Reading_List_CN',
           '/011_Appendix/C.1_Quantitative_Analysis_and_Backtesting_CN',
@@ -1131,8 +1150,9 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           '/011_Appendix/G.1_Charlie_Munger_Wisdom_CN',
           '/011_Appendix/H.1_Intelligent_Trading_System_CN',
           '/011_Appendix/I.1_US_Stock_Investment_FAQ_CN',
+          '/011_Appendix/J.1_Document_System_Construction_Guide_CN',
           
-          // 68-71. 其他手册导航页
+          // 69-72. 其他手册导航页
           '/handbook/macro',
           '/handbook/stocks', 
           '/handbook/technical',

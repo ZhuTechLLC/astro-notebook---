@@ -1549,17 +1549,143 @@ em {
   }
 }
 
-/* 暗色模式下的代码块 */
+/* VS Code Dark 主题 - 代码块背景与文字 */
 [data-theme="dark"] pre {
-  background: linear-gradient(135deg, #1a1d1e 0%, #2d3132 100%);
-  color: #e8eaed;
-  border: 1px solid var(--border-color);
+  background: #1e1e1e !important; /* VS Code 编辑器背景 */
+  color: #d4d4d4 !important; /* VS Code 默认文字颜色 */
+  border: 1px solid #3e3e3e !important; /* VS Code 边框颜色 */
+}
+
+[data-theme="dark"] pre code {
+  background: none !important;
+  color: #d4d4d4 !important; /* VS Code 默认文字颜色 */
+  border: none !important;
 }
 
 [data-theme="dark"] code {
-  background-color: var(--code-bg);
-  color: #fbbf24;
-  border-color: var(--table-border);
+  background-color: #262626 !important; /* VS Code 内联代码背景 */
+  color: #d4d4d4 !important; /* VS Code 默认文字颜色 */
+  border: 1px solid #3e3e3e !important; /* VS Code 边框颜色 */
+  padding: 2px 4px !important;
+  border-radius: 3px !important;
+}
+
+/* 强制覆盖所有Astro语法高亮 - VS Code Dark 主题 */
+[data-theme="dark"] .astro-code,
+[data-theme="dark"] .astro-code.github-light,
+[data-theme="dark"] .astro-code.github-dark,
+[data-theme="dark"] pre.astro-code {
+  background-color: #1e1e1e !important; /* VS Code 编辑器背景 */
+  color: #d4d4d4 !important; /* VS Code 默认文字颜色 */
+}
+
+/* 覆盖所有语法高亮元素，包括span、token等 */
+[data-theme="dark"] .astro-code *,
+[data-theme="dark"] .astro-code span,
+[data-theme="dark"] .astro-code .token,
+[data-theme="dark"] .astro-code .line,
+[data-theme="dark"] pre.astro-code *,
+[data-theme="dark"] pre.astro-code span {
+  color: #d4d4d4 !important;
+  background: none !important;
+}
+
+/* VS Code Dark 主题精确配色 */
+[data-theme="dark"] .astro-code .token.keyword,
+[data-theme="dark"] .astro-code .token.builtin,
+[data-theme="dark"] .astro-code .token.boolean,
+[data-theme="dark"] .astro-code .token.control,
+[data-theme="dark"] .astro-code .token.important {
+  color: #569cd6 !important; /* VS Code 关键字蓝 */
+}
+
+[data-theme="dark"] .astro-code .token.string,
+[data-theme="dark"] .astro-code .token.attr-value,
+[data-theme="dark"] .astro-code .token.char {
+  color: #ce9178 !important; /* VS Code 字符串橙 */
+}
+
+[data-theme="dark"] .astro-code .token.comment,
+[data-theme="dark"] .astro-code .token.prolog,
+[data-theme="dark"] .astro-code .token.doctype,
+[data-theme="dark"] .astro-code .token.cdata {
+  color: #6a9955 !important; /* VS Code 注释绿 */
+  font-style: italic;
+}
+
+[data-theme="dark"] .astro-code .token.number,
+[data-theme="dark"] .astro-code .token.constant {
+  color: #b5cea8 !important; /* VS Code 数字浅绿 */
+}
+
+[data-theme="dark"] .astro-code .token.function,
+[data-theme="dark"] .astro-code .token.method {
+  color: #dcdcaa !important; /* VS Code 函数黄 */
+}
+
+[data-theme="dark"] .astro-code .token.class-name,
+[data-theme="dark"] .astro-code .token.type,
+[data-theme="dark"] .astro-code .token.interface {
+  color: #4ec9b0 !important; /* VS Code 类型青 */
+}
+
+[data-theme="dark"] .astro-code .token.variable,
+[data-theme="dark"] .astro-code .token.property {
+  color: #9cdcfe !important; /* VS Code 变量浅蓝 */
+}
+
+[data-theme="dark"] .astro-code .token.operator,
+[data-theme="dark"] .astro-code .token.punctuation {
+  color: #d4d4d4 !important; /* VS Code 操作符白 */
+}
+
+[data-theme="dark"] .astro-code .token.tag {
+  color: #569cd6 !important; /* VS Code 标签蓝 */
+}
+
+[data-theme="dark"] .astro-code .token.attr-name {
+  color: #9cdcfe !important; /* VS Code 属性名浅蓝 */
+}
+
+/* 特殊语法高亮主题的强制覆盖 - VS Code Dark */
+[data-theme="dark"] pre[style*="background-color:#fff"],
+[data-theme="dark"] pre[style*="color:#24292e"] {
+  background-color: #1e1e1e !important; /* VS Code 编辑器背景 */
+  color: #d4d4d4 !important; /* VS Code 默认文字颜色 */
+}
+
+[data-theme="dark"] pre[style*="background-color:#fff"] *,
+[data-theme="dark"] pre[style*="color:#24292e"] * {
+  color: #d4d4d4 !important; /* VS Code 默认文字颜色 */
+}
+
+/* 覆盖内联样式 - VS Code Dark 主题最强优先级 */
+[data-theme="dark"] pre[style] {
+  background-color: #1e1e1e !important; /* VS Code 编辑器背景 */
+  color: #d4d4d4 !important; /* VS Code 默认文字颜色 */
+}
+
+[data-theme="dark"] pre[style] * {
+  color: #d4d4d4 !important; /* VS Code 默认文字颜色 */
+}
+
+/* 强制覆盖所有Shiki生成的内联样式 */
+[data-theme="dark"] pre[style*="background-color"] {
+  background-color: #1e1e1e !important;
+  color: #d4d4d4 !important;
+}
+
+[data-theme="dark"] pre[style*="background-color"] * {
+  color: #d4d4d4 !important;
+}
+
+/* 测试用：临时禁用所有代码块颜色 */
+.debug-no-colors pre,
+.debug-no-colors pre *,
+.debug-no-colors code,
+.debug-no-colors code * {
+  background: #1e1e1e !important;
+  color: #d4d4d4 !important;
 }
 
 /* 暗色模式下的引用块 */

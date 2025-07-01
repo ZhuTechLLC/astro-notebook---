@@ -1,0 +1,460 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="description" content="美股投资实操手册 - 完整知识体系"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v5.10.1"><title></title><link rel="stylesheet" href="/_astro/macro.C6xCXocE.css"></head> <body> <div class="container"> <!-- 顶部导航栏 --> <header class="top-nav" id="topNav"> <div class="nav-left"> <button class="sidebar-toggle" id="sidebarToggle" aria-label="切换侧边栏">📚</button> </div> <div class="nav-right"> <button id="homeBtn" class="nav-control-btn home-btn" title="返回首页">🏠</button> <button id="tocBtn" class="nav-control-btn toc-btn" title="返回目录">📚</button> <button id="prevPageBtn" class="page-nav-btn" title="上一页">上一页</button> <button id="nextPageBtn" class="page-nav-btn" title="下一页">下一页</button> <button id="toggleReadingMode" class="reading-btn" title="专注阅读模式">📖</button> <button class="theme-toggle" id="themeToggle" aria-label="切换主题"> <span class="theme-icon">🌙</span> </button> <button id="decreaseFont" class="font-btn" title="缩小字体">A-</button> <button id="increaseFont" class="font-btn" title="放大字体">A+</button> <a class="lang-btn" id="langSwitchEn" href title="English">EN</a> <a class="lang-btn" id="langSwitchCn" href title="中文">CN</a> </div> </header> <!-- 阅读进度条（专注模式显示） --> <div class="reading-progress" id="readingProgress" style="display: none;"> <div class="reading-progress-bar" id="readingProgressBar"></div> </div> <!-- 侧边栏 --> <aside class="sidebar" id="sidebar"> <div class="sidebar-header"> <h2 id="sidebarTitle">📈 美股投资实操手册</h2> </div> <nav class="sidebar-nav" id="sidebarNav"> <!-- 动态生成导航内容 --> </nav> </aside> <!-- 主内容区 --> <main class="main-content" id="mainContent"> <div class="page-nav">
+  <a href="/">← 返回目录</a>
+  <a href="/004_Chapter4_Track_Selection_and_Industry_Trends_CN">← 上一章</a>
+  <a href="/005_Chapter5_Stock_Screening_Strategies_CN">← 返回第五章</a>
+  <a href="/005_Chapter5/5.2_Fundamental_Screening_Parameters_CN">← 上一节</a>
+  <a href="/005_Chapter5/5.4_Valuation_Methodology_CN">下一节 →</a>
+</div>
+<h1 id="53-技术面分析">5.3 技术面分析</h1>
+<blockquote>
+<p><strong>本节摘要：</strong></p>
+<p>本节详细介绍趋势跟踪、动量指标、波动性指标、成交量分析等技术分析工具，帮助投资者通过技术面分析把握买卖时机。通过系统化的技术分析框架，提高交易决策的准确性和时效性。</p>
+</blockquote>
+<h2 id="531-技术分析基础理论">5.3.1 技术分析基础理论</h2>
+<h3 id="技术分析的核心假设">技术分析的核心假设</h3>
+<p><strong>技术分析基于三个基本假设，这些假设构成了技术分析的理论基础：</strong></p>
+<p><strong>市场行为反映一切信息：</strong></p>
+<ul>
+<li>所有影响价格的因素（基本面、心理面、消息面）都已反映在价格中</li>
+<li>价格变动包含了所有市场参与者的集体智慧</li>
+<li>无需单独分析基本面因素，价格本身已包含所有信息</li>
+</ul>
+<p><strong>价格沿趋势运动：</strong></p>
+<ul>
+<li>价格变动具有趋势性，趋势一旦形成将持续一段时间</li>
+<li>趋势具有惯性，不会轻易改变方向</li>
+<li>顺势而为是技术分析的核心原则</li>
+</ul>
+<p><strong>历史会重演：</strong></p>
+<ul>
+<li>投资者的心理和行为模式具有规律性</li>
+<li>相似的图表形态往往产生相似的结果</li>
+<li>技术分析模式具有可重复性</li>
+</ul>
+<h3 id="技术分析的分类">技术分析的分类</h3>
+<p><strong>按分析对象分类：</strong></p>
+<ul>
+<li><strong>价格分析：</strong> 研究价格走势和形态</li>
+<li><strong>成交量分析：</strong> 研究成交量的变化规律</li>
+<li><strong>时间分析：</strong> 研究价格变动的时间周期</li>
+</ul>
+<p><strong>按分析方法分类：</strong></p>
+<ul>
+<li><strong>图表分析：</strong> K线图、线图、点线图等</li>
+<li><strong>指标分析：</strong> 各种技术指标的计算和应用</li>
+<li><strong>形态分析：</strong> 价格形态的识别和预测</li>
+</ul>
+<h2 id="532-趋势分析工具">5.3.2 趋势分析工具</h2>
+<h3 id="移动平均线moving-average">移动平均线（Moving Average）</h3>
+<p><strong>移动平均线是最基础也是最重要的趋势分析工具。</strong></p>
+<p><strong>简单移动平均线（SMA）：</strong></p>
+<ul>
+<li><strong>计算公式：</strong> SMA = (P1 + P2 + … + Pn) / n</li>
+<li><strong>特点：</strong> 对每个价格点给予相同权重</li>
+<li><strong>应用：</strong> 识别趋势方向、支撑阻力位</li>
+</ul>
+<p><strong>指数移动平均线（EMA）：</strong></p>
+<ul>
+<li><strong>计算公式：</strong> EMA = 前一日EMA + α × (今日价格 - 前一日EMA)</li>
+<li><strong>特点：</strong> 对近期价格给予更高权重</li>
+<li><strong>优势：</strong> 对价格变化反应更敏感</li>
+</ul>
+<p><strong>常用周期：</strong></p>
+<ul>
+<li><strong>短期：</strong> 5日、10日、20日</li>
+<li><strong>中期：</strong> 30日、60日</li>
+<li><strong>长期：</strong> 120日、250日</li>
+</ul>
+<h3 id="趋势线分析">趋势线分析</h3>
+<p><strong>趋势线是连接价格高点或低点的直线，用于识别趋势方向。</strong></p>
+<p><strong>上升趋势线：</strong></p>
+<ul>
+<li>连接两个或更多低点</li>
+<li>趋势线向上倾斜</li>
+<li>价格回调时在趋势线获得支撑</li>
+</ul>
+<p><strong>下降趋势线：</strong></p>
+<ul>
+<li>连接两个或更多高点</li>
+<li>趋势线向下倾斜</li>
+<li>价格反弹时在趋势线遇到阻力</li>
+</ul>
+<p><strong>趋势线突破：</strong></p>
+<ul>
+<li>价格突破趋势线可能预示趋势改变</li>
+<li>突破需要成交量配合确认</li>
+<li>假突破是常见的技术陷阱</li>
+</ul>
+<h3 id="macd指标">MACD指标</h3>
+<p><strong>MACD（Moving Average Convergence Divergence）是重要的趋势指标。</strong></p>
+<p><strong>MACD构成：</strong></p>
+<ul>
+<li><strong>MACD线：</strong> 12日EMA - 26日EMA</li>
+<li><strong>信号线：</strong> MACD线的9日EMA</li>
+<li><strong>柱状图：</strong> MACD线 - 信号线</li>
+</ul>
+<p><strong>MACD应用：</strong></p>
+<ul>
+<li><strong>金叉死叉：</strong> MACD线上穿/下穿信号线</li>
+<li><strong>背离：</strong> 价格创新高而MACD未创新高</li>
+<li><strong>零轴：</strong> MACD在零轴上方为强势，下方为弱势</li>
+</ul>
+<h2 id="533-动量指标分析">5.3.3 动量指标分析</h2>
+<h3 id="rsi相对强弱指标">RSI相对强弱指标</h3>
+<p><strong>RSI（Relative Strength Index）衡量价格变动的速度和幅度。</strong></p>
+<p><strong>RSI计算：</strong></p>
+<ul>
+<li><strong>公式：</strong> RSI = 100 - (100 / (1 + RS))</li>
+<li><strong>RS = 平均上涨点数 / 平均下跌点数</strong></li>
+<li><strong>常用周期：</strong> 14日</li>
+</ul>
+<p><strong>RSI应用：</strong></p>
+<ul>
+<li><strong>超买超卖：</strong> RSI > 70为超买，RSI &#x3C; 30为超卖</li>
+<li><strong>背离信号：</strong> 价格与RSI走势不一致</li>
+<li><strong>支撑阻力：</strong> RSI在20和80附近形成支撑阻力</li>
+</ul>
+<h3 id="随机指标kdj">随机指标（KDJ）</h3>
+<p><strong>KDJ指标结合了价格动量和超买超卖概念。</strong></p>
+<p><strong>KDJ构成：</strong></p>
+<ul>
+<li><strong>K线：</strong> 快速随机线</li>
+<li><strong>D线：</strong> 慢速随机线</li>
+<li><strong>J线：</strong> 3K - 2D</li>
+</ul>
+<p><strong>KDJ应用：</strong></p>
+<ul>
+<li><strong>金叉死叉：</strong> K线上穿/下穿D线</li>
+<li><strong>超买超卖：</strong> K、D值在80以上为超买，20以下为超卖</li>
+<li><strong>背离：</strong> 价格与KDJ走势不一致</li>
+</ul>
+<h3 id="威廉指标r">威廉指标（%R）</h3>
+<p><strong>威廉指标衡量价格在周期内的高低位置。</strong></p>
+<p><strong>计算公式：</strong></p>
+<ul>
+<li><strong>%R = (最高价 - 收盘价) / (最高价 - 最低价) × 100</strong></li>
+<li><strong>常用周期：</strong> 14日</li>
+</ul>
+<p><strong>应用方法：</strong></p>
+<ul>
+<li><strong>超买超卖：</strong> %R &#x3C; 20为超买，%R > 80为超卖</li>
+<li><strong>背离信号：</strong> 价格与%R走势不一致</li>
+<li><strong>趋势确认：</strong> 结合其他指标确认趋势</li>
+</ul>
+<h2 id="534-波动性指标">5.3.4 波动性指标</h2>
+<h3 id="布林带bollinger-bands">布林带（Bollinger Bands）</h3>
+<p><strong>布林带基于移动平均线和标准差构建。</strong></p>
+<p><strong>布林带构成：</strong></p>
+<ul>
+<li><strong>中轨：</strong> 20日移动平均线</li>
+<li><strong>上轨：</strong> 中轨 + 2倍标准差</li>
+<li><strong>下轨：</strong> 中轨 - 2倍标准差</li>
+</ul>
+<p><strong>布林带应用：</strong></p>
+<ul>
+<li><strong>价格通道：</strong> 价格在上下轨之间波动</li>
+<li><strong>突破信号：</strong> 价格突破布林带可能预示趋势改变</li>
+<li><strong>收缩扩张：</strong> 带宽收缩预示突破，扩张预示趋势延续</li>
+</ul>
+<h3 id="平均真实波幅atr">平均真实波幅（ATR）</h3>
+<p><strong>ATR衡量市场的真实波动幅度。</strong></p>
+<p><strong>ATR计算：</strong></p>
+<ul>
+<li><strong>真实波幅 = max(最高价-最低价, |最高价-前收盘价|, |最低价-前收盘价|)</strong></li>
+<li><strong>ATR = 真实波幅的移动平均</strong></li>
+</ul>
+<p><strong>ATR应用：</strong></p>
+<ul>
+<li><strong>止损设置：</strong> 用ATR的倍数设置止损位</li>
+<li><strong>波动性判断：</strong> ATR值大表示波动剧烈</li>
+<li><strong>趋势强度：</strong> ATR上升通常伴随趋势加强</li>
+</ul>
+<h3 id="标准差">标准差</h3>
+<p><strong>标准差衡量价格偏离移动平均线的程度。</strong></p>
+<p><strong>应用价值：</strong></p>
+<ul>
+<li><strong>波动性测量：</strong> 标准差大表示波动剧烈</li>
+<li><strong>趋势判断：</strong> 标准差变化反映趋势强度</li>
+<li><strong>风险控制：</strong> 用于设置动态止损位</li>
+</ul>
+<h2 id="535-成交量分析">5.3.5 成交量分析</h2>
+<h3 id="成交量基础理论">成交量基础理论</h3>
+<p><strong>成交量是技术分析中最重要的确认指标。</strong></p>
+<p><strong>成交量原理：</strong></p>
+<ul>
+<li><strong>价量配合：</strong> 价格上涨时成交量放大，下跌时成交量缩小</li>
+<li><strong>背离信号：</strong> 价格与成交量走势不一致</li>
+<li><strong>突破确认：</strong> 重要突破需要成交量配合</li>
+</ul>
+<h3 id="成交量指标">成交量指标</h3>
+<p><strong>能量潮（OBV）：</strong></p>
+<ul>
+<li><strong>计算：</strong> 上涨日成交量累加，下跌日成交量累减</li>
+<li><strong>应用：</strong> 判断价格趋势的可靠性</li>
+</ul>
+<p><strong>成交量比率（VR）：</strong></p>
+<ul>
+<li><strong>公式：</strong> VR = (上涨日成交量之和 / 下跌日成交量之和) × 100</li>
+<li><strong>应用：</strong> VR > 150为超买，VR &#x3C; 50为超卖</li>
+</ul>
+<p><strong>资金流量指标（MFI）：</strong></p>
+<ul>
+<li><strong>结合价格和成交量：</strong> 类似RSI但考虑成交量</li>
+<li><strong>应用：</strong> 超买超卖判断，背离信号</li>
+</ul>
+<h3 id="成交量形态">成交量形态</h3>
+<p><strong>放量突破：</strong></p>
+<ul>
+<li>价格突破重要阻力位时成交量显著放大</li>
+<li>确认突破的有效性</li>
+<li>预示趋势可能延续</li>
+</ul>
+<p><strong>缩量回调：</strong></p>
+<ul>
+<li>价格回调时成交量明显缩小</li>
+<li>表明抛压不重</li>
+<li>可能只是技术性调整</li>
+</ul>
+<p><strong>量价背离：</strong></p>
+<ul>
+<li>价格创新高而成交量未创新高</li>
+<li>可能预示趋势即将改变</li>
+<li>需要其他指标配合确认</li>
+</ul>
+<h2 id="536-价格形态分析">5.3.6 价格形态分析</h2>
+<h3 id="反转形态">反转形态</h3>
+<p><strong>头肩顶/底：</strong></p>
+<ul>
+<li><strong>特征：</strong> 三个峰/谷，中间峰/谷最高/最低</li>
+<li><strong>颈线：</strong> 连接两个谷/峰的直线</li>
+<li><strong>突破：</strong> 价格突破颈线确认反转</li>
+</ul>
+<p><strong>双顶/双底：</strong></p>
+<ul>
+<li><strong>特征：</strong> 两个相近的高点/低点</li>
+<li><strong>确认：</strong> 价格突破中间低点/高点</li>
+<li><strong>目标：</strong> 突破幅度约等于形态高度</li>
+</ul>
+<p><strong>圆弧顶/底：</strong></p>
+<ul>
+<li><strong>特征：</strong> 价格呈圆弧形走势</li>
+<li><strong>时间：</strong> 形成时间较长</li>
+<li><strong>突破：</strong> 突破圆弧边缘确认反转</li>
+</ul>
+<h3 id="持续形态">持续形态</h3>
+<p><strong>三角形：</strong></p>
+<ul>
+<li><strong>对称三角形：</strong> 上下趋势线收敛</li>
+<li><strong>上升三角形：</strong> 上轨水平，下轨上升</li>
+<li><strong>下降三角形：</strong> 下轨水平，上轨下降</li>
+</ul>
+<p><strong>旗形和三角旗：</strong></p>
+<ul>
+<li><strong>旗形：</strong> 两条平行线构成的通道</li>
+<li><strong>三角旗：</strong> 收敛的趋势线</li>
+<li><strong>特点：</strong> 通常出现在趋势中间</li>
+</ul>
+<p><strong>矩形：</strong></p>
+<ul>
+<li><strong>特征：</strong> 价格在两条水平线之间波动</li>
+<li><strong>突破：</strong> 向上或向下突破确认方向</li>
+<li><strong>应用：</strong> 适合区间交易策略</li>
+</ul>
+<h2 id="537-技术分析实战应用">5.3.7 技术分析实战应用</h2>
+<h3 id="多指标综合运用">多指标综合运用</h3>
+<p><strong>技术分析的核心是多指标的综合判断。</strong></p>
+<p><strong>指标组合原则：</strong></p>
+<ul>
+<li><strong>趋势指标：</strong> 确定大方向（移动平均线、MACD）</li>
+<li><strong>动量指标：</strong> 判断买卖时机（RSI、KDJ）</li>
+<li><strong>成交量指标：</strong> 确认信号有效性（OBV、VR）</li>
+</ul>
+<p><strong>信号确认：</strong></p>
+<ul>
+<li>多个指标同时发出相同信号</li>
+<li>不同时间周期的指标共振</li>
+<li>成交量配合价格突破</li>
+</ul>
+<h3 id="技术分析陷阱">技术分析陷阱</h3>
+<p><strong>假突破：</strong></p>
+<ul>
+<li>价格突破重要位置后迅速回落</li>
+<li>成交量未配合或突破幅度不够</li>
+<li>需要等待确认信号</li>
+</ul>
+<p><strong>指标钝化：</strong></p>
+<ul>
+<li>在强势趋势中指标持续超买/超卖</li>
+<li>不能简单依赖单一指标</li>
+<li>需要结合趋势分析</li>
+</ul>
+<p><strong>滞后性：</strong></p>
+<ul>
+<li>技术指标基于历史数据计算</li>
+<li>在快速变化的市场中可能滞后</li>
+<li>需要结合实时市场信息</li>
+</ul>
+<h3 id="风险管理">风险管理</h3>
+<p><strong>止损设置：</strong></p>
+<ul>
+<li>基于技术支撑阻力位设置止损</li>
+<li>考虑市场波动性调整止损幅度</li>
+<li>严格执行止损纪律</li>
+</ul>
+<p><strong>仓位控制：</strong></p>
+<ul>
+<li>根据技术信号强度调整仓位</li>
+<li>避免在不确定信号时重仓操作</li>
+<li>保持资金管理的纪律性</li>
+</ul>
+<h2 id="538-技术分析总结">5.3.8 技术分析总结</h2>
+<h3 id="技术分析的优势">技术分析的优势</h3>
+<p><strong>客观性：</strong></p>
+<ul>
+<li>基于历史数据和数学计算</li>
+<li>减少主观情绪干扰</li>
+<li>提供明确的买卖信号</li>
+</ul>
+<p><strong>时效性：</strong></p>
+<ul>
+<li>能够快速反应市场变化</li>
+<li>适合短线和中线交易</li>
+<li>提供实时决策支持</li>
+</ul>
+<p><strong>系统性：</strong></p>
+<ul>
+<li>有完整的理论体系</li>
+<li>可以系统化学习和应用</li>
+<li>便于回测和优化</li>
+</ul>
+<h3 id="技术分析的局限性">技术分析的局限性</h3>
+<p><strong>滞后性：</strong></p>
+<ul>
+<li>基于历史数据，存在滞后</li>
+<li>在快速变化的市场中可能失效</li>
+<li>需要结合基本面分析</li>
+</ul>
+<p><strong>假信号：</strong></p>
+<ul>
+<li>市场噪音可能产生假信号</li>
+<li>需要多指标确认</li>
+<li>不能完全依赖技术分析</li>
+</ul>
+<p><strong>市场环境：</strong></p>
+<ul>
+<li>不同市场环境下效果不同</li>
+<li>需要根据市场特点调整策略</li>
+<li>不能机械套用</li>
+</ul>
+<h3 id="技术分析发展方向">技术分析发展方向</h3>
+<p><strong>量化技术分析：</strong></p>
+<ul>
+<li>将技术分析算法化</li>
+<li>提高分析的客观性和效率</li>
+<li>便于大规模应用</li>
+</ul>
+<p><strong>人工智能应用：</strong></p>
+<ul>
+<li>机器学习识别复杂形态</li>
+<li>深度学习预测价格走势</li>
+<li>提高技术分析的准确性</li>
+</ul>
+<p><strong>多维度融合：</strong></p>
+<ul>
+<li>技术分析与基本面分析结合</li>
+<li>多市场、多资产分析</li>
+<li>构建综合投资决策体系</li>
+</ul>
+<h2 id="展望与总结">展望与总结</h2>
+<p>技术分析为投资者提供了系统化的市场分析工具，通过趋势跟踪、动量分析、成交量研究等多维度方法，帮助投资者把握市场机会。</p>
+<p><strong>成功应用技术分析的关键：</strong></p>
+<ul>
+<li><strong>系统学习：</strong> 深入理解各种技术指标的原理和应用</li>
+<li><strong>综合运用：</strong> 多指标结合，避免单一指标依赖</li>
+<li><strong>风险控制：</strong> 严格执行止损和仓位管理</li>
+<li><strong>持续优化：</strong> 根据市场变化调整策略</li>
+</ul>
+<p>通过科学的技术分析方法和严格的执行纪律，投资者可以在复杂多变的市场环境中提高交易决策的准确性和成功率。</p>
+<hr>
+<div class="bottom-nav">
+  <a href="/004_Chapter4_Track_Selection_and_Industry_Trends_CN">← 上一章：赛道选择与行业趋势</a>
+  <a href="/005_Chapter5_Stock_Screening_Strategies_CN">← 返回第五章</a>
+  <a href="/005_Chapter5/5.2_Fundamental_Screening_Parameters_CN">← 上一节：5.2 基于基本面的核心筛选参数</a>
+  <a href="/005_Chapter5/5.4_Valuation_Methodology_CN">下一节：5.4 估值方法论 →</a>
+</div>
+<style>
+  
+  /* 页面导航样式 - 与底部导航一致 */
+  .page-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    margin: 2rem 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .page-nav a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(56, 142, 60, 0.3);
+  }
+
+  .page-nav a:hover {
+    background: linear-gradient(135deg, var(--primary-light) 0%, #81C784 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(56, 142, 60, 0.4);
+  }
+
+  .page-nav a:first-child {
+    background: linear-gradient(135deg, #2196f3 0%, #42a5f5 100%);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+  }
+
+  .page-nav a:first-child:hover {
+    background: linear-gradient(135deg, #42a5f5 0%, #64b5f6 100%);
+    box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+  }
+
+  .page-nav a:last-child {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    box-shadow: 0 4px 12px rgba(56, 142, 60, 0.3);
+  }
+
+  .page-nav a:last-child:hover {
+    background: linear-gradient(135deg, var(--primary-light) 0%, #81C784 100%);
+    box-shadow: 0 6px 20px rgba(56, 142, 60, 0.4);
+  }
+
+  /* 暗色模式适配 */
+  [data-theme="dark"] .page-nav a:first-child {
+    background: linear-gradient(135deg, #1976d2 0%, #1e88e5 100%);
+  }
+
+  [data-theme="dark"] .page-nav a:first-child:hover {
+    background: linear-gradient(135deg, #1e88e5 0%, #2196f3 100%);
+  }
+
+  /* 响应式设计 */
+  @media (max-width: 768px) {
+    .page-nav {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .page-nav a {
+      font-size: 0.9rem;
+      padding: 0.7rem 1.2rem;
+    }
+  }
+</style> </main> <!-- 章节导航（仅book1章节页面显示） --> <div class="chapter-nav" id="chapterNav" style="display: none;"> <button class="chapter-btn prev-chapter" id="prevChapter" disabled> <span class="chapter-icon">←</span> <span class="chapter-text">上一章</span> </button> <button class="chapter-btn next-chapter" id="nextChapter"> <span class="chapter-text">下一章</span> <span class="chapter-icon">→</span> </button> </div> <!-- 回到顶部按钮 --> <button id="backToTop" class="back-to-top" aria-label="回到顶部" style="display: none;">↑</button> </div>  <script type="module" src="/_astro/Layout.astro_astro_type_script_index_0_lang.C21S8FOz.js"></script> </body> </html>

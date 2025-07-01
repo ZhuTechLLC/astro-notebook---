@@ -1,0 +1,421 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="description" content="美股投资实操手册 - 完整知识体系"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v5.10.1"><title></title><link rel="stylesheet" href="/_astro/macro.C6xCXocE.css"></head> <body> <div class="container"> <!-- 顶部导航栏 --> <header class="top-nav" id="topNav"> <div class="nav-left"> <button class="sidebar-toggle" id="sidebarToggle" aria-label="切换侧边栏">📚</button> </div> <div class="nav-right"> <button id="homeBtn" class="nav-control-btn home-btn" title="返回首页">🏠</button> <button id="tocBtn" class="nav-control-btn toc-btn" title="返回目录">📚</button> <button id="prevPageBtn" class="page-nav-btn" title="上一页">上一页</button> <button id="nextPageBtn" class="page-nav-btn" title="下一页">下一页</button> <button id="toggleReadingMode" class="reading-btn" title="专注阅读模式">📖</button> <button class="theme-toggle" id="themeToggle" aria-label="切换主题"> <span class="theme-icon">🌙</span> </button> <button id="decreaseFont" class="font-btn" title="缩小字体">A-</button> <button id="increaseFont" class="font-btn" title="放大字体">A+</button> <a class="lang-btn" id="langSwitchEn" href title="English">EN</a> <a class="lang-btn" id="langSwitchCn" href title="中文">CN</a> </div> </header> <!-- 阅读进度条（专注模式显示） --> <div class="reading-progress" id="readingProgress" style="display: none;"> <div class="reading-progress-bar" id="readingProgressBar"></div> </div> <!-- 侧边栏 --> <aside class="sidebar" id="sidebar"> <div class="sidebar-header"> <h2 id="sidebarTitle">📈 美股投资实操手册</h2> </div> <nav class="sidebar-nav" id="sidebarNav"> <!-- 动态生成导航内容 --> </nav> </aside> <!-- 主内容区 --> <main class="main-content" id="mainContent"> <h1 id="j1-高效文档系统构建指南">J.1 高效文档系统构建指南</h1>
+<blockquote>
+<p><strong>核心摘要：</strong></p>
+<p>本附录详细介绍基于Astro框架的金融投资学习文档系统构建过程，包括技术架构、功能实现、优化策略等核心内容。涵盖从环境搭建到部署上线的完整开发流程，提供实战经验总结和最佳实践，可作为类似项目的参考模板。</p>
+</blockquote>
+<h2 id="-项目概述">📋 项目概述</h2>
+<p>本项目是一个基于 <strong>Astro</strong> 框架构建的金融投资学习文档系统，专为美股投资实操手册设计。系统整合了5册完整手册，提供统一的浏览、导航和学习体验。</p>
+<h3 id="-核心目标">🎯 核心目标</h3>
+<ul>
+<li><strong>知识体系化</strong>：将分散的投资知识整理成完整的学习路径</li>
+<li><strong>高效浏览</strong>：提供直观的导航和快速定位功能</li>
+<li><strong>学习友好</strong>：专注阅读模式、进度跟踪、个性化设置</li>
+<li><strong>可扩展性</strong>：支持多册手册的统一管理和未来扩展</li>
+</ul>
+<h2 id="️-技术架构">🏗️ 技术架构</h2>
+<h3 id="核心技术栈">核心技术栈</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>前端框架：Astro v5.10.1</span></span>
+<span class="line"><span>构建工具：Vite</span></span>
+<span class="line"><span>样式系统：CSS Variables + 响应式设计</span></span>
+<span class="line"><span>内容管理：Markdown + Frontmatter</span></span>
+<span class="line"><span>开发环境：Node.js + npm</span></span></code></pre>
+<h3 id="文件结构">文件结构</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>astro-notebook0629/</span></span>
+<span class="line"><span>├── src/</span></span>
+<span class="line"><span>│   ├── layouts/</span></span>
+<span class="line"><span>│   │   ├── Layout.astro          # 主布局模板</span></span>
+<span class="line"><span>│   │   └── HandbookLayout.astro  # 手册专用布局</span></span>
+<span class="line"><span>│   ├── pages/                    # 页面内容</span></span>
+<span class="line"><span>│   │   ├── index.astro          # 首页</span></span>
+<span class="line"><span>│   │   ├── 000_Preface_CN.md    # 序言</span></span>
+<span class="line"><span>│   │   ├── 001_Chapter1/        # 第一章子节</span></span>
+<span class="line"><span>│   │   ├── 002_Chapter2/        # 第二章子节</span></span>
+<span class="line"><span>│   │   └── handbook/            # 其他手册导航页</span></span>
+<span class="line"><span>│   └── styles/</span></span>
+<span class="line"><span>│       └── style.css            # 全局样式</span></span>
+<span class="line"><span>├── public/</span></span>
+<span class="line"><span>│   ├── documents/               # 原始Word文档</span></span>
+<span class="line"><span>│   └── images/                  # 图片资源</span></span>
+<span class="line"><span>└── scripts/                     # 自动化脚本</span></span></code></pre>
+<h2 id="-界面设计系统">🎨 界面设计系统</h2>
+<h3 id="导航层级架构">导航层级架构</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>首页导航</span></span>
+<span class="line"><span>├── 手册I（理论基础）</span></span>
+<span class="line"><span>│   ├── 序言</span></span>
+<span class="line"><span>│   ├── 第1章导航页</span></span>
+<span class="line"><span>│   │   ├── 1.1 自我认知与投资智慧</span></span>
+<span class="line"><span>│   │   ├── 1.2 理解世界</span></span>
+<span class="line"><span>│   │   └── 1.3 从认知到行动</span></span>
+<span class="line"><span>│   ├── 第2-10章（类似结构）</span></span>
+<span class="line"><span>│   └── 附录</span></span>
+<span class="line"><span>├── 手册II（宏观经济）</span></span>
+<span class="line"><span>├── 手册III（个股研究）</span></span>
+<span class="line"><span>├── 手册IV（技术分析）</span></span>
+<span class="line"><span>└── 手册V（量化专题）</span></span></code></pre>
+<h3 id="核心ui组件">核心UI组件</h3>
+<h4 id="1-顶部导航栏">1. 顶部导航栏</h4>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* 固定顶部，包含所有核心功能 */</span></span>
+<span class="line"><span style="color:#6F42C1">.top-nav</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#005CC5">  height</span><span style="color:#24292E">: </span><span style="color:#005CC5">48</span><span style="color:#D73A49">px</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  position</span><span style="color:#24292E">: </span><span style="color:#005CC5">fixed</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  top</span><span style="color:#24292E">: </span><span style="color:#005CC5">0</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  z-index</span><span style="color:#24292E">: </span><span style="color:#005CC5">1100</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  display</span><span style="color:#24292E">: </span><span style="color:#005CC5">flex</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  justify-content</span><span style="color:#24292E">: </span><span style="color:#005CC5">space-between</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* 功能按钮布局（从左到右）*/</span></span>
+<span class="line"><span style="color:#24292E">侧边栏切换 | 返回首页 | 返回目录 | 上一页 | 下一页 | 专注模式 | 主题切换 | 字体调节 | 语言切换</span></span></code></pre>
+<h4 id="2-智能侧边栏">2. 智能侧边栏</h4>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// 动态生成导航内容</span></span>
+<span class="line"><span style="color:#D73A49">const</span><span style="color:#005CC5"> bookConfigs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#24292E">  home: { title: </span><span style="color:#032F62">'📚 美股投资实操手册'</span><span style="color:#24292E">, chapters: [</span><span style="color:#D73A49">...</span><span style="color:#24292E">] },</span></span>
+<span class="line"><span style="color:#24292E">  theory: { title: </span><span style="color:#032F62">'📖 美股投资实操手册I'</span><span style="color:#24292E">, chapters: [</span><span style="color:#D73A49">...</span><span style="color:#24292E">] },</span></span>
+<span class="line"><span style="color:#24292E">  macro: { title: </span><span style="color:#032F62">'🌍 美股投资实操手册II'</span><span style="color:#24292E">, chapters: [</span><span style="color:#D73A49">...</span><span style="color:#24292E">] },</span></span>
+<span class="line"><span style="color:#6A737D">  // ...其他手册配置</span></span>
+<span class="line"><span style="color:#24292E">};</span></span></code></pre>
+<h4 id="3-专注阅读模式">3. 专注阅读模式</h4>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6F42C1">.focus-mode</span><span style="color:#6F42C1"> .main-content</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#005CC5">  max-width</span><span style="color:#24292E">: </span><span style="color:#005CC5">800</span><span style="color:#D73A49">px</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  margin</span><span style="color:#24292E">: </span><span style="color:#005CC5">48</span><span style="color:#D73A49">px</span><span style="color:#005CC5"> auto</span><span style="color:#005CC5"> 0</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  padding</span><span style="color:#24292E">: </span><span style="color:#005CC5">40</span><span style="color:#D73A49">px</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  background</span><span style="color:#24292E">: </span><span style="color:#005CC5">var</span><span style="color:#24292E">(</span><span style="color:#E36209">--card-bg</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#005CC5">  border-radius</span><span style="color:#24292E">: </span><span style="color:#005CC5">15</span><span style="color:#D73A49">px</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h2 id="-核心功能实现">🚀 核心功能实现</h2>
+<h3 id="1-智能导航系统">1. 智能导航系统</h3>
+<h4 id="翻页功能">翻页功能</h4>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// 完整的71页导航顺序</span></span>
+<span class="line"><span style="color:#D73A49">function</span><span style="color:#6F42C1"> getAllPages</span><span style="color:#24292E">() {</span></span>
+<span class="line"><span style="color:#D73A49">  return</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">    '/'</span><span style="color:#24292E">,                                    </span><span style="color:#6A737D">// 首页</span></span>
+<span class="line"><span style="color:#032F62">    '/000_Preface_CN'</span><span style="color:#24292E">,                     </span><span style="color:#6A737D">// 序言</span></span>
+<span class="line"><span style="color:#032F62">    '/handbook/theory'</span><span style="color:#24292E">,                     </span><span style="color:#6A737D">// 手册I导航</span></span>
+<span class="line"><span style="color:#032F62">    '/001_Chapter1_Know_Yourself_and_the_World_CN'</span><span style="color:#24292E">, </span><span style="color:#6A737D">// 第一章导航</span></span>
+<span class="line"><span style="color:#032F62">    '/001_Chapter1/1.1_Self_Awareness_and_Investment_Wisdom_CN'</span><span style="color:#24292E">, </span><span style="color:#6A737D">// 子节</span></span>
+<span class="line"><span style="color:#6A737D">    // ... 完整的71个页面</span></span>
+<span class="line"><span style="color:#24292E">  ];</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h4 id="智能返回目录">智能返回目录</h4>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#D73A49">function</span><span style="color:#6F42C1"> getSmartTocUrl</span><span style="color:#24292E">() {</span></span>
+<span class="line"><span style="color:#D73A49">  const</span><span style="color:#005CC5"> currentPath</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> window.location.pathname;</span></span>
+<span class="line"><span style="color:#24292E">  </span></span>
+<span class="line"><span style="color:#6A737D">  // 子节页面 → 章节导航页</span></span>
+<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E"> (currentPath.</span><span style="color:#6F42C1">includes</span><span style="color:#24292E">(</span><span style="color:#032F62">'/001_Chapter1/'</span><span style="color:#24292E">)) {</span></span>
+<span class="line"><span style="color:#D73A49">    return</span><span style="color:#032F62"> '/001_Chapter1_Know_Yourself_and_the_World_CN'</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">  }</span></span>
+<span class="line"><span style="color:#24292E">  </span></span>
+<span class="line"><span style="color:#6A737D">  // 章节导航页 → 手册导航页</span></span>
+<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E"> (currentPath.</span><span style="color:#6F42C1">startsWith</span><span style="color:#24292E">(</span><span style="color:#032F62">'/001_Chapter'</span><span style="color:#24292E">)) {</span></span>
+<span class="line"><span style="color:#D73A49">    return</span><span style="color:#032F62"> '/handbook/theory'</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">  }</span></span>
+<span class="line"><span style="color:#24292E">  </span></span>
+<span class="line"><span style="color:#6A737D">  // 手册导航页 → 首页</span></span>
+<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E"> (currentPath.</span><span style="color:#6F42C1">includes</span><span style="color:#24292E">(</span><span style="color:#032F62">'/handbook/'</span><span style="color:#24292E">)) {</span></span>
+<span class="line"><span style="color:#D73A49">    return</span><span style="color:#032F62"> '/'</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">  }</span></span>
+<span class="line"><span style="color:#24292E">  </span></span>
+<span class="line"><span style="color:#D73A49">  return</span><span style="color:#032F62"> '/'</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h3 id="2-个性化设置系统">2. 个性化设置系统</h3>
+<h4 id="主题切换">主题切换</h4>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* CSS Variables 实现主题切换 */</span></span>
+<span class="line"><span style="color:#6F42C1">:root</span><span style="color:#24292E">[</span><span style="color:#6F42C1">data-theme</span><span style="color:#D73A49">=</span><span style="color:#032F62">"light"</span><span style="color:#24292E">] {</span></span>
+<span class="line"><span style="color:#E36209">  --bg-primary</span><span style="color:#24292E">: </span><span style="color:#005CC5">#ffffff</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#E36209">  --text-primary</span><span style="color:#24292E">: </span><span style="color:#005CC5">#333333</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#E36209">  --primary-color</span><span style="color:#24292E">: </span><span style="color:#005CC5">#007acc</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1">:root</span><span style="color:#24292E">[</span><span style="color:#6F42C1">data-theme</span><span style="color:#D73A49">=</span><span style="color:#032F62">"dark"</span><span style="color:#24292E">] {</span></span>
+<span class="line"><span style="color:#E36209">  --bg-primary</span><span style="color:#24292E">: </span><span style="color:#005CC5">#1a1a1a</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#E36209">  --text-primary</span><span style="color:#24292E">: </span><span style="color:#005CC5">#ffffff</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#E36209">  --primary-color</span><span style="color:#24292E">: </span><span style="color:#005CC5">#4fc3f7</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h4 id="字体大小调节">字体大小调节</h4>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#D73A49">function</span><span style="color:#6F42C1"> initializeFontSize</span><span style="color:#24292E">() {</span></span>
+<span class="line"><span style="color:#D73A49">  const</span><span style="color:#005CC5"> fontSize</span><span style="color:#D73A49"> =</span><span style="color:#6F42C1"> parseInt</span><span style="color:#24292E">(localStorage.</span><span style="color:#6F42C1">getItem</span><span style="color:#24292E">(</span><span style="color:#032F62">'fontSize'</span><span style="color:#24292E">) </span><span style="color:#D73A49">||</span><span style="color:#032F62"> '16'</span><span style="color:#24292E">, </span><span style="color:#005CC5">10</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">  document.body.style.fontSize </span><span style="color:#D73A49">=</span><span style="color:#24292E"> fontSize </span><span style="color:#D73A49">+</span><span style="color:#032F62"> 'px'</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">  </span></span>
+<span class="line"><span style="color:#6A737D">  // 支持12px-24px范围调节</span></span>
+<span class="line"><span style="color:#24292E">  increaseFont.</span><span style="color:#6F42C1">addEventListener</span><span style="color:#24292E">(</span><span style="color:#032F62">'click'</span><span style="color:#24292E">, () </span><span style="color:#D73A49">=></span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (fontSize </span><span style="color:#D73A49">&#x3C;</span><span style="color:#005CC5"> 24</span><span style="color:#24292E">) {</span></span>
+<span class="line"><span style="color:#24292E">      fontSize </span><span style="color:#D73A49">+=</span><span style="color:#005CC5"> 2</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#6F42C1">      updateFontSize</span><span style="color:#24292E">();</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">  });</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h3 id="3-阅读进度跟踪">3. 阅读进度跟踪</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#D73A49">function</span><span style="color:#6F42C1"> updateReadingProgress</span><span style="color:#24292E">() {</span></span>
+<span class="line"><span style="color:#D73A49">  const</span><span style="color:#005CC5"> scrollTop</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> window.pageYOffset;</span></span>
+<span class="line"><span style="color:#D73A49">  const</span><span style="color:#005CC5"> docHeight</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> document.documentElement.scrollHeight </span><span style="color:#D73A49">-</span><span style="color:#24292E"> window.innerHeight;</span></span>
+<span class="line"><span style="color:#D73A49">  const</span><span style="color:#005CC5"> scrollPercent</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> (scrollTop </span><span style="color:#D73A49">/</span><span style="color:#24292E"> docHeight) </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> 100</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">  progressBar.style.width </span><span style="color:#D73A49">=</span><span style="color:#24292E"> scrollPercent </span><span style="color:#D73A49">+</span><span style="color:#032F62"> '%'</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h2 id="-内容管理策略">📊 内容管理策略</h2>
+<h3 id="markdown-文件标准化">Markdown 文件标准化</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#005CC5;font-weight:bold">---</span></span>
+<span class="line"><span style="color:#24292E">title: "章节标题"</span></span>
+<span class="line"><span style="color:#24292E">currentBook: "theory"</span></span>
+<span class="line"><span style="color:#24292E">currentChapter: "chapter1"</span></span>
+<span class="line"><span style="color:#005CC5;font-weight:bold">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;font-weight:bold"># 章节内容</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;font-weight:bold">## 小节标题</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">内容正文...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">![</span><span style="color:#032F62;text-decoration:underline">图片描述</span><span style="color:#24292E">](</span><span style="color:#24292E;text-decoration:underline">/images/chapter1/example.png</span><span style="color:#24292E">)</span></span></code></pre>
+<h3 id="批量处理脚本">批量处理脚本</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="powershell"><code><span class="line"><span style="color:#6A737D"># PowerShell 脚本示例：批量清理导航条</span></span>
+<span class="line"><span style="color:#24292E">$files </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> Get-ChildItem</span><span style="color:#D73A49"> -</span><span style="color:#24292E">Path </span><span style="color:#032F62">"src/pages/005_Chapter5"</span><span style="color:#D73A49"> -</span><span style="color:#24292E">Filter </span><span style="color:#032F62">"*.md"</span></span>
+<span class="line"><span style="color:#D73A49">foreach</span><span style="color:#24292E"> ($file </span><span style="color:#D73A49">in</span><span style="color:#24292E"> $files) {</span></span>
+<span class="line"><span style="color:#24292E">    $content </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> Get-Content</span><span style="color:#24292E"> $file.FullName </span><span style="color:#D73A49">-</span><span style="color:#24292E">Raw </span><span style="color:#D73A49">-</span><span style="color:#24292E">Encoding UTF8</span></span>
+<span class="line"><span style="color:#6A737D">    # 删除旧导航条</span></span>
+<span class="line"><span style="color:#24292E">    $content </span><span style="color:#D73A49">=</span><span style="color:#24292E"> $content </span><span style="color:#D73A49">-replace</span><span style="color:#032F62"> '(?s)&#x3C;div class="page-nav">.*?&#x3C;/div>'</span><span style="color:#D73A49">,</span><span style="color:#032F62"> ''</span></span>
+<span class="line"><span style="color:#6A737D">    # 添加新属性</span></span>
+<span class="line"><span style="color:#24292E">    $content </span><span style="color:#D73A49">=</span><span style="color:#24292E"> $content </span><span style="color:#D73A49">-replace</span><span style="color:#032F62"> '---\n'</span><span style="color:#D73A49">,</span><span style="color:#032F62"> "---\ncurrentBook: theory\n"</span></span>
+<span class="line"><span style="color:#005CC5">    Set-Content</span><span style="color:#24292E"> $file.FullName </span><span style="color:#D73A49">-</span><span style="color:#24292E">Value $content </span><span style="color:#D73A49">-</span><span style="color:#24292E">Encoding UTF8</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h2 id="-开发工作流程">🔧 开发工作流程</h2>
+<h3 id="1-环境设置">1. 环境设置</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># 克隆项目</span></span>
+<span class="line"><span style="color:#6F42C1">git</span><span style="color:#032F62"> clone</span><span style="color:#D73A49"> &#x3C;</span><span style="color:#032F62">repository-ur</span><span style="color:#24292E">l</span><span style="color:#D73A49">></span></span>
+<span class="line"><span style="color:#005CC5">cd</span><span style="color:#032F62"> astro-notebook0629</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 安装依赖</span></span>
+<span class="line"><span style="color:#6F42C1">npm</span><span style="color:#032F62"> install</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 启动开发服务器</span></span>
+<span class="line"><span style="color:#6F42C1">npm</span><span style="color:#032F62"> run</span><span style="color:#032F62"> dev</span></span>
+<span class="line"><span style="color:#6A737D"># 访问 http://localhost:4331/</span></span></code></pre>
+<h3 id="2-内容添加流程">2. 内容添加流程</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># 1. 创建新的Markdown文件</span></span>
+<span class="line"><span style="color:#6F42C1">touch</span><span style="color:#032F62"> src/pages/012_New_Chapter.md</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 2. 添加Frontmatter</span></span>
+<span class="line"><span style="color:#6F42C1">---</span></span>
+<span class="line"><span style="color:#6F42C1">title:</span><span style="color:#032F62"> "新章节标题"</span></span>
+<span class="line"><span style="color:#6F42C1">currentBook:</span><span style="color:#032F62"> "theory"</span></span>
+<span class="line"><span style="color:#6F42C1">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 3. 更新导航配置</span></span>
+<span class="line"><span style="color:#6A737D"># 编辑 src/layouts/Layout.astro 中的 bookConfigs</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 4. 更新翻页顺序</span></span>
+<span class="line"><span style="color:#6A737D"># 编辑 getAllPages() 函数</span></span></code></pre>
+<h3 id="3-图片资源管理">3. 图片资源管理</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># 图片存储结构</span></span>
+<span class="line"><span style="color:#6F42C1">public/images/</span></span>
+<span class="line"><span style="color:#6F42C1">├──</span><span style="color:#032F62"> chapter1/</span></span>
+<span class="line"><span style="color:#6F42C1">│</span><span style="color:#032F62">   ├──</span><span style="color:#032F62"> generated/</span><span style="color:#6A737D">          # 自动生成的图片</span></span>
+<span class="line"><span style="color:#6F42C1">│</span><span style="color:#032F62">   └──</span><span style="color:#032F62"> manual/</span><span style="color:#6A737D">            # 手动添加的图片</span></span>
+<span class="line"><span style="color:#6F42C1">└──</span><span style="color:#032F62"> common/</span><span style="color:#6A737D">                # 通用图片资源</span></span></code></pre>
+<h2 id="-性能优化策略">🎯 性能优化策略</h2>
+<h3 id="1-构建优化">1. 构建优化</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// astro.config.mjs</span></span>
+<span class="line"><span style="color:#D73A49">export</span><span style="color:#D73A49"> default</span><span style="color:#6F42C1"> defineConfig</span><span style="color:#24292E">({</span></span>
+<span class="line"><span style="color:#24292E">  output: </span><span style="color:#032F62">'static'</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">  build: {</span></span>
+<span class="line"><span style="color:#24292E">    inlineStylesheets: </span><span style="color:#032F62">'auto'</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    assets: </span><span style="color:#032F62">'assets'</span></span>
+<span class="line"><span style="color:#24292E">  },</span></span>
+<span class="line"><span style="color:#24292E">  vite: {</span></span>
+<span class="line"><span style="color:#24292E">    build: {</span></span>
+<span class="line"><span style="color:#24292E">      cssMinify: </span><span style="color:#005CC5">true</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">      minify: </span><span style="color:#032F62">'terser'</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">  }</span></span>
+<span class="line"><span style="color:#24292E">});</span></span></code></pre>
+<h3 id="2-图片优化">2. 图片优化</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// 使用 Astro 的图片优化</span></span>
+<span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> { Image } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> 'astro:assets'</span><span style="color:#24292E">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#005CC5">Image</span><span style="color:#24292E"> </span></span>
+<span class="line"><span style="color:#6F42C1">  src</span><span style="color:#D73A49">=</span><span style="color:#24292E">{imageUrl} </span></span>
+<span class="line"><span style="color:#6F42C1">  alt</span><span style="color:#D73A49">=</span><span style="color:#032F62">"描述"</span><span style="color:#24292E"> </span></span>
+<span class="line"><span style="color:#6F42C1">  width</span><span style="color:#D73A49">=</span><span style="color:#24292E">{</span><span style="color:#005CC5">800</span><span style="color:#24292E">} </span></span>
+<span class="line"><span style="color:#6F42C1">  height</span><span style="color:#D73A49">=</span><span style="color:#24292E">{</span><span style="color:#005CC5">600</span><span style="color:#24292E">}</span></span>
+<span class="line"><span style="color:#6F42C1">  format</span><span style="color:#D73A49">=</span><span style="color:#032F62">"webp"</span></span>
+<span class="line"><span style="color:#6F42C1">  quality</span><span style="color:#D73A49">=</span><span style="color:#24292E">{</span><span style="color:#005CC5">80</span><span style="color:#24292E">}</span></span>
+<span class="line"><span style="color:#24292E">/></span></span></code></pre>
+<h3 id="3-代码分割">3. 代码分割</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// 动态导入大型组件</span></span>
+<span class="line"><span style="color:#D73A49">const</span><span style="color:#005CC5"> HeavyComponent</span><span style="color:#D73A49"> =</span><span style="color:#6F42C1"> lazy</span><span style="color:#24292E">(() </span><span style="color:#D73A49">=></span><span style="color:#D73A49"> import</span><span style="color:#24292E">(</span><span style="color:#032F62">'./HeavyComponent.astro'</span><span style="color:#24292E">));</span></span></code></pre>
+<h2 id="-响应式设计">📱 响应式设计</h2>
+<h3 id="断点设置">断点设置</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* 移动优先设计 */</span></span>
+<span class="line"><span style="color:#D73A49">@media</span><span style="color:#24292E"> (</span><span style="color:#005CC5">max-width</span><span style="color:#24292E">: </span><span style="color:#005CC5">768</span><span style="color:#D73A49">px</span><span style="color:#24292E">) {</span></span>
+<span class="line"><span style="color:#6F42C1">  .nav-right</span><span style="color:#24292E"> { </span><span style="color:#005CC5">gap</span><span style="color:#24292E">: </span><span style="color:#005CC5">8</span><span style="color:#D73A49">px</span><span style="color:#24292E">; }</span></span>
+<span class="line"><span style="color:#6F42C1">  .page-nav-btn</span><span style="color:#24292E"> { </span><span style="color:#005CC5">min-width</span><span style="color:#24292E">: </span><span style="color:#005CC5">50</span><span style="color:#D73A49">px</span><span style="color:#24292E">; }</span></span>
+<span class="line"><span style="color:#6F42C1">  .nav-text</span><span style="color:#24292E"> { </span><span style="color:#005CC5">display</span><span style="color:#24292E">: </span><span style="color:#005CC5">none</span><span style="color:#24292E">; }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">@media</span><span style="color:#24292E"> (</span><span style="color:#005CC5">max-width</span><span style="color:#24292E">: </span><span style="color:#005CC5">480</span><span style="color:#D73A49">px</span><span style="color:#24292E">) {</span></span>
+<span class="line"><span style="color:#6F42C1">  .top-nav</span><span style="color:#24292E"> { </span><span style="color:#005CC5">height</span><span style="color:#24292E">: </span><span style="color:#005CC5">48</span><span style="color:#D73A49">px</span><span style="color:#24292E">; }</span></span>
+<span class="line"><span style="color:#6F42C1">  .sidebar</span><span style="color:#24292E"> { </span><span style="color:#005CC5">width</span><span style="color:#24292E">: </span><span style="color:#005CC5">300</span><span style="color:#D73A49">px</span><span style="color:#24292E">; }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h3 id="触摸友好设计">触摸友好设计</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* 按钮最小触摸区域 44px */</span></span>
+<span class="line"><span style="color:#6F42C1">.nav-control-btn</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#005CC5">  width</span><span style="color:#24292E">: </span><span style="color:#005CC5">40</span><span style="color:#D73A49">px</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  height</span><span style="color:#24292E">: </span><span style="color:#005CC5">40</span><span style="color:#D73A49">px</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  min-width</span><span style="color:#24292E">: </span><span style="color:#005CC5">44</span><span style="color:#D73A49">px</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  min-height</span><span style="color:#24292E">: </span><span style="color:#005CC5">44</span><span style="color:#D73A49">px</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h2 id="-seo-优化">🔍 SEO 优化</h2>
+<h3 id="meta-标签优化">Meta 标签优化</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">head</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">title</span><span style="color:#24292E">>{title} - 美股投资实操手册&#x3C;/</span><span style="color:#22863A">title</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">meta</span><span style="color:#6F42C1"> name</span><span style="color:#24292E">=</span><span style="color:#032F62">"description"</span><span style="color:#6F42C1"> content</span><span style="color:#24292E">=</span><span style="color:#032F62">"完整的美股投资知识体系"</span><span style="color:#24292E"> /></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">meta</span><span style="color:#6F42C1"> name</span><span style="color:#24292E">=</span><span style="color:#032F62">"keywords"</span><span style="color:#6F42C1"> content</span><span style="color:#24292E">=</span><span style="color:#032F62">"美股,投资,股票,金融"</span><span style="color:#24292E"> /></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">meta</span><span style="color:#6F42C1"> property</span><span style="color:#24292E">=</span><span style="color:#032F62">"og:title"</span><span style="color:#6F42C1"> content</span><span style="color:#24292E">=</span><span style="color:#032F62">{title}</span><span style="color:#24292E"> /></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">meta</span><span style="color:#6F42C1"> property</span><span style="color:#24292E">=</span><span style="color:#032F62">"og:description"</span><span style="color:#6F42C1"> content</span><span style="color:#24292E">=</span><span style="color:#032F62">"专业的美股投资学习平台"</span><span style="color:#24292E"> /></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;/</span><span style="color:#22863A">head</span><span style="color:#24292E">></span></span></code></pre>
+<h3 id="结构化数据">结构化数据</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// JSON-LD 结构化数据</span></span>
+<span class="line"><span style="color:#D73A49">const</span><span style="color:#005CC5"> structuredData</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#032F62">  "@context"</span><span style="color:#24292E">: </span><span style="color:#032F62">"https://schema.org"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">  "@type"</span><span style="color:#24292E">: </span><span style="color:#032F62">"EducationalOrganization"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">  "name"</span><span style="color:#24292E">: </span><span style="color:#032F62">"美股投资实操手册"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">  "description"</span><span style="color:#24292E">: </span><span style="color:#032F62">"专业的美股投资教育平台"</span></span>
+<span class="line"><span style="color:#24292E">};</span></span></code></pre>
+<h2 id="-部署策略">🚀 部署策略</h2>
+<h3 id="1-静态部署推荐">1. 静态部署（推荐）</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># 构建静态站点</span></span>
+<span class="line"><span style="color:#6F42C1">npm</span><span style="color:#032F62"> run</span><span style="color:#032F62"> build</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 部署到 Vercel</span></span>
+<span class="line"><span style="color:#6F42C1">vercel</span><span style="color:#005CC5"> --prod</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 或部署到 Netlify</span></span>
+<span class="line"><span style="color:#6F42C1">netlify</span><span style="color:#032F62"> deploy</span><span style="color:#005CC5"> --prod</span><span style="color:#005CC5"> --dir=dist</span></span></code></pre>
+<h3 id="2-自动化部署">2. 自动化部署</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#6A737D"># .github/workflows/deploy.yml</span></span>
+<span class="line"><span style="color:#22863A">name</span><span style="color:#24292E">: </span><span style="color:#032F62">Deploy to Production</span></span>
+<span class="line"><span style="color:#005CC5">on</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#22863A">  push</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#22863A">    branches</span><span style="color:#24292E">: [</span><span style="color:#032F62">main</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#22863A">jobs</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#22863A">  build-and-deploy</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#22863A">    runs-on</span><span style="color:#24292E">: </span><span style="color:#032F62">ubuntu-latest</span></span>
+<span class="line"><span style="color:#22863A">    steps</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#24292E">      - </span><span style="color:#22863A">uses</span><span style="color:#24292E">: </span><span style="color:#032F62">actions/checkout@v3</span></span>
+<span class="line"><span style="color:#24292E">      - </span><span style="color:#22863A">uses</span><span style="color:#24292E">: </span><span style="color:#032F62">actions/setup-node@v3</span></span>
+<span class="line"><span style="color:#22863A">        with</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#22863A">          node-version</span><span style="color:#24292E">: </span><span style="color:#032F62">'18'</span></span>
+<span class="line"><span style="color:#24292E">      - </span><span style="color:#22863A">run</span><span style="color:#24292E">: </span><span style="color:#032F62">npm ci</span></span>
+<span class="line"><span style="color:#24292E">      - </span><span style="color:#22863A">run</span><span style="color:#24292E">: </span><span style="color:#032F62">npm run build</span></span>
+<span class="line"><span style="color:#24292E">      - </span><span style="color:#22863A">uses</span><span style="color:#24292E">: </span><span style="color:#032F62">peaceiris/actions-gh-pages@v3</span></span>
+<span class="line"><span style="color:#22863A">        with</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#22863A">          github_token</span><span style="color:#24292E">: </span><span style="color:#032F62">${{ secrets.GITHUB_TOKEN }}</span></span>
+<span class="line"><span style="color:#22863A">          publish_dir</span><span style="color:#24292E">: </span><span style="color:#032F62">./dist</span></span></code></pre>
+<h2 id="-用户体验优化">📈 用户体验优化</h2>
+<h3 id="1-加载性能">1. 加载性能</h3>
+<ul>
+<li><strong>首屏加载时间</strong>：&#x3C; 2秒</li>
+<li><strong>图片懒加载</strong>：使用 Intersection Observer</li>
+<li><strong>预加载关键资源</strong>：字体、CSS、关键图片</li>
+</ul>
+<h3 id="2-交互反馈">2. 交互反馈</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* 微交互设计 */</span></span>
+<span class="line"><span style="color:#6F42C1">.nav-control-btn:hover</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#005CC5">  transform</span><span style="color:#24292E">: </span><span style="color:#005CC5">translateY</span><span style="color:#24292E">(</span><span style="color:#005CC5">-2</span><span style="color:#D73A49">px</span><span style="color:#24292E">) </span><span style="color:#005CC5">scale</span><span style="color:#24292E">(</span><span style="color:#005CC5">1.05</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#005CC5">  transition</span><span style="color:#24292E">: </span><span style="color:#005CC5">all</span><span style="color:#005CC5"> 0.3</span><span style="color:#D73A49">s</span><span style="color:#005CC5"> ease</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1">.page-nav-btn:active</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#005CC5">  transform</span><span style="color:#24292E">: </span><span style="color:#005CC5">translateY</span><span style="color:#24292E">(</span><span style="color:#005CC5">0</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h3 id="3-可访问性">3. 可访问性</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#6A737D">&#x3C;!-- ARIA 标签 --></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">button</span><span style="color:#6F42C1"> aria-label</span><span style="color:#24292E">=</span><span style="color:#032F62">"切换侧边栏"</span><span style="color:#6F42C1"> id</span><span style="color:#24292E">=</span><span style="color:#032F62">"sidebarToggle"</span><span style="color:#24292E">>📚&#x3C;/</span><span style="color:#22863A">button</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">nav</span><span style="color:#6F42C1"> aria-label</span><span style="color:#24292E">=</span><span style="color:#032F62">"主导航"</span><span style="color:#6F42C1"> class</span><span style="color:#24292E">=</span><span style="color:#032F62">"sidebar-nav"</span><span style="color:#24292E">></span></span></code></pre>
+<h2 id="-维护和扩展">🔧 维护和扩展</h2>
+<h3 id="1-内容更新流程">1. 内容更新流程</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># 1. 更新Markdown文件</span></span>
+<span class="line"><span style="color:#6A737D"># 2. 运行格式化脚本</span></span>
+<span class="line"><span style="color:#6F42C1">npm</span><span style="color:#032F62"> run</span><span style="color:#032F62"> format</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 3. 更新图片资源</span></span>
+<span class="line"><span style="color:#6A737D"># 4. 测试功能完整性</span></span>
+<span class="line"><span style="color:#6F42C1">npm</span><span style="color:#032F62"> run</span><span style="color:#032F62"> test</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 5. 提交更改</span></span>
+<span class="line"><span style="color:#6F42C1">git</span><span style="color:#032F62"> add</span><span style="color:#032F62"> .</span></span>
+<span class="line"><span style="color:#6F42C1">git</span><span style="color:#032F62"> commit</span><span style="color:#005CC5"> -m</span><span style="color:#032F62"> "更新第X章内容"</span></span>
+<span class="line"><span style="color:#6F42C1">git</span><span style="color:#032F62"> push</span></span></code></pre>
+<h3 id="2-功能扩展指南">2. 功能扩展指南</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// 添加新的导航功能</span></span>
+<span class="line"><span style="color:#D73A49">function</span><span style="color:#6F42C1"> addNewFeature</span><span style="color:#24292E">() {</span></span>
+<span class="line"><span style="color:#6A737D">  // 1. 在HTML中添加按钮</span></span>
+<span class="line"><span style="color:#6A737D">  // 2. 在CSS中添加样式</span></span>
+<span class="line"><span style="color:#6A737D">  // 3. 在JavaScript中添加事件处理</span></span>
+<span class="line"><span style="color:#6A737D">  // 4. 更新响应式设计</span></span>
+<span class="line"><span style="color:#6A737D">  // 5. 测试所有设备和浏览器</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h3 id="3-性能监控">3. 性能监控</h3>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// 使用 Web Vitals 监控</span></span>
+<span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> { getCLS, getFID, getFCP, getLCP, getTTFB } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> 'web-vitals'</span><span style="color:#24292E">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1">getCLS</span><span style="color:#24292E">(console.log);</span></span>
+<span class="line"><span style="color:#6F42C1">getFID</span><span style="color:#24292E">(console.log);</span></span>
+<span class="line"><span style="color:#6F42C1">getFCP</span><span style="color:#24292E">(console.log);</span></span>
+<span class="line"><span style="color:#6F42C1">getLCP</span><span style="color:#24292E">(console.log);</span></span>
+<span class="line"><span style="color:#6F42C1">getTTFB</span><span style="color:#24292E">(console.log);</span></span></code></pre>
+<h2 id="-最佳实践总结">📋 最佳实践总结</h2>
+<h3 id="开发效率提升">开发效率提升</h3>
+<ol>
+<li><strong>组件化设计</strong>：复用布局和组件</li>
+<li><strong>自动化脚本</strong>：批量处理重复任务</li>
+<li><strong>热重载开发</strong>：实时预览更改</li>
+<li><strong>版本控制</strong>：Git 分支管理</li>
+</ol>
+<h3 id="用户体验优化">用户体验优化</h3>
+<ol>
+<li><strong>直观导航</strong>：清晰的信息架构</li>
+<li><strong>快速加载</strong>：优化资源大小</li>
+<li><strong>响应式设计</strong>：适配所有设备</li>
+<li><strong>个性化设置</strong>：主题、字体、进度</li>
+</ol>
+<h3 id="内容管理效率">内容管理效率</h3>
+<ol>
+<li><strong>标准化格式</strong>：统一的Markdown模板</li>
+<li><strong>批量处理</strong>：PowerShell/Python脚本</li>
+<li><strong>图片优化</strong>：自动化图片处理</li>
+<li><strong>SEO友好</strong>：结构化数据和元标签</li>
+</ol>
+<h2 id="-项目成果">🎉 项目成果</h2>
+<h3 id="技术指标">技术指标</h3>
+<ul>
+<li><strong>页面数量</strong>：71个完整页面</li>
+<li><strong>响应时间</strong>：&#x3C; 200ms</li>
+<li><strong>移动端适配</strong>：100%</li>
+<li><strong>浏览器兼容</strong>：Chrome, Firefox, Safari, Edge</li>
+</ul>
+<h3 id="功能完整性">功能完整性</h3>
+<ul>
+<li>✅ 完整的导航系统（71页顺序翻页）</li>
+<li>✅ 智能返回目录功能</li>
+<li>✅ 专注阅读模式</li>
+<li>✅ 个性化设置（主题、字体）</li>
+<li>✅ 阅读进度跟踪</li>
+<li>✅ 响应式设计</li>
+<li>✅ 键盘快捷键支持</li>
+</ul>
+<h3 id="学习体验">学习体验</h3>
+<ul>
+<li><strong>知识体系完整</strong>：5册手册统一管理</li>
+<li><strong>导航直观高效</strong>：多层级智能导航</li>
+<li><strong>阅读体验优秀</strong>：专注模式、进度跟踪</li>
+<li><strong>个性化程度高</strong>：主题、字体、语言切换</li>
+</ul>
+<h2 id="-相关资源">🔗 相关资源</h2>
+<ul>
+<li><strong>开发服务器</strong>：<a href="http://localhost:4331/">http://localhost:4331/</a></li>
+<li><strong>Astro 官方文档</strong>：<a href="https://docs.astro.build/">https://docs.astro.build/</a></li>
+<li><strong>项目仓库</strong>：[GitHub链接]</li>
+<li><strong>部署地址</strong>：[生产环境链接]</li>
+</ul>
+<hr>
+<p><em>本指南记录了美股投资实操手册文档系统的完整构建过程，包含技术架构、功能实现、优化策略等核心内容，可作为类似项目的参考模板。</em></p> </main> <!-- 章节导航（仅book1章节页面显示） --> <div class="chapter-nav" id="chapterNav" style="display: none;"> <button class="chapter-btn prev-chapter" id="prevChapter" disabled> <span class="chapter-icon">←</span> <span class="chapter-text">上一章</span> </button> <button class="chapter-btn next-chapter" id="nextChapter"> <span class="chapter-text">下一章</span> <span class="chapter-icon">→</span> </button> </div> <!-- 回到顶部按钮 --> <button id="backToTop" class="back-to-top" aria-label="回到顶部" style="display: none;">↑</button> </div>  <script type="module" src="/_astro/Layout.astro_astro_type_script_index_0_lang.C21S8FOz.js"></script> </body> </html>

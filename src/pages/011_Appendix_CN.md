@@ -148,7 +148,7 @@ currentBook: theory
       <span class="chapter-number">J</span>
       <h3>高效文档系统构建指南</h3>
     </div>
-    <p>详细介绍基于Astro框架的金融投资学习文档系统构建过程，包括技术架构、功能实现、优化策略等核心内容，可作为类似项目的参考模板。</p>
+    <p>详细介绍基于 <code>Astro v5.10.1</code> 框架的金融投资学习文档系统构建过程，包括技术架构、功能实现、优化策略等核心内容，可作为类似项目的参考模板。</p>
     <div class="chapter-features">
       <span class="feature-tag">🏗️ 技术架构</span>
       <span class="feature-tag">🚀 系统开发</span>

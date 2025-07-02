@@ -1,0 +1,271 @@
+# VS Code 代码主题规则 - Astro项目
+
+## 🎨 代码展示标准
+所有代码块（生成、识别、引用）必须使用VS Code Dark主题标准：
+
+### 基础要求
+- 背景色：#1e1e1e (VS Code编辑器背景)
+- 文字色：#d4d4d4 (VS Code默认文字)
+- 边框色：#3e3e3e (VS Code边框)
+- 内联代码背景：#262626
+
+### 语法高亮配色
+- 关键字：#569cd6 (蓝色)
+- 字符串：#ce9178 (橙色)  
+- 注释：#6a9955 (绿色)
+- 数字：#b5cea8 (浅绿色)
+- 函数：#dcdcaa (黄色)
+- 类名：#4ec9b0 (青色)
+
+### CSS实现
+```css
+[data-theme="dark"] pre {
+  background: #1e1e1e !important;
+  color: #d4d4d4 !important;
+  border: 1px solid #3e3e3e !important;
+}
+
+[data-theme="dark"] code {
+  background-color: #262626 !important;
+  color: #d4d4d4 !important;
+}
+```
+
+### 适用场景
+- ✅ Markdown代码块
+- ✅ 内联代码
+- ✅ 技术文档代码示例
+- ✅ 配置文件展示
+- ✅ 命令行指令
+- ✅ AI生成的所有代码内容
+
+## 🔍 检查要求
+- 暗色模式下对比度必须清晰（对比度 > 7:1）
+- 所有语法元素必须有明显区分
+- 代码可读性测试必须通过
+
+## 📋 执行标准
+每次生成或修改代码时，自动应用此主题标准，确保一致的视觉体验。
+
+---
+
+# 📚 文档系统开发规范
+
+## 📝 内容创作标准
+
+### 文档结构要求
+- 每个页面必须包含完整的frontmatter
+- 标题层级必须有序且符合语义（h1 → h2 → h3）
+- 中文内容使用全角标点，英文内容使用半角标点
+- 金融术语保持一致性（美股、投资组合、技术分析等）
+- 数据和图表必须标注来源和更新时间
+
+### 内容质量要求
+```markdown
+frontmatter 必须包含：
+- title: 页面标题
+- description: 页面描述 
+- layout: 布局文件
+- updateDate: 更新日期
+```
+
+## 🎨 设计系统规范
+
+### 主题系统
+- 必须支持亮色/暗色主题切换
+- 使用CSS变量系统，禁止硬编码颜色
+- 所有组件在两种主题下都必须测试通过
+
+### 颜色规范
+```css
+/* 主色调变量 */
+--primary-color: #4f46e5;
+--primary-dark: #3730a3;
+--text-primary: var(--color-text);
+--bg-primary: var(--color-bg);
+--card-bg: var(--color-card);
+--border-color: var(--color-border);
+```
+
+### 字体规范
+- 移动端最小字体：16px
+- 桌面端最小字体：14px
+- 行高：1.5-1.6 倍
+- 字体族：系统字体栈优先
+
+## 📱 响应式设计标准
+
+### 断点标准
+```css
+/* 标准断点 */
+--mobile: 0-767px
+--tablet: 768px-1023px  
+--desktop: 1024px+
+```
+
+### 移动优先原则
+- 所有组件必须从移动端开始设计
+- 触摸目标最小尺寸：44px × 44px
+- 移动端导航必须可用且易操作
+
+## 🧩 组件开发规范
+
+### 组件结构
+```astro
+---
+// TypeScript 接口定义
+interface Props {
+  title: string;
+  description?: string;
+  variant?: 'primary' | 'secondary';
+}
+
+const { title, description, variant = 'primary' } = Astro.props;
+---
+
+<!-- 组件HTML -->
+<div class={`component component--${variant}`}>
+  <h2>{title}</h2>
+  {description && <p>{description}</p>}
+</div>
+
+<style>
+/* 组件样式，使用CSS变量 */
+.component {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+</style>
+```
+
+### 组件要求
+- 必须支持双主题
+- 使用TypeScript类型定义
+- 可复用组件放在 `/src/components/`
+- 文件名使用PascalCase
+- 必须包含样式隔离
+
+## ⚡ 性能优化要求
+
+### 资源优化
+- 图片格式：WebP > AVIF > PNG/JPEG
+- 图片必须设置合适的尺寸和alt属性
+- 非关键图片使用懒加载
+- 字体使用 `font-display: swap`
+
+### 代码优化
+```astro
+<!-- 图片优化示例 -->
+<img 
+  src="/images/chart.webp" 
+  alt="投资组合收益图表" 
+  loading="lazy"
+  width="800" 
+  height="400"
+/>
+
+<!-- 字体优化 -->
+<style>
+@font-face {
+  font-family: 'CustomFont';
+  src: url('/fonts/font.woff2') format('woff2');
+  font-display: swap;
+}
+</style>
+```
+
+### 性能指标
+- Core Web Vitals: LCP < 2.5s, FID < 100ms, CLS < 0.1
+- 首屏加载时间 < 2秒
+- 图片优化率 > 80%
+
+## 🔍 SEO优化标准
+
+### 页面元数据
+```astro
+---
+const { title, description } = Astro.props;
+---
+
+<head>
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+</head>
+```
+
+### SEO要求
+- 每个页面必须有唯一的title和description
+- 使用语义化HTML标签
+- 内部链接使用相对路径
+- 图片必须有描述性alt属性
+- 页面URL结构清晰且有意义
+
+## ♿ 无障碍访问标准
+
+### WCAG 2.1 AA 合规
+- 颜色对比度 ≥ 4.5:1 (正常文字)
+- 颜色对比度 ≥ 3:1 (大文字)
+- 所有交互元素支持键盘导航
+- 使用ARIA标签增强语义
+
+### 实现示例
+```astro
+<!-- 无障碍按钮 -->
+<button 
+  type="button"
+  aria-label="打开主题切换菜单"
+  aria-expanded="false"
+  aria-haspopup="true"
+>
+  切换主题
+</button>
+
+<!-- 跳转链接 -->
+<a href="#main-content" class="skip-link">
+  跳转到主内容
+</a>
+```
+
+## 📁 文件命名规范
+
+### 目录结构
+```
+src/
+├── components/     # 组件 (PascalCase)
+├── layouts/       # 布局文件 (PascalCase)  
+├── pages/         # 页面文件 (kebab-case)
+├── styles/        # 样式文件 (kebab-case)
+└── utils/         # 工具函数 (camelCase)
+```
+
+### 命名约定
+- 组件文件：`MyComponent.astro`
+- 页面文件：`my-page.md` 或 `my-page.astro`
+- 样式文件：`global-styles.css`
+- 工具文件：`formatUtils.ts`
+
+## 🔒 安全性要求
+
+### 内容安全
+- 所有用户输入必须验证和清理
+- 外部链接使用 `rel="noopener noreferrer"`
+- 敏感信息不得硬编码
+
+### 实现示例
+```astro
+<!-- 安全的外部链接 -->
+<a 
+  href="https://external-site.com" 
+  target="_blank" 
+  rel="noopener noreferrer"
+>
+  外部链接
+</a>
+```
+
+---
+
+**执行要求**：所有代码生成和修改都必须遵循上述规范，确保项目的一致性、性能和可维护性。 

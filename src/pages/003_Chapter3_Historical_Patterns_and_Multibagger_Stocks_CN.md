@@ -62,13 +62,13 @@ currentBook: theory
   <div class="chapter-card">
     <div class="chapter-header">
       <span class="chapter-number">3.4</span>
-      <h3>案例复盘：过去十年中最典型的高倍股</h3>
+      <h3>经典案例研究</h3>
     </div>
-    <p>深入复盘过去十年中最具代表性的高倍股案例，包括NVIDIA、Tesla、Apple、Amazon等，分析其成功路径和关键因素。</p>
+    <p>通过深度分析超级明星案例和失败警示案例，构建完整的投资决策支持系统，包含成功模式识别、风险预警和实战工具。</p>
     <div class="chapter-features">
-      <span class="feature-tag">📋 案例复盘</span>
-      <span class="feature-tag">🎯 成功路径</span>
-      <span class="feature-tag">📚 经验总结</span>
+      <span class="feature-tag">📋 案例研究</span>
+      <span class="feature-tag">🚀 成功模式</span>
+      <span class="feature-tag">⚠️ 失败警示</span>
     </div>
     <a href="/003_Chapter3/3.4_Case_Studies_CN" class="chapter-link">开始学习 →</a>
   </div>

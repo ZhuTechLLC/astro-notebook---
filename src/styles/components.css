@@ -1,0 +1,332 @@
+/* 组件样式统一管理文件 */
+
+/* ========== 章节概览组件样式 ========== */
+.chapter-overview {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.overview-card, .overview-item {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.overview-card:hover, .overview-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.overview-card h3, .overview-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.overview-card p, .overview-item p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* ========== 核心要点组件样式 ========== */
+.key-points, .key-points-summary, .key-points-bio, .key-points-ne, .key-points-semi {
+    background: linear-gradient(135deg, rgba(56, 142, 60, 0.05) 0%, rgba(56, 142, 60, 0.1) 100%);
+    border: 2px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.key-points::before, .key-points-summary::before, .key-points-bio::before, .key-points-ne::before, .key-points-semi::before {
+    content: "🔑 核心要点";
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--primary-color);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.key-points strong, .key-points-summary strong, .key-points-bio strong, .key-points-ne strong, .key-points-semi strong {
+    color: var(--primary-dark);
+    font-size: 1.1rem;
+}
+
+.key-points ul, .key-points-summary ul, .key-points-bio ul, .key-points-ne ul, .key-points-semi ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.key-points li, .key-points-summary li, .key-points-bio li, .key-points-ne li, .key-points-semi li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+/* ========== 关键指标组件样式 ========== */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.metric-card, .metric-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.metric-card:hover, .metric-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.metric-label, .metric-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+}
+
+.metric-benchmark {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.metric-standard {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.metric-description {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* ========== VS Code 代码主题样式 ========== */
+/* 强制覆盖所有代码块样式 - VS Code Dark 主题 */
+[data-theme="dark"] pre,
+[data-theme="dark"] .astro-code,
+[data-theme="dark"] pre[class*="language-"],
+[data-theme="dark"] code[class*="language-"] {
+    background: #1e1e1e !important;
+    color: #d4d4d4 !important;
+    border: 1px solid #3e3e3e !important;
+    font-family: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', 'SF Mono', Monaco, 'Inconsolata', 'Roboto Mono', Consolas, 'Courier New', monospace !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+}
+
+[data-theme="dark"] code {
+    background-color: #262626 !important;
+    color: #d4d4d4 !important;
+    border: 1px solid #3e3e3e !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    font-family: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', 'SF Mono', Monaco, 'Inconsolata', 'Roboto Mono', Consolas, 'Courier New', monospace !important;
+}
+
+/* VS Code Dark 主题语法高亮 - 完整配色 */
+[data-theme="dark"] .token.keyword,
+[data-theme="dark"] .token.control-flow,
+[data-theme="dark"] .token.directive,
+[data-theme="dark"] .token.module {
+    color: #569cd6 !important; /* VS Code 关键字蓝 */
+}
+
+[data-theme="dark"] .token.string,
+[data-theme="dark"] .token.char,
+[data-theme="dark"] .token.attr-value {
+    color: #ce9178 !important; /* VS Code 字符串橙 */
+}
+
+[data-theme="dark"] .token.comment,
+[data-theme="dark"] .token.prolog,
+[data-theme="dark"] .token.doctype,
+[data-theme="dark"] .token.cdata {
+    color: #6a9955 !important; /* VS Code 注释绿 */
+    font-style: italic !important;
+}
+
+[data-theme="dark"] .token.number,
+[data-theme="dark"] .token.boolean,
+[data-theme="dark"] .token.constant {
+    color: #b5cea8 !important; /* VS Code 数字浅绿 */
+}
+
+[data-theme="dark"] .token.function,
+[data-theme="dark"] .token.function-name,
+[data-theme="dark"] .token.method {
+    color: #dcdcaa !important; /* VS Code 函数黄 */
+}
+
+[data-theme="dark"] .token.class-name,
+[data-theme="dark"] .token.type-class-name,
+[data-theme="dark"] .token.builtin {
+    color: #4ec9b0 !important; /* VS Code 类型青 */
+}
+
+[data-theme="dark"] .token.variable,
+[data-theme="dark"] .token.parameter {
+    color: #9cdcfe !important; /* VS Code 变量浅蓝 */
+}
+
+[data-theme="dark"] .token.operator,
+[data-theme="dark"] .token.punctuation {
+    color: #d4d4d4 !important; /* VS Code 操作符白 */
+}
+
+[data-theme="dark"] .token.tag {
+    color: #569cd6 !important; /* VS Code 标签蓝 */
+}
+
+[data-theme="dark"] .token.attr-name {
+    color: #9cdcfe !important; /* VS Code 属性名浅蓝 */
+}
+
+[data-theme="dark"] .token.selector,
+[data-theme="dark"] .token.property {
+    color: #d7ba7d !important; /* VS Code CSS属性金色 */
+}
+
+[data-theme="dark"] .token.regex {
+    color: #d16969 !important; /* VS Code 正则表达式红 */
+}
+
+[data-theme="dark"] .token.important {
+    color: #ff6b6b !important;
+    font-weight: bold !important;
+}
+
+/* Python 特定语法高亮 */
+[data-theme="dark"] .language-python .token.decorator {
+    color: #dcdcaa !important;
+}
+
+[data-theme="dark"] .language-python .token.triple-quoted-string {
+    color: #ce9178 !important;
+}
+
+/* JavaScript/TypeScript 特定语法高亮 */
+[data-theme="dark"] .language-javascript .token.template-string,
+[data-theme="dark"] .language-typescript .token.template-string {
+    color: #ce9178 !important;
+}
+
+[data-theme="dark"] .language-javascript .token.template-punctuation,
+[data-theme="dark"] .language-typescript .token.template-punctuation {
+    color: #569cd6 !important;
+}
+
+/* CSS 特定语法高亮 */
+[data-theme="dark"] .language-css .token.atrule {
+    color: #c586c0 !important;
+}
+
+[data-theme="dark"] .language-css .token.url {
+    color: #ce9178 !important;
+}
+
+/* SQL 特定语法高亮 */
+[data-theme="dark"] .language-sql .token.keyword {
+    color: #569cd6 !important;
+    text-transform: uppercase;
+}
+
+/* Shell/Bash 特定语法高亮 */
+[data-theme="dark"] .language-bash .token.shebang,
+[data-theme="dark"] .language-shell .token.shebang {
+    color: #6a9955 !important;
+}
+
+[data-theme="dark"] .language-bash .token.environment,
+[data-theme="dark"] .language-shell .token.environment {
+    color: #9cdcfe !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .overview-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .metric-value {
+        font-size: 1.5rem;
+    }
+    
+    .chapter-overview,
+    .key-points,
+    .key-points-summary,
+    .key-points-bio,
+    .key-points-ne,
+    .key-points-semi {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+}
+
+/* 暗色模式适配 */
+[data-theme="dark"] .chapter-overview,
+[data-theme="dark"] .key-points,
+[data-theme="dark"] .key-points-summary,
+[data-theme="dark"] .key-points-bio,
+[data-theme="dark"] .key-points-ne,
+[data-theme="dark"] .key-points-semi {
+    background: linear-gradient(135deg, rgba(102, 187, 106, 0.1) 0%, rgba(102, 187, 106, 0.05) 100%);
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .overview-card,
+[data-theme="dark"] .overview-item,
+[data-theme="dark"] .metric-card,
+[data-theme="dark"] .metric-item {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .overview-card:hover,
+[data-theme="dark"] .overview-item:hover,
+[data-theme="dark"] .metric-card:hover,
+[data-theme="dark"] .metric-item:hover {
+    box-shadow: 0 4px 12px rgba(102, 187, 106, 0.2);
+} 

@@ -85,6 +85,7 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
 
     <style is:global>
       @import '../styles/style.css';
+      @import '../styles/components.css';
 
       /* 容器 */
       .container {
@@ -444,7 +445,7 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
       .chapter-btn {
         display: flex;
         align-items: center;
-        gap: 8px;
+          gap: 8px;
         padding: 12px 20px;
         border-radius: 25px;
         background: var(--primary-color);
@@ -582,8 +583,8 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         .reading-btn,
         .theme-toggle,
         .font-btn {
-          width: 40px;
-          height: 40px;
+        width: 40px;
+        height: 40px;
           font-size: 16px;
         }
 
@@ -762,20 +763,20 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
 
       // 侧边栏管理
       function initializeSidebar() {
-        const sidebarToggle = document.getElementById('sidebarToggle');
-        const sidebar = document.getElementById('sidebar');
-        
-        sidebarToggle?.addEventListener('click', () => {
-          sidebar?.classList.toggle('open');
-        });
-        
+      const sidebarToggle = document.getElementById('sidebarToggle');
+      const sidebar = document.getElementById('sidebar');
+      
+      sidebarToggle?.addEventListener('click', () => {
+        sidebar?.classList.toggle('open');
+      });
+      
         // 点击外部关闭侧边栏
-        document.addEventListener('click', (e) => {
-          const target = e.target as Node;
-          if (sidebar && sidebarToggle && target &&
-              !sidebar.contains(target) && 
-              !sidebarToggle.contains(target)) {
-            sidebar.classList.remove('open');
+      document.addEventListener('click', (e) => {
+        const target = e.target as Node;
+        if (sidebar && sidebarToggle && target &&
+            !sidebar.contains(target) && 
+            !sidebarToggle.contains(target)) {
+          sidebar.classList.remove('open');
           }
         });
         
@@ -1212,14 +1213,14 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
 
       // 回到顶部
       function initializeBackToTop() {
-        const backToTopBtn = document.getElementById('backToTop');
+      const backToTopBtn = document.getElementById('backToTop');
         
         window.addEventListener('scroll', () => {
           if (backToTopBtn) {
-            if (window.scrollY > 300) {
-              backToTopBtn.style.display = 'flex';
-            } else {
-              backToTopBtn.style.display = 'none';
+          if (window.scrollY > 300) {
+            backToTopBtn.style.display = 'flex';
+          } else {
+            backToTopBtn.style.display = 'none';
             }
           }
         });

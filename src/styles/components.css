@@ -329,4 +329,613 @@
 [data-theme="dark"] .metric-card:hover,
 [data-theme="dark"] .metric-item:hover {
     box-shadow: 0 4px 12px rgba(102, 187, 106, 0.2);
+}
+
+/* ========== 结构性内容样式定义 ========== */
+/* .evolution-timeline：技术分析演进流程时间线卡片
+   .ml-applications：AI/机器学习应用分组
+   .case-study：案例分析卡片
+   .support-resistance-system：支撑阻力系统分组
+   .sentiment-momentum：情绪动量分组
+   .fund-flow-analysis：资金流向分析分组
+   .cross-market-momentum：跨市场动量对比
+   .resonance-strategy：多时间框架共振策略分组
+   .technical-limitations：技术分析局限性分组
+*/
+.evolution-timeline, .ml-applications, .case-study, .support-resistance-system, .sentiment-momentum, .fund-flow-analysis, .cross-market-momentum, .resonance-strategy, .technical-limitations {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  margin: 2rem 0;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.evolution-timeline > div, .ml-applications > div, .case-study > div, .support-resistance-system > div, .sentiment-momentum > div, .fund-flow-analysis > div, .cross-market-momentum > div, .resonance-strategy > div, .technical-limitations > div {
+  margin-bottom: 1.2rem;
+}
+.evolution-timeline h5, .ml-applications h5, .case-study h5, .support-resistance-system h5, .sentiment-momentum h5, .fund-flow-analysis h5, .cross-market-momentum h5, .resonance-strategy h5, .technical-limitations h5 {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.evolution-timeline ul, .ml-applications ul, .case-study ul, .support-resistance-system ul, .sentiment-momentum ul, .fund-flow-analysis ul, .cross-market-momentum ul, .resonance-strategy ul, .technical-limitations ul {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0 1rem 0;
+}
+.evolution-timeline li, .ml-applications li, .case-study li, .support-resistance-system li, .sentiment-momentum li, .fund-flow-analysis li, .cross-market-momentum li, .resonance-strategy li, .technical-limitations li {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+.evolution-timeline strong, .ml-applications strong, .case-study strong, .support-resistance-system strong, .sentiment-momentum strong, .fund-flow-analysis strong, .cross-market-momentum strong, .resonance-strategy strong, .technical-limitations strong {
+  color: var(--primary-dark);
+}
+
+/* ========== 技术分析专用组件样式 ========== */
+/* .tech-evolution：技术分析演进时间轴
+   .algorithm-formula：算法公式展示
+   .signal-analysis：信号分析网格
+   .sentiment-indicators：情绪指标分组
+   .fund-flow：资金流向分析
+   .timeframe-analysis：多时间框架分析
+   .performance-comparison：性能对比表格
+   .strategy-framework：策略框架展示
+   .risk-assessment：风险评估组件
+*/
+
+/* 技术分析演进时间轴 */
+.tech-evolution {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.evolution-timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 1.5rem 0;
+}
+
+.evolution-stage {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.evolution-stage:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.stage-period {
+    background: var(--primary-color);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.stage-title {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.stage-characteristics ul {
+    margin: 0.5rem 0;
+    padding-left: 1.2rem;
+}
+
+.stage-characteristics li {
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
+}
+
+.stage-limitation, .stage-improvement, .stage-revolution {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.stage-limitation {
+    background: rgba(244, 67, 54, 0.1);
+    border-left: 4px solid #f44336;
+}
+
+.stage-improvement {
+    background: rgba(255, 193, 7, 0.1);
+    border-left: 4px solid #ffc107;
+}
+
+.stage-revolution {
+    background: rgba(76, 175, 80, 0.1);
+    border-left: 4px solid #4caf50;
+}
+
+/* 算法公式展示 */
+.algorithm-formula {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-family: 'Cascadia Code', 'Fira Code', monospace;
+}
+
+.formula-title {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.formula-content {
+    background: var(--bg-primary);
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    overflow-x: auto;
+}
+
+.formula-explanation {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* 信号分析网格 */
+.signal-analysis {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.signal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.signal-item {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.signal-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.signal-type {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.signal-strength {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+.signal-description {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* 情绪指标分组 */
+.sentiment-indicators {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.sentiment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.sentiment-item {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.sentiment-item.bullish {
+    border-left: 4px solid #4caf50;
+}
+
+.sentiment-item.bearish {
+    border-left: 4px solid #f44336;
+}
+
+.sentiment-item.neutral {
+    border-left: 4px solid #ffc107;
+}
+
+.sentiment-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.sentiment-range {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0.5rem 0;
+}
+
+.sentiment-signal {
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background: var(--card-bg);
+}
+
+/* 资金流向分析 */
+.fund-flow {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.flow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.flow-source {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.flow-source:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.flow-title {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.flow-indicators {
+    margin: 1rem 0;
+}
+
+.flow-indicator {
+    background: var(--card-bg);
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.flow-weight {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-top: 1rem;
+}
+
+/* 多时间框架分析 */
+.timeframe-analysis {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.timeframe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.timeframe-item {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.timeframe-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.timeframe-label {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.timeframe-period {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+}
+
+.timeframe-purpose {
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.timeframe-indicators {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.timeframe-indicators span {
+    background: var(--primary-color);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+/* 性能对比表格 */
+.performance-comparison {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.comparison-table th {
+    background: var(--bg-primary);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.comparison-table tr:hover {
+    background: var(--bg-primary);
+}
+
+.performance-metric {
+    font-weight: 600;
+}
+
+.performance-value {
+    color: var(--primary-color);
+}
+
+/* 策略框架展示 */
+.strategy-framework {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.framework-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.framework-step {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.framework-step:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.step-number {
+    background: var(--primary-color);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin: 0 auto 1rem;
+}
+
+.step-title {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.step-description {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* 风险评估组件 */
+.risk-assessment {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.risk-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.risk-category {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.risk-category:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.risk-title {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.risk-details ul {
+    margin: 0.5rem 0;
+    padding-left: 1.2rem;
+}
+
+.risk-details li {
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
+}
+
+.risk-level {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.risk-level.high {
+    background: rgba(244, 67, 54, 0.1);
+    color: #f44336;
+}
+
+.risk-level.medium {
+    background: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+}
+
+.risk-level.low {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4caf50;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .evolution-timeline,
+    .signal-grid,
+    .sentiment-grid,
+    .flow-grid,
+    .timeframe-grid,
+    .framework-steps,
+    .risk-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .tech-evolution,
+    .algorithm-formula,
+    .signal-analysis,
+    .sentiment-indicators,
+    .fund-flow,
+    .timeframe-analysis,
+    .performance-comparison,
+    .strategy-framework,
+    .risk-assessment {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+}
+
+/* 暗色模式适配 */
+[data-theme="dark"] .tech-evolution,
+[data-theme="dark"] .algorithm-formula,
+[data-theme="dark"] .signal-analysis,
+[data-theme="dark"] .sentiment-indicators,
+[data-theme="dark"] .fund-flow,
+[data-theme="dark"] .timeframe-analysis,
+[data-theme="dark"] .performance-comparison,
+[data-theme="dark"] .strategy-framework,
+[data-theme="dark"] .risk-assessment {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .evolution-stage,
+[data-theme="dark"] .signal-item,
+[data-theme="dark"] .sentiment-item,
+[data-theme="dark"] .flow-source,
+[data-theme="dark"] .timeframe-item,
+[data-theme="dark"] .framework-step,
+[data-theme="dark"] .risk-category {
+    background: var(--bg-primary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .evolution-stage:hover,
+[data-theme="dark"] .signal-item:hover,
+[data-theme="dark"] .sentiment-item:hover,
+[data-theme="dark"] .flow-source:hover,
+[data-theme="dark"] .timeframe-item:hover,
+[data-theme="dark"] .framework-step:hover,
+[data-theme="dark"] .risk-category:hover {
+    box-shadow: 0 4px 12px rgba(102, 187, 106, 0.2);
 } 

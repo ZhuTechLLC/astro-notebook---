@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "interactive-feedback-mcp": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "--directory",
+        "C:/2025Investing/astro-notebook0629/interactive-feedback-mcp",
+        "run",
+        "server.py"
+      ],
+      "timeout": 600,
+      "autoApprove": [
+        "interactive_feedback"
+      ]
+    }
+  }
+}

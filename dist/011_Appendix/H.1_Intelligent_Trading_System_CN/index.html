@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="description" content="美股投资实操手册 - 完整知识体系"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v5.10.1"><title></title><link rel="stylesheet" href="/_astro/macro.C6xCXocE.css"></head> <body> <div class="container"> <!-- 顶部导航栏 --> <header class="top-nav" id="topNav"> <div class="nav-left"> <button class="sidebar-toggle" id="sidebarToggle" aria-label="切换侧边栏">📚</button> </div> <div class="nav-right"> <button id="homeBtn" class="nav-control-btn home-btn" title="返回首页">🏠</button> <button id="tocBtn" class="nav-control-btn toc-btn" title="返回目录">📚</button> <button id="prevPageBtn" class="page-nav-btn" title="上一页">上一页</button> <button id="nextPageBtn" class="page-nav-btn" title="下一页">下一页</button> <button id="toggleReadingMode" class="reading-btn" title="专注阅读模式">📖</button> <button class="theme-toggle" id="themeToggle" aria-label="切换主题"> <span class="theme-icon">🌙</span> </button> <button id="decreaseFont" class="font-btn" title="缩小字体">A-</button> <button id="increaseFont" class="font-btn" title="放大字体">A+</button> <a class="lang-btn" id="langSwitchEn" href title="English">EN</a> <a class="lang-btn" id="langSwitchCn" href title="中文">CN</a> </div> </header> <!-- 阅读进度条（专注模式显示） --> <div class="reading-progress" id="readingProgress" style="display: none;"> <div class="reading-progress-bar" id="readingProgressBar"></div> </div> <!-- 侧边栏 --> <aside class="sidebar" id="sidebar"> <div class="sidebar-header"> <h2 id="sidebarTitle">📈 美股投资实操手册</h2> </div> <nav class="sidebar-nav" id="sidebarNav"> <!-- 动态生成导航内容 --> </nav> </aside> <!-- 主内容区 --> <main class="main-content" id="mainContent"> <h1 id="h1-智能化交易系统开发概述">H.1 智能化交易系统开发概述</h1>
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="description" content="美股投资实操手册 - 完整知识体系"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v5.10.1"><title></title><link rel="stylesheet" href="/_astro/macro.CH0wylYq.css"></head> <body> <div class="container"> <!-- 顶部导航栏 --> <header class="top-nav" id="topNav"> <div class="nav-left"> <button class="sidebar-toggle" id="sidebarToggle" aria-label="切换侧边栏">📚</button> </div> <div class="nav-right"> <button id="homeBtn" class="nav-control-btn home-btn" title="返回首页">🏠</button> <button id="tocBtn" class="nav-control-btn toc-btn" title="返回目录">📚</button> <button id="prevPageBtn" class="page-nav-btn" title="上一页">上一页</button> <button id="nextPageBtn" class="page-nav-btn" title="下一页">下一页</button> <button id="toggleReadingMode" class="reading-btn" title="专注阅读模式">📖</button> <button class="theme-toggle" id="themeToggle" aria-label="切换主题"> <span class="theme-icon">🌙</span> </button> <button id="decreaseFont" class="font-btn" title="缩小字体">A-</button> <button id="increaseFont" class="font-btn" title="放大字体">A+</button> <a class="lang-btn" id="langSwitchEn" href title="English">EN</a> <a class="lang-btn" id="langSwitchCn" href title="中文">CN</a> </div> </header> <!-- 阅读进度条（专注模式显示） --> <div class="reading-progress" id="readingProgress" style="display: none;"> <div class="reading-progress-bar" id="readingProgressBar"></div> </div> <!-- 侧边栏 --> <aside class="sidebar" id="sidebar"> <div class="sidebar-header"> <h2 id="sidebarTitle">📈 美股投资实操手册</h2> </div> <nav class="sidebar-nav" id="sidebarNav"> <!-- 动态生成导航内容 --> </nav> </aside> <!-- 主内容区 --> <main class="main-content" id="mainContent"> <h1 id="h1-智能化交易系统开发概述">H.1 智能化交易系统开发概述</h1>
 <blockquote>
 <p><strong>核心摘要：</strong></p>
 <p>智能化交易系统是现代投资的重要工具。本文介绍智能化交易系统的基本架构、开发流程和技术要点，包括数据获取、策略实现、风险管理和系统部署等核心环节，为投资者提供系统开发的技术指导。</p>
@@ -6,7 +6,7 @@
 <h2 id="-系统架构概述">🤖 系统架构概述</h2>
 <h3 id="1-整体架构">1. 整体架构</h3>
 <h4 id="11-系统层次">1.1 系统层次</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>用户层：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>用户层：</span></span>
 <span class="line"><span>- Web界面：用户操作界面</span></span>
 <span class="line"><span>- 移动端：手机APP</span></span>
 <span class="line"><span>- API接口：第三方集成</span></span>
@@ -29,7 +29,7 @@
 <span class="line"><span>- 存储系统：数据存储</span></span>
 <span class="line"><span>- 安全系统：系统安全</span></span></code></pre>
 <h4 id="12-核心模块">1.2 核心模块</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>数据模块：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>数据模块：</span></span>
 <span class="line"><span>- 数据获取：从各种数据源获取数据</span></span>
 <span class="line"><span>- 数据清洗：处理异常和缺失数据</span></span>
 <span class="line"><span>- 数据存储：高效存储和管理数据</span></span>
@@ -54,7 +54,7 @@
 <span class="line"><span>- 成交反馈：成交信息反馈</span></span></code></pre>
 <h3 id="2-技术栈选择">2. 技术栈选择</h3>
 <h4 id="21-编程语言">2.1 编程语言</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Python：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Python：</span></span>
 <span class="line"><span>- 优势：丰富的金融库、易学易用</span></span>
 <span class="line"><span>- 适用：策略开发、数据分析</span></span>
 <span class="line"><span>- 库：pandas、numpy、scipy、matplotlib</span></span>
@@ -74,7 +74,7 @@
 <span class="line"><span>- 适用：微服务、API服务</span></span>
 <span class="line"><span>- 框架：Gin、Echo</span></span></code></pre>
 <h4 id="22-数据库选择">2.2 数据库选择</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>关系型数据库：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>关系型数据库：</span></span>
 <span class="line"><span>- PostgreSQL：开源、功能强大</span></span>
 <span class="line"><span>- MySQL：成熟稳定、生态丰富</span></span>
 <span class="line"><span>- SQL Server：企业级、集成好</span></span>
@@ -91,7 +91,7 @@
 <h2 id="-数据获取与处理">📊 数据获取与处理</h2>
 <h3 id="1-数据源">1. 数据源</h3>
 <h4 id="11-市场数据">1.1 市场数据</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>实时行情：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>实时行情：</span></span>
 <span class="line"><span>- 股票价格：实时价格数据</span></span>
 <span class="line"><span>- 成交量：实时成交量数据</span></span>
 <span class="line"><span>- 买卖盘：Level 2数据</span></span>
@@ -110,7 +110,7 @@
 <span class="line"><span>- Bloomberg：专业数据</span></span>
 <span class="line"><span>- Reuters：专业数据</span></span></code></pre>
 <h4 id="12-基本面数据">1.2 基本面数据</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>财务数据：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>财务数据：</span></span>
 <span class="line"><span>- 财务报表：收入、利润、资产等</span></span>
 <span class="line"><span>- 财务比率：P/E、P/B、ROE等</span></span>
 <span class="line"><span>- 现金流：经营、投资、筹资现金流</span></span>
@@ -129,7 +129,7 @@
 <span class="line"><span>- 专业数据：FactSet、Refinitiv</span></span></code></pre>
 <h3 id="2-数据处理">2. 数据处理</h3>
 <h4 id="21-数据清洗">2.1 数据清洗</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>异常值处理：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>异常值处理：</span></span>
 <span class="line"><span>- 价格异常：价格跳跃、停牌等</span></span>
 <span class="line"><span>- 成交量异常：异常成交量</span></span>
 <span class="line"><span>- 缺失值：数据缺失处理</span></span>
@@ -141,7 +141,7 @@
 <span class="line"><span>- 格式统一：数据格式标准化</span></span>
 <span class="line"><span>- 编码处理：字符编码统一</span></span></code></pre>
 <h4 id="22-数据存储">2.2 数据存储</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>存储策略：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>存储策略：</span></span>
 <span class="line"><span>- 分层存储：热数据、温数据、冷数据</span></span>
 <span class="line"><span>- 压缩存储：数据压缩减少空间</span></span>
 <span class="line"><span>- 索引优化：提高查询效率</span></span>
@@ -155,7 +155,7 @@
 <h2 id="-策略开发">🎯 策略开发</h2>
 <h3 id="1-策略类型">1. 策略类型</h3>
 <h4 id="11-技术分析策略">1.1 技术分析策略</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>趋势策略：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>趋势策略：</span></span>
 <span class="line"><span>- 移动平均：MA交叉策略</span></span>
 <span class="line"><span>- 突破策略：支撑阻力突破</span></span>
 <span class="line"><span>- 通道策略：布林带策略</span></span>
@@ -167,7 +167,7 @@
 <span class="line"><span>- 形态识别：K线形态识别</span></span>
 <span class="line"><span>- 支撑阻力：关键位反转</span></span></code></pre>
 <h4 id="12-基本面策略">1.2 基本面策略</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>价值策略：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>价值策略：</span></span>
 <span class="line"><span>- 低估值：P/E、P/B筛选</span></span>
 <span class="line"><span>- 高股息：股息率策略</span></span>
 <span class="line"><span>- 安全边际：价值投资策略</span></span>
@@ -179,7 +179,7 @@
 <span class="line"><span>- 行业龙头：龙头股策略</span></span>
 <span class="line"><span>- 新兴行业：成长行业策略</span></span></code></pre>
 <h4 id="13-量化策略">1.3 量化策略</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>多因子策略：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>多因子策略：</span></span>
 <span class="line"><span>- 价值因子：估值相关因子</span></span>
 <span class="line"><span>- 成长因子：增长相关因子</span></span>
 <span class="line"><span>- 质量因子：质量相关因子</span></span>
@@ -192,7 +192,7 @@
 <span class="line"><span>- 强化学习：Q-learning、DQN</span></span></code></pre>
 <h3 id="2-策略实现">2. 策略实现</h3>
 <h4 id="21-策略框架">2.1 策略框架</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>策略接口：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>策略接口：</span></span>
 <span class="line"><span>- 初始化：策略初始化</span></span>
 <span class="line"><span>- 数据更新：接收新数据</span></span>
 <span class="line"><span>- 信号生成：生成交易信号</span></span>
@@ -205,7 +205,7 @@
 <span class="line"><span>- 仓位参数：仓位控制参数</span></span>
 <span class="line"><span>- 时间参数：时间相关参数</span></span></code></pre>
 <h4 id="22-回测框架">2.2 回测框架</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>回测流程：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>回测流程：</span></span>
 <span class="line"><span>- 数据准备：历史数据准备</span></span>
 <span class="line"><span>- 策略执行：模拟策略执行</span></span>
 <span class="line"><span>- 绩效计算：计算策略绩效</span></span>
@@ -220,7 +220,7 @@
 <h2 id="️-风险管理">🛡️ 风险管理</h2>
 <h3 id="1-风险类型">1. 风险类型</h3>
 <h4 id="11-市场风险">1.1 市场风险</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>价格风险：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>价格风险：</span></span>
 <span class="line"><span>- 股价波动：个股价格波动</span></span>
 <span class="line"><span>- 市场风险：整体市场风险</span></span>
 <span class="line"><span>- 行业风险：行业特定风险</span></span>
@@ -232,7 +232,7 @@
 <span class="line"><span>- 个股流动性：个股交易量</span></span>
 <span class="line"><span>- 紧急流动性：紧急情况下的流动性</span></span></code></pre>
 <h4 id="12-操作风险">1.2 操作风险</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>技术风险：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>技术风险：</span></span>
 <span class="line"><span>- 系统故障：系统技术故障</span></span>
 <span class="line"><span>- 网络风险：网络连接问题</span></span>
 <span class="line"><span>- 数据风险：数据质量问题</span></span>
@@ -245,7 +245,7 @@
 <span class="line"><span>- 监控疏忽：风险监控疏忽</span></span></code></pre>
 <h3 id="2-风险控制">2. 风险控制</h3>
 <h4 id="21-风险监控">2.1 风险监控</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>实时监控：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>实时监控：</span></span>
 <span class="line"><span>- 仓位监控：实时仓位监控</span></span>
 <span class="line"><span>- 盈亏监控：实时盈亏监控</span></span>
 <span class="line"><span>- 风险指标：实时风险指标</span></span>
@@ -257,7 +257,7 @@
 <span class="line"><span>- 情景分析：不同情景分析</span></span>
 <span class="line"><span>- 风险调整：风险参数调整</span></span></code></pre>
 <h4 id="22-风险控制措施">2.2 风险控制措施</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>仓位控制：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>仓位控制：</span></span>
 <span class="line"><span>- 单股限制：单只股票仓位限制</span></span>
 <span class="line"><span>- 行业限制：单一行业仓位限制</span></span>
 <span class="line"><span>- 总仓位：总体仓位控制</span></span>
@@ -271,7 +271,7 @@
 <h2 id="-系统部署">🚀 系统部署</h2>
 <h3 id="1-部署架构">1. 部署架构</h3>
 <h4 id="11-云部署">1.1 云部署</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>云服务选择：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>云服务选择：</span></span>
 <span class="line"><span>- AWS：亚马逊云服务</span></span>
 <span class="line"><span>- Azure：微软云服务</span></span>
 <span class="line"><span>- GCP：谷歌云服务</span></span>
@@ -283,7 +283,7 @@
 <span class="line"><span>- 网络服务：VPC、负载均衡</span></span>
 <span class="line"><span>- 监控服务：CloudWatch、日志服务</span></span></code></pre>
 <h4 id="12-本地部署">1.2 本地部署</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>硬件要求：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>硬件要求：</span></span>
 <span class="line"><span>- 服务器：高性能服务器</span></span>
 <span class="line"><span>- 网络：高速网络连接</span></span>
 <span class="line"><span>- 存储：大容量存储设备</span></span>
@@ -296,7 +296,7 @@
 <span class="line"><span>- 日志管理：ELK Stack</span></span></code></pre>
 <h3 id="2-运维管理">2. 运维管理</h3>
 <h4 id="21-监控系统">2.1 监控系统</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>系统监控：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>系统监控：</span></span>
 <span class="line"><span>- 性能监控：CPU、内存、磁盘</span></span>
 <span class="line"><span>- 网络监控：网络连接、延迟</span></span>
 <span class="line"><span>- 应用监控：应用运行状态</span></span>
@@ -308,7 +308,7 @@
 <span class="line"><span>- 分级告警：不同级别告警</span></span>
 <span class="line"><span>- 通知方式：邮件、短信、电话</span></span></code></pre>
 <h4 id="22-日志管理">2.2 日志管理</h4>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>日志收集：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>日志收集：</span></span>
 <span class="line"><span>- 系统日志：操作系统日志</span></span>
 <span class="line"><span>- 应用日志：应用程序日志</span></span>
 <span class="line"><span>- 交易日志：交易相关日志</span></span>
@@ -321,7 +321,7 @@
 <span class="line"><span>- 报告生成：日志分析报告</span></span></code></pre>
 <h2 id="-开发建议">💡 开发建议</h2>
 <h3 id="1-开发流程">1. 开发流程</h3>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>需求分析：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>需求分析：</span></span>
 <span class="line"><span>- 功能需求：系统功能需求</span></span>
 <span class="line"><span>- 性能需求：性能指标需求</span></span>
 <span class="line"><span>- 安全需求：安全要求</span></span>
@@ -345,7 +345,7 @@
 <span class="line"><span>- 功能验证：功能验证</span></span>
 <span class="line"><span>- 监控配置：监控系统配置</span></span></code></pre>
 <h3 id="2-最佳实践">2. 最佳实践</h3>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>代码质量：</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>代码质量：</span></span>
 <span class="line"><span>- 代码规范：遵循编码规范</span></span>
 <span class="line"><span>- 代码审查：代码审查机制</span></span>
 <span class="line"><span>- 单元测试：完善的单元测试</span></span>

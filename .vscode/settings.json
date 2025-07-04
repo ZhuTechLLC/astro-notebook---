@@ -1,3 +1,22 @@
 {
-    "terminal.integrated.sendKeybindingsToShell": true
+    "terminal.integrated.sendKeybindingsToShell": true,
+    "mcp.servers": {
+        "interactive-feedback-mcp": {
+            "command": "python",
+            "args": [
+                "-m",
+                "uv",
+                "--directory",
+                "${workspaceFolder}/interactive-feedback-mcp",
+                "run",
+                "server.py"
+            ],
+            "timeout": 600,
+            "autoApprove": [
+                "interactive_feedback"
+            ]
+        }
+    },
+    "mcp.autoStart": true,
+    "mcp.enableLogging": true
 }

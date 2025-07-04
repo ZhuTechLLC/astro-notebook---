@@ -19,36 +19,36 @@
 <li>命名格式：<code>001_序言.md</code>、<code>002_第一章：xxx.md</code></li>
 </ul>
 <h3 id="️-标准结构设计每章-md">✍️ 标准结构设计（每章 md）</h3>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#005CC5;font-weight:bold">---</span></span>
-<span class="line"><span style="color:#24292E">title: 第一章：xxx</span></span>
-<span class="line"><span style="color:#24292E">layout: ../layouts/HandbookLayout.astro</span></span>
-<span class="line"><span style="color:#24292E">slug: /chapter-001</span></span>
-<span class="line"><span style="color:#005CC5;font-weight:bold">---</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#BBBBBB">---</span></span>
+<span class="line"><span style="color:#BBBBBB">title: 第一章：xxx</span></span>
+<span class="line"><span style="color:#BBBBBB">layout: ../layouts/HandbookLayout.astro</span></span>
+<span class="line"><span style="color:#BBBBBB">slug: /chapter-001</span></span>
+<span class="line"><span style="color:#BBBBBB">---</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#005CC5;font-weight:bold"># 第一章：xxx</span></span>
+<span class="line"><span style="color:#BBBBBB"># 第一章：xxx</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">:::gpt-tip</span></span>
-<span class="line"><span style="color:#E36209">-</span><span style="color:#24292E"> 提示1</span></span>
-<span class="line"><span style="color:#E36209">-</span><span style="color:#24292E"> 提示2</span></span>
-<span class="line"><span style="color:#24292E">:::</span></span>
+<span class="line"><span style="color:#BBBBBB">:::gpt-tip</span></span>
+<span class="line"><span style="color:#BBBBBB">- 提示1</span></span>
+<span class="line"><span style="color:#BBBBBB">- 提示2</span></span>
+<span class="line"><span style="color:#BBBBBB">:::</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">&#x3C;ChartPlaceholder title="图表标题" /></span></span>
+<span class="line"><span style="color:#BBBBBB">&#x3C;ChartPlaceholder title="图表标题" /></span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#005CC5;font-weight:bold">## 小节标题</span></span>
+<span class="line"><span style="color:#BBBBBB">## 小节标题</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">正文内容...</span></span>
+<span class="line"><span style="color:#BBBBBB">正文内容...</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">[</span><span style="color:#032F62;text-decoration:underline">返回首页</span><span style="color:#24292E">](</span><span style="color:#24292E;text-decoration:underline">../index.md</span><span style="color:#24292E">)</span></span></code></pre>
+<span class="line"><span style="color:#BBBBBB">[</span><span style="color:#BBBBBB">返回首页</span><span style="color:#BBBBBB">](../index.md)</span></span></code></pre>
 <hr>
 <h2 id="️-三astro-项目搭建day-1">🖥️ 三、Astro 项目搭建（Day 1）</h2>
 <ul>
 <li>使用命令初始化 Astro 项目：</li>
 </ul>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1">npm</span><span style="color:#032F62"> create</span><span style="color:#032F62"> astro@latest</span></span></code></pre>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#BBBBBB">npm </span><span style="color:#BBBBBB">create</span><span style="color:#BBBBBB"> astro@latest</span></span></code></pre>
 <ul>
 <li>目录结构如下：</li>
 </ul>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>src/</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>src/</span></span>
 <span class="line"><span>├─ pages/               # 所有章节 Markdown 页面</span></span>
 <span class="line"><span>├─ layouts/</span></span>
 <span class="line"><span>│    └─ HandbookLayout.astro</span></span>
@@ -59,8 +59,8 @@
 <ul>
 <li>运行项目：</li>
 </ul>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1">npm</span><span style="color:#032F62"> install</span></span>
-<span class="line"><span style="color:#6F42C1">npm</span><span style="color:#032F62"> run</span><span style="color:#032F62"> dev</span></span></code></pre>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#BBBBBB">npm </span><span style="color:#BBBBBB">install</span></span>
+<span class="line"><span style="color:#BBBBBB">npm </span><span style="color:#BBBBBB">run</span><span style="color:#BBBBBB"> dev</span></span></code></pre>
 <p>访问 <code>http://localhost:4321/</code> 查看站点页面。</p>
 <hr>
 <h2 id="-四slug-路由规范与链接跳转day-2">🔁 四、slug 路由规范与链接跳转（Day 2）</h2>
@@ -68,9 +68,9 @@
 <p>Astro 默认以中文文件名作为 URL，会导致 <code>/第二章：xxx</code> 报 404。</p>
 <h3 id="-解决方案">✅ 解决方案：</h3>
 <p>在每个 <code>.md</code> 的 YAML 区增加 <code>slug</code> 字段：</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A">slug</span><span style="color:#24292E">: </span><span style="color:#032F62">/chapter-002</span></span></code></pre>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#BBBBBB">slug</span><span style="color:#BBBBBB">: </span><span style="color:#BBBBBB">/chapter-002</span></span></code></pre>
 <p>并在跳转时统一使用 slug：</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#24292E">[</span><span style="color:#032F62;text-decoration:underline">下一章</span><span style="color:#24292E">](</span><span style="color:#24292E;text-decoration:underline">../chapter-003</span><span style="color:#24292E">)</span></span></code></pre>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#BBBBBB">[</span><span style="color:#BBBBBB">下一章</span><span style="color:#BBBBBB">](../chapter-003)</span></span></code></pre>
 <p>我们定义了如下 slug 映射规范：</p>
 <ul>
 <li><code>/preface</code> → 序言</li>
@@ -103,24 +103,24 @@
 <ul>
 <li>修改 <code>global.css</code> 设置统一背景颜色：</li>
 </ul>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#22863A">body</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">  @</span><span style="color:#005CC5">apply</span><span style="color:#005CC5"> bg-green-</span><span style="color:#24292E">100;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#BBBBBB">body {</span></span>
+<span class="line"><span style="color:#BBBBBB">  @apply bg-green-100;</span></span>
+<span class="line"><span style="color:#BBBBBB">}</span></span></code></pre>
 <ul>
 <li>或在 <code>HandbookLayout.astro</code> 中：</li>
 </ul>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="astro"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">main</span><span style="color:#6F42C1"> class</span><span style="color:#24292E">=</span><span style="color:#032F62">"bg-green-100 px-6 py-8"</span><span style="color:#24292E">></span></span>
-<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">slot</span><span style="color:#24292E"> /></span></span>
-<span class="line"><span style="color:#24292E">&#x3C;/</span><span style="color:#22863A">main</span><span style="color:#24292E">></span></span></code></pre>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="astro"><code><span class="line"><span style="color:#BBBBBB">&#x3C;main class=</span><span style="color:#BBBBBB">"bg-green-100 px-6 py-8"</span><span style="color:#BBBBBB">></span></span>
+<span class="line"><span style="color:#BBBBBB">  &#x3C;slot /></span></span>
+<span class="line"><span style="color:#BBBBBB">&#x3C;/main></span></span></code></pre>
 <hr>
 <h2 id="-七目录导航页与章节跳转建议">🔗 七、目录导航页与章节跳转（建议）</h2>
 <p>生成 <code>index.md</code> 目录页，结构如下：</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#005CC5;font-weight:bold"># 手册目录</span></span>
+<pre class="astro-code" style="background-color:#1e1e1e;color:#bbbbbb; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#BBBBBB"># 手册目录</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#E36209">-</span><span style="color:#24292E"> [</span><span style="color:#032F62;text-decoration:underline">序言</span><span style="color:#24292E">](</span><span style="color:#24292E;text-decoration:underline">../preface</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#E36209">-</span><span style="color:#24292E"> [</span><span style="color:#032F62;text-decoration:underline">第一章：xxx</span><span style="color:#24292E">](</span><span style="color:#24292E;text-decoration:underline">../chapter-001</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#E36209">-</span><span style="color:#24292E"> [</span><span style="color:#032F62;text-decoration:underline">第二章：xxx</span><span style="color:#24292E">](</span><span style="color:#24292E;text-decoration:underline">../chapter-002</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">...</span></span></code></pre>
+<span class="line"><span style="color:#BBBBBB">- [</span><span style="color:#BBBBBB">序言</span><span style="color:#BBBBBB">](../preface)</span></span>
+<span class="line"><span style="color:#BBBBBB">- [</span><span style="color:#BBBBBB">第一章：xxx</span><span style="color:#BBBBBB">](../chapter-001)</span></span>
+<span class="line"><span style="color:#BBBBBB">- [</span><span style="color:#BBBBBB">第二章：xxx</span><span style="color:#BBBBBB">](../chapter-002)</span></span>
+<span class="line"><span style="color:#BBBBBB">...</span></span></code></pre>
 <p>也支持顶部导航组件：<code>&#x3C;NavBar /></code></p>
 <hr>
 <h2 id="-八文件成果与打包输出">📦 八、文件成果与打包输出</h2>

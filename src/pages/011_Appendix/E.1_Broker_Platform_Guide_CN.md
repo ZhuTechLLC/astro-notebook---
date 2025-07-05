@@ -2,7 +2,7 @@
 title: E.1 券商网站使用指南
 lang: zh
 alt: /en/011_Appendix/E.1_Broker_Platform_Guide_en
-layout: ../../layouts/Layout.astro
+layout: ../../layouts/HandbookLayout.astro
 ---
 
 # E.1 券商网站使用指南
@@ -388,4 +388,4 @@ K线图设置：
 - [ ] 确认股票代码正确
 - [ ] 设置合理价格
 - [ ] 检查交易费用
-
+

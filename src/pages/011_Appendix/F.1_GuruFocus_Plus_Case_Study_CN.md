@@ -2,7 +2,7 @@
 title: F.1 GuruFocus Plus个股研究案例
 lang: zh
 alt: /en/011_Appendix/F.1_GuruFocus_Plus_Case_Study_en
-layout: ../../layouts/Layout.astro
+layout: ../../layouts/HandbookLayout.astro
 ---
 
 # F.1 GuruFocus Plus个股研究案例
@@ -483,4 +483,4 @@ PEG评估：
 - **学习总结**：从成功和失败中学习
 - **方法优化**：不断改进分析方法
 - **知识更新**：保持对市场和行业的了解
-
+

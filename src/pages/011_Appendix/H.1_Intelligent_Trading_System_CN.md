@@ -2,7 +2,7 @@
 title: H.1 智能化交易系统开发概述
 lang: zh
 alt: /en/011_Appendix/H.1_Intelligent_Trading_System_en
-layout: ../../layouts/Layout.astro
+layout: ../../layouts/HandbookLayout.astro
 ---
 
 # H.1 智能化交易系统开发概述
@@ -477,4 +477,4 @@ NoSQL数据库：
 - **数据质量**：保证数据质量和准确性
 - **合规要求**：遵守相关法律法规
 - **持续改进**：不断优化和改进系统
-
+

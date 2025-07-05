@@ -1093,3 +1093,34 @@
     margin-bottom: 0.8rem;
     font-size: 1rem;
   }
+
+/* ========== 信息提示区块样式 ========== */
+.info-block {
+  background: var(--card-bg);
+  border: 1.5px solid var(--primary-color);
+  border-radius: 12px;
+  padding: 1.5rem 1.5rem 1.2rem 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.info-item {
+  margin-bottom: 1.2rem;
+}
+.info-item h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.info-item p {
+  color: var(--text-primary);
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+[data-theme="dark"] .info-block {
+  background: var(--card-bg);
+  border-color: var(--primary-color);
+}

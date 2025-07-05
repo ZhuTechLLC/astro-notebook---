@@ -2,7 +2,7 @@
 title: I.1 美股投资常见问题
 lang: zh
 alt: /en/011_Appendix/I.1_US_Stock_Investment_FAQ_en
-layout: ../../layouts/Layout.astro
+layout: ../../layouts/HandbookLayout.astro
 ---
 
 # I.1 美股投资常见问题
@@ -500,4 +500,4 @@ A: 选择可靠券商，做好技术准备。
 - **专业建议**：必要时寻求专业建议
 - **持续改进**：不断改进投资方法
 - **耐心投资**：投资是长期过程，保持耐心
-
+

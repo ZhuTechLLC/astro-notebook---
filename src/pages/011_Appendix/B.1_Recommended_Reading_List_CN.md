@@ -2,7 +2,7 @@
 title: B.1 推荐阅读书单
 lang: zh
 alt: /en/011_Appendix/B.1_Recommended_Reading_List_en
-layout: ../../layouts/Layout.astro
+layout: ../../layouts/HandbookLayout.astro
 ---
 
 # B.1 推荐阅读书单
@@ -207,4 +207,4 @@ layout: ../../layouts/Layout.astro
 2. **在实践中不断验证**和调整理论的应用
 3. **与手册内容形成互补**，构建完整的投资知识体系
 4. **保持开放心态**，持续学习和更新投资理念
-
+

@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import rehypeMathjax from 'rehype-mathjax';
 
 export default defineConfig({
   integrations: [mdx()],
@@ -8,7 +9,7 @@ export default defineConfig({
     allowHTML: true,
     // 配置remark和rehype插件
     remarkPlugins: [],
-    rehypePlugins: [],
+    rehypePlugins: [rehypeMathjax],
     // 代码高亮配置
     shikiConfig: {
       theme: {

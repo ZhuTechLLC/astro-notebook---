@@ -2,7 +2,7 @@
 title: A.1 常用财务指标及计算公式
 lang: zh
 alt: /en/011_Appendix/A.1_Financial_Indicators_and_Formulas_en
-layout: ../../layouts/Layout.astro
+layout: ../../layouts/HandbookLayout.astro
 ---
 
 # A.1 常用财务指标及计算公式
@@ -201,4 +201,4 @@ P/E < 15, PEG < 1, EPS Growth > 15%, ROE > 15%, Debt/Equity < 0.3
 2. **行业差异**：不同行业的合理指标范围不同
 3. **动态调整**：根据市场环境和个人目标调整筛选标准
 4. **实践验证**：理论指标需要在实际投资中验证和优化
-
+

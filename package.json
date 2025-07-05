@@ -5,13 +5,18 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy": "astro build && npx gh-pages -d dist"    
+    "deploy": "astro build && npx gh-pages -d dist"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.0",
-    "astro": "^5.10.1"
+    "astro": "^5.10.1",
+    "mathjax-full": "^3.2.2",
+    "rehype-mathjax": "^7.1.0"
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0"
+    "gh-pages": "^6.3.0",
+    "katex": "^0.16.22",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0"
   }
 }

@@ -1,7 +1,7 @@
 ---
 title: J.1 高效文档系统构建指南
 lang: zh
-layout: ../../layouts/Layout.astro
+layout: ../../layouts/HandbookLayout.astro
 currentBook: theory
 ---
 

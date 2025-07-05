@@ -2,7 +2,7 @@
 title: C.1 量化分析与回测
 lang: zh
 alt: /en/011_Appendix/C.1_Quantitative_Analysis_and_Backtesting_en
-layout: ../../layouts/Layout.astro
+layout: ../../layouts/HandbookLayout.astro
 ---
 
 # C.1 量化分析与回测
@@ -391,4 +391,4 @@ def sector_rotation_strategy(sectors, lookback_period=60):
 3. **市场变化**：策略需要根据市场环境调整
 4. **风险管理**：始终将风险控制放在首位
 5. **持续学习**：量化领域发展迅速，需要不断更新知识
-
+

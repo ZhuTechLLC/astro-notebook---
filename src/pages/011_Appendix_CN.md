@@ -156,6 +156,34 @@ currentBook: theory
     </div>
     <a href="/011_Appendix/J.1_Document_System_Construction_Guide_CN" class="chapter-link">开始学习 →</a>
   </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-number">K</span>
+      <h3>小节页面模板指南</h3>
+    </div>
+    <p>提供Astro投资手册小节页面的标准格式、内容模块完整示例与格式规范，便于全书内容结构统一与高效扩展。</p>
+    <div class="chapter-features">
+      <span class="feature-tag">🧩 模板设计</span>
+      <span class="feature-tag">📐 格式规范</span>
+      <span class="feature-tag">💡 内容扩展</span>
+    </div>
+    <a href="/011_Appendix/K.1_Subchapter_Template_Guide_CN" class="chapter-link">查看模板 →</a>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-number">L</span>
+      <h3>美股投资实操手册总结与格式优化建议</h3>
+    </div>
+    <p>全面总结美股投资实操手册的核心内容和价值体系，深入分析网页版文档系统的优势和改进空间，提出格式优化建议和用户体验提升方案。</p>
+    <div class="chapter-features">
+      <span class="feature-tag">📚 手册总结</span>
+      <span class="feature-tag">🎨 格式优化</span>
+      <span class="feature-tag">🚀 发展方向</span>
+    </div>
+    <a href="/011_Appendix/L.1_Handbook_Summary_and_Format_Optimization_CN" class="chapter-link">查看总结 →</a>
+  </div>
 </div>
 
 ## 🎯 学习目标

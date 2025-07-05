@@ -2,7 +2,7 @@
 title: D.1 交易计划模板
 lang: zh
 alt: /en/011_Appendix/D.1_Trading_Plan_Templates_en
-layout: ../../layouts/Layout.astro
+layout: ../../layouts/HandbookLayout.astro
 ---
 
 # D.1 交易计划模板
@@ -301,4 +301,4 @@ layout: ../../layouts/Layout.astro
 3. **定期评估调整**：定期评估投资组合，及时调整策略
 4. **持续学习改进**：不断学习新知识，改进投资方法
 5. **保持耐心**：投资是长期过程，保持耐心和信心
-
+

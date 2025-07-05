@@ -878,6 +878,34 @@
     color: #4caf50;
 }
 
+.key-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+.key-point {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.key-point h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+  }
+
+.key-point p {
+    margin: 0;
+    color: var(--text-primary);
+  }
+
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     .evolution-timeline,
@@ -938,4 +966,130 @@
 [data-theme="dark"] .framework-step:hover,
 [data-theme="dark"] .risk-category:hover {
     box-shadow: 0 4px 12px rgba(102, 187, 106, 0.2);
+}
+
+/* ========== 1.2节结构性内容美化补充 ========== */
+/* Section 网格布局统一样式 */
+.regulator-section, .geopolitics-section, .conflict-section, .energy-section, .specialized-strategy-section, .factor-weighting, .institution-section, .intermediary-section, .tech-section, .retail-section, .strategy-section, .macro-section, .policy-section, .toolbox-section, .factor-matrix {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+/* Item 卡片统一样式 */
+.regulator-item, .geopolitics-item, .conflict-item, .energy-item, .specialized-item, .institution-item, .intermediary-item, .retail-item, .factor-category {
+  background: var(--card-bg);
+  border: 2px solid var(--primary-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.regulator-item:hover, .geopolitics-item:hover, .conflict-item:hover, .energy-item:hover, .specialized-item:hover, .institution-item:hover, .intermediary-item:hover, .retail-item:hover, .factor-category:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.regulator-item h4, .geopolitics-item h4, .conflict-item h4, .energy-item h4, .specialized-item h4, .institution-item h4, .intermediary-item h4, .retail-item h4, .factor-category h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+
+/* Details 分组统一样式 */
+.fund-details, .bank-details, .quant-details, .regulator-details, .strategy-details, .event-details, .macro-details, .retail-types, .behavior-patterns, .lifecycle-stages, .competition-framework, .financial-metrics, .moat-analysis, .investment-clock, .monetary-policy, .geopolitics, .ai-trends, .green-trends, .population-trends, .market-conditions, .micro-factors, .meso-factors, .macro-factors {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.fund-details h5, .bank-details h5, .quant-details h5, .regulator-details h5, .strategy-details h5, .event-details h5, .macro-details h5, .retail-types h5, .behavior-patterns h5, .lifecycle-stages h5, .competition-framework h5, .financial-metrics h5, .moat-analysis h5, .investment-clock h5, .monetary-policy h5, .geopolitics h5, .ai-trends h5, .green-trends h5, .population-trends h5, .market-conditions h5, .micro-factors h5, .meso-factors h5, .macro-factors h5 {
+  color: var(--primary-color);
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .regulator-section, .geopolitics-section, .conflict-section, .energy-section, .specialized-strategy-section, .factor-weighting, .institution-section, .intermediary-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lifecycle-stages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.lifecycle-detail {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 1.2rem 1rem 1rem 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s;
+}
+.lifecycle-detail h5 {
+  color: var(--primary-color);
+  margin-bottom: 0.7rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.lifecycle-detail ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+.lifecycle-detail li {
+  margin-bottom: 0.4rem;
+}
+.lifecycle-detail.stage-embryonic {
+  background: #e3f2fd; /* 蓝色淡色，代表创新与起步 */
+}
+.lifecycle-detail.stage-growth {
+  background: #e8f5e9; /* 绿色淡色，代表成长与扩张 */
+}
+.lifecycle-detail.stage-shakeout {
+  background: #fffde7; /* 黄色淡色，代表洗牌与风险 */
+}
+.lifecycle-detail.stage-maturity {
+  background: #f3e5f5; /* 紫色淡色，代表成熟与稳定 */
+}
+.lifecycle-detail.stage-decline {
+  background: #ffebee; /* 红色淡色，代表衰退与退出 */
 } 
+
+.regulator-item, .geopolitics-item, .conflict-item, .energy-item, .specialized-item, .institution-item, .intermediary-item, .retail-item, .tech-item, .strategy-item, .industry-item, .fundamental-item, .cycle-item, .policy-item, .trend-item, .demo-item, .summary-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+  }
+  .regulator-item:hover, .geopolitics-item:hover, .conflict-item:hover, .energy-item:hover, .specialized-item:hover, .institution-item:hover, .intermediary-item:hover, .retail-item:hover, .tech-item:hover, .strategy-item:hover, .industry-item:hover, .fundamental-item:hover, .cycle-item:hover, .policy-item:hover, .trend-item:hover, .demo-item:hover, .summary-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  .regulator-item h4, .geopolitics-item h4, .conflict-item h4, .energy-item h4, .specialized-item h4, .institution-item h4, .intermediary-item h4, .retail-item h4, .tech-item h4, .strategy-item h4, .industry-item h4, .fundamental-item h4, .cycle-item h4, .policy-item h4, .trend-item h4, .demo-item h4, .summary-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .fund-details, .bank-details, .quant-details, .regulator-details, .strategy-details, .event-details, .macro-details, .retail-types h5, .behavior-patterns h5, .lifecycle-stages h5, .competition-framework h5, .financial-metrics h5, .moat-analysis h5, .investment-clock h5, .monetary-policy h5, .geopolitics h5, .ai-trends h5, .green-trends h5, .population-trends h5, .market-conditions h5, .factor-matrix h5, .factor-category h5, .micro-factors h5, .meso-factors h5, .macro-factors h5 {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+  .fund-details h5, .bank-details h5, .quant-details h5, .regulator-details h5, .strategy-details h5, .event-details h5, .macro-details h5, .retail-types h5, .behavior-patterns h5, .lifecycle-stages h5, .competition-framework h5, .financial-metrics h5, .moat-analysis h5, .investment-clock h5, .monetary-policy h5, .geopolitics h5, .ai-trends h5, .green-trends h5, .population-trends h5, .market-conditions h5, .factor-matrix h5, .factor-category h5, .micro-factors h5, .meso-factors h5, .macro-factors h5 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+  }

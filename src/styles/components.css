@@ -970,7 +970,7 @@
 
 /* ========== 1.2节结构性内容美化补充 ========== */
 /* Section 网格布局统一样式 */
-.regulator-section, .geopolitics-section, .conflict-section, .energy-section, .specialized-strategy-section, .factor-weighting, .institution-section, .intermediary-section, .tech-section, .retail-section, .strategy-section, .macro-section, .policy-section, .toolbox-section, .factor-matrix {
+.regulator-section, .geopolitics-section, .conflict-section, .energy-section, .specialized-strategy-section, .factor-weighting, .institution-section, .intermediary-section, .tech-section, .retail-section, .strategy-section, .macro-section, .policy-section, .toolbox-section, .factor-matrix{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
@@ -978,7 +978,7 @@
 }
 
 /* Item 卡片统一样式 */
-.regulator-item, .geopolitics-item, .conflict-item, .energy-item, .specialized-item, .institution-item, .intermediary-item, .retail-item, .factor-category {
+.regulator-item, .geopolitics-item, .conflict-item, .energy-item, .specialized-item, .institution-item, .intermediary-item, .retail-item, .factor-category  .key-solutions{
   background: var(--card-bg);
   border: 2px solid var(--primary-color);
   border-radius: 12px;
@@ -987,26 +987,26 @@
   transition: transform 0.2s ease;
 }
 
-.regulator-item:hover, .geopolitics-item:hover, .conflict-item:hover, .energy-item:hover, .specialized-item:hover, .institution-item:hover, .intermediary-item:hover, .retail-item:hover, .factor-category:hover {
+.regulator-item:hover, .geopolitics-item:hover, .conflict-item:hover, .energy-item:hover, .specialized-item:hover, .institution-item:hover, .intermediary-item:hover, .retail-item:hover, .factor-category:hover, .key-solutions {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-.regulator-item h4, .geopolitics-item h4, .conflict-item h4, .energy-item h4, .specialized-item h4, .institution-item h4, .intermediary-item h4, .retail-item h4, .factor-category h4 {
+.regulator-item h4, .geopolitics-item h4, .conflict-item h4, .energy-item h4, .specialized-item h4, .institution-item h4, .intermediary-item h4, .retail-item h4, .factor-category h4 ,.key-solutions h4{
   color: var(--primary-color);
   margin-bottom: 0.8rem;
   font-size: 1.1rem;
 }
 
 /* Details 分组统一样式 */
-.fund-details, .bank-details, .quant-details, .regulator-details, .strategy-details, .event-details, .macro-details, .retail-types, .behavior-patterns, .lifecycle-stages, .competition-framework, .financial-metrics, .moat-analysis, .investment-clock, .monetary-policy, .geopolitics, .ai-trends, .green-trends, .population-trends, .market-conditions, .micro-factors, .meso-factors, .macro-factors {
+.fund-details, .bank-details, .quant-details, .regulator-details, .strategy-details, .event-details, .macro-details, .retail-types, .behavior-patterns, .lifecycle-stages, .competition-framework, .financial-metrics, .moat-analysis, .investment-clock, .monetary-policy, .geopolitics, .ai-trends, .green-trends, .population-trends, .market-conditions, .micro-factors, .meso-factors, .macro-factors ,.key-solution{
   background: var(--bg-secondary);
   border-radius: 8px;
   padding: 1rem;
   margin-top: 1rem;
 }
 
-.fund-details h5, .bank-details h5, .quant-details h5, .regulator-details h5, .strategy-details h5, .event-details h5, .macro-details h5, .retail-types h5, .behavior-patterns h5, .lifecycle-stages h5, .competition-framework h5, .financial-metrics h5, .moat-analysis h5, .investment-clock h5, .monetary-policy h5, .geopolitics h5, .ai-trends h5, .green-trends h5, .population-trends h5, .market-conditions h5, .micro-factors h5, .meso-factors h5, .macro-factors h5 {
+.fund-details h5, .bank-details h5, .quant-details h5, .regulator-details h5, .strategy-details h5, .event-details h5, .macro-details h5, .retail-types h5, .behavior-patterns h5, .lifecycle-stages h5, .competition-framework h5, .financial-metrics h5, .moat-analysis h5, .investment-clock h5, .monetary-policy h5, .geopolitics h5, .ai-trends h5, .green-trends h5, .population-trends h5, .market-conditions h5, .micro-factors h5, .meso-factors h5, .macro-factors h5, .key-solution h5 {
   color: var(--primary-color);
   margin-bottom: 0.8rem;
   font-size: 1rem;

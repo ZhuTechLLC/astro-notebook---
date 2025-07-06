@@ -623,18 +623,7 @@ code {
   border: 1px solid var(--table-border);
 }
 
-pre {
-  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-  color: #ecf0f1;
-  padding: 1.8em;
-  border-radius: 8px;
-  overflow-x: auto;
-  margin: 2em 0;
-  font-family: "Consolas", "Monaco", "Courier New", monospace;
-  font-size: 0.9em;
-  line-height: 1.6;
-  box-shadow: var(--shadow);
-}
+/* 旧的pre样式已移动到components.css中，使用Shiki语法高亮 */
 
 pre code {
   background: none;

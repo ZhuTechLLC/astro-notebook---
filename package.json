@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.0",
+    "@shikijs/transformers": "^3.7.0",
     "astro": "^5.10.1",
     "mathjax-full": "^3.2.2",
     "rehype-mathjax": "^7.1.0"

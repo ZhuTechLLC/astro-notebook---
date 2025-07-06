@@ -100,6 +100,19 @@ currentBook: theory
     </div>
     <a href="/007_Chapter7/7.6_ChatGPT_Integration_CN" class="chapter-link">开始学习</a>
   </div>
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-number">7.7</span>
+      <h3>QuantConnect与IBKR联用的量化交易系统</h3>
+    </div>
+    <p>深入探讨QuantConnect云端量化平台与Interactive Brokers的集成应用，包括自动化交易策略开发、回测优化、实盘部署等完整流程。</p>
+    <div class="chapter-features">
+      <span class="feature-tag">量化交易</span>
+      <span class="feature-tag">云端平台</span>
+      <span class="feature-tag">自动化执行</span>
+    </div>
+    <a href="/007_Chapter7/7.7_QuantConnect_IBKR_Integration_CN" class="chapter-link">开始学习</a>
+  </div>
 </div>
 
 ## 学习目标
@@ -150,7 +163,7 @@ currentBook: theory
 
 ## 学习建议
 
-1. **循序渐进**：按照7.1→7.2→7.3→7.4→7.5→7.6的顺序学习，构建完整的工具体系
+1. **循序渐进**：按照7.1→7.2→7.3→7.4→7.5→7.6→7.7的顺序学习，构建完整的工具体系
 2. **实践结合**：每学完一个工具，及时进行实际操作和练习
 3. **工具协同**：学会不同工具的协同使用，发挥最大效果
 4. **持续更新**：关注工具的最新功能和政策变化，保持竞争力

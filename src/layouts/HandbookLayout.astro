@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import CodeCopyButton from '../components/CodeCopyButton.astro';
 
 export interface Props {
   title: string;
@@ -56,6 +57,7 @@ const {
   alt={alt}
 >
   <slot />
+  <CodeCopyButton />
 </Layout>
 
 <style>

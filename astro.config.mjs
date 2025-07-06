@@ -1,6 +1,14 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import rehypeMathjax from 'rehype-mathjax';
+import {
+  transformerNotationDiff,
+  transformerNotationHighlight,
+  transformerNotationFocus,
+  transformerMetaHighlight,
+  transformerMetaWordHighlight,
+  transformerNotationWordHighlight
+} from '@shikijs/transformers';
 
 export default defineConfig({
   integrations: [mdx()],
@@ -10,13 +18,29 @@ export default defineConfig({
     // 配置remark和rehype插件
     remarkPlugins: [],
     rehypePlugins: [rehypeMathjax],
-    // 代码高亮配置
+    // 代码高亮配置 - 使用Shiki和VS Code主题
+    syntaxHighlight: 'shiki',
     shikiConfig: {
-      theme: {
-        light: 'github-light',
-        dark: 'github-dark'
+      // 使用VS Code官方主题
+      themes: {
+        light: 'light-plus',
+        dark: 'dark-plus'
       },
-      wrap: true
+      // 启用代码换行
+      wrap: true,
+      // 保持代码缩进格式
+      preserveIndent: true,
+      // 支持的语言（保持默认设置）
+      langs: [],
+      // 添加转换器支持
+      transformers: [
+        transformerNotationDiff(),
+        transformerNotationHighlight(),
+        transformerNotationFocus(),
+        transformerMetaHighlight(),
+        transformerMetaWordHighlight(),
+        transformerNotationWordHighlight()
+      ]
     }
   }
 });

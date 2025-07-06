@@ -723,267 +723,58 @@ print(aapl_data.head())
 }
 </style>
 
-## K.1.6 公式格式规范与混合渲染最佳实践
+## 📊 可视化组件使用总结
 
-### 1. 推荐用法：纯Markdown公式
+### 🎯 组件选择指南
 
-- 适用范围：绝大多数章节、知识点、正文内容
-- 写法示例：
+| 使用场景 | 推荐组件 | 主要特点 |
+|---------|---------|---------|
+| 系统架构、流程展示 | 流程图组件 | 清晰的步骤展示，支持箭头连接 |
+| 功能模块、工具介绍 | 组件网格 | 响应式布局，图标+文字说明 |
+| 投资模型、因子分析 | 多因子模型 | 公式展示+分类详述 |
+| 指标监控、数据展示 | 指标展示 | 分类展示，图标标识 |
+| 关键词、标签分类 | 标签系统 | 颜色区分，分组展示 |
 
-  行内公式：`$E=mc^2$`
+### 🎨 设计原则
 
-  块级公式：
-  ```
-  $$
-  \int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}
-  $$
-  ```
-- 优点：结构清晰、渲染稳定、便于维护
+1. **一致性原则**：同一页面使用相同风格的组件
+2. **简洁性原则**：避免过度装饰，突出内容本身
+3. **响应式原则**：确保在不同设备上都有良好体验
+4. **可访问性原则**：使用语义化图标和清晰的文字描述
 
-### 2. 特殊场景：HTML标签+前端MathJax渲染
+### 🔧 技术要点
 
-- 适用范围：
-  - 需要在表格、交互组件、弹窗等复杂HTML结构中插入公式
-  - 需要为单个公式定制样式或动态渲染
-- 写法示例：
+1. **样式复用**：所有组件样式已统一定义在 `/src/styles/components.css`
+2. **HTML结构**：严格遵循模板结构，保持HTML标签间零空行
+3. **图标选择**：使用emoji图标，确保跨平台兼容性
+4. **颜色系统**：依赖CSS变量，自动适配亮色/暗色主题
 
-  ```html
-  <div class="custom-math-formula">$$E=mc^2$$</div>
-  <span class="inline-math">$a^2+b^2=c^2$</span>
-  ```
-- 配合前端MathJax脚本（在布局文件<head>中引入）：
-  ```html
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  ```
-- 可用CSS隔离特殊公式样式：
-  ```css
-  .custom-math-formula {
-    color: var(--primary-color);
-    font-size: 1.2em;
-    margin: 1rem 0;
-  }
-  .inline-math {
-    color: var(--success-color);
-    font-weight: bold;
-  }
-  ```
+### 📝 使用建议
 
-### 3. 格式规范建议
+1. **选择合适组件**：根据内容类型选择最适合的可视化组件
+2. **保持内容简洁**：每个卡片的描述控制在1-2行内
+3. **合理使用图标**：选择与内容相关的语义化图标
+4. **注意布局平衡**：避免单行卡片数量过多或过少
+5. **测试响应式效果**：确保在移动端也有良好显示效果
 
-- 常规内容统一用Markdown公式，保持内容结构化、可维护。
-- 特殊场景允许HTML标签+MathJax，但需加自定义class，避免影响全局样式。
-- 在格式规范文档和模板中明确区分两种用法，便于团队协作和后期维护。
-- 如需批量渲染标签内公式，建议在布局文件全局引入MathJax CDN脚本。
+### 🚀 扩展性设计
 
-### 4. 常见场景公式写法与渲染示例
+如需自定义样式，可在页面中添加局部CSS覆盖：
 
-#### 4.1 纯Markdown行内公式
-
-爱因斯坦质能方程：$E=mc^2$，可直接在正文中使用。
-
-#### 4.2 纯Markdown块级公式
-
-$$
-\int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}
-$$
-
-#### 4.3 HTML标签包裹公式
-
-<div class="custom-math-formula">$$E=mc^2$$</div>
-<span class="inline-math">$a^2+b^2=c^2$</span>
-
-#### 4.4 表格内公式
-
-<table class="data-table">
-  <thead>
-    <tr><th>变量</th><th>公式</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>夏普比率</td><td>$$\text{Sharpe Ratio} = \frac{R_p - R_f}{\sigma_p}$$</td></tr>
-    <tr><td>贝塔系数</td><td>$$\beta = \frac{\text{Cov}(r_i, r_m)}{\text{Var}(r_m)}$$</td></tr>
-  </tbody>
-</table>
-
-#### 4.5 交互组件/动态内容内公式
-
-<div class="info-block">
-  <div class="info-title">动态公式演示</div>
-  <div class="info-content">
-    <div class="custom-math-formula">$$f(x) = x^2 + 2x + 1$$</div>
-    <span class="inline-math">$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$</span>
-  </div>
-  <div class="info-explanation">
-    这些公式可通过JS动态插入，MathJax会自动渲染。
-  </div>
-</div>
-
-### 5. 股票数据获取与公司信息交互示例
-
-<div class="info-block">
-  <div class="info-title">股票数据获取与公司信息</div>
-  <div class="info-content">
-    <div class="stock-fetcher">
-      <label for="stock-symbol">股票代码：</label>
-      <input type="text" id="stock-symbol" value="AAPL" placeholder="如AAPL、TSLA、MSFT" />
-      <button id="fetch-stock-btn">获取数据</button>
-    </div>
-    <div id="stock-result" class="stock-result"></div>
-    <div id="stock-profile" class="stock-profile"></div>
-    <div id="stock-chart" class="stock-chart" style="margin-top:1.5rem; text-align:center; color:var(--text-secondary);">请先输入股票代码并点击获取数据，支持AAPL、TSLA、MSFT等美股。</div>
-  </div>
-  <div class="info-explanation">
-    本工具通过Yahoo Finance公开API获取美股实时行情、近30天收盘价折线图及公司简介/财务摘要。输入股票代码后点击“获取数据”即可显示。
-  </div>
-</div>
-
-<!-- 引入Plotly.js CDN -->
-<script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
-<script type="text/javascript">
-  document.addEventListener('DOMContentLoaded', function() {
-    const btn = document.getElementById('fetch-stock-btn');
-    const input = document.getElementById('stock-symbol');
-    const result = document.getElementById('stock-result');
-    const chart = document.getElementById('stock-chart');
-    const profile = document.getElementById('stock-profile');
-    if (!btn || !input || !result || !chart || !profile) return;
-    btn.onclick = async function() {
-      const symbol = input.value.trim().toUpperCase();
-      if (!symbol) {
-        result.innerHTML = '<span style="color:red">请输入股票代码</span>';
-        chart.innerHTML = '请先输入股票代码并点击获取数据，支持AAPL、TSLA、MSFT等美股。';
-        profile.innerHTML = '';
-        return;
-      }
-      result.innerHTML = '正在获取数据...';
-      chart.innerHTML = '';
-      profile.innerHTML = '';
-      try {
-        // 1. 获取实时行情
-        const quoteUrl = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbol}`;
-        const quoteResp = await fetch(quoteUrl);
-        const quoteData = await quoteResp.json();
-        if (!quoteData.quoteResponse || !quoteData.quoteResponse.result || !quoteData.quoteResponse.result.length) {
-          result.innerHTML = `<span style=\"color:red\">未找到股票：${symbol}</span>`;
-          chart.innerHTML = '请先输入股票代码并点击获取数据，支持AAPL、TSLA、MSFT等美股。';
-          return;
-        }
-        const stock = quoteData.quoteResponse.result[0];
-        result.innerHTML = `
-          <div><b>${stock.shortName || stock.symbol}</b> (${stock.symbol})</div>
-          <div>最新价：<b>${stock.regularMarketPrice}</b> ${stock.currency || ''}</div>
-          <div>涨跌：${stock.regularMarketChange} (${stock.regularMarketChangePercent}%)</div>
-          <div>开盘：${stock.regularMarketOpen}，最高：${stock.regularMarketDayHigh}，最低：${stock.regularMarketDayLow}</div>
-          <div>市值：${stock.marketCap ? stock.marketCap.toLocaleString() : 'N/A'}</div>
-        `;
-        // 2. 获取公司简介/财务摘要
-        const profileUrl = `https://query2.finance.yahoo.com/v10/finance/quoteSummary/${symbol}?modules=assetProfile,financialData,defaultKeyStatistics`;
-        const profileResp = await fetch(profileUrl);
-        const profileData = await profileResp.json();
-        if (profileData.quoteSummary && profileData.quoteSummary.result && profileData.quoteSummary.result[0]) {
-          const p = profileData.quoteSummary.result[0];
-          let html = '';
-          if (p.assetProfile) {
-            html += `<div><b>公司简介：</b>${p.assetProfile.longBusinessSummary || ''}</div>`;
-            html += `<div><b>行业：</b>${p.assetProfile.industry || ''}，<b>板块：</b>${p.assetProfile.sector || ''}</div>`;
-            html += `<div><b>地址：</b>${p.assetProfile.address1 || ''} ${p.assetProfile.city || ''} ${p.assetProfile.country || ''}</div>`;
-          }
-          if (p.financialData) {
-            html += `<div><b>市盈率(PE)：</b>${p.defaultKeyStatistics && p.defaultKeyStatistics.trailingPE ? p.defaultKeyStatistics.trailingPE.fmt : 'N/A'}</div>`;
-            html += `<div><b>每股收益(EPS)：</b>${p.defaultKeyStatistics && p.defaultKeyStatistics.trailingEps ? p.defaultKeyStatistics.trailingEps.fmt : 'N/A'}</div>`;
-            html += `<div><b>营收：</b>${p.financialData.totalRevenue ? p.financialData.totalRevenue.fmt : 'N/A'}</div>`;
-            html += `<div><b>净利润率：</b>${p.financialData.profitMargins ? p.financialData.profitMargins.fmt : 'N/A'}</div>`;
-            html += `<div><b>负债率：</b>${p.financialData.debtToEquity ? p.financialData.debtToEquity.fmt : 'N/A'}</div>`;
-          }
-          profile.innerHTML = html;
-        }
-        // 3. 获取近30天K线数据
-        const end = Math.floor(Date.now() / 1000);
-        const start = end - 60*60*24*35;
-        const klineUrl = `https://query1.finance.yahoo.com/v7/finance/download/${symbol}?period1=${start}&period2=${end}&interval=1d&events=history&includeAdjustedClose=true`;
-        const klineResp = await fetch(klineUrl);
-        const csv = await klineResp.text();
-        const lines = csv.split('\n').filter(l => l.trim().length > 0);
-        if (lines.length < 2) {
-          chart.innerHTML = '<span style="color:red">无历史行情数据</span>';
-          return;
-        }
-        const dates = [], closes = [];
-        for (let i = 1; i < lines.length; ++i) {
-          const cols = lines[i].split(',');
-          if (cols.length < 5) continue;
-          dates.push(cols[0]);
-          closes.push(parseFloat(cols[4]));
-        }
-        const showDates = dates.slice(-30);
-        const showCloses = closes.slice(-30);
-        Plotly.newPlot(chart, [{
-          x: showDates,
-          y: showCloses,
-          type: 'scatter',
-          mode: 'lines+markers',
-          line: {color: '#4f46e5', width: 3},
-          marker: {size: 6, color: '#4f46e5'},
-          name: symbol + ' 收盘价'
-        }], {
-          title: symbol + ' 近30日收盘价',
-          xaxis: {title: '日期'},
-          yaxis: {title: '收盘价'},
-          margin: {t: 40, l: 50, r: 20, b: 50},
-          plot_bgcolor: 'rgba(255,255,255,0)',
-          paper_bgcolor: 'rgba(255,255,255,0)'
-        }, {displayModeBar: false, responsive: true});
-      } catch (e) {
-        result.innerHTML = `<span style=\"color:red\">获取失败：${e.message}</span>`;
-        chart.innerHTML = '请先输入股票代码并点击获取数据，支持AAPL、TSLA、MSFT等美股。';
-        profile.innerHTML = '';
-      }
-    };
-  });
-</script>
-
+```css
 <style>
-  .stock-fetcher {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-  .stock-fetcher input {
-    width: 120px;
-    padding: 0.25rem 0.5rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-  }
-  .stock-fetcher button {
-    padding: 0.25rem 0.75rem;
-    background: var(--primary-color);
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  .stock-fetcher button:hover {
-    background: var(--primary-dark);
-  }
-  .stock-result {
-    margin-top: 0.5rem;
-    font-size: 1rem;
-    line-height: 1.7;
-  }
-  .stock-profile {
-    margin-top: 0.5rem;
-    font-size: 0.98rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    max-width: 700px;
-  }
-  .stock-chart {
-    width: 100%;
-    min-height: 320px;
-    max-width: 700px;
-    margin: 0 auto;
-  }
+.my-custom-flow .flow-step {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
 </style>
+```
+
+### 📚 参考示例
+
+完整的可视化组件使用示例可参考：
+- `src/pages/007_Chapter7/7.7_QuantConnect_IBKR_Integration_CN.md`
+- `src/styles/README.md` - 详细的组件使用文档
 
 ---
 

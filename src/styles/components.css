@@ -137,8 +137,226 @@
     line-height: 1.4;
 }
 
-/* ========== VS Code 代码主题样式 ========== */
-/* 强制覆盖所有代码块样式 - VS Code Dark 主题 */
+/* ========== VS Code 官方主题样式 ========== */
+
+/* VS Code 主题变量定义 */
+:root {
+  /* 暗色主题 (Dark Plus) */
+  --vscode-dark-bg: #1e1e1e;
+  --vscode-dark-fg: #d4d4d4;
+  --vscode-dark-keyword: #569cd6;
+  --vscode-dark-string: #ce9178;
+  --vscode-dark-comment: #6a9955;
+  --vscode-dark-number: #b5cea8;
+  --vscode-dark-function: #dcdcaa;
+  --vscode-dark-class: #4ec9b0;
+  --vscode-dark-variable: #9cdcfe;
+  --vscode-dark-operator: #d4d4d4;
+  --vscode-dark-punctuation: #d4d4d4;
+  --vscode-dark-constant: #4fc1ff;
+  --vscode-dark-type: #4ec9b0;
+  --vscode-dark-property: #9cdcfe;
+  
+  /* 亮色主题 (Light Plus) */
+  --vscode-light-bg: #ffffff;
+  --vscode-light-fg: #000000;
+  --vscode-light-keyword: #0000ff;
+  --vscode-light-string: #a31515;
+  --vscode-light-comment: #008000;
+  --vscode-light-number: #09885a;
+  --vscode-light-function: #795e26;
+  --vscode-light-class: #267f99;
+  --vscode-light-variable: #001080;
+  --vscode-light-operator: #000000;
+  --vscode-light-punctuation: #000000;
+  --vscode-light-constant: #0000ff;
+  --vscode-light-type: #267f99;
+  --vscode-light-property: #001080;
+}
+
+/* 代码复制按钮容器 */
+.code-container {
+    position: relative;
+    margin: 1.5rem 0;
+}
+
+.copy-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    color: #333333;
+    padding: 8px 12px;
+    font-size: 13px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+    font-family: inherit;
+    z-index: 10;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.code-container:hover .copy-button {
+    opacity: 1;
+}
+
+.copy-button:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.copy-button.copied {
+    background: rgba(102, 187, 106, 0.9);
+    border-color: rgba(102, 187, 106, 0.7);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* 暗色模式代码复制按钮 */
+[data-theme="dark"] .copy-button {
+    background: rgba(45, 45, 45, 0.95);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #d4d4d4;
+}
+
+[data-theme="dark"] .copy-button:hover {
+    background: rgba(60, 60, 60, 1);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .copy-button.copied {
+    background: rgba(102, 187, 106, 0.9);
+    border-color: rgba(102, 187, 106, 0.7);
+    color: #ffffff;
+}
+
+/* 亮色模式代码复制按钮 */
+[data-theme="light"] .copy-button {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 0, 0, 0.15);
+    color: #333333;
+}
+
+[data-theme="light"] .copy-button:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="light"] .copy-button.copied {
+    background: rgba(56, 142, 60, 0.9);
+    border-color: rgba(56, 142, 60, 0.7);
+    color: #ffffff;
+}
+
+/* VS Code Dark Modern 主题 - 完整配色方案 */
+pre,
+.astro-code,
+pre[class*="language-"],
+code[class*="language-"] {
+    background: #f6f8fa !important;
+    color: #1f2328 !important;
+    border: 1px solid #d1d9e0 !important;
+    font-family: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', 'SF Mono', Monaco, 'Inconsolata', 'Roboto Mono', Consolas, 'Courier New', monospace !important;
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+    border-radius: 6px !important;
+    padding: 16px !important;
+    margin: 16px 0 !important;
+    overflow-x: auto !important;
+    tab-size: 4 !important;
+}
+
+code {
+    background-color: rgba(175, 184, 193, 0.2) !important;
+    color: #1f2328 !important;
+    border: 1px solid rgba(175, 184, 193, 0.4) !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    font-family: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', 'SF Mono', Monaco, 'Inconsolata', 'Roboto Mono', Consolas, 'Courier New', monospace !important;
+    font-size: 85% !important;
+}
+
+/* 亮色模式语法高亮 - VS Code Light Modern */
+.token.keyword,
+.token.control-flow,
+.token.directive,
+.token.module {
+    color: #0000ff !important; /* VS Code 关键字蓝 */
+    font-weight: 600 !important;
+}
+
+.token.string,
+.token.char,
+.token.attr-value {
+    color: #a31515 !important; /* VS Code 字符串红 */
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #008000 !important; /* VS Code 注释绿 */
+    font-style: italic !important;
+}
+
+.token.number,
+.token.boolean,
+.token.constant {
+    color: #09885a !important; /* VS Code 数字绿 */
+}
+
+.token.function,
+.token.function-name,
+.token.method {
+    color: #795e26 !important; /* VS Code 函数棕 */
+}
+
+.token.class-name,
+.token.type-class-name,
+.token.builtin {
+    color: #267f99 !important; /* VS Code 类型青 */
+}
+
+.token.variable,
+.token.parameter {
+    color: #001080 !important; /* VS Code 变量蓝 */
+}
+
+.token.operator,
+.token.punctuation {
+    color: #000000 !important; /* VS Code 操作符黑 */
+}
+
+.token.tag {
+    color: #800000 !important; /* VS Code 标签红 */
+}
+
+.token.attr-name {
+    color: #ff0000 !important; /* VS Code 属性名红 */
+}
+
+.token.selector,
+.token.property {
+    color: #ff0000 !important; /* VS Code 选择器红 */
+}
+
+.token.regex {
+    color: #811f3f !important; /* VS Code 正则表达式紫红 */
+}
+
+.token.important {
+    color: #cd3131 !important; /* VS Code 重要内容红 */
+    font-weight: 700 !important;
+}
+
+/* 暗色模式 - VS Code Dark Modern 主题 */
 [data-theme="dark"] pre,
 [data-theme="dark"] .astro-code,
 [data-theme="dark"] pre[class*="language-"],
@@ -148,7 +366,12 @@
     border: 1px solid #3e3e3e !important;
     font-family: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', 'SF Mono', Monaco, 'Inconsolata', 'Roboto Mono', Consolas, 'Courier New', monospace !important;
     font-size: 14px !important;
-    line-height: 1.5 !important;
+    line-height: 1.45 !important;
+    border-radius: 6px !important;
+    padding: 16px !important;
+    margin: 16px 0 !important;
+    overflow-x: auto !important;
+    tab-size: 4 !important;
 }
 
 [data-theme="dark"] code {
@@ -158,14 +381,16 @@
     padding: 2px 6px !important;
     border-radius: 4px !important;
     font-family: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', 'SF Mono', Monaco, 'Inconsolata', 'Roboto Mono', Consolas, 'Courier New', monospace !important;
+    font-size: 85% !important;
 }
 
-/* VS Code Dark 主题语法高亮 - 完整配色 */
+/* 暗色模式语法高亮 - VS Code Dark Modern 完整配色 */
 [data-theme="dark"] .token.keyword,
 [data-theme="dark"] .token.control-flow,
 [data-theme="dark"] .token.directive,
 [data-theme="dark"] .token.module {
     color: #569cd6 !important; /* VS Code 关键字蓝 */
+    font-weight: 600 !important;
 }
 
 [data-theme="dark"] .token.string,
@@ -215,12 +440,12 @@
 }
 
 [data-theme="dark"] .token.attr-name {
-    color: #9cdcfe !important; /* VS Code 属性名浅蓝 */
+    color: #92c5f8 !important; /* VS Code 属性名浅蓝 */
 }
 
 [data-theme="dark"] .token.selector,
 [data-theme="dark"] .token.property {
-    color: #d7ba7d !important; /* VS Code CSS属性金色 */
+    color: #d7ba7d !important; /* VS Code 选择器金 */
 }
 
 [data-theme="dark"] .token.regex {
@@ -228,107 +453,241 @@
 }
 
 [data-theme="dark"] .token.important {
-    color: #ff6b6b !important;
-    font-weight: bold !important;
+    color: #f44747 !important; /* VS Code 重要内容红 */
+    font-weight: 700 !important;
 }
 
-/* Python 特定语法高亮 */
+/* 语言特定的语法高亮增强 */
 [data-theme="dark"] .language-python .token.decorator {
-    color: #dcdcaa !important;
+    color: #ffd700 !important; /* Python 装饰器金色 */
 }
 
 [data-theme="dark"] .language-python .token.triple-quoted-string {
-    color: #ce9178 !important;
+    color: #6a9955 !important; /* Python 文档字符串绿色 */
+    font-style: italic !important;
 }
 
-/* JavaScript/TypeScript 特定语法高亮 */
 [data-theme="dark"] .language-javascript .token.template-string,
 [data-theme="dark"] .language-typescript .token.template-string {
-    color: #ce9178 !important;
+    color: #ce9178 !important; /* JS/TS 模板字符串橙色 */
 }
 
 [data-theme="dark"] .language-javascript .token.template-punctuation,
 [data-theme="dark"] .language-typescript .token.template-punctuation {
-    color: #569cd6 !important;
+    color: #569cd6 !important; /* JS/TS 模板标点蓝色 */
 }
 
-/* CSS 特定语法高亮 */
 [data-theme="dark"] .language-css .token.atrule {
-    color: #c586c0 !important;
+    color: #c586c0 !important; /* CSS @规则紫色 */
 }
 
 [data-theme="dark"] .language-css .token.url {
-    color: #ce9178 !important;
+    color: #ce9178 !important; /* CSS URL橙色 */
 }
 
-/* SQL 特定语法高亮 */
 [data-theme="dark"] .language-sql .token.keyword {
-    color: #569cd6 !important;
-    text-transform: uppercase;
+    color: #569cd6 !important; /* SQL 关键字蓝色 */
+    text-transform: uppercase !important;
 }
 
-/* Shell/Bash 特定语法高亮 */
 [data-theme="dark"] .language-bash .token.shebang,
 [data-theme="dark"] .language-shell .token.shebang {
-    color: #6a9955 !important;
+    color: #6a9955 !important; /* Bash shebang绿色 */
 }
 
 [data-theme="dark"] .language-bash .token.environment,
 [data-theme="dark"] .language-shell .token.environment {
-    color: #9cdcfe !important;
+    color: #9cdcfe !important; /* Bash 环境变量浅蓝 */
+}
+
+/* 亮色模式语言特定增强 */
+.language-python .token.decorator {
+    color: #af00db !important; /* Python 装饰器紫色 */
+}
+
+.language-python .token.triple-quoted-string {
+    color: #008000 !important; /* Python 文档字符串绿色 */
+    font-style: italic !important;
+}
+
+.language-javascript .token.template-string,
+.language-typescript .token.template-string {
+    color: #a31515 !important; /* JS/TS 模板字符串红色 */
+}
+
+.language-css .token.atrule {
+    color: #800080 !important; /* CSS @规则紫色 */
+}
+
+.language-sql .token.keyword {
+    color: #0000ff !important; /* SQL 关键字蓝色 */
+    text-transform: uppercase !important;
+}
+
+/* 代码块滚动条样式 */
+pre::-webkit-scrollbar {
+    height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] pre::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] pre::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] pre::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Shiki 语法高亮增强 - 支持双主题 */
+.astro-code {
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    background: var(--shiki-light-bg, #ffffff) !important;
+    color: var(--shiki-light, #000000) !important;
+}
+
+.astro-code .line {
+    line-height: 1.5;
+    min-height: 1.5em;
+}
+
+/* 暗色主题下的Shiki样式 */
+[data-theme="dark"] .astro-code {
+    background: var(--shiki-dark-bg, #1e1e1e) !important;
+    color: var(--shiki-dark, #d4d4d4) !important;
+}
+
+/* 确保Shiki的CSS变量生效 */
+[data-theme="dark"] .astro-code,
+[data-theme="dark"] .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+/* 亮色主题下的Shiki样式 */
+[data-theme="light"] .astro-code,
+[data-theme="light"] .astro-code span {
+    color: var(--shiki-light) !important;
+    background-color: var(--shiki-light-bg) !important;
+    font-style: var(--shiki-light-font-style) !important;
+    font-weight: var(--shiki-light-font-weight) !important;
+    text-decoration: var(--shiki-light-text-decoration) !important;
+}
+
+/* 媒体查询自动主题切换 */
+@media (prefers-color-scheme: dark) {
+    .astro-code:not([data-theme]) {
+        background: var(--shiki-dark-bg, #1e1e1e) !important;
+        color: var(--shiki-dark, #d4d4d4) !important;
+    }
+    
+    .astro-code:not([data-theme]) span {
+        color: var(--shiki-dark) !important;
+        background-color: var(--shiki-dark-bg) !important;
+        font-style: var(--shiki-dark-font-style) !important;
+        font-weight: var(--shiki-dark-font-weight) !important;
+        text-decoration: var(--shiki-dark-text-decoration) !important;
+    }
+}
+
+/* 代码块的行号支持 */
+.astro-code .line::before {
+    content: attr(data-line);
+    display: inline-block;
+    width: 1rem;
+    margin-right: 1rem;
+    text-align: right;
+    color: var(--shiki-light, #999999);
+    opacity: 0.5;
+}
+
+[data-theme="dark"] .astro-code .line::before {
+    color: var(--shiki-dark, #6e7681);
+}
+
+/* 代码块焦点和高亮支持 */
+.astro-code .line.highlighted {
+    background-color: rgba(255, 255, 0, 0.1);
+    border-left: 3px solid #ffd700;
+    padding-left: 0.5rem;
+}
+
+[data-theme="dark"] .astro-code .line.highlighted {
+    background-color: rgba(255, 255, 0, 0.15);
+}
+
+.astro-code .line.focused {
+    background-color: rgba(0, 123, 255, 0.1);
+    border-left: 3px solid #007bff;
+    padding-left: 0.5rem;
+}
+
+[data-theme="dark"] .astro-code .line.focused {
+    background-color: rgba(0, 123, 255, 0.15);
+}
+
+/* 代码差异显示 */
+.astro-code .line.diff.add {
+    background-color: rgba(40, 167, 69, 0.15);
+    border-left: 3px solid #28a745;
+}
+
+.astro-code .line.diff.remove {
+    background-color: rgba(220, 53, 69, 0.15);
+    border-left: 3px solid #dc3545;
 }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-    .overview-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+    pre,
+    .astro-code,
+    pre[class*="language-"],
+    code[class*="language-"] {
+        font-size: 13px !important;
+        padding: 12px !important;
+        margin: 12px 0 !important;
     }
     
-    .metrics-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .metric-value {
-        font-size: 1.5rem;
-    }
-    
-    .chapter-overview,
-    .key-points,
-    .key-points-summary,
-    .key-points-bio,
-    .key-points-ne,
-    .key-points-semi {
-        padding: 1.5rem;
-        margin: 1.5rem 0;
+    .copy-button {
+        top: 6px;
+        right: 6px;
+        padding: 4px 8px;
+        font-size: 11px;
     }
 }
 
-/* 暗色模式适配 */
-[data-theme="dark"] .chapter-overview,
-[data-theme="dark"] .key-points,
-[data-theme="dark"] .key-points-summary,
-[data-theme="dark"] .key-points-bio,
-[data-theme="dark"] .key-points-ne,
-[data-theme="dark"] .key-points-semi {
-    background: linear-gradient(135deg, rgba(102, 187, 106, 0.1) 0%, rgba(102, 187, 106, 0.05) 100%);
-    border-color: var(--primary-color);
-}
-
-[data-theme="dark"] .overview-card,
-[data-theme="dark"] .overview-item,
-[data-theme="dark"] .metric-card,
-[data-theme="dark"] .metric-item {
-    background: var(--card-bg);
-    border-color: var(--border-color);
-}
-
-[data-theme="dark"] .overview-card:hover,
-[data-theme="dark"] .overview-item:hover,
-[data-theme="dark"] .metric-card:hover,
-[data-theme="dark"] .metric-item:hover {
-    box-shadow: 0 4px 12px rgba(102, 187, 106, 0.2);
+@media (max-width: 480px) {
+    pre,
+    .astro-code,
+    pre[class*="language-"],
+    code[class*="language-"] {
+        font-size: 12px !important;
+        padding: 10px !important;
+        border-radius: 4px !important;
+    }
 }
 
 /* ========== 结构性内容样式定义 ========== */
@@ -1122,5 +1481,489 @@
 }
 [data-theme="dark"] .info-block {
   background: var(--card-bg);
+  border-color: var(--primary-color);
+}
+
+/* ========== 新增可视化组件样式 ========== */
+
+/* 流程图组件样式 */
+.framework-overview,
+.risk-management-system,
+.disaster-recovery,
+.optimization-cycle {
+  padding: 1.5rem;
+}
+
+.framework-flow,
+.risk-flow,
+.recovery-flow,
+.cycle-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.flow-step,
+.risk-step,
+.recovery-step,
+.cycle-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  background: var(--bg-primary);
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
+  min-width: 120px;
+  transition: all 0.3s ease;
+}
+
+.flow-step:hover,
+.risk-step:hover,
+.recovery-step:hover,
+.cycle-step:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.step-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.step-title {
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.step-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.flow-arrow {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* 组件网格样式 */
+.component-grid,
+.method-grid,
+.mechanism-grid,
+.metrics-grid,
+.direction-grid,
+.validation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.component-card,
+.method-card,
+.mechanism-card,
+.metric-card,
+.direction-card,
+.validation-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--card-bg);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.component-card:hover,
+.method-card:hover,
+.mechanism-card:hover,
+.metric-card:hover,
+.direction-card:hover,
+.validation-card:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.component-icon,
+.method-icon,
+.mechanism-icon,
+.metric-icon,
+.direction-icon,
+.validation-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.component-name,
+.method-name,
+.mechanism-name,
+.metric-name,
+.direction-name,
+.validation-name {
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.component-desc,
+.mechanism-desc,
+.direction-desc,
+.validation-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* 指标展示样式 */
+.risk-indicators,
+.monitoring-indicators {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.indicator-section,
+.indicator-category {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.section-title,
+.category-title {
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.indicator-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.indicator-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.indicator-item:hover {
+  border-color: var(--primary-color);
+}
+
+.indicator-icon {
+  font-size: 1.25rem;
+}
+
+.indicator-name {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* 多因子模型样式 */
+.factor-model {
+  padding: 1.5rem;
+}
+
+.factor-equation {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.equation-title {
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.equation-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.factor-box {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.plus-sign {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.factor-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.factor-category {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.category-icon {
+  font-size: 1.5rem;
+}
+
+.factor-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.factor-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.factor-item:hover {
+  border-color: var(--primary-color);
+}
+
+.factor-icon {
+  font-size: 1.25rem;
+  margin-top: 0.1rem;
+}
+
+.factor-name {
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.factor-desc {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* 合成方法样式 */
+.synthesis-methods,
+.optimization-directions,
+.validation-methods {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
+}
+
+.method-title,
+.direction-title,
+.validation-title {
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.method-card {
+  padding: 1rem;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.method-name {
+  font-size: 0.9rem;
+}
+
+/* 容灾系统特有样式 */
+.detection-mechanisms {
+  margin-bottom: 2rem;
+}
+
+.mechanism-section {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.disaster-metrics {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.metrics-title {
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.metric-value {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.metric-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* 优化框架特有样式 */
+.indicator-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.indicator-group {
+  background: var(--bg-primary);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.group-title {
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.group-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.indicator-tag {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .framework-flow,
+  .risk-flow,
+  .recovery-flow,
+  .cycle-flow {
+    flex-direction: column;
+  }
+  
+  .flow-arrow {
+    transform: rotate(90deg);
+  }
+  
+  .equation-visual {
+    flex-direction: column;
+  }
+  
+  .plus-sign {
+    transform: rotate(90deg);
+  }
+  
+  .factor-categories,
+  .component-grid,
+  .method-grid,
+  .mechanism-grid,
+  .metrics-grid,
+  .indicator-grid,
+  .direction-grid,
+  .validation-grid,
+  .risk-indicators,
+  .monitoring-indicators {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 暗色主题适配 */
+[data-theme="dark"] .framework-overview,
+[data-theme="dark"] .risk-management-system,
+[data-theme="dark"] .disaster-recovery,
+[data-theme="dark"] .optimization-cycle,
+[data-theme="dark"] .factor-model {
+  background: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .flow-step,
+[data-theme="dark"] .risk-step,
+[data-theme="dark"] .recovery-step,
+[data-theme="dark"] .cycle-step,
+[data-theme="dark"] .component-card,
+[data-theme="dark"] .method-card,
+[data-theme="dark"] .mechanism-card,
+[data-theme="dark"] .metric-card,
+[data-theme="dark"] .direction-card,
+[data-theme="dark"] .validation-card {
+  background: var(--bg-primary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .flow-step:hover,
+[data-theme="dark"] .risk-step:hover,
+[data-theme="dark"] .recovery-step:hover,
+[data-theme="dark"] .cycle-step:hover,
+[data-theme="dark"] .component-card:hover,
+[data-theme="dark"] .method-card:hover,
+[data-theme="dark"] .mechanism-card:hover,
+[data-theme="dark"] .metric-card:hover,
+[data-theme="dark"] .direction-card:hover,
+[data-theme="dark"] .validation-card:hover {
   border-color: var(--primary-color);
 }

@@ -766,7 +766,7 @@ print(aapl_data.head())
 .my-custom-flow .flow-step {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-}
+  }
 </style>
 ```
 

@@ -804,7 +804,12 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
             currentPath.startsWith('/008_') || currentPath.startsWith('/009_') || 
             currentPath.startsWith('/010_') || currentPath.startsWith('/011_')) {
           currentBook = 'theory';
-        } else if (currentPath.includes('/macro')) {
+        } else if (currentPath.startsWith('/201_') || currentPath.startsWith('/202_') || 
+            currentPath.startsWith('/203_') || currentPath.startsWith('/204_') || 
+            currentPath.startsWith('/205_') || currentPath.startsWith('/206_') || 
+            currentPath.startsWith('/207_') || currentPath.startsWith('/208_') || 
+            currentPath.startsWith('/209_') || currentPath.startsWith('/210_') || 
+            currentPath.startsWith('/211_') || currentPath.includes('/macro')) {
           currentBook = 'macro';
         } else if (currentPath.includes('/stocks')) {
           currentBook = 'stocks';
@@ -846,7 +851,19 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           macro: {
             title: '🌍 美股投资实操手册II',
             chapters: [
-              { number: '📖', title: '宏观经济分析', url: '/handbook/macro' }
+              { number: '📖', title: '宏观经济分析导航', url: '/handbook/macro' },
+              { number: '1️⃣', title: '第一章：市场趋势判断的重要性', url: '/201_Chapter1_Market_Trend_Analysis_CN' },
+              { number: '2️⃣', title: '第二章：经济周期与股市表现', url: '/202_Chapter2_Economic_Cycles_and_Market_Performance_CN' },
+              { number: '3️⃣', title: '第三章：货币政策与股市传导机制', url: '/203_Chapter3_Monetary_Policy_and_Market_Transmission_CN' },
+              { number: '4️⃣', title: '第四章：核心经济指标分析与追踪', url: '/204_Chapter4_Core_Economic_Indicators_Analysis_CN' },
+              { number: '5️⃣', title: '第五章：地缘政治与全球市场', url: '/205_Chapter5_Geopolitics_and_Global_Markets_CN' },
+              { number: '6️⃣', title: '第六章：流动性与资金流向', url: '/206_Chapter6_Liquidity_and_Capital_Flows_CN' },
+              { number: '7️⃣', title: '第七章：市场情绪与交易心理', url: '/207_Chapter7_Market_Sentiment_and_Trading_Psychology_CN' },
+              { number: '8️⃣', title: '第八章：前瞻性指标与模型构建', url: '/208_Chapter8_Predictive_Indicators_and_Model_Building_CN' },
+              { number: '9️⃣', title: '第九章：实时宏观数据监控系统', url: '/209_Chapter9_Real_Time_Macro_Data_Monitoring_CN' },
+              { number: '🔟', title: '第十章：数据源与分析工具', url: '/210_Chapter10_Data_Sources_and_Analysis_Tools_CN' },
+              { number: '1️⃣1️⃣', title: '第十一章：综合投资交易策略', url: '/211_Chapter11_Comprehensive_Investment_Trading_Strategies_CN' },
+              { number: '📋', title: '附录', url: '/212_Appendix_CN' }
             ]
           },
           stocks: {
@@ -986,6 +1003,21 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
             currentPath.startsWith('/011_Appendix') ||
             currentPath.startsWith('/000_Preface')) {
           return '/handbook/theory';
+        }
+        
+        // 如果在第二册章节页，返回第二册导航页
+        if (currentPath.startsWith('/201_Chapter') || 
+            currentPath.startsWith('/202_Chapter') || 
+            currentPath.startsWith('/203_Chapter') || 
+            currentPath.startsWith('/204_Chapter') || 
+            currentPath.startsWith('/205_Chapter') || 
+            currentPath.startsWith('/206_Chapter') || 
+            currentPath.startsWith('/207_Chapter') || 
+            currentPath.startsWith('/208_Chapter') || 
+            currentPath.startsWith('/209_Chapter') || 
+            currentPath.startsWith('/210_Chapter') || 
+            currentPath.startsWith('/211_Chapter')) {
+          return '/handbook/macro';
         }
         
         // 如果在手册导航页，返回首页
@@ -1161,8 +1193,24 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           '/011_Appendix/L.1_Handbook_Summary_and_Format_Optimization_CN',
           
           
-          // 69-72. 其他手册导航页
+          // 69. 第二册导航页
           '/handbook/macro',
+          
+          // 70-80. 第二册章节
+          '/201_Chapter1_Market_Trend_Analysis_CN',
+          '/202_Chapter2_Economic_Cycles_and_Market_Performance_CN',
+          '/203_Chapter3_Monetary_Policy_and_Market_Transmission_CN',
+          '/204_Chapter4_Core_Economic_Indicators_Analysis_CN',
+          '/205_Chapter5_Geopolitics_and_Global_Markets_CN',
+          '/206_Chapter6_Liquidity_and_Capital_Flows_CN',
+          '/207_Chapter7_Market_Sentiment_and_Trading_Psychology_CN',
+          '/208_Chapter8_Predictive_Indicators_and_Model_Building_CN',
+          '/209_Chapter9_Real_Time_Macro_Data_Monitoring_CN',
+          '/210_Chapter10_Data_Sources_and_Analysis_Tools_CN',
+          '/211_Chapter11_Comprehensive_Investment_Trading_Strategies_CN',
+          '/212_Appendix_CN',
+          
+          // 81-84. 其他手册导航页
           '/handbook/stocks', 
           '/handbook/technical',
           '/handbook/quantitative'

@@ -804,12 +804,13 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
             currentPath.startsWith('/008_') || currentPath.startsWith('/009_') || 
             currentPath.startsWith('/010_') || currentPath.startsWith('/011_')) {
           currentBook = 'theory';
-        } else if (currentPath.startsWith('/201_') || currentPath.startsWith('/202_') || 
-            currentPath.startsWith('/203_') || currentPath.startsWith('/204_') || 
-            currentPath.startsWith('/205_') || currentPath.startsWith('/206_') || 
-            currentPath.startsWith('/207_') || currentPath.startsWith('/208_') || 
-            currentPath.startsWith('/209_') || currentPath.startsWith('/210_') || 
-            currentPath.startsWith('/211_') || currentPath.includes('/macro')) {
+        } else if (currentPath.startsWith('/book2/201_') || currentPath.startsWith('/book2/202_') || 
+            currentPath.startsWith('/book2/203_') || currentPath.startsWith('/book2/204_') || 
+            currentPath.startsWith('/book2/205_') || currentPath.startsWith('/book2/206_') || 
+            currentPath.startsWith('/book2/207_') || currentPath.startsWith('/book2/208_') || 
+            currentPath.startsWith('/book2/209_') || currentPath.startsWith('/book2/210_') || 
+            currentPath.startsWith('/book2/211_') || currentPath.startsWith('/book2/212_') || 
+            currentPath.includes('/macro')) {
           currentBook = 'macro';
         } else if (currentPath.includes('/stocks')) {
           currentBook = 'stocks';
@@ -834,36 +835,36 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
             title: '📖 美股投资实操手册I',
             chapters: [
               { number: '✨', title: '总序：投资实用手册导读', url: '/000_Series_Preface_CN' },
-              { number: '📖', title: '序言', url: '/000_Preface_CN' },
-              { number: '1️⃣', title: '第一章：投资认知起点', url: '/001_Chapter1_Know_Yourself_and_the_World_CN' },
-              { number: '2️⃣', title: '第二章：投资心理与风险管理', url: '/002_Chapter2_Investment_Psychology_and_Risk_Management_CN' },
-              { number: '3️⃣', title: '第三章：历史规律与高倍股研究', url: '/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_CN' },
-              { number: '4️⃣', title: '第四章：赛道选择与行业趋势', url: '/004_Chapter4_Track_Selection_and_Industry_Trends_CN' },
-              { number: '5️⃣', title: '第五章：股票筛选策略', url: '/005_Chapter5_Stock_Screening_Strategies_CN' },
-              { number: '6️⃣', title: '第六章：交易策略与执行', url: '/006_Chapter6_Trading_Strategies_and_Execution_CN' },
-              { number: '7️⃣', title: '第七章：投资决策工具与资源', url: '/007_Chapter7_Investment_Decision_Tools_and_Resources_CN' },
-              { number: '8️⃣', title: '第八章：案例复盘与策略改进', url: '/008_Chapter8_Case_Review_and_Strategy_Improvement_CN' },
-              { number: '9️⃣', title: '第九章：构建投资体系', url: '/009_Chapter9_Building_an_Investment_System_CN' },
-              { number: '🔟', title: '第十章：交易执行与实战指南', url: '/010_Chapter10_Trading_Execution_and_Practical_Guide_CN' },
-              { number: '📋', title: '附录', url: '/011_Appendix_CN' }
+              { number: '📖', title: '序言', url: '/book1/000_Preface_CN' },
+              { number: '1️⃣', title: '第一章：投资认知起点', url: '/book1/001_Chapter1_Know_Yourself_and_the_World_CN' },
+              { number: '2️⃣', title: '第二章：投资心理与风险管理', url: '/book1/002_Chapter2_Investment_Psychology_and_Risk_Management_CN' },
+              { number: '3️⃣', title: '第三章：历史规律与高倍股研究', url: '/book1/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_CN' },
+              { number: '4️⃣', title: '第四章：赛道选择与行业趋势', url: '/book1/004_Chapter4_Track_Selection_and_Industry_Trends_CN' },
+              { number: '5️⃣', title: '第五章：股票筛选策略', url: '/book1/005_Chapter5_Stock_Screening_Strategies_CN' },
+              { number: '6️⃣', title: '第六章：交易策略与执行', url: '/book1/006_Chapter6_Trading_Strategies_and_Execution_CN' },
+              { number: '7️⃣', title: '第七章：投资决策工具与资源', url: '/book1/007_Chapter7_Investment_Decision_Tools_and_Resources_CN' },
+              { number: '8️⃣', title: '第八章：案例复盘与策略改进', url: '/book1/008_Chapter8_Case_Review_and_Strategy_Improvement_CN' },
+              { number: '9️⃣', title: '第九章：构建投资体系', url: '/book1/009_Chapter9_Building_an_Investment_System_CN' },
+              { number: '🔟', title: '第十章：交易执行与实战指南', url: '/book1/010_Chapter10_Trading_Execution_and_Practical_Guide_CN' },
+              { number: '📋', title: '附录', url: '/book1/011_Appendix_CN' }
             ]
           },
           macro: {
             title: '🌍 美股投资实操手册II',
             chapters: [
               { number: '📖', title: '宏观经济分析导航', url: '/handbook/macro' },
-              { number: '1️⃣', title: '第一章：市场趋势判断的重要性', url: '/201_Chapter1_Market_Trend_Analysis_CN' },
-              { number: '2️⃣', title: '第二章：经济周期与股市表现', url: '/202_Chapter2_Economic_Cycles_and_Market_Performance_CN' },
-              { number: '3️⃣', title: '第三章：货币政策与股市传导机制', url: '/203_Chapter3_Monetary_Policy_and_Market_Transmission_CN' },
-              { number: '4️⃣', title: '第四章：核心经济指标分析与追踪', url: '/204_Chapter4_Core_Economic_Indicators_Analysis_CN' },
-              { number: '5️⃣', title: '第五章：地缘政治与全球市场', url: '/205_Chapter5_Geopolitics_and_Global_Markets_CN' },
-              { number: '6️⃣', title: '第六章：流动性与资金流向', url: '/206_Chapter6_Liquidity_and_Capital_Flows_CN' },
-              { number: '7️⃣', title: '第七章：市场情绪与交易心理', url: '/207_Chapter7_Market_Sentiment_and_Trading_Psychology_CN' },
-              { number: '8️⃣', title: '第八章：前瞻性指标与模型构建', url: '/208_Chapter8_Predictive_Indicators_and_Model_Building_CN' },
-              { number: '9️⃣', title: '第九章：实时宏观数据监控系统', url: '/209_Chapter9_Real_Time_Macro_Data_Monitoring_CN' },
-              { number: '🔟', title: '第十章：数据源与分析工具', url: '/210_Chapter10_Data_Sources_and_Analysis_Tools_CN' },
-              { number: '1️⃣1️⃣', title: '第十一章：综合投资交易策略', url: '/211_Chapter11_Comprehensive_Investment_Trading_Strategies_CN' },
-              { number: '📋', title: '附录', url: '/212_Appendix_CN' }
+              { number: '1️⃣', title: '第一章：市场趋势判断的重要性', url: '/book2/201_Chapter1_Market_Trend_Analysis_CN' },
+              { number: '2️⃣', title: '第二章：经济周期与股市表现', url: '/book2/202_Chapter2_Economic_Cycles_and_Market_Performance_CN' },
+              { number: '3️⃣', title: '第三章：货币政策与股市传导机制', url: '/book2/203_Chapter3_Monetary_Policy_and_Market_Transmission_CN' },
+              { number: '4️⃣', title: '第四章：核心经济指标分析与追踪', url: '/book2/204_Chapter4_Core_Economic_Indicators_Analysis_CN' },
+              { number: '5️⃣', title: '第五章：地缘政治与全球市场', url: '/book2/205_Chapter5_Geopolitics_and_Global_Markets_CN' },
+              { number: '6️⃣', title: '第六章：流动性与资金流向', url: '/book2/206_Chapter6_Liquidity_and_Capital_Flows_CN' },
+              { number: '7️⃣', title: '第七章：市场情绪与交易心理', url: '/book2/207_Chapter7_Market_Sentiment_and_Trading_Psychology_CN' },
+              { number: '8️⃣', title: '第八章：前瞻性指标与模型构建', url: '/book2/208_Chapter8_Predictive_Indicators_and_Model_Building_CN' },
+              { number: '9️⃣', title: '第九章：实时宏观数据监控系统', url: '/book2/209_Chapter9_Real_Time_Macro_Data_Monitoring_CN' },
+              { number: '🔟', title: '第十章：数据源与分析工具', url: '/book2/210_Chapter10_Data_Sources_and_Analysis_Tools_CN' },
+              { number: '1️⃣1️⃣', title: '第十一章：综合投资交易策略', url: '/book2/211_Chapter11_Comprehensive_Investment_Trading_Strategies_CN' },
+              { number: '📋', title: '附录', url: '/book2/212_Appendix_CN' }
             ]
           },
           stocks: {
@@ -906,8 +907,8 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         const tocBtn = document.getElementById('tocBtn');
         const prevChapter = document.getElementById('prevChapter');
         const nextChapter = document.getElementById('nextChapter');
-        const prevPageBtn = document.getElementById('prevPageBtn');
-        const nextPageBtn = document.getElementById('nextPageBtn');
+        const prevPageBtn = document.getElementById('prevPageBtn') as HTMLButtonElement | null;
+        const nextPageBtn = document.getElementById('nextPageBtn') as HTMLButtonElement | null;
         
         // 返回首页按钮
         homeBtn?.addEventListener('click', () => {
@@ -924,16 +925,18 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         });
         
         // 顶部导航栏翻页按钮
-        prevPageBtn?.addEventListener('click', () => {
-          navigateToPrevPage();
-        });
-        
-        nextPageBtn?.addEventListener('click', () => {
-          navigateToNextPage();
-        });
-        
-        // 初始化翻页按钮状态
-        updateNavigationButtons();
+        if (prevPageBtn && nextPageBtn) {
+          prevPageBtn.addEventListener('click', () => {
+            navigateToPrevPage();
+          });
+          
+          nextPageBtn.addEventListener('click', () => {
+            navigateToNextPage();
+          });
+          
+          // 初始化翻页按钮状态
+          updateNavigationButtons();
+        }
         
         // 章节导航
         if (state.currentBook === 'theory' && state.currentChapter) {
@@ -956,67 +959,79 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         
         // 如果在子节页面，返回章节导航页
         if (currentPath.includes('/001_Chapter1/')) {
-          return '/001_Chapter1_Know_Yourself_and_the_World_CN';
+          return '/book1/001_Chapter1_Know_Yourself_and_the_World_CN';
         }
         if (currentPath.includes('/002_Chapter2/')) {
-          return '/002_Chapter2_Investment_Psychology_and_Risk_Management_CN';
+          return '/book1/002_Chapter2_Investment_Psychology_and_Risk_Management_CN';
         }
         if (currentPath.includes('/003_Chapter3/')) {
-          return '/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_CN';
+          return '/book1/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_CN';
         }
         if (currentPath.includes('/004_Chapter4/')) {
-          return '/004_Chapter4_Track_Selection_and_Industry_Trends_CN';
+          return '/book1/004_Chapter4_Track_Selection_and_Industry_Trends_CN';
         }
         if (currentPath.includes('/005_Chapter5/')) {
-          return '/005_Chapter5_Stock_Screening_Strategies_CN';
+          return '/book1/005_Chapter5_Stock_Screening_Strategies_CN';
         }
         if (currentPath.includes('/006_Chapter6/')) {
-          return '/006_Chapter6_Trading_Strategies_and_Execution_CN';
+          return '/book1/006_Chapter6_Trading_Strategies_and_Execution_CN';
         }
         if (currentPath.includes('/007_Chapter7/')) {
-          return '/007_Chapter7_Investment_Decision_Tools_and_Resources_CN';
+          return '/book1/007_Chapter7_Investment_Decision_Tools_and_Resources_CN';
         }
         if (currentPath.includes('/008_Chapter8/')) {
-          return '/008_Chapter8_Case_Review_and_Strategy_Improvement_CN';
+          return '/book1/008_Chapter8_Case_Review_and_Strategy_Improvement_CN';
         }
         if (currentPath.includes('/009_Chapter9/')) {
-          return '/009_Chapter9_Building_an_Investment_System_CN';
+          return '/book1/009_Chapter9_Building_an_Investment_System_CN';
         }
         if (currentPath.includes('/010_Chapter10/')) {
-          return '/010_Chapter10_Trading_Execution_and_Practical_Guide_CN';
+          return '/book1/010_Chapter10_Trading_Execution_and_Practical_Guide_CN';
         }
         if (currentPath.includes('/011_Appendix/')) {
-          return '/011_Appendix_CN';
+          return '/book1/011_Appendix_CN';
+        }
+        
+        // 第二册子节页面，返回对应章节导航页
+        if (currentPath.includes('/201_Chapter1/')) {
+          return '/book2/201_Chapter1_Market_Trend_Analysis_CN';
+        }
+        if (currentPath.includes('/202_Chapter2/')) {
+          return '/book2/202_Chapter2_Economic_Cycles_and_Market_Performance_CN';
+        }
+        if (currentPath.includes('/203_Chapter3/')) {
+          return '/book2/203_Chapter3_Monetary_Policy_and_Market_Transmission_CN';
         }
         
         // 如果在章节导航页，返回手册导航页
-        if (currentPath.startsWith('/001_Chapter') || 
-            currentPath.startsWith('/002_Chapter') || 
-            currentPath.startsWith('/003_Chapter') || 
-            currentPath.startsWith('/004_Chapter') || 
-            currentPath.startsWith('/005_Chapter') || 
-            currentPath.startsWith('/006_Chapter') || 
-            currentPath.startsWith('/007_Chapter') || 
-            currentPath.startsWith('/008_Chapter') || 
-            currentPath.startsWith('/009_Chapter') || 
-            currentPath.startsWith('/010_Chapter') || 
-            currentPath.startsWith('/011_Appendix') ||
-            currentPath.startsWith('/000_Preface')) {
+        if (currentPath.startsWith('/book1/001_Chapter') ||
+            currentPath.startsWith('/book1/002_Chapter') ||
+            currentPath.startsWith('/book1/003_Chapter') ||
+            currentPath.startsWith('/book1/004_Chapter') ||
+            currentPath.startsWith('/book1/005_Chapter') ||
+            currentPath.startsWith('/book1/006_Chapter') ||
+            currentPath.startsWith('/book1/007_Chapter') ||
+            currentPath.startsWith('/book1/008_Chapter') ||
+            currentPath.startsWith('/book1/009_Chapter') ||
+            currentPath.startsWith('/book1/010_Chapter') ||
+            currentPath.startsWith('/book1/011_Appendix') ||
+            currentPath.startsWith('/book1/000_Preface')) {
           return '/handbook/theory';
         }
         
         // 如果在第二册章节页，返回第二册导航页
-        if (currentPath.startsWith('/201_Chapter') || 
-            currentPath.startsWith('/202_Chapter') || 
-            currentPath.startsWith('/203_Chapter') || 
-            currentPath.startsWith('/204_Chapter') || 
-            currentPath.startsWith('/205_Chapter') || 
-            currentPath.startsWith('/206_Chapter') || 
-            currentPath.startsWith('/207_Chapter') || 
-            currentPath.startsWith('/208_Chapter') || 
-            currentPath.startsWith('/209_Chapter') || 
-            currentPath.startsWith('/210_Chapter') || 
-            currentPath.startsWith('/211_Chapter')) {
+        if (currentPath.startsWith('/book2/201_Chapter') || 
+            currentPath.startsWith('/book2/202_Chapter') || 
+            currentPath.startsWith('/book2/203_Chapter') || 
+            currentPath.startsWith('/book2/204_Chapter') || 
+            currentPath.startsWith('/book2/205_Chapter') || 
+            currentPath.startsWith('/book2/206_Chapter') || 
+            currentPath.startsWith('/book2/207_Chapter') || 
+            currentPath.startsWith('/book2/208_Chapter') || 
+            currentPath.startsWith('/book2/209_Chapter') || 
+            currentPath.startsWith('/book2/210_Chapter') || 
+            currentPath.startsWith('/book2/211_Chapter') || 
+            currentPath.startsWith('/book2/212_Appendix')) {
           return '/handbook/macro';
         }
         
@@ -1032,18 +1047,18 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
       // 设置章节导航
       function setupChapterNavigation() {
         const chapters = [
-          '/000_Preface_CN',
-          '/001_Chapter1_Know_Yourself_and_the_World_CN',
-          '/002_Chapter2_Investment_Psychology_and_Risk_Management_CN',
-          '/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_CN',
-          '/004_Chapter4_Track_Selection_and_Industry_Trends_CN',
-          '/005_Chapter5_Stock_Screening_Strategies_CN',
-          '/006_Chapter6_Trading_Strategies_and_Execution_CN',
-          '/007_Chapter7_Investment_Decision_Tools_and_Resources_CN',
-          '/008_Chapter8_Case_Review_and_Strategy_Improvement_CN',
-          '/009_Chapter9_Building_an_Investment_System_CN',
-          '/010_Chapter10_Trading_Execution_and_Practical_Guide_CN',
-          '/011_Appendix_CN'
+          '/book1/000_Preface_CN',
+          '/book1/001_Chapter1_Know_Yourself_and_the_World_CN',
+          '/book1/002_Chapter2_Investment_Psychology_and_Risk_Management_CN',
+          '/book1/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_CN',
+          '/book1/004_Chapter4_Track_Selection_and_Industry_Trends_CN',
+          '/book1/005_Chapter5_Stock_Screening_Strategies_CN',
+          '/book1/006_Chapter6_Trading_Strategies_and_Execution_CN',
+          '/book1/007_Chapter7_Investment_Decision_Tools_and_Resources_CN',
+          '/book1/008_Chapter8_Case_Review_and_Strategy_Improvement_CN',
+          '/book1/009_Chapter9_Building_an_Investment_System_CN',
+          '/book1/010_Chapter10_Trading_Execution_and_Practical_Guide_CN',
+          '/book1/011_Appendix_CN'
         ];
         
         const currentIndex = chapters.indexOf(window.location.pathname);
@@ -1078,137 +1093,149 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           '/handbook/theory',
           
           // 3.序言
-          '/000_Preface_CN',
+          '/book1/000_Preface_CN',
           
           // 4.第一章导航页
-          '/001_Chapter1_Know_Yourself_and_the_World_CN',
+          '/book1/001_Chapter1_Know_Yourself_and_the_World_CN',
           
           // 5-7. 第一章子节
-          '/001_Chapter1/1.1_Self_Awareness_and_Investment_Wisdom_CN',
-          '/001_Chapter1/1.2_Understanding_the_World_CN',
-          '/001_Chapter1/1.3_From_Cognition_to_Action_CN',
+          '/book1/001_Chapter1/1.1_Self_Awareness_and_Investment_Wisdom_CN',
+          '/book1/001_Chapter1/1.2_Understanding_the_World_CN',
+          '/book1/001_Chapter1/1.3_From_Cognition_to_Action_CN',
           
           // 8. 第二章导航页
-          '/002_Chapter2_Investment_Psychology_and_Risk_Management_CN',
+          '/book1/002_Chapter2_Investment_Psychology_and_Risk_Management_CN',
           
           // 9-12. 第二章子节
-          '/002_Chapter2/2.1_Personalized_Risk_Tolerance_Model_CN',
-          '/002_Chapter2/2.2_Stop_Loss_and_Risk_Control_CN',
-          '/002_Chapter2/2.3_Investment_Emotions_and_Decision_Traps_CN',
-          '/002_Chapter2/2.4_Maintaining_Discipline_in_Volatile_Markets_CN',
+          '/book1/002_Chapter2/2.1_Personalized_Risk_Tolerance_Model_CN',
+          '/book1/002_Chapter2/2.2_Stop_Loss_and_Risk_Control_CN',
+          '/book1/002_Chapter2/2.3_Investment_Emotions_and_Decision_Traps_CN',
+          '/book1/002_Chapter2/2.4_Maintaining_Discipline_in_Volatile_Markets_CN',
           
           // 13. 第三章导航页
-          '/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_CN',
+          '/book1/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_CN',
           
           // 14-17. 第三章子节
-          '/003_Chapter3/3.1_Definition_and_Time_Dimensions_CN',
-          '/003_Chapter3/3.2_Industry_Distribution_and_Characteristics_CN',
-          '/003_Chapter3/3.3_Driving_Factors_CN',
-          '/003_Chapter3/3.4_Case_Studies_CN',
+          '/book1/003_Chapter3/3.1_Definition_and_Time_Dimensions_CN',
+          '/book1/003_Chapter3/3.2_Industry_Distribution_and_Characteristics_CN',
+          '/book1/003_Chapter3/3.3_Driving_Factors_CN',
+          '/book1/003_Chapter3/3.4_Case_Studies_CN',
           
           // 18. 第四章导航页
-          '/004_Chapter4_Track_Selection_and_Industry_Trends_CN',
+          '/book1/004_Chapter4_Track_Selection_and_Industry_Trends_CN',
           
           // 19-24. 第四章子节
-          '/004_Chapter4/4.1_Track_Screening_Methods_CN',
-          '/004_Chapter4/4.2_AI_and_Big_Data_Revolution_CN',
-          '/004_Chapter4/4.3_New_Energy_and_EV_Golden_Decade_CN',
-          '/004_Chapter4/4.4_Biotech_and_Precision_Medicine_CN',
-          '/004_Chapter4/4.5_Semiconductor_and_Metaverse_CN',
-          '/004_Chapter4/4.6_Chinese_Stocks_Opportunities_CN',
+          '/book1/004_Chapter4/4.1_Track_Screening_Methods_CN',
+          '/book1/004_Chapter4/4.2_AI_and_Big_Data_Revolution_CN',
+          '/book1/004_Chapter4/4.3_New_Energy_and_EV_Golden_Decade_CN',
+          '/book1/004_Chapter4/4.4_Biotech_and_Precision_Medicine_CN',
+          '/book1/004_Chapter4/4.5_Semiconductor_and_Metaverse_CN',
+          '/book1/004_Chapter4/4.6_Chinese_Stocks_Opportunities_CN',
           
           // 25. 第五章导航页
-          '/005_Chapter5_Stock_Screening_Strategies_CN',
+          '/book1/005_Chapter5_Stock_Screening_Strategies_CN',
           
           // 26-31. 第五章子节
-          '/005_Chapter5/5.1_Stock_Screening_Methods_CN',
-          '/005_Chapter5/5.2_Fundamental_Screening_Parameters_CN',
-          '/005_Chapter5/5.3_Technical_Analysis_CN',
-          '/005_Chapter5/5.4_Valuation_Methodology_CN',
-          '/005_Chapter5/5.5_Stock_Screening_Practice_CN',
-          '/005_Chapter5/5.6_Derivatives_Enhancement_CN',
+          '/book1/005_Chapter5/5.1_Stock_Screening_Methods_CN',
+          '/book1/005_Chapter5/5.2_Fundamental_Screening_Parameters_CN',
+          '/book1/005_Chapter5/5.3_Technical_Analysis_CN',
+          '/book1/005_Chapter5/5.4_Valuation_Methodology_CN',
+          '/book1/005_Chapter5/5.5_Stock_Screening_Practice_CN',
+          '/book1/005_Chapter5/5.6_Derivatives_Enhancement_CN',
           
           // 32. 第六章导航页
-          '/006_Chapter6_Trading_Strategies_and_Execution_CN',
+          '/book1/006_Chapter6_Trading_Strategies_and_Execution_CN',
           
           // 33-38. 第六章子节
-          '/006_Chapter6/6.1_Long_term_vs_Short_term_CN',
-          '/006_Chapter6/6.2_Position_Management_CN',
-          '/006_Chapter6/6.3_ETF_Optimization_CN',
-          '/006_Chapter6/6.4_Dynamic_Adjustment_CN',
-          '/006_Chapter6/6.5_Growth_Stock_Exit_CN',
-          '/006_Chapter6/6.6_Strategy_Execution_CN',
+          '/book1/006_Chapter6/6.1_Long_term_vs_Short_term_CN',
+          '/book1/006_Chapter6/6.2_Position_Management_CN',
+          '/book1/006_Chapter6/6.3_ETF_Optimization_CN',
+          '/book1/006_Chapter6/6.4_Dynamic_Adjustment_CN',
+          '/book1/006_Chapter6/6.5_Growth_Stock_Exit_CN',
+          '/book1/006_Chapter6/6.6_Strategy_Execution_CN',
           
           // 39. 第七章导航页
-          '/007_Chapter7_Investment_Decision_Tools_and_Resources_CN',
+          '/book1/007_Chapter7_Investment_Decision_Tools_and_Resources_CN',
           
           // 40-46. 第七章子节
-          '/007_Chapter7/7.1_GuruFocus_Morningstar_CN',
-          '/007_Chapter7/7.2_Technical_Analysis_Tools_CN',
-          '/007_Chapter7/7.3_Data_Driven_Decision_CN',
-          '/007_Chapter7/7.4_Research_News_Resources_CN',
-          '/007_Chapter7/7.5_Broker_Platform_Tools_CN',
-          '/007_Chapter7/7.6_ChatGPT_Integration_CN',
-          '/007_Chapter7/7.7_QuantConnect_IBKR_Integration_CN',
+          '/book1/007_Chapter7/7.1_GuruFocus_Morningstar_CN',
+          '/book1/007_Chapter7/7.2_Technical_Analysis_Tools_CN',
+          '/book1/007_Chapter7/7.3_Data_Driven_Decision_CN',
+          '/book1/007_Chapter7/7.4_Research_News_Resources_CN',
+          '/book1/007_Chapter7/7.5_Broker_Platform_Tools_CN',
+          '/book1/007_Chapter7/7.6_ChatGPT_Integration_CN',
+          '/book1/007_Chapter7/7.7_QuantConnect_IBKR_Integration_CN',
           
           // 46. 第八章导航页
-          '/008_Chapter8_Case_Review_and_Strategy_Improvement_CN',
+          '/book1/008_Chapter8_Case_Review_and_Strategy_Improvement_CN',
           
           // 47-50. 第八章子节
-          '/008_Chapter8/8.1_Broadcom_Case_Study_CN',
-          '/008_Chapter8/8.2_NVIDIA_Case_Study_CN',
-          '/008_Chapter8/8.3_Case_Review_Methodology_CN',
+          '/book1/008_Chapter8/8.1_Broadcom_Case_Study_CN',
+          '/book1/008_Chapter8/8.2_NVIDIA_Case_Study_CN',
+          '/book1/008_Chapter8/8.3_Case_Review_Methodology_CN',
           
           // 51. 第九章导航页
-          '/009_Chapter9_Building_an_Investment_System_CN',
+          '/book1/009_Chapter9_Building_an_Investment_System_CN',
           
           // 52-54. 第九章子节
-          '/009_Chapter9/9.1_Efficient_Investment_Lifestyle_CN',
-          '/009_Chapter9/9.2_Strategy_Review_Optimization_CN',
-          '/009_Chapter9/9.3_Personal_Investment_System_CN',
+          '/book1/009_Chapter9/9.1_Efficient_Investment_Lifestyle_CN',
+          '/book1/009_Chapter9/9.2_Strategy_Review_Optimization_CN',
+          '/book1/009_Chapter9/9.3_Personal_Investment_System_CN',
           
           // 54. 第十章导航页
-          '/010_Chapter10_Trading_Execution_and_Practical_Guide_CN',
+          '/book1/010_Chapter10_Trading_Execution_and_Practical_Guide_CN',
           
           // 55-57. 第十章子节
-          '/010_Chapter10/10.1_Preparation_CN',
-          '/010_Chapter10/10.2_Gurufocus_Screening_CN',
-          '/010_Chapter10/10.3_Trading_Execution_CN',
+          '/book1/010_Chapter10/10.1_Preparation_CN',
+          '/book1/010_Chapter10/10.2_Gurufocus_Screening_CN',
+          '/book1/010_Chapter10/10.3_Trading_Execution_CN',
           
           // 58. 附录导航页
-          '/011_Appendix_CN',
+          '/book1/011_Appendix_CN',
           
           // 59-68. 附录子节
-          '/011_Appendix/A.1_Financial_Indicators_and_Formulas_CN',
-          '/011_Appendix/B.1_Recommended_Reading_List_CN',
-          '/011_Appendix/C.1_Quantitative_Analysis_and_Backtesting_CN',
-          '/011_Appendix/D.1_Trading_Plan_Templates_CN',
-          '/011_Appendix/E.1_Broker_Platform_Guide_CN',
-          '/011_Appendix/F.1_GuruFocus_Plus_Case_Study_CN',
-          '/011_Appendix/G.1_Charlie_Munger_Wisdom_CN',
-          '/011_Appendix/H.1_Intelligent_Trading_System_CN',
-          '/011_Appendix/I.1_US_Stock_Investment_FAQ_CN',
-          '/011_Appendix/J.1_Document_System_Construction_Guide_CN',
-          '/011_Appendix/K.1_Subchapter_Template_Guide_CN',
-          '/011_Appendix/L.1_Handbook_Summary_and_Format_Optimization_CN',
+          '/book1/011_Appendix/A.1_Financial_Indicators_and_Formulas_CN',
+          '/book1/011_Appendix/B.1_Recommended_Reading_List_CN',
+          '/book1/011_Appendix/C.1_Quantitative_Analysis_and_Backtesting_CN',
+          '/book1/011_Appendix/D.1_Trading_Plan_Templates_CN',
+          '/book1/011_Appendix/E.1_Broker_Platform_Guide_CN',
+          '/book1/011_Appendix/F.1_GuruFocus_Plus_Case_Study_CN',
+          '/book1/011_Appendix/G.1_Charlie_Munger_Wisdom_CN',
+          '/book1/011_Appendix/H.1_Intelligent_Trading_System_CN',
+          '/book1/011_Appendix/I.1_US_Stock_Investment_FAQ_CN',
+          '/book1/011_Appendix/J.1_Document_System_Construction_Guide_CN',
+          '/book1/011_Appendix/K.1_Subchapter_Template_Guide_CN',
+          '/book1/011_Appendix/L.1_Handbook_Summary_and_Format_Optimization_CN',
           
           
           // 69. 第二册导航页
           '/handbook/macro',
           
-          // 70-80. 第二册章节
-          '/201_Chapter1_Market_Trend_Analysis_CN',
-          '/202_Chapter2_Economic_Cycles_and_Market_Performance_CN',
-          '/203_Chapter3_Monetary_Policy_and_Market_Transmission_CN',
-          '/204_Chapter4_Core_Economic_Indicators_Analysis_CN',
-          '/205_Chapter5_Geopolitics_and_Global_Markets_CN',
-          '/206_Chapter6_Liquidity_and_Capital_Flows_CN',
-          '/207_Chapter7_Market_Sentiment_and_Trading_Psychology_CN',
-          '/208_Chapter8_Predictive_Indicators_and_Model_Building_CN',
-          '/209_Chapter9_Real_Time_Macro_Data_Monitoring_CN',
-          '/210_Chapter10_Data_Sources_and_Analysis_Tools_CN',
-          '/211_Chapter11_Comprehensive_Investment_Trading_Strategies_CN',
-          '/212_Appendix_CN',
+          // 70. 第二册序言
+          '/book2/000_Preface_CN',
+          
+          // 71. 第二册第一章导航页
+          '/book2/201_Chapter1_Market_Trend_Analysis_CN',
+          
+          // 72-75. 第二册第一章子节
+          '/book2/201_Chapter1/1.1_Decisive_Role_of_Macro_Trends_CN',
+          '/book2/201_Chapter1/1.2_Market_Environment_and_Returns_CN',
+          '/book2/201_Chapter1/1.3_Masters_Trend_Wisdom_CN',
+          '/book2/201_Chapter1/1.4_Building_Trend_Analysis_Framework_CN',
+          '/book2/201_Chapter1/1.5_Interactive_Notes_and_Real_Time_Updates_CN',
+          
+          // 76-86. 第二册其他章节（待创建）
+          '/book2/202_Chapter2_Economic_Cycles_and_Market_Performance_CN',
+          '/book2/203_Chapter3_Monetary_Policy_and_Market_Transmission_CN',
+          '/book2/204_Chapter4_Fiscal_Policy_and_Market_Impact_CN',
+          '/book2/205_Chapter5_International_Macro_Environment_CN',
+          '/book2/206_Chapter6_Macro_Data_Interpretation_CN',
+          '/book2/207_Chapter7_Macro_Forecasting_Models_CN',
+          '/book2/208_Chapter8_Market_Risk_Monitoring_CN',
+          '/book2/209_Chapter9_Macro_Driven_Asset_Allocation_CN',
+          '/book2/210_Chapter10_Macro_Timing_Strategies_CN',
+          '/book2/211_Chapter11_Macro_Analysis_Toolkit_CN',
+          '/book2/212_Appendix_CN',
           
           // 81-84. 其他手册导航页
           '/handbook/stocks', 
@@ -1244,8 +1271,8 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         const currentPath = window.location.pathname;
         const currentIndex = pages.indexOf(currentPath);
         
-        const prevBtn = document.getElementById('prevPageBtn');
-        const nextBtn = document.getElementById('nextPageBtn');
+        const prevBtn = document.getElementById('prevPageBtn') as HTMLButtonElement | null;
+        const nextBtn = document.getElementById('nextPageBtn') as HTMLButtonElement | null;
         
         if (prevBtn && nextBtn) {
           // 更新按钮状态

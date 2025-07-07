@@ -1,0 +1,9 @@
+---
+description: 本规则用于限制 Astro 投资手册项目结构中 layout、章节内容、组件的修改行为，防止误删或结构性变动。
+globs:
+  - "src/layouts/**/*.astro"
+  - "src/pages/book1/**/*.{md,mdx,astro}"
+  - "src/components/**/*.astro"
+  - "src/layouts/**/*.js"
+alwaysApply: false
+---

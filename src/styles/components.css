@@ -11,7 +11,7 @@
 
 .overview-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 
@@ -88,7 +88,7 @@
 /* ========== 关键指标组件样式 ========== */
 .metrics-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
     margin: 2rem 0;
 }
@@ -1966,4 +1966,569 @@ pre::-webkit-scrollbar-thumb:hover {
 [data-theme="dark"] .direction-card:hover,
 [data-theme="dark"] .validation-card:hover {
   border-color: var(--primary-color);
+}
+
+/* ========== 学习目标组件样式 ========== */
+.learning-objectives {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(79, 70, 229, 0.1) 100%);
+    border: 2px solid var(--primary-color);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.learning-objectives::before {
+    content: "🎯 学习目标";
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    background: var(--primary-color);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+}
+
+.objective-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(79, 70, 229, 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.objective-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--primary-color), var(--primary-dark));
+}
+
+.objective-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.15);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.objective-item:last-child {
+    margin-bottom: 0;
+}
+
+.objective-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+    filter: drop-shadow(0 2px 4px rgba(79, 70, 229, 0.2));
+}
+
+.objective-content {
+    flex: 1;
+}
+
+.objective-content h4 {
+    color: var(--primary-color);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.objective-content p {
+    color: var(--text-primary);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* 暗色主题适配 */
+[data-theme="dark"] .objective-item {
+    background: rgba(30, 30, 30, 0.8);
+    border-color: rgba(79, 70, 229, 0.3);
+}
+
+[data-theme="dark"] .objective-item:hover {
+    background: rgba(30, 30, 30, 0.95);
+    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.2);
+}
+
+[data-theme="dark"] .objective-content h4 {
+    color: #8b9cf7;
+}
+
+[data-theme="dark"] .objective-content p {
+    color: var(--text-primary);
+    opacity: 0.85;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .learning-objectives {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+    
+    .objective-item {
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+    
+    .objective-icon {
+        font-size: 1.5rem;
+    }
+    
+    .objective-content h4 {
+        font-size: 1rem;
+    }
+    
+    .objective-content p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .learning-objectives::before {
+        left: 16px;
+        padding: 4px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .objective-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .objective-icon {
+        margin-top: 0;
+    }
+}
+
+/* ========== 核心概念组件样式 ========== */
+.core-concepts {
+    background: linear-gradient(135deg, rgba(34, 139, 34, 0.05) 0%, rgba(34, 139, 34, 0.1) 100%);
+    border: 2px solid #228B22;
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.core-concepts::before {
+    content: "📚 核心概念";
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    background: #228B22;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(34, 139, 34, 0.3);
+}
+
+.core-concepts h3 {
+    color: #228B22;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.core-concepts h3:first-child {
+    margin-top: 0;
+}
+
+.core-concepts ul {
+    margin: 0.5rem 0 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.core-concepts li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.core-concepts strong {
+    color: #2E7D32;
+    font-weight: 600;
+}
+
+/* ========== 相关章节组件样式 ========== */
+.related-chapters {
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.05) 0%, rgba(255, 152, 0, 0.1) 100%);
+    border: 2px solid #FF9800;
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.related-chapters::before {
+    content: "🔗 相关章节";
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    background: #FF9800;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(255, 152, 0, 0.3);
+}
+
+.related-chapters ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.related-chapters li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+.related-chapters strong {
+    color: #F57C00;
+    font-weight: 600;
+}
+
+/* ========== 学习建议组件样式 ========== */
+.learning-suggestions {
+    background: linear-gradient(135deg, rgba(156, 39, 176, 0.05) 0%, rgba(156, 39, 176, 0.1) 100%);
+    border: 2px solid #9C27B0;
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.learning-suggestions::before {
+    content: "💡 学习建议";
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    background: #9C27B0;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(156, 39, 176, 0.3);
+}
+
+.learning-suggestions ol {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.learning-suggestions li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+.learning-suggestions strong {
+    color: #7B1FA2;
+    font-weight: 600;
+}
+
+/* ========== 工具推荐组件样式 ========== */
+.tools-section {
+    background: linear-gradient(135deg, rgba(0, 150, 136, 0.05) 0%, rgba(0, 150, 136, 0.1) 100%);
+    border: 2px solid #009688;
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.tools-section::before {
+    content: "🛠️ 实用工具";
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    background: #009688;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 150, 136, 0.3);
+}
+
+.tool-category {
+    margin-bottom: 1.5rem;
+}
+
+.tool-category:last-child {
+    margin-bottom: 0;
+}
+
+.tool-category h4 {
+    color: #00695C;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.tool-category ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.tool-category li {
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+}
+
+.tool-category strong {
+    color: #004D40;
+    font-weight: 600;
+}
+
+/* ========== 实践训练方法组件样式 ========== */
+.practice-methods {
+    background: linear-gradient(135deg, rgba(244, 67, 54, 0.05) 0%, rgba(244, 67, 54, 0.1) 100%);
+    border: 2px solid #F44336;
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.practice-methods::before {
+    content: "🎯 实践训练";
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    background: #F44336;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(244, 67, 54, 0.3);
+}
+
+.method-item {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(244, 67, 54, 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.method-item:last-child {
+    margin-bottom: 0;
+}
+
+.method-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(244, 67, 54, 0.15);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.method-item h4 {
+    color: #D32F2F;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.method-item p {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+.method-item ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.method-item li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+/* ========== 拓展阅读组件样式 ========== */
+.reading-list {
+    background: linear-gradient(135deg, rgba(63, 81, 181, 0.05) 0%, rgba(63, 81, 181, 0.1) 100%);
+    border: 2px solid #3F51B5;
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.reading-list::before {
+    content: "📚 拓展阅读";
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    background: #3F51B5;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(63, 81, 181, 0.3);
+}
+
+.reading-category {
+    margin-bottom: 1.5rem;
+}
+
+.reading-category:last-child {
+    margin-bottom: 0;
+}
+
+.reading-category h4 {
+    color: #303F9F;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.reading-category ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.reading-category li {
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+}
+
+.reading-category strong {
+    color: #1A237E;
+    font-weight: 600;
+}
+
+/* ========== 复盘机制组件样式 ========== */
+.review-system {
+    background: linear-gradient(135deg, rgba(121, 85, 72, 0.05) 0%, rgba(121, 85, 72, 0.1) 100%);
+    border: 2px solid #795548;
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.review-system::before {
+    content: "🔄 复盘机制";
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    background: #795548;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(121, 85, 72, 0.3);
+}
+
+.review-item {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(121, 85, 72, 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.review-item:last-child {
+    margin-bottom: 0;
+}
+
+.review-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(121, 85, 72, 0.15);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.review-item h4 {
+    color: #5D4037;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.review-item ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.review-item li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+/* 暗色主题适配 */
+[data-theme="dark"] .core-concepts,
+[data-theme="dark"] .related-chapters,
+[data-theme="dark"] .learning-suggestions,
+[data-theme="dark"] .tools-section,
+[data-theme="dark"] .practice-methods,
+[data-theme="dark"] .reading-list,
+[data-theme="dark"] .review-system {
+    background: rgba(30, 30, 30, 0.8);
+}
+
+[data-theme="dark"] .method-item,
+[data-theme="dark"] .review-item {
+    background: rgba(40, 40, 40, 0.8);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .method-item:hover,
+[data-theme="dark"] .review-item:hover {
+    background: rgba(50, 50, 50, 0.9);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .core-concepts,
+    .related-chapters,
+    .learning-suggestions,
+    .tools-section,
+    .practice-methods,
+    .reading-list,
+    .review-system {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+    
+    .method-item,
+    .review-item {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .core-concepts::before,
+    .related-chapters::before,
+    .learning-suggestions::before,
+    .tools-section::before,
+    .practice-methods::before,
+    .reading-list::before,
+    .review-system::before {
+        left: 16px;
+        padding: 4px 12px;
+        font-size: 0.8rem;
+    }
 }

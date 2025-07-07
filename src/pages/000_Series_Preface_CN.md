@@ -90,6 +90,4 @@ updateDate: "2025-07-06"
 
 ---
 
-<style>
-.overview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:1.5rem 0}.overview-item{background:var(--card-bg);border:1px solid var(--border-color);border-radius:12px;padding:1rem;text-align:center;transition:all .2s ease}.overview-item:hover{transform:translateY(-3px);box-shadow:0 4px 12px rgba(0,0,0,.1);border-color:var(--primary-color)}.overview-item h4{margin:0 0 .5rem 0;color:var(--primary-color);font-size:1.1rem}.overview-item p{margin:0;color:var(--text-secondary);font-size:.9rem}.key-points{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:2rem 0}.key-point{background:var(--card-bg);border:1px solid var(--border-color);border-radius:12px;padding:1rem;transition:all .2s ease;text-align:center}.key-point:hover{transform:translateY(-3px);box-shadow:0 4px 12px rgba(0,0,0,.1);border-color:var(--primary-color)}.key-point h4{margin:0 0 .5rem 0;color:var(--primary-color);font-size:1rem}.key-point p{margin:0;color:var(--text-secondary);font-size:.85rem}.overview-grid,.key-points{overflow:hidden}@media(max-width:768px){.overview-grid{grid-template-columns:1fr}.key-points{grid-template-columns:1fr}}
-</style> 
+ 

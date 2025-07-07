@@ -188,9 +188,9 @@ html, body {
 /* 章节网格布局 - 重新设计 */
 .chapters-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 30px;
-  margin: 40px 0;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+  margin: 2rem 0;
 }
 
 .chapters-grid .chapter-card {

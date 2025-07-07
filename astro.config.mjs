@@ -11,6 +11,10 @@ import {
 } from '@shikijs/transformers';
 
 export default defineConfig({
+  // 设置路径别名，任何位置可通过 ~/layouts 引用
+  alias: {
+    '~layouts': './src/layouts'
+  },
   integrations: [mdx()],
   markdown: {
     // 允许HTML在Markdown中渲染

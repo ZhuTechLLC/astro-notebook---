@@ -2532,3 +2532,646 @@ pre::-webkit-scrollbar-thumb:hover {
         font-size: 0.8rem;
     }
 }
+
+/* ========== 汇率分析专用样式 ========== */
+.currency-dashboard {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.hedging-dashboard {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.case-analysis {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.case-timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.timeline-event {
+    background: var(--bg-primary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.timeline-event.strong {
+    border-left-color: #10B981;
+}
+
+.timeline-event.weak {
+    border-left-color: #EF4444;
+}
+
+.timeline-event h4 {
+    margin: 0 0 1rem 0;
+    color: var(--primary-color);
+}
+
+.event-details p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+.strategy-backtest {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.strategy-performance h4 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.strategy-item {
+    background: var(--bg-primary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 2px solid var(--border-color);
+}
+
+.strategy-item.winner {
+    border-color: #10B981;
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.strategy-item.moderate {
+    border-color: #F59E0B;
+    background: rgba(245, 158, 11, 0.05);
+}
+
+.strategy-item.laggard {
+    border-color: #EF4444;
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.strategy-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.strategy-return {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.strategy-item.winner .strategy-return {
+    color: #10B981;
+}
+
+.strategy-item.moderate .strategy-return {
+    color: #F59E0B;
+}
+
+.strategy-item.laggard .strategy-return {
+    color: #EF4444;
+}
+
+.strategy-details {
+    text-align: left;
+}
+
+.strategy-details p {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.strategy-details ul {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+    padding-left: 1rem;
+}
+
+.strategy-details li {
+    margin: 0.25rem 0;
+}
+
+/* ========== 5.3章节美化组件样式 ========== */
+
+/* 特征网格样式 */
+.feature-grid,
+.challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.feature-item,
+.challenge-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover,
+.challenge-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-color: var(--primary-color);
+}
+
+.feature-icon,
+.challenge-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.feature-content,
+.challenge-content {
+    flex: 1;
+}
+
+.feature-content h6,
+.challenge-content h6 {
+    margin: 0 0 0.5rem 0;
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.feature-content p,
+.challenge-content p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* 策略部分样式 */
+.strategy-section {
+    margin-bottom: 1.5rem;
+}
+
+.strategy-section h6 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.strategy-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.strategy-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-color: var(--primary-color);
+}
+
+.strategy-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.strategy-content {
+    flex: 1;
+}
+
+.strategy-content h7 {
+    margin: 0 0 0.5rem 0;
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 600;
+    display: block;
+}
+
+.strategy-content p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* 行业配置条形图样式 */
+.sector-allocation {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.sector-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.sector-label {
+    min-width: 60px;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.sector-bar {
+    flex: 1;
+    height: 20px;
+    background: rgba(79, 70, 229, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.sector-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+    border-radius: 10px;
+    transition: width 0.8s ease;
+}
+
+.sector-percentage {
+    min-width: 40px;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+/* 债券投资组合样式 */
+.bond-portfolio {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.bond-category {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.bond-category:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-color: var(--primary-color);
+}
+
+.bond-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.bond-icon {
+    font-size: 1.5rem;
+}
+
+.bond-header h6 {
+    flex: 1;
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.bond-weight {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.bond-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bond-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.bond-item:hover {
+    border-color: var(--primary-color);
+    transform: translateX(4px);
+}
+
+.country-flag {
+    font-size: 1.2rem;
+}
+
+.bond-name {
+    flex: 1;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.bond-yield {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.rating-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.rating-badge.investment-grade {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+}
+
+.rating-badge.high-yield {
+    background: rgba(245, 158, 11, 0.1);
+    color: #F59E0B;
+}
+
+/* 另类投资组合样式 */
+.alternative-portfolio {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.alternative-category {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.alternative-category:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-color: var(--primary-color);
+}
+
+.alt-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.alt-icon {
+    font-size: 1.5rem;
+}
+
+.alt-header h6 {
+    flex: 1;
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.alt-weight {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.alt-instruments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.instrument-tag {
+    background: rgba(79, 70, 229, 0.1);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(79, 70, 229, 0.2);
+    transition: all 0.3s ease;
+}
+
+.instrument-tag:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* 现金投资组合样式 */
+.cash-portfolio {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.cash-category {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.cash-category:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-color: var(--primary-color);
+}
+
+.cash-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cash-icon {
+    font-size: 1.5rem;
+}
+
+.cash-header h6 {
+    flex: 1;
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.cash-weight {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.cash-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cash-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.cash-option:hover {
+    border-color: var(--primary-color);
+    transform: translateX(4px);
+}
+
+.currency-flag {
+    font-size: 1.2rem;
+}
+
+.option-name {
+    flex: 1;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.option-yield {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.currency-symbol {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.duration-tag {
+    background: rgba(79, 70, 229, 0.1);
+    color: var(--primary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .feature-grid,
+    .challenge-grid,
+    .strategy-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .bond-portfolio,
+    .alternative-portfolio,
+    .cash-portfolio {
+        gap: 1rem;
+    }
+    
+    .bond-category,
+    .alternative-category,
+    .cash-category {
+        padding: 1rem;
+    }
+    
+    .sector-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+    
+    .sector-bar {
+        width: 100%;
+    }
+}
+
+/* 暗色主题适配 */
+[data-theme="dark"] .feature-item,
+[data-theme="dark"] .challenge-item,
+[data-theme="dark"] .strategy-item,
+[data-theme="dark"] .sector-item,
+[data-theme="dark"] .bond-category,
+[data-theme="dark"] .alternative-category,
+[data-theme="dark"] .cash-category,
+[data-theme="dark"] .bond-item,
+[data-theme="dark"] .cash-option {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .feature-item:hover,
+[data-theme="dark"] .challenge-item:hover,
+[data-theme="dark"] .strategy-item:hover,
+[data-theme="dark"] .bond-category:hover,
+[data-theme="dark"] .alternative-category:hover,
+[data-theme="dark"] .cash-category:hover,
+[data-theme="dark"] .bond-item:hover,
+[data-theme="dark"] .cash-option:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}

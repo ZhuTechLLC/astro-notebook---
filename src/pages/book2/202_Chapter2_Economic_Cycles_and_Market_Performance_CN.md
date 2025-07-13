@@ -1,243 +1,369 @@
 ---
 title: "第二章：经济周期与市场表现"
-description: "深入分析经济周期各阶段的特征，理解不同周期阶段的最佳投资策略与资产配置方案"
+description: "深入解析经济周期的识别方法、不同周期阶段的市场特征，以及周期性投资策略的实施要点"
 lang: "zh-CN"
 alt: "经济周期与市场表现"
-layout: "../../layouts/Layout.astro"
+layout: "../../layouts/HandbookLayout.astro"
 updateDate: "2025-01-10"
-currentBook: macro
 ---
 
 # 第二章：经济周期与市场表现
 
-> **核心摘要：**
-> 
-> 本章深入解析经济周期的运行规律及其对股市表现的影响机制。通过研究历史上完整的经济周期，帮助投资者理解不同经济阶段的投资机会与风险，掌握基于经济周期的资产配置策略，实现跨周期的稳健投资。
+## 📚 章节简介
 
-## 📖 本章学习路径
-
-按照以下顺序学习，构建完整的经济周期投资知识体系：
-
-<div class="chapters-grid">
-  <div class="chapter-card">
-    <div class="chapter-header">
-      <span class="chapter-number">2.1</span>
-      <h3>经济周期的基本规律</h3>
-    </div>
-    <p>深入理解经济周期的形成机制、阶段特征和持续时间，掌握识别经济周期转换点的方法和指标。</p>
-    <div class="chapter-features">
-      <span class="feature-tag">🔄 周期理论</span>
-      <span class="feature-tag">📊 阶段识别</span>
-      <span class="feature-tag">⏰ 时机把握</span>
-    </div>
-    <a href="/book2/202_Chapter2/2.1_Basic_Economic_Cycle_Laws_CN" class="chapter-link">开始学习 →</a>
-  </div>
-
-  <div class="chapter-card">
-    <div class="chapter-header">
-      <span class="chapter-number">2.2</span>
-      <h3>周期阶段与资产轮动</h3>
-    </div>
-    <p>系统分析不同经济周期阶段的资产表现规律，掌握股票、债券、大宗商品等资产的轮动策略。</p>
-    <div class="chapter-features">
-      <span class="feature-tag">🔄 资产轮动</span>
-      <span class="feature-tag">📈 表现规律</span>
-      <span class="feature-tag">🎯 配置策略</span>
-    </div>
-    <a href="/book2/202_Chapter2/2.2_Cycle_Stages_Asset_Rotation_CN" class="chapter-link">开始学习 →</a>
-  </div>
-
-  <div class="chapter-card">
-    <div class="chapter-header">
-      <span class="chapter-number">2.3</span>
-      <h3>行业板块的周期性表现</h3>
-    </div>
-    <p>深入研究不同行业在经济周期中的表现差异，掌握行业轮动的投资机会和风险控制方法。</p>
-    <div class="chapter-features">
-      <span class="feature-tag">🏭 行业分析</span>
-      <span class="feature-tag">📊 表现对比</span>
-      <span class="feature-tag">🔄 轮动策略</span>
-    </div>
-    <a href="/book2/202_Chapter2/2.3_Sector_Cyclical_Performance_CN" class="chapter-link">开始学习 →</a>
-  </div>
-
-  <div class="chapter-card">
-    <div class="chapter-header">
-      <span class="chapter-number">2.4</span>
-      <h3>周期投资策略实战</h3>
-    </div>
-    <p>将经济周期理论转化为具体的投资策略，包括择时方法、配置比例、风险管理等实战操作。</p>
-    <div class="chapter-features">
-      <span class="feature-tag">⚡ 实战策略</span>
-      <span class="feature-tag">🎯 择时方法</span>
-      <span class="feature-tag">🛡️ 风险管理</span>
-    </div>
-    <a href="/book2/202_Chapter2/2.4_Cyclical_Investment_Strategy_Practice_CN" class="chapter-link">开始学习 →</a>
-  </div>
-</div>
+经济周期是宏观经济运行的基本规律，深刻影响着股票市场的长期走势和投资机会的分布。本章将系统介绍经济周期的识别方法、不同周期阶段的市场特征，以及如何制定相应的投资策略。
 
 ## 🎯 学习目标
 
-通过本章学习，您将能够：
+<div class="learning-objectives">
+<div class="objective-item">
+<div class="objective-icon">📊</div>
+<div class="objective-content">
+<h4>掌握经济周期识别</h4>
+<p>学会使用关键经济指标识别经济周期的不同阶段，包括扩张期、繁荣期、衰退期和萧条期的特征</p>
+</div>
+</div>
+<div class="objective-item">
+<div class="objective-icon">🔄</div>
+<div class="objective-content">
+<h4>理解市场周期联动</h4>
+<p>深入理解经济周期与股票市场表现的关系，掌握不同周期阶段的行业轮动和投资机会</p>
+</div>
+</div>
+<div class="objective-item">
+<div class="objective-icon">⚡</div>
+<div class="objective-content">
+<h4>制定周期性策略</h4>
+<p>学会根据经济周期阶段调整投资策略，包括资产配置、行业选择和风险管理</p>
+</div>
+</div>
+</div>
 
-- **理解周期运行规律**：掌握经济周期的形成机制和阶段特征，准确识别周期位置
-- **把握资产轮动机会**：理解不同资产在经济周期中的表现规律，优化资产配置
-- **实施行业轮动策略**：掌握行业板块的周期性特征，抓住轮动投资机会
-- **构建周期投资体系**：建立基于经济周期的完整投资策略和风险管理体系
+## 📋 章节概览
 
-## 📚 核心概念
+<div class="chapter-overview">
+<div class="overview-item">
+<h4>📈 2.1 经济周期的识别与分析</h4>
+<p>经济周期的基本理论、关键指标体系、周期阶段划分方法和识别技巧</p>
+<div class="subsection-links">
+<a href="/book2/202_Chapter2/2.1_Economic_Cycle_Identification_CN" class="subsection-link">进入学习 →</a>
+</div>
+</div>
+<div class="overview-item">
+<h4>🎭 2.2 不同周期阶段的市场特征</h4>
+<p>扩张期、繁荣期、衰退期、萧条期的市场表现特征和行业轮动规律</p>
+<div class="subsection-links">
+<a href="/book2/202_Chapter2/2.2_Market_Characteristics_by_Cycle_CN" class="subsection-link">进入学习 →</a>
+</div>
+</div>
+<div class="overview-item">
+<h4>⚡ 2.3 周期性投资策略与时机把握</h4>
+<p>基于经济周期的投资策略制定、时机选择和动态调整方法</p>
+<div class="subsection-links">
+<a href="/book2/202_Chapter2/2.3_Cyclical_Investment_Strategies_CN" class="subsection-link">进入学习 →</a>
+</div>
+</div>
+<div class="overview-item">
+<h4>📝 2.4 交互式笔记：周期追踪与投资决策</h4>
+<p>经济周期指标追踪工具、投资决策记录和策略优化笔记</p>
+<div class="subsection-links">
+<a href="/book2/202_Chapter2/2.4_Interactive_Notes_Cycle_Tracking_CN" class="subsection-link">进入学习 →</a>
+</div>
+</div>
+</div>
 
-### 经济周期理论基础
-- **周期形成机制**：供需失衡、信贷周期、技术创新等推动力
-- **周期阶段划分**：复苏期、繁荣期、衰退期、萧条期的特征识别
-- **周期长度规律**：短周期（3-5年）与长周期（50-75年）的嵌套关系
-- **转换点识别**：领先指标、同步指标、滞后指标的综合运用
+## 🔑 核心要点预览
 
-### 资产配置周期策略
-- **股债轮动**：经济周期中股票与债券的相对表现规律
-- **大宗商品配置**：通胀周期中大宗商品的投资价值
-- **现金管理**：经济不确定性时期的流动性配置策略
-- **国际配置**：全球经济周期的不同步性带来的机会
+<div class="key-points-preview">
+<div class="point-category">
+<h4>📊 周期识别指标</h4>
+<ul>
+<li><strong>领先指标：</strong>股市、利率期限结构、消费者信心</li>
+<li><strong>同步指标：</strong>GDP、就业率、工业生产</li>
+<li><strong>滞后指标：</strong>通胀率、失业率、银行利率</li>
+</ul>
+</div>
+<div class="point-category">
+<h4>🎭 周期阶段特征</h4>
+<ul>
+<li><strong>扩张期：</strong>经济增长加速，股市上涨，风险偏好提升</li>
+<li><strong>繁荣期：</strong>经济过热，通胀上升，央行加息</li>
+<li><strong>衰退期：</strong>经济增长放缓，股市下跌，避险情绪升温</li>
+<li><strong>萧条期：</strong>经济收缩，政策刺激，为复苏蓄力</li>
+</ul>
+</div>
+<div class="point-category">
+<h4>⚡ 投资策略要点</h4>
+<ul>
+<li><strong>扩张期策略：</strong>增持成长股、周期股，减持防御股</li>
+<li><strong>繁荣期策略：</strong>逐步减仓，增加现金和债券配置</li>
+<li><strong>衰退期策略：</strong>防御为主，关注价值股和高股息股</li>
+<li><strong>萧条期策略：</strong>逆向投资，分批建仓优质标的</li>
+</ul>
+</div>
+</div>
 
-### 行业轮动投资策略
-- **早周期行业**：金融、科技等在经济复苏期的领先表现
-- **中周期行业**：工业、材料等在经济繁荣期的强势表现
-- **晚周期行业**：能源、公用事业等在经济过热期的防御价值
-- **全天候行业**：消费必需品、医疗保健等的稳定表现
+## 📊 历史数据洞察
 
-### 实战操作体系
-- **周期择时**：基于经济数据和技术指标的择时方法
-- **动态配置**：根据经济周期阶段动态调整资产配置比例
-- **风险控制**：周期投资中的止损机制和对冲策略
-- **业绩评估**：跨周期投资策略的业绩评估和持续优化
-
-## 🔗 相关章节
-
-本章为经济周期投资基础，与以下章节紧密关联：
-
-- **第一章**：市场趋势判断的重要性 - 为经济周期分析提供理论基础
-- **第三章**：货币政策与市场传导 - 理解货币政策在经济周期中的作用
-- **第四章**：财政政策与市场影响 - 掌握财政政策的周期性调节机制
-- **第九章**：宏观驱动的资产配置 - 将周期理论转化为具体配置策略
-
-## 💡 学习建议
-
-1. **历史研究**：深入研究历史上的完整经济周期，理解周期运行的一般规律
-2. **数据跟踪**：建立经济数据跟踪体系，实时监控经济周期的变化信号
-3. **实战演练**：结合当前经济环境，运用周期理论进行投资决策练习
-4. **长期思维**：培养跨周期的长期投资思维，避免短期市场波动的干扰
-
----
+<div class="historical-insights">
+<div class="insight-item">
+<div class="insight-metric">11次</div>
+<div class="insight-label">1945年以来美国经济周期数量</div>
+</div>
+<div class="insight-item">
+<div class="insight-metric">58个月</div>
+<div class="insight-label">平均扩张期持续时间</div>
+</div>
+<div class="insight-item">
+<div class="insight-metric">11.1个月</div>
+<div class="insight-label">平均衰退期持续时间</div>
+</div>
+<div class="insight-item">
+<div class="insight-metric">6-18个月</div>
+<div class="insight-label">股市领先经济周期时间</div>
+</div>
+</div>
 
 <style>
-/* 章节导航样式 */
-.chapters-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0;
+/* 学习目标样式 */
+.learning-objectives {
+  display: grid;
+  gap: 1.5rem;
+  margin: 2rem 0;
 }
 
-.chapter-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 2rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.objective-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
 }
 
-.chapter-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    border-color: var(--primary-color);
+.objective-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-.chapter-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
+.objective-icon {
+  font-size: 2rem;
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: white;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
 }
 
-.chapter-number {
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 0.9rem;
+.objective-content h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
-.chapter-card h3 {
-    color: var(--text-primary);
-    margin: 0;
-    font-size: 1.2rem;
-    font-weight: 600;
+.objective-content p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
-.chapter-card p {
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+/* 章节概览样式 */
+.chapter-overview {
+  display: grid;
+  gap: 1.5rem;
+  margin: 2rem 0;
 }
 
-.chapter-features {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
+.overview-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
 }
 
-.feature-tag {
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    border: 1px solid var(--border-color);
+.overview-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-.chapter-link {
-    display: inline-flex;
-    align-items: center;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    color: white;
-    text-decoration: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 25px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+.overview-item h4 {
+  margin: 0 0 0.75rem 0;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
-.chapter-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
-    background: linear-gradient(135deg, var(--primary-dark), #6366f1);
+.overview-item p {
+  margin: 0 0 1rem 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.subsection-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.subsection-link {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3);
+}
+
+.subsection-link:hover {
+  background: linear-gradient(135deg, #45a049 0%, #388e3c 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.4);
+}
+
+/* 核心要点预览样式 */
+.key-points-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.point-category {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.point-category h4 {
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-bottom: 2px solid #4CAF50;
+  padding-bottom: 0.5rem;
+}
+
+.point-category ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.point-category li {
+  margin: 0.75rem 0;
+  padding-left: 1rem;
+  position: relative;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.point-category li::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  color: #4CAF50;
+  font-size: 0.8rem;
+}
+
+.point-category strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* 历史数据洞察样式 */
+.historical-insights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.insight-item {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(69, 160, 73, 0.05) 100%);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.insight-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(76, 175, 80, 0.2);
+}
+
+.insight-metric {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2E7D32;
+  margin-bottom: 0.5rem;
+}
+
+.insight-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* 暗色主题适配 */
+[data-theme="dark"] .objective-icon {
+  background: linear-gradient(135deg, #66BB6A 0%, #4CAF50 100%);
+  color: #1B5E20;
+}
+
+[data-theme="dark"] .subsection-link {
+  background: linear-gradient(135deg, #66BB6A 0%, #4CAF50 100%);
+  color: #1B5E20;
+}
+
+[data-theme="dark"] .subsection-link:hover {
+  background: linear-gradient(135deg, #4CAF50 0%, #388e3c 100%);
+  color: white;
+}
+
+[data-theme="dark"] .insight-metric {
+  color: #81C784;
 }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-    .chapters-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .chapter-card {
-        padding: 1.5rem;
-    }
-    
-    .chapter-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.5rem;
-    }
-    
-    .chapter-features {
-        justify-content: center;
-    }
+  .learning-objectives,
+  .chapter-overview {
+    gap: 1rem;
+  }
+  
+  .objective-item,
+  .overview-item {
+    padding: 1rem;
+  }
+  
+  .key-points-preview {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .historical-insights {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .historical-insights {
+    grid-template-columns: 1fr;
+  }
 }
 </style> 
  

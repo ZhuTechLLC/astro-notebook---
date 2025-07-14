@@ -3,33 +3,6 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-
-# Build outputs
-dist/
-.output/
-.vercel/
-.netlify/
-
-# Environment variables
-.env
-.env.local
-.env.production.local
-.env.staging.local
-
-# macOS-specific files
-.DS_Store
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# Logs
-logs
-*.log
 
 # Runtime data
 pids
@@ -39,102 +12,119 @@ pids
 
 # Coverage directory used by tools like istanbul
 coverage/
+*.lcov
 
 # nyc test coverage
 .nyc_output
 
-# Astro
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build outputs
+dist/
+build/
+.output/
+
+# Astro specific
 .astro/
 
-# Temporary folders
-tmp/
-temp/
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
 # OS generated files
-Thumbs.db
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
 ehthumbs.db
+Thumbs.db
 
-# Python (for MCP server)
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Python related (for scripts folder)
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
-build/
-develop-eggs/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# PyInstaller
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-
-# Virtual environments
-.env/
-.venv/
 env/
 venv/
+.venv/
 ENV/
 env.bak/
 venv.bak/
+.pytest_cache/
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
 
-# Large media files (should be in LFS or external storage)
-*.mp4
-*.avi
-*.mov
-*.wmv
-*.flv
-*.webm
-*.mkv
+# Jupyter Notebook
+.ipynb_checkpoints
 
-# Large document files (consider external storage)
-*.pdf
-*.docx
-*.xlsx
-*.pptx
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# Requirements
+requirements.txt
+environment.yml
+
+# Local development
+.local/
+.cache/
+
+# Vercel
+.vercel/
 
 # Backup files
-*.bak
 *.backup
-*.old
-*~
+*.bak
+*_backup*
 
-# System files
-*.swp
-*.swo
-*~
+# Test files
+test-results/
+playwright-report/
 
-# Lock files (keep package-lock.json but ignore others)
+# Package manager locks (uncomment if you want to ignore them)
+# package-lock.json
 # yarn.lock
-# pnpm-lock.yaml 
+# pnpm-lock.yaml
+
+# Scripts and analysis (if you want to ignore them)
+scripts/*.py
+scripts/*.ipynb
+scripts/config.json
+scripts/requirements.txt
+
+# Generated images and assets
+images/generated/
+public/images/generated/
+
+# Documentation builds
+docs/build/
+docs/dist/ 

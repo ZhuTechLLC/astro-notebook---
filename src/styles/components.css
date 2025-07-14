@@ -8739,3 +8739,527 @@ h3::before {
   border-color: var(--border-color);
 }
 
+/* ========== 🎨 卡片样式颜色变体系统 ========== */
+/* 基于 VS Code Dark 主题配色的卡片颜色变体 */
+
+/* 章节概览卡片颜色变体 */
+.overview-card.variant-blue, .overview-item.variant-blue {
+  border-left: 4px solid #569cd6;
+  background: linear-gradient(135deg, rgba(86, 156, 214, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.overview-card.variant-blue h3, .overview-item.variant-blue h3 {
+  color: #569cd6;
+}
+
+.overview-card.variant-orange, .overview-item.variant-orange {
+  border-left: 4px solid #ce9178;
+  background: linear-gradient(135deg, rgba(206, 145, 120, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.overview-card.variant-orange h3, .overview-item.variant-orange h3 {
+  color: #ce9178;
+}
+
+.overview-card.variant-green, .overview-item.variant-green {
+  border-left: 4px solid #6a9955;
+  background: linear-gradient(135deg, rgba(106, 153, 85, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.overview-card.variant-green h3, .overview-item.variant-green h3 {
+  color: #6a9955;
+}
+
+.overview-card.variant-yellow, .overview-item.variant-yellow {
+  border-left: 4px solid #dcdcaa;
+  background: linear-gradient(135deg, rgba(220, 220, 170, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.overview-card.variant-yellow h3, .overview-item.variant-yellow h3 {
+  color: #dcdcaa;
+}
+
+.overview-card.variant-cyan, .overview-item.variant-cyan {
+  border-left: 4px solid #4ec9b0;
+  background: linear-gradient(135deg, rgba(78, 201, 176, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.overview-card.variant-cyan h3, .overview-item.variant-cyan h3 {
+  color: #4ec9b0;
+}
+
+.overview-card.variant-purple, .overview-item.variant-purple {
+  border-left: 4px solid #c586c0;
+  background: linear-gradient(135deg, rgba(197, 134, 192, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.overview-card.variant-purple h3, .overview-item.variant-purple h3 {
+  color: #c586c0;
+}
+
+/* 关键要点卡片颜色变体 */
+.key-points-cards.variant-blue .key-point {
+  border-left: 4px solid #569cd6;
+  background: linear-gradient(135deg, rgba(86, 156, 214, 0.05) 0%, var(--bg-primary) 100%);
+}
+
+.key-points-cards.variant-blue .key-point-content strong {
+  color: #569cd6;
+}
+
+.key-points-cards.variant-orange .key-point {
+  border-left: 4px solid #ce9178;
+  background: linear-gradient(135deg, rgba(206, 145, 120, 0.05) 0%, var(--bg-primary) 100%);
+}
+
+.key-points-cards.variant-orange .key-point-content strong {
+  color: #ce9178;
+}
+
+.key-points-cards.variant-green .key-point {
+  border-left: 4px solid #6a9955;
+  background: linear-gradient(135deg, rgba(106, 153, 85, 0.05) 0%, var(--bg-primary) 100%);
+}
+
+.key-points-cards.variant-green .key-point-content strong {
+  color: #6a9955;
+}
+
+.key-points-cards.variant-yellow .key-point {
+  border-left: 4px solid #dcdcaa;
+  background: linear-gradient(135deg, rgba(220, 220, 170, 0.05) 0%, var(--bg-primary) 100%);
+}
+
+.key-points-cards.variant-yellow .key-point-content strong {
+  color: #dcdcaa;
+}
+
+.key-points-cards.variant-cyan .key-point {
+  border-left: 4px solid #4ec9b0;
+  background: linear-gradient(135deg, rgba(78, 201, 176, 0.05) 0%, var(--bg-primary) 100%);
+}
+
+.key-points-cards.variant-cyan .key-point-content strong {
+  color: #4ec9b0;
+}
+
+.key-points-cards.variant-purple .key-point {
+  border-left: 4px solid #c586c0;
+  background: linear-gradient(135deg, rgba(197, 134, 192, 0.05) 0%, var(--bg-primary) 100%);
+}
+
+.key-points-cards.variant-purple .key-point-content strong {
+  color: #c586c0;
+}
+
+/* 指标卡片颜色变体 */
+.metric-card.variant-blue, .metric-item.variant-blue {
+  border-left: 4px solid #569cd6;
+  background: linear-gradient(135deg, rgba(86, 156, 214, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.metric-card.variant-blue .metric-value, .metric-item.variant-blue .metric-value {
+  color: #569cd6;
+}
+
+.metric-card.variant-orange, .metric-item.variant-orange {
+  border-left: 4px solid #ce9178;
+  background: linear-gradient(135deg, rgba(206, 145, 120, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.metric-card.variant-orange .metric-value, .metric-item.variant-orange .metric-value {
+  color: #ce9178;
+}
+
+.metric-card.variant-green, .metric-item.variant-green {
+  border-left: 4px solid #6a9955;
+  background: linear-gradient(135deg, rgba(106, 153, 85, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.metric-card.variant-green .metric-value, .metric-item.variant-green .metric-value {
+  color: #6a9955;
+}
+
+.metric-card.variant-yellow, .metric-item.variant-yellow {
+  border-left: 4px solid #dcdcaa;
+  background: linear-gradient(135deg, rgba(220, 220, 170, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.metric-card.variant-yellow .metric-value, .metric-item.variant-yellow .metric-value {
+  color: #dcdcaa;
+}
+
+.metric-card.variant-cyan, .metric-item.variant-cyan {
+  border-left: 4px solid #4ec9b0;
+  background: linear-gradient(135deg, rgba(78, 201, 176, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.metric-card.variant-cyan .metric-value, .metric-item.variant-cyan .metric-value {
+  color: #4ec9b0;
+}
+
+.metric-card.variant-purple, .metric-item.variant-purple {
+  border-left: 4px solid #c586c0;
+  background: linear-gradient(135deg, rgba(197, 134, 192, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.metric-card.variant-purple .metric-value, .metric-item.variant-purple .metric-value {
+  color: #c586c0;
+}
+
+/* 组件卡片颜色变体 */
+.component-card.variant-blue {
+  border-left: 4px solid #569cd6;
+  background: linear-gradient(135deg, rgba(86, 156, 214, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.component-card.variant-blue h4 {
+  color: #569cd6;
+}
+
+.component-card.variant-orange {
+  border-left: 4px solid #ce9178;
+  background: linear-gradient(135deg, rgba(206, 145, 120, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.component-card.variant-orange h4 {
+  color: #ce9178;
+}
+
+.component-card.variant-green {
+  border-left: 4px solid #6a9955;
+  background: linear-gradient(135deg, rgba(106, 153, 85, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.component-card.variant-green h4 {
+  color: #6a9955;
+}
+
+.component-card.variant-yellow {
+  border-left: 4px solid #dcdcaa;
+  background: linear-gradient(135deg, rgba(220, 220, 170, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.component-card.variant-yellow h4 {
+  color: #dcdcaa;
+}
+
+.component-card.variant-cyan {
+  border-left: 4px solid #4ec9b0;
+  background: linear-gradient(135deg, rgba(78, 201, 176, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.component-card.variant-cyan h4 {
+  color: #4ec9b0;
+}
+
+.component-card.variant-purple {
+  border-left: 4px solid #c586c0;
+  background: linear-gradient(135deg, rgba(197, 134, 192, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.component-card.variant-purple h4 {
+  color: #c586c0;
+}
+
+/* 策略卡片颜色变体 */
+.strategy-card.variant-blue {
+  border-left: 4px solid #569cd6;
+  background: linear-gradient(135deg, rgba(86, 156, 214, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.strategy-card.variant-blue h5 {
+  color: #569cd6;
+}
+
+.strategy-card.variant-orange {
+  border-left: 4px solid #ce9178;
+  background: linear-gradient(135deg, rgba(206, 145, 120, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.strategy-card.variant-orange h5 {
+  color: #ce9178;
+}
+
+.strategy-card.variant-green {
+  border-left: 4px solid #6a9955;
+  background: linear-gradient(135deg, rgba(106, 153, 85, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.strategy-card.variant-green h5 {
+  color: #6a9955;
+}
+
+.strategy-card.variant-yellow {
+  border-left: 4px solid #dcdcaa;
+  background: linear-gradient(135deg, rgba(220, 220, 170, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.strategy-card.variant-yellow h5 {
+  color: #dcdcaa;
+}
+
+.strategy-card.variant-cyan {
+  border-left: 4px solid #4ec9b0;
+  background: linear-gradient(135deg, rgba(78, 201, 176, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.strategy-card.variant-cyan h5 {
+  color: #4ec9b0;
+}
+
+.strategy-card.variant-purple {
+  border-left: 4px solid #c586c0;
+  background: linear-gradient(135deg, rgba(197, 134, 192, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.strategy-card.variant-purple h5 {
+  color: #c586c0;
+}
+
+/* 流程步骤卡片颜色变体 */
+.flow-step.variant-blue {
+  border-left: 4px solid #569cd6;
+  background: linear-gradient(135deg, rgba(86, 156, 214, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.flow-step.variant-blue h4 {
+  color: #569cd6;
+}
+
+.flow-step.variant-orange {
+  border-left: 4px solid #ce9178;
+  background: linear-gradient(135deg, rgba(206, 145, 120, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.flow-step.variant-orange h4 {
+  color: #ce9178;
+}
+
+.flow-step.variant-green {
+  border-left: 4px solid #6a9955;
+  background: linear-gradient(135deg, rgba(106, 153, 85, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.flow-step.variant-green h4 {
+  color: #6a9955;
+}
+
+.flow-step.variant-yellow {
+  border-left: 4px solid #dcdcaa;
+  background: linear-gradient(135deg, rgba(220, 220, 170, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.flow-step.variant-yellow h4 {
+  color: #dcdcaa;
+}
+
+.flow-step.variant-cyan {
+  border-left: 4px solid #4ec9b0;
+  background: linear-gradient(135deg, rgba(78, 201, 176, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.flow-step.variant-cyan h4 {
+  color: #4ec9b0;
+}
+
+.flow-step.variant-purple {
+  border-left: 4px solid #c586c0;
+  background: linear-gradient(135deg, rgba(197, 134, 192, 0.08) 0%, var(--card-bg) 100%);
+}
+
+.flow-step.variant-purple h4 {
+  color: #c586c0;
+}
+
+/* 暗色模式适配 */
+[data-theme="dark"] .overview-card.variant-blue, 
+[data-theme="dark"] .overview-item.variant-blue,
+[data-theme="dark"] .metric-card.variant-blue,
+[data-theme="dark"] .metric-item.variant-blue,
+[data-theme="dark"] .component-card.variant-blue,
+[data-theme="dark"] .strategy-card.variant-blue,
+[data-theme="dark"] .flow-step.variant-blue {
+  background: linear-gradient(135deg, rgba(86, 156, 214, 0.12) 0%, var(--card-bg) 100%);
+  border-left-color: #569cd6;
+}
+
+[data-theme="dark"] .overview-card.variant-orange, 
+[data-theme="dark"] .overview-item.variant-orange,
+[data-theme="dark"] .metric-card.variant-orange,
+[data-theme="dark"] .metric-item.variant-orange,
+[data-theme="dark"] .component-card.variant-orange,
+[data-theme="dark"] .strategy-card.variant-orange,
+[data-theme="dark"] .flow-step.variant-orange {
+  background: linear-gradient(135deg, rgba(206, 145, 120, 0.12) 0%, var(--card-bg) 100%);
+  border-left-color: #ce9178;
+}
+
+[data-theme="dark"] .overview-card.variant-green, 
+[data-theme="dark"] .overview-item.variant-green,
+[data-theme="dark"] .metric-card.variant-green,
+[data-theme="dark"] .metric-item.variant-green,
+[data-theme="dark"] .component-card.variant-green,
+[data-theme="dark"] .strategy-card.variant-green,
+[data-theme="dark"] .flow-step.variant-green {
+  background: linear-gradient(135deg, rgba(106, 153, 85, 0.12) 0%, var(--card-bg) 100%);
+  border-left-color: #6a9955;
+}
+
+[data-theme="dark"] .overview-card.variant-yellow, 
+[data-theme="dark"] .overview-item.variant-yellow,
+[data-theme="dark"] .metric-card.variant-yellow,
+[data-theme="dark"] .metric-item.variant-yellow,
+[data-theme="dark"] .component-card.variant-yellow,
+[data-theme="dark"] .strategy-card.variant-yellow,
+[data-theme="dark"] .flow-step.variant-yellow {
+  background: linear-gradient(135deg, rgba(220, 220, 170, 0.12) 0%, var(--card-bg) 100%);
+  border-left-color: #dcdcaa;
+}
+
+[data-theme="dark"] .overview-card.variant-cyan, 
+[data-theme="dark"] .overview-item.variant-cyan,
+[data-theme="dark"] .metric-card.variant-cyan,
+[data-theme="dark"] .metric-item.variant-cyan,
+[data-theme="dark"] .component-card.variant-cyan,
+[data-theme="dark"] .strategy-card.variant-cyan,
+[data-theme="dark"] .flow-step.variant-cyan {
+  background: linear-gradient(135deg, rgba(78, 201, 176, 0.12) 0%, var(--card-bg) 100%);
+  border-left-color: #4ec9b0;
+}
+
+[data-theme="dark"] .overview-card.variant-purple, 
+[data-theme="dark"] .overview-item.variant-purple,
+[data-theme="dark"] .metric-card.variant-purple,
+[data-theme="dark"] .metric-item.variant-purple,
+[data-theme="dark"] .component-card.variant-purple,
+[data-theme="dark"] .strategy-card.variant-purple,
+[data-theme="dark"] .flow-step.variant-purple {
+  background: linear-gradient(135deg, rgba(197, 134, 192, 0.12) 0%, var(--card-bg) 100%);
+  border-left-color: #c586c0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .overview-card[class*="variant-"], 
+  .overview-item[class*="variant-"],
+  .metric-card[class*="variant-"],
+  .metric-item[class*="variant-"],
+  .component-card[class*="variant-"],
+  .strategy-card[class*="variant-"],
+  .flow-step[class*="variant-"] {
+    border-left-width: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .overview-card[class*="variant-"], 
+  .overview-item[class*="variant-"],
+  .metric-card[class*="variant-"],
+  .metric-item[class*="variant-"],
+  .component-card[class*="variant-"],
+  .strategy-card[class*="variant-"],
+  .flow-step[class*="variant-"] {
+    border-left-width: 2px;
+  }
+}
+
+/* 工具类：自动循环颜色分配 */
+.auto-color-cycle > *:nth-child(6n+1) {
+  border-left: 4px solid #569cd6 !important;
+  background: linear-gradient(135deg, rgba(86, 156, 214, 0.08) 0%, var(--card-bg) 100%) !important;
+}
+
+.auto-color-cycle > *:nth-child(6n+2) {
+  border-left: 4px solid #ce9178 !important;
+  background: linear-gradient(135deg, rgba(206, 145, 120, 0.08) 0%, var(--card-bg) 100%) !important;
+}
+
+.auto-color-cycle > *:nth-child(6n+3) {
+  border-left: 4px solid #6a9955 !important;
+  background: linear-gradient(135deg, rgba(106, 153, 85, 0.08) 0%, var(--card-bg) 100%) !important;
+}
+
+.auto-color-cycle > *:nth-child(6n+4) {
+  border-left: 4px solid #dcdcaa !important;
+  background: linear-gradient(135deg, rgba(220, 220, 170, 0.08) 0%, var(--card-bg) 100%) !important;
+}
+
+.auto-color-cycle > *:nth-child(6n+5) {
+  border-left: 4px solid #4ec9b0 !important;
+  background: linear-gradient(135deg, rgba(78, 201, 176, 0.08) 0%, var(--card-bg) 100%) !important;
+}
+
+.auto-color-cycle > *:nth-child(6n+6) {
+  border-left: 4px solid #c586c0 !important;
+  background: linear-gradient(135deg, rgba(197, 134, 192, 0.08) 0%, var(--card-bg) 100%) !important;
+}
+
+/* 自动颜色标题适配 */
+.auto-color-cycle > *:nth-child(6n+1) h3,
+.auto-color-cycle > *:nth-child(6n+1) h4,
+.auto-color-cycle > *:nth-child(6n+1) h5,
+.auto-color-cycle > *:nth-child(6n+1) .metric-value {
+  color: #569cd6 !important;
+}
+
+.auto-color-cycle > *:nth-child(6n+2) h3,
+.auto-color-cycle > *:nth-child(6n+2) h4,
+.auto-color-cycle > *:nth-child(6n+2) h5,
+.auto-color-cycle > *:nth-child(6n+2) .metric-value {
+  color: #ce9178 !important;
+}
+
+.auto-color-cycle > *:nth-child(6n+3) h3,
+.auto-color-cycle > *:nth-child(6n+3) h4,
+.auto-color-cycle > *:nth-child(6n+3) h5,
+.auto-color-cycle > *:nth-child(6n+3) .metric-value {
+  color: #6a9955 !important;
+}
+
+.auto-color-cycle > *:nth-child(6n+4) h3,
+.auto-color-cycle > *:nth-child(6n+4) h4,
+.auto-color-cycle > *:nth-child(6n+4) h5,
+.auto-color-cycle > *:nth-child(6n+4) .metric-value {
+  color: #dcdcaa !important;
+}
+
+.auto-color-cycle > *:nth-child(6n+5) h3,
+.auto-color-cycle > *:nth-child(6n+5) h4,
+.auto-color-cycle > *:nth-child(6n+5) h5,
+.auto-color-cycle > *:nth-child(6n+5) .metric-value {
+  color: #4ec9b0 !important;
+}
+
+.auto-color-cycle > *:nth-child(6n+6) h3,
+.auto-color-cycle > *:nth-child(6n+6) h4,
+.auto-color-cycle > *:nth-child(6n+6) h5,
+.auto-color-cycle > *:nth-child(6n+6) .metric-value {
+  color: #c586c0 !important;
+}
+
+/* 暗色模式自动循环适配 */
+[data-theme="dark"] .auto-color-cycle > *:nth-child(6n+1) {
+  background: linear-gradient(135deg, rgba(86, 156, 214, 0.12) 0%, var(--card-bg) 100%) !important;
+}
+
+[data-theme="dark"] .auto-color-cycle > *:nth-child(6n+2) {
+  background: linear-gradient(135deg, rgba(206, 145, 120, 0.12) 0%, var(--card-bg) 100%) !important;
+}
+
+[data-theme="dark"] .auto-color-cycle > *:nth-child(6n+3) {
+  background: linear-gradient(135deg, rgba(106, 153, 85, 0.12) 0%, var(--card-bg) 100%) !important;
+}
+
+[data-theme="dark"] .auto-color-cycle > *:nth-child(6n+4) {
+  background: linear-gradient(135deg, rgba(220, 220, 170, 0.12) 0%, var(--card-bg) 100%) !important;
+}
+
+[data-theme="dark"] .auto-color-cycle > *:nth-child(6n+5) {
+  background: linear-gradient(135deg, rgba(78, 201, 176, 0.12) 0%, var(--card-bg) 100%) !important;
+}
+
+[data-theme="dark"] .auto-color-cycle > *:nth-child(6n+6) {
+  background: linear-gradient(135deg, rgba(197, 134, 192, 0.12) 0%, var(--card-bg) 100%) !important;
+}
+

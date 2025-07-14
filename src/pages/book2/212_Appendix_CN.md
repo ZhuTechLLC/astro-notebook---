@@ -110,6 +110,19 @@ currentBook: macro
 </div>
     <a href="/book2/212_Appendix/G_Book2_Subsection_Template_CN" class="chapter-link">查看模板 →</a>
 </div>
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-number">H</span>
+      <h3>小节格式规范模版</h3>
+</div>
+    <p>基于7.1节实际格式总结的完整规范模版，包含所有样式类使用指南、内容结构标准和质量检查清单。</p>
+    <div class="chapter-features">
+      <span class="feature-tag">📋 格式规范</span>
+      <span class="feature-tag">🎨 样式类库</span>
+      <span class="feature-tag">✅ 质量标准</span>
+</div>
+    <a href="/book2/212_Appendix/H.1_Subsection_Format_Template_CN" class="chapter-link">查看规范 →</a>
+</div>
 </div>
 
 ## 🎯 附录使用指南

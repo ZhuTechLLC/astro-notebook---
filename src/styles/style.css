@@ -313,6 +313,36 @@ html, body {
   transform: translateX(3px);
 }
 
+/* 占位符卡片样式 */
+.chapters-grid .placeholder-card {
+  background: var(--bg-secondary);
+  border: 2px dashed var(--border-color);
+  opacity: 0.8;
+}
+
+.chapters-grid .placeholder-card:hover {
+  transform: none;
+  box-shadow: var(--card-shadow);
+  border-color: var(--border-color);
+}
+
+.chapters-grid .placeholder-card::before {
+  background: linear-gradient(90deg, #ccc 0%, #ddd 100%);
+}
+
+/* 禁用状态样式 */
+.chapters-grid .chapter-link.disabled {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.chapters-grid .chapter-link.disabled::after {
+  content: '⏳';
+}
+
 /* 暗色模式适配 */
 [data-theme="dark"] .chapters-grid .chapter-card {
   background: linear-gradient(135deg, #2a2d2e 0%, #232526 100%);
@@ -360,6 +390,22 @@ html, body {
 [data-theme="dark"] .chapters-grid .chapter-link:hover {
   background: linear-gradient(135deg, var(--primary-light) 0%, #81C784 100%);
   box-shadow: 0 6px 20px rgba(102, 187, 106, 0.4);
+}
+
+/* 暗色模式占位符卡片样式 */
+[data-theme="dark"] .chapters-grid .placeholder-card {
+  background: #2a2d2e;
+  border-color: #444;
+}
+
+[data-theme="dark"] .chapters-grid .placeholder-card::before {
+  background: linear-gradient(90deg, #555 0%, #666 100%);
+}
+
+/* 暗色模式禁用状态样式 */
+[data-theme="dark"] .chapters-grid .chapter-link.disabled {
+  background: #2a2d2e;
+  color: #666;
 }
 
 /* 响应式设计 */
@@ -1891,28 +1937,7 @@ em {
   color: #ffffff;
 }
 
-.chapter-overview {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-.overview-item {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: transform 0.2s;
-}
-.overview-item:hover {
-  transform: translateY(-2px);
-}
-.overview-item h4 {
-  color: var(--primary-color);
-  margin-bottom: 0.8rem;
-  font-size: 1.1rem;
-}
+/* chapter-overview 样式已移至 components.css */
 .tesla-analysis {
   margin: 2rem 0;
 }
@@ -2098,9 +2123,7 @@ em {
 }
 
 @media (max-width: 768px) {
-  .chapter-overview {
-    grid-template-columns: 1fr;
-  }
+  /* chapter-overview 响应式样式已移至 components.css */
   .performance-metrics {
     grid-template-columns: 1fr;
   }

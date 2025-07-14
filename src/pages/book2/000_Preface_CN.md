@@ -40,8 +40,8 @@ updateDate: "2025-01-10"
 <p>宏观数据解读与应用</p>
 </div>
 <div class="overview-item">
-<h4>🔮 第七章</h4>
-<p>宏观预测模型构建</p>
+<h4>⚠️ 第七章</h4>
+<p>宏观经济风险评估与预警</p>
 </div>
 <div class="overview-item">
 <h4>⚡ 第八章</h4>
@@ -74,7 +74,7 @@ updateDate: "2025-01-10"
 - [第四章：财政政策与市场影响](./204_Chapter4_Fiscal_Policy_and_Market_Impact_CN)
 - [第五章：国际宏观环境分析](./205_Chapter5_International_Macro_Environment_CN)
 - [第六章：宏观数据解读与应用](./206_Chapter6_Macro_Data_Interpretation_CN)
-- [第七章：宏观预测模型构建](./207_Chapter7_Macro_Forecasting_Models_CN)
+- [第七章：宏观经济风险评估与预警](./207_Chapter7_Macro_Forecasting_Models_CN)
 - [第八章：市场风险监测体系](./208_Chapter8_Market_Risk_Monitoring_CN)
 - [第九章：宏观驱动的资产配置](./209_Chapter9_Macro_Driven_Asset_Allocation_CN)
 - [第十章：宏观择时策略实战](./210_Chapter10_Macro_Timing_Strategies_CN)

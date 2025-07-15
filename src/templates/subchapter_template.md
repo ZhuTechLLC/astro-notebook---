@@ -10,7 +10,7 @@ title: "小节标题"
 description: "页面描述（简明扼要，利于SEO）"
 lang: "zh-CN"
 alt: "可选替代标题"
-layout: "../../layouts/HandbookLayout.astro"
+layout: /src/layouts/HandbookLayout.astro
 updateDate: "2025-01-03"
 ---
 

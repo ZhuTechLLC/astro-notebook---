@@ -3,7 +3,7 @@ title: "第二章：经济周期与市场表现"
 description: "深入解析经济周期的识别方法、不同周期阶段的市场特征，以及周期性投资策略的实施要点"
 lang: "zh-CN"
 alt: "经济周期与市场表现"
-layout: "../../layouts/HandbookLayout.astro"
+layout: /src/layouts/HandbookLayout.astro
 updateDate: "2025-01-10"
 ---
 

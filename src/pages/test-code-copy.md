@@ -3,7 +3,7 @@ title: "代码复制功能测试"
 description: "测试代码复制功能和卡片颜色变体"
 lang: zh-CN
 alt: "代码复制功能测试"
-layout: "../../layouts/HandbookLayout.astro"
+layout: /src/layouts/HandbookLayout.astro
 updateDate: "2025-01-03"
 ---
 

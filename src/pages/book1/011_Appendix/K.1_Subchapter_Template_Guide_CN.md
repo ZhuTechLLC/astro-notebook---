@@ -45,7 +45,7 @@ title: "小节标题"
 description: "页面描述（简明扼要，利于SEO）"
 lang: "zh-CN"
 alt: "可选替代标题"
-layout: "../../layouts/HandbookLayout.astro"
+layout: /src/layouts/HandbookLayout.astro
 updateDate: "2025-01-03"
 ---
 ```
@@ -786,7 +786,7 @@ title: "K.1 小节页面模板指南"
 description: "Astro投资手册小节页面标准格式与内容模块完整示例"
 lang: "zh-CN"
 alt: "小节模板指南"
-layout: "../../layouts/HandbookLayout.astro"
+layout: /src/layouts/HandbookLayout.astro
 updateDate: "2025-01-03"
 ---
 
@@ -828,7 +828,7 @@ title: "小节标题"
 description: "页面描述（简明扼要，利于SEO）"
 lang: "zh-CN"
 alt: "可选替代标题"
-layout: "../../layouts/HandbookLayout.astro"
+layout: /src/layouts/HandbookLayout.astro
 updateDate: "2025-01-03"
 ---
 ```

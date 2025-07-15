@@ -432,7 +432,7 @@ title: "页面标题"
 description: "页面描述 (SEO优化)"
 lang: "zh-CN"
 alt: "替代标题"
-layout: "../../layouts/HandbookLayout.astro"
+layout: /src/layouts/HandbookLayout.astro
 updateDate: "2025-01-03"
 ---
 ```

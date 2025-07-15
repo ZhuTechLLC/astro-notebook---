@@ -3,7 +3,7 @@ title: "宏观趋势实时数据测试页面"
 description: "测试RealtimeInsight组件的功能和显示效果"
 lang: "zh-CN"
 alt: "宏观趋势实时测试"
-layout: "../../layouts/HandbookLayout.astro"
+layout: /src/layouts/HandbookLayout.astro
 updateDate: "2025-01-03"
 ---
 

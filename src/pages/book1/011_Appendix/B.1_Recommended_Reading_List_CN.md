@@ -2,7 +2,7 @@
 title: B.1 推荐阅读书单
 lang: zh
 alt: /en/011_Appendix/B.1_Recommended_Reading_List_en
-layout: ../../../layouts/HandbookLayout.astro
+layout: /src/layouts/HandbookLayout.astro
 ---
 
 # B.1 推荐阅读书单

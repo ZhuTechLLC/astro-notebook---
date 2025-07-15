@@ -2,7 +2,7 @@
 title: 附录
 lang: zh
 alt: /en/011_Appendix_en
-layout: ../../layouts/Layout.astro
+layout: /src/layouts/Layout.astro
 currentBook: theory
 ---
 

@@ -2,7 +2,7 @@
 title: 第八章：案例复盘与策略改进
 lang: zh
 alt: /en/008_Chapter8_Case_Review_and_Strategy_Improvement_en
-layout: ../../layouts/Layout.astro
+layout: /src/layouts/Layout.astro
 currentBook: theory
 ---
 

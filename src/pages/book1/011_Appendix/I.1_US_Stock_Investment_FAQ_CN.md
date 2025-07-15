@@ -2,7 +2,7 @@
 title: I.1 美股投资常见问题
 lang: zh
 alt: /en/011_Appendix/I.1_US_Stock_Investment_FAQ_en
-layout: ../../../layouts/HandbookLayout.astro
+layout: /src/layouts/HandbookLayout.astro
 ---
 
 # I.1 美股投资常见问题

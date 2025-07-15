@@ -3,7 +3,7 @@ title: "附录C：数据源与工具清单"
 description: "完整的宏观经济数据源目录和分析工具清单，包括官方数据、商业平台、免费资源的详细信息"
 lang: "zh-CN"
 alt: "数据源与工具清单"
-layout: "../../../layouts/HandbookLayout.astro"
+layout: "/src/layouts/HandbookLayout.astro"
 updateDate: "2025-01-03"
 ---
 

@@ -2,7 +2,7 @@
 title: H.1 智能化交易系统开发概述
 lang: zh
 alt: /en/011_Appendix/H.1_Intelligent_Trading_System_en
-layout: ../../../layouts/HandbookLayout.astro
+layout: /src/layouts/HandbookLayout.astro
 ---
 
 # H.1 智能化交易系统开发概述

@@ -3,7 +3,7 @@ title: "K.1 小节页面模板指南"
 description: "Astro投资手册小节页面标准格式与内容模块完整示例"
 lang: "zh-CN"
 alt: "小节模板指南"
-layout: "../../../layouts/HandbookLayout.astro"
+layout: "/src/layouts/HandbookLayout.astro"
 updateDate: "2025-01-03"
 ---
 

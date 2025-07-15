@@ -3,7 +3,7 @@ title: "附录B：经典案例研究集"
 description: "收录重要的宏观经济事件和投资案例，包括金融危机、政策转向、市场拐点等经典案例的深度分析"
 lang: "zh-CN"
 alt: "经典案例研究集"
-layout: "../../../layouts/HandbookLayout.astro"
+layout: "/src/layouts/HandbookLayout.astro"
 updateDate: "2025-01-03"
 ---
 

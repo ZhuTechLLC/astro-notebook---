@@ -2,7 +2,7 @@
 title: F.1 GuruFocus Plus个股研究案例
 lang: zh
 alt: /en/011_Appendix/F.1_GuruFocus_Plus_Case_Study_en
-layout: ../../../layouts/HandbookLayout.astro
+layout: /src/layouts/HandbookLayout.astro
 ---
 
 # F.1 GuruFocus Plus个股研究案例

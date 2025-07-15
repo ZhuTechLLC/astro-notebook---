@@ -2,7 +2,7 @@
 title: 第四章：赛道选择与行业趋势
 lang: zh
 alt: /en/004_Chapter4_Track_Selection_and_Industry_Trends_en
-layout: ../../layouts/Layout.astro
+layout: /src/layouts/Layout.astro
 currentBook: theory
 ---
 

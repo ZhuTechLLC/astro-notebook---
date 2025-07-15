@@ -2,7 +2,7 @@
 title: G.1 查理·芒格宝典摘要
 lang: zh
 alt: /en/011_Appendix/G.1_Charlie_Munger_Wisdom_en
-layout: ../../../layouts/HandbookLayout.astro
+layout: /src/layouts/HandbookLayout.astro
 ---
 
 # G.1 查理·芒格宝典摘要

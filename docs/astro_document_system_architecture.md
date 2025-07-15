@@ -111,7 +111,7 @@ src/
 title: 章节标题
 lang: zh
 alt: 英文路径
-layout: ../../layouts/Layout.astro
+layout: /src/layouts/Layout.astro
 currentBook: theory
 ---
 ```
@@ -133,7 +133,7 @@ title: "小节标题"
 description: "页面描述（利于SEO）"
 lang: "zh-CN"
 alt: "可选替代标题"
-layout: "../../../layouts/HandbookLayout.astro"
+layout: "/src/layouts/HandbookLayout.astro"
 updateDate: "2025-01-03"
 ---
 ```

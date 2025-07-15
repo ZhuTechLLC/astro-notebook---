@@ -2,7 +2,7 @@
 title: 第六章：交易策略与执行
 lang: zh
 alt: /en/006_Chapter6_Trading_Strategies_and_Execution_en
-layout: ../../layouts/Layout.astro
+layout: /src/layouts/Layout.astro
 currentBook: theory
 ---
 

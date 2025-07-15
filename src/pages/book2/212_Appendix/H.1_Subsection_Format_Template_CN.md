@@ -3,7 +3,7 @@ title: "H.1 小节格式规范模版"
 description: "基于7.1节总结的完整小节格式规范，包含所有样式类和内容结构的标准化模版"
 lang: "zh-CN"
 alt: "小节格式规范模版"
-layout: "../../../layouts/HandbookLayout.astro"
+layout: "/src/layouts/HandbookLayout.astro"
 updateDate: "2025-01-03"
 ---
 
@@ -21,7 +21,7 @@ title: "X.X 章节标题"
 description: "SEO优化的页面描述，包含关键词和核心内容概述"
 lang: "zh-CN"
 alt: "页面替代标题"
-layout: "../../../layouts/HandbookLayout.astro"
+layout: "/src/layouts/HandbookLayout.astro"
 updateDate: "2025-01-03"
 ---
 ```

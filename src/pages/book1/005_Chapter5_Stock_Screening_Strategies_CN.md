@@ -2,7 +2,7 @@
 title: 第五章：股票筛选策略
 lang: zh
 alt: /en/005_Chapter5_Stock_Screening_Strategies_en
-layout: ../../layouts/Layout.astro
+layout: /src/layouts/Layout.astro
 currentBook: theory
 ---
 

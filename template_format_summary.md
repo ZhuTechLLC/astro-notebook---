@@ -14,7 +14,7 @@ title: "X.X 章节标题"
 description: "章节描述，用于SEO优化，简洁概括章节核心内容"
 lang: "zh-CN"
 alt: "章节替代标题"
-layout: "../../../layouts/HandbookLayout.astro"
+layout: "/src/layouts/HandbookLayout.astro"
 updateDate: "YYYY-MM-DD"
 ---
 ```

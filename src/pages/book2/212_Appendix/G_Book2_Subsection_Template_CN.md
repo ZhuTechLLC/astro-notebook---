@@ -3,7 +3,7 @@ title: "G 第二册小节标准模板"
 description: "第二册宏观经济手册小节的标准化模板，包含所有专业格式组件和使用规范，确保章节内容的一致性和专业性"
 lang: "zh-CN"
 alt: "第二册小节模板"
-layout: "../../../layouts/HandbookLayout.astro"
+layout: "/src/layouts/HandbookLayout.astro"
 updateDate: "2025-07-13"
 ---
 

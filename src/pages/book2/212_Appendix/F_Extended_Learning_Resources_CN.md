@@ -3,7 +3,7 @@ title: "附录F：延伸学习资源"
 description: "精选的延伸学习资源，包括推荐书籍、在线课程、研究报告、专业网站等深度学习材料"
 lang: "zh-CN"
 alt: "延伸学习资源"
-layout: "../../../layouts/HandbookLayout.astro"
+layout: "/src/layouts/HandbookLayout.astro"
 updateDate: "2025-01-03"
 ---
 

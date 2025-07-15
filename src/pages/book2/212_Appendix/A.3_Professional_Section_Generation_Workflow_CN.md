@@ -3,7 +3,7 @@ title: "A.3 专业水准小节页面生成流程"
 description: "系统化的小节页面生成工作流程，确保内容质量、格式规范和开发效率的完整指南"
 lang: "zh-CN"
 alt: "Professional Section Generation Workflow"
-layout: "../../../layouts/HandbookLayout.astro"
+layout: "/src/layouts/HandbookLayout.astro"
 updateDate: "2025-01-03"
 ---
 

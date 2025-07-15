@@ -2,7 +2,7 @@
 title: L.1 美股投资实操手册总结与格式优化建议
 lang: zh
 alt: /en/011_Appendix/L.1_Handbook_Summary_and_Format_Optimization_en
-layout: ../../../layouts/HandbookLayout.astro
+layout: /src/layouts/HandbookLayout.astro
 currentBook: theory
 description: 美股投资实操手册的全面总结，包含核心内容回顾、实战价值分析、格式优化建议和未来发展方向
 updateDate: "2025-01-03"

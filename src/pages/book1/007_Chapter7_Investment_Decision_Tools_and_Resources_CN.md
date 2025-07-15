@@ -2,7 +2,7 @@
 title: 第七章：投资决策工具与资源
 lang: zh
 alt: /en/007_Chapter7_Investment_Decision_Tools_and_Resources_en
-layout: ../../layouts/Layout.astro
+layout: /src/layouts/Layout.astro
 currentBook: theory
 ---
 

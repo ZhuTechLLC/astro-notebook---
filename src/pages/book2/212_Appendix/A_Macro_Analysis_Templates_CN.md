@@ -3,7 +3,7 @@ title: "附录A：宏观分析模板库"
 description: "提供标准化的宏观分析模板，包括经济数据分析表格、政策分析框架、投资决策流程等实用模板"
 lang: "zh-CN"
 alt: "宏观分析模板库"
-layout: "../../../layouts/HandbookLayout.astro"
+layout: "/src/layouts/HandbookLayout.astro"
 updateDate: "2025-01-03"
 ---
 

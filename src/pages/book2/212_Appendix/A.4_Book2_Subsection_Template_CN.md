@@ -3,7 +3,7 @@ title: "X.X 章节标题模板"
 description: "章节描述模板，80-120字简洁概括章节核心内容和学习价值，突出实战应用和专业技能"
 lang: "zh-CN"
 alt: "章节替代标题"
-layout: "../../../layouts/HandbookLayout.astro"
+layout: "/src/layouts/HandbookLayout.astro"
 updateDate: "YYYY-MM-DD"
 ---
 

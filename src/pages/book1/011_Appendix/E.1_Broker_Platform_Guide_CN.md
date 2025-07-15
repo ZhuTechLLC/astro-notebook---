@@ -2,7 +2,7 @@
 title: E.1 券商网站使用指南
 lang: zh
 alt: /en/011_Appendix/E.1_Broker_Platform_Guide_en
-layout: ../../../layouts/HandbookLayout.astro
+layout: /src/layouts/HandbookLayout.astro
 ---
 
 # E.1 券商网站使用指南

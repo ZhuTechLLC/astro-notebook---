@@ -3,7 +3,7 @@ title: "附录D：技术实现指南"
 description: "详细的技术实现指南，包括编程代码示例、模型构建步骤、系统搭建教程等技术资料"
 lang: "zh-CN"
 alt: "技术实现指南"
-layout: "../../../layouts/HandbookLayout.astro"
+layout: "/src/layouts/HandbookLayout.astro"
 updateDate: "2025-01-03"
 ---
 

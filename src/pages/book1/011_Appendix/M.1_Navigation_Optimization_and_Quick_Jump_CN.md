@@ -2,7 +2,7 @@
 title: M.1 导航优化与快速跳转功能建议
 lang: zh
 alt: /en/011_Appendix/M.1_Navigation_Optimization_and_Quick_Jump_en
-layout: ../../../layouts/HandbookLayout.astro
+layout: /src/layouts/HandbookLayout.astro
 currentBook: theory
 description: 详细分析美股投资实操手册的导航系统优化方案，包括快速跳转、智能搜索、个性化导航等功能设计建议
 updateDate: "2025-01-03"

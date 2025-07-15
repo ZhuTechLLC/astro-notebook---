@@ -2,7 +2,7 @@
 title: 第十章：交易执行与实战指南
 lang: zh
 alt: /en/010_Chapter10_Trading_Execution_and_Practical_Guide_en
-layout: ../../layouts/Layout.astro
+layout: /src/layouts/Layout.astro
 currentBook: theory
 ---
 

@@ -2,7 +2,7 @@
 title: 序言
 lang: zh
 alt: /en/000_Preface_en
-layout: ../../layouts/Layout.astro
+layout: /src/layouts/Layout.astro
 ---
 
 # 序言

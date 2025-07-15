@@ -2,7 +2,7 @@
 title: D.1 交易计划模板
 lang: zh
 alt: /en/011_Appendix/D.1_Trading_Plan_Templates_en
-layout: ../../../layouts/HandbookLayout.astro
+layout: /src/layouts/HandbookLayout.astro
 ---
 
 # D.1 交易计划模板

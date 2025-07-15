@@ -2,7 +2,7 @@
 title: C.1 量化分析与回测
 lang: zh
 alt: /en/011_Appendix/C.1_Quantitative_Analysis_and_Backtesting_en
-layout: ../../../layouts/HandbookLayout.astro
+layout: /src/layouts/HandbookLayout.astro
 ---
 
 # C.1 量化分析与回测

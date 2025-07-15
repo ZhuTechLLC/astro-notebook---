@@ -2,7 +2,7 @@
 title: A.1 常用财务指标及计算公式
 lang: zh
 alt: /en/011_Appendix/A.1_Financial_Indicators_and_Formulas_en
-layout: ../../../layouts/HandbookLayout.astro
+layout: /src/layouts/HandbookLayout.astro
 ---
 
 # A.1 常用财务指标及计算公式

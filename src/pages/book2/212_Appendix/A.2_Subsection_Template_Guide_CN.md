@@ -3,7 +3,7 @@ title: "A.2 小节模版指南"
 description: "基于成功实践总结的小节页面标准模版，包含完整的格式规范、组件使用和内容结构指导"
 lang: "zh-CN"
 alt: "Subsection Template Guide"
-layout: "../../../layouts/HandbookLayout.astro"
+layout: "/src/layouts/HandbookLayout.astro"
 updateDate: "2025-01-03"
 ---
 
@@ -44,7 +44,7 @@ title: "X.X 小节标题"
 description: "简明扼要的页面描述，用于SEO优化和搜索引擎展示"
 lang: "zh-CN"
 alt: "英文标题或替代标题"
-layout: "../../../layouts/HandbookLayout.astro"
+layout: "/src/layouts/HandbookLayout.astro"
 updateDate: "2025-01-03"
 ---
 ```

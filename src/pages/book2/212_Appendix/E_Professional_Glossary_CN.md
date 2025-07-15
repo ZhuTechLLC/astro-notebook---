@@ -3,7 +3,7 @@ title: "附录E：专业术语词典"
 description: "宏观经济和投资领域的专业术语词典，提供中英文对照和详细解释，便于查阅和学习"
 lang: "zh-CN"
 alt: "专业术语词典"
-layout: "../../../layouts/HandbookLayout.astro"
+layout: "/src/layouts/HandbookLayout.astro"
 updateDate: "2025-01-03"
 ---
 

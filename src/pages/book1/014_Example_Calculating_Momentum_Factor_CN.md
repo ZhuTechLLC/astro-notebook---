@@ -1,6 +1,6 @@
 ---
 title: 示例：计算动量因子
-layout: ../../layouts/HandbookLayout.astro
+layout: /src/layouts/HandbookLayout.astro
 lang: zh
 alt: /en/014_Example_Calculating_Momentum_Factor_en
 ---

@@ -1,6 +1,6 @@
 ---
 title: 策略逻辑
-layout: ../../layouts/HandbookLayout.astro
+layout: /src/layouts/HandbookLayout.astro
 lang: zh
 alt: /en/012_Strategy_Logic_en
 ---

@@ -1,7 +1,7 @@
 =======
 ---
 title: 示例：加载股票价格数据
-layout: ../../layouts/HandbookLayout.astro
+layout: /src/layouts/HandbookLayout.astro
 lang: zh
 alt: /en/013_Example_Loading_Stock_Price_Data_en
 ---

@@ -2,7 +2,7 @@
 =======
 ---
 title: 示例：等权构建组合
-layout: ../../layouts/HandbookLayout.astro
+layout: /src/layouts/HandbookLayout.astro
 lang: zh
 alt: /en/015_Example_Building_Equal_Weighted_Portfolio_en
 ---

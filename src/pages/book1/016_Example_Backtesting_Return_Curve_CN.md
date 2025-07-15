@@ -2,7 +2,7 @@
 =======
 ---
 title: 示例：回测收益曲线
-layout: ../../layouts/HandbookLayout.astro
+layout: /src/layouts/HandbookLayout.astro
 lang: zh
 alt: /en/016_Example_Backtesting_Return_Curve_en
 ---

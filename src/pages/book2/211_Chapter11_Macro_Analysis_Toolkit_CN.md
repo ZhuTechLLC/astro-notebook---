@@ -56,25 +56,12 @@ currentBook: macro
       <span class="feature-tag">🔗 系统集成</span>
       <span class="feature-tag">⚙️ 平台管理</span>
     </div>
-    <a href="/book2/211_Chapter11/11.3_Model_Building_Integration_Platform_CN" class="chapter-link">开始学习 →</a>
+    <a href="/book2/211_Chapter11/11.3_Model_Construction_Validation_CN" class="chapter-link">开始学习 →</a>
   </div>
   <div class="chapter-card">
     <div class="chapter-header">
       <span class="chapter-number">11.4</span>
-      <h3>可视化与报告系统</h3>
-    </div>
-    <p>设计专业的宏观分析可视化和报告系统，提升分析结果的展示效果和沟通效率。</p>
-    <div class="chapter-features">
-      <span class="feature-tag">📈 可视化</span>
-      <span class="feature-tag">📄 报告系统</span>
-      <span class="feature-tag">💡 展示效果</span>
-    </div>
-    <a href="/book2/211_Chapter11/11.4_Visualization_Reporting_System_CN" class="chapter-link">开始学习 →</a>
-  </div>
-  <div class="chapter-card">
-    <div class="chapter-header">
-      <span class="chapter-number">11.5</span>
-      <h3>决策支持与执行系统</h3>
+      <h3>决策支持系统</h3>
     </div>
     <p>构建从分析到决策的支持系统，实现投资决策的标准化流程和执行跟踪机制。</p>
     <div class="chapter-features">
@@ -82,7 +69,20 @@ currentBook: macro
       <span class="feature-tag">⚡ 执行跟踪</span>
       <span class="feature-tag">🔄 反馈优化</span>
     </div>
-    <a href="/book2/211_Chapter11/11.5_Decision_Support_Execution_System_CN" class="chapter-link">开始学习 →</a>
+    <a href="/book2/211_Chapter11/11.4_Decision_Support_System_CN" class="chapter-link">开始学习 →</a>
+  </div>
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-number">11.5</span>
+      <h3>绩效评估与优化</h3>
+    </div>
+    <p>建立完善的绩效评估体系，通过持续优化提升宏观分析工具箱的实际效果。</p>
+    <div class="chapter-features">
+      <span class="feature-tag">📊 绩效评估</span>
+      <span class="feature-tag">🔧 持续优化</span>
+      <span class="feature-tag">📈 效果提升</span>
+    </div>
+    <a href="/book2/211_Chapter11/11.5_Performance_Evaluation_Optimization_CN" class="chapter-link">开始学习 →</a>
   </div>
   <div class="chapter-card interactive-card">
     <div class="chapter-header">
@@ -95,7 +95,7 @@ currentBook: macro
       <span class="feature-tag">🔧 工具配置</span>
       <span class="feature-tag">💡 实践心得</span>
     </div>
-    <a href="/book2/211_Chapter11/11.6_Interactive_Notes_Toolkit_Practice_CN" class="chapter-link">开始使用 →</a>
+    <a href="/book2/211_Chapter11/11.6_Interactive_Notes_Macro_Analysis_Toolkit_CN" class="chapter-link">开始使用 →</a>
   </div>
 </div>
 

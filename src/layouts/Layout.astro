@@ -1,4 +1,6 @@
 ---
+import PDFExportButton from '../components/PDFExportButton.astro';
+
 export interface Props {
   title: string;
   lang?: string;
@@ -33,6 +35,7 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           <button id="tocBtn" class="nav-control-btn toc-btn" title="返回目录">📚</button>
           <button id="prevPageBtn" class="page-nav-btn" title="上一页">上一页</button>
           <button id="nextPageBtn" class="page-nav-btn" title="下一页">下一页</button>
+          <PDFExportButton />
           <button id="toggleReadingMode" class="reading-btn" title="专注阅读模式">📖</button>
           <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
             <span class="theme-icon">🌙</span>
@@ -295,8 +298,8 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
       .sidebar {
         position: fixed;
         top: 48px;
-        left: -320px;
-        width: 320px;
+        left: -380px;
+        width: 380px;
         height: calc(100vh - 48px);
         background: var(--card-bg);
         border-right: 1px solid var(--border-color);
@@ -425,8 +428,18 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
       /* 主内容区 */
       .main-content {
         margin-top: 48px;
-        padding: 0 20px 20px 20px;
+        padding: 0 25px 20px 25px;
         min-height: calc(100vh - 48px);
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        transition: all 0.3s ease;
+      }
+
+      /* 当侧边栏打开时，主内容区稍微调整 */
+      .sidebar.open ~ .main-content {
+        margin-left: auto;
+        margin-right: auto;
       }
 
 
@@ -570,6 +583,13 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
       }
 
       /* 响应式设计 */
+      @media (max-width: 1200px) {
+        .main-content {
+          max-width: 1000px;
+          padding: 0 20px 20px 20px;
+        }
+      }
+
       @media (max-width: 768px) {
         .top-nav {
           padding: 0 12px;
@@ -601,10 +621,16 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         }
 
         .sidebar {
-          width: 300px;
-          left: -300px;
+          width: 380px;
+          left: -380px;
         }
 
+        .main-content {
+          max-width: 100%;
+          padding: 0 20px 20px 20px;
+          margin-left: 0;
+          margin-right: 0;
+        }
 
 
         .chapter-nav {

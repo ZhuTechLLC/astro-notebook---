@@ -1,4 +1,5 @@
 /* 全局样式设置 */
+@import url("./print.css") print;
 body {
   font-family: "Noto Serif SC", "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", serif;
   margin: 0;

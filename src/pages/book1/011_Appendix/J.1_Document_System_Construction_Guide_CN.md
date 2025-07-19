@@ -4,7 +4,6 @@ lang: zh
 layout: /src/layouts/HandbookLayout.astro
 currentBook: theory
 ---
-
 # J.1 高效文档系统构建指南
 
 > **核心摘要：**

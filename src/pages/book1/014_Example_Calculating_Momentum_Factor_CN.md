@@ -4,7 +4,6 @@ layout: /src/layouts/HandbookLayout.astro
 lang: zh
 alt: /en/014_Example_Calculating_Momentum_Factor_en
 ---
-
 <div class="page-nav">
   <a href="/013_Example_Loading_Stock_Price_Data_CN">← 上一章</a>
   <a href="/015_Example_Building_Equal_Weighted_Portfolio_CN">下一章 →</a>

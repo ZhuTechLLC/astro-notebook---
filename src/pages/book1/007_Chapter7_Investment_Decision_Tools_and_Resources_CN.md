@@ -5,7 +5,6 @@ alt: /en/007_Chapter7_Investment_Decision_Tools_and_Resources_en
 layout: /src/layouts/Layout.astro
 currentBook: theory
 ---
-
 # 第七章：投资决策工具与资源
 
 > **核心摘要：**
@@ -38,7 +37,7 @@ currentBook: theory
     </div>
     <p>掌握TradingView、Bloomberg Terminal和IBD的使用方法，结合技术面与基本面分析，构建多维度的市场分析体系。</p>
     <div class="chapter-features">
-      <span class="feature-tag">技术分析</span>
+      <span class="feature-tag"><span class="glossary-term" data-term="技术分析" data-definition='{"term":"技术分析","fullName":"Technical Analysis","description":"通过价格图表和交易量分析预测股价走势的方法","category":"分析方法","example":"移动平均线、RSI、MACD等技术指标"}' title="通过价格图表和交易量分析预测股价走势的方法"><span class="glossary-term" data-term="技术分析" data-definition='{"term":"技术分析","fullName":"Technical Analysis","description":"通过价格图表和交易量分析预测股价走势的方法","category":"分析方法","example":"移动平均线、RSI、MACD等技术指标"}' title="通过价格图表和交易量分析预测股价走势的方法">技术分析</span></span></span>
       <span class="feature-tag">图表工具</span>
       <span class="feature-tag">CAN SLIM策略</span>
     </div>

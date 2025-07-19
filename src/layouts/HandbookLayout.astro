@@ -1,6 +1,6 @@
 ---
 import Layout from './Layout.astro';
-import CodeCopyButton from '../components/CodeCopyButton.astro';
+import GlossaryTerm from '../components/GlossaryTerm.astro';
 
 export interface Props {
   title: string;
@@ -47,6 +47,173 @@ const {
   </script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <!-- KaTeX样式已移除，如需MathJax前端渲染可在此引入MathJax CDN -->
+  <link rel="stylesheet" href="/src/styles/style.css" />
+  <link rel="stylesheet" href="/src/styles/components.css" />
+  
+  <!-- 完美主义级别的Checkbox样式修复 -->
+  <style>
+    /* 🎯 终极解决方案：完全移除所有checkbox列表的项目符号 */
+    .checklist-list,
+    .checklist-section ul,
+    .checklist-section ol {
+      list-style-type: none !important;
+      list-style: none !important;
+      list-style-image: none !important;
+      padding-left: 0 !important;
+      margin-left: 0 !important;
+    }
+    
+    .checklist-list li,
+    .checklist-section ul li,
+    .checklist-section ol li {
+      list-style-type: none !important;
+      list-style: none !important;
+      list-style-image: none !important;
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 0.5rem !important;
+      padding: 0.25rem 0 !important;
+      margin-bottom: 0.5rem !important;
+      line-height: 1.5 !important;
+      position: relative;
+    }
+    
+    .checklist-list li::before,
+    .checklist-section ul li::before,
+    .checklist-section ol li::before,
+    .checklist-list li::marker,
+    .checklist-section ul li::marker,
+    .checklist-section ol li::marker {
+      content: none !important;
+      display: none !important;
+      visibility: hidden !important;
+    }
+    
+    /* 确保checkbox输入框正确对齐 */
+    .checklist-list li input[type="checkbox"],
+    .checklist-section input[type="checkbox"] {
+      margin: 0 !important;
+      margin-top: 0.1rem !important;
+      flex-shrink: 0 !important;
+    }
+  </style>
+
+  <!-- 🎨 Status-Cards背景色修复 - 避免纯白背景 -->
+  <style>
+    .status-card.green {
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%) !important;
+      border-left: 4px solid #16a34a !important;
+    }
+
+    .status-card.yellow {
+      background: linear-gradient(135deg, #fefce8 0%, #fef08a 100%) !important;
+      border-left: 4px solid #d97706 !important;
+    }
+
+    .status-card.red {
+      background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%) !important;
+      border-left: 4px solid #dc2626 !important;
+    }
+
+    .status-card.blue {
+      background: linear-gradient(135deg, #eff6ff 0%, #bfdbfe 100%) !important;
+      border-left: 4px solid #2563eb !important;
+    }
+
+    .status-card.purple {
+      background: linear-gradient(135deg, #faf5ff 0%, #e9d5ff 100%) !important;
+      border-left: 4px solid #9333ea !important;
+    }
+
+    .status-card.gray {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+      border-left: 4px solid #6b7280 !important;
+    }
+
+    .status-card.orange {
+      background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%) !important;
+      border-left: 4px solid #ea580c !important;
+    }
+
+    /* 暗色主题下的红色卡片修复 */
+    [data-theme="dark"] .status-card.red {
+      background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%) !important;
+      color: #fee2e2 !important;
+    }
+
+    /* 确保所有status-card都有合适的文字颜色 */
+    .status-card.green .status-content {
+      color: #166534 !important;
+    }
+
+    .status-card.yellow .status-content {
+      color: #92400e !important;
+    }
+
+    .status-card.red .status-content {
+      color: #dc2626 !important;
+    }
+
+    .status-card.blue .status-content {
+      color: #1e40af !important;
+    }
+
+    .status-card.purple .status-content {
+      color: #6b21a8 !important;
+    }
+
+    .status-card.gray .status-content {
+      color: #4b5563 !important;
+    }
+
+    .status-card.orange .status-content {
+      color: #c2410c !important;
+    }
+
+    /* 🔧 橙色status-label修复 - 确保白色文字和橙色背景 */
+    .status-card.orange .status-label {
+      background: #ea580c !important;
+      background-color: #ea580c !important;
+      color: white !important;
+      color: #ffffff !important;
+      font-weight: 500 !important;
+      padding: 0.25rem 0.75rem !important;
+      border-radius: 16px !important;
+      font-size: 0.8rem !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.5px !important;
+    }
+
+    /* 确保橙色卡片标题颜色正确 */
+    .status-card.orange .status-header h4 {
+      color: #c2410c !important;
+    }
+
+    /* 额外的选择器确保样式生效 */
+    div.status-card.orange div.status-header div.status-label {
+      background: #ea580c !important;
+      color: white !important;
+    }
+  </style>
+
+  <!-- 🌙 Orange暗色模式定义 - 补充components.css中缺失的定义 -->
+  <style>
+    /* Orange暗色模式背景 */
+    [data-theme="dark"] .status-card.orange {
+      background: linear-gradient(135deg, #7c2d12 0%, #9a3412 100%);
+      color: #fed7aa;
+    }
+
+    /* Orange暗色模式标题颜色 */
+    [data-theme="dark"] .status-card.orange .status-header h4 {
+      color: #fb923c;
+    }
+
+    /* Orange暗色模式内容颜色 */
+    [data-theme="dark"] .status-card.orange .status-content {
+      color: #fed7aa;
+    }
+  </style>
 </head>
 
 <Layout 
@@ -57,12 +224,13 @@ const {
   alt={alt}
 >
   <slot />
-  <CodeCopyButton />
+  <GlossaryTerm />
 </Layout>
 
 <style>
   /* 引用组件样式 */
   @import '/src/styles/components.css';
+  @import '/src/styles/alignment-fix.css';
   
   /* 页面特定样式 */
   .handbook-content {
@@ -78,4 +246,3 @@ const {
     color: #d4d4d4 !important;
     border: 1px solid #3e3e3e !important;
   }
-</style>

@@ -5,7 +5,6 @@ alt: /en/004_Chapter4_Track_Selection_and_Industry_Trends_en
 layout: /src/layouts/Layout.astro
 currentBook: theory
 ---
-
 # 第四章：赛道选择与行业趋势
 
 > **核心摘要：**

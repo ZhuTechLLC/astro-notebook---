@@ -6,7 +6,6 @@ layout: /src/layouts/HandbookLayout.astro
 lang: zh
 alt: /en/016_Example_Backtesting_Return_Curve_en
 ---
-
 <div class="page-nav">
   <a href="/015_Example_Building_Equal_Weighted_Portfolio_CN">← 上一章</a>
   <a href="/017_Using_scipy_optimize_for_Optimization_CN">下一章 →</a>
@@ -21,7 +20,7 @@ cumulative_returns = (1 + portfolio_returns).cumprod()
 
 指标计算公式：
 
-夏普比率： Sharpe Ratio=组合年化收益率−无风险利率年化波动率\text{Sharpe Ratio} = \frac{\text{组合年化收益率} - \text{无风险利率}}{\text{年化波动率}}
+夏普比率： <GlossaryTerm term="Sharpe" /> Ratio=组合年化收益率−无风险利率年化波动率\text{<GlossaryTerm term="Sharpe" /> Ratio} = \frac{\text{组合年化收益率} - \text{无风险利率}}{\text{年化波动率}}
 
 最大回撤： 最大回撤=累计收益的最大值−累计收益的最小值累计收益的最大值\text{最大回撤} = \frac{\text{累计收益的最大值} - \text{累计收益的最小值}}{\text{累计收益的最大值}}
 

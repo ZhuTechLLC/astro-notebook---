@@ -4,7 +4,6 @@ lang: zh
 alt: /en/011_Appendix/E.1_Broker_Platform_Guide_en
 layout: /src/layouts/HandbookLayout.astro
 ---
-
 # E.1 券商网站使用指南
 
 > **核心摘要：**
@@ -205,7 +204,7 @@ layout: /src/layouts/HandbookLayout.astro
 
 详细数据：
 - 财务数据：营收、利润、负债等
-- 估值指标：P/E、P/B、PEG等
+- 估值指标：P/E、P/B、<span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span>等
 - 技术指标：MA、MACD、RSI等
 - 分析师评级：买入、持有、卖出
 ```
@@ -291,7 +290,7 @@ K线图设置：
 估值分析：
 - P/E比率：市盈率分析
 - P/B比率：市净率分析
-- PEG比率：市盈率相对盈利增长比
+- <span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span>比率：市盈率相对盈利增长比
 - 股息率：年度股息收益率
 ```
 

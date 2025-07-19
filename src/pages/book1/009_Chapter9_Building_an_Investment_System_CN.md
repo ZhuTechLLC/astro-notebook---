@@ -5,7 +5,6 @@ alt: /en/009_Chapter9_Building_an_Investment_System_en
 layout: /src/layouts/Layout.astro
 currentBook: theory
 ---
-
 # 第九章：构建投资体系
 
 > **核心摘要：**

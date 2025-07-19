@@ -5,7 +5,6 @@ alt: /en/011_Appendix_en
 layout: /src/layouts/Layout.astro
 currentBook: theory
 ---
-
 # 附录
 
 > **核心摘要：**
@@ -200,8 +199,8 @@ currentBook: theory
 ## 📚 核心概念
 
 ### 财务指标体系
-- **估值指标**：P/E、P/B、PEG、DCF等估值方法
-- **成长性指标**：EPS增长率、销售额增长率、ROE等
+- **估值指标**：P/E、P/B、<span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span>、<GlossaryTerm term="DCF" />等估值方法
+- **成长性指标**：EPS增长率、销售额增长率、<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>等
 - **盈利能力指标**：净利润率、毛利率、ROA等
 - **偿债能力指标**：负债率、流动比率、速动比率等
 

@@ -5,7 +5,6 @@ alt: /en/005_Chapter5_Stock_Screening_Strategies_en
 layout: /src/layouts/Layout.astro
 currentBook: theory
 ---
-
 # 第五章：股票筛选策略
 
 > **核心摘要：**
@@ -36,7 +35,7 @@ currentBook: theory
       <span class="chapter-number">5.2</span>
       <h3>基于基本面的核心筛选参数</h3>
     </div>
-    <p>深入分析收入增长率、毛利率、净利润率、ROE、ROIC等核心财务指标，通过具体案例展示如何运用基本面指标筛选优质股票。</p>
+    <p>深入分析收入增长率、毛利率、净利润率、<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>、ROIC等核心财务指标，通过具体案例展示如何运用基本面指标筛选优质股票。</p>
     <div class="chapter-features">
       <span class="feature-tag"> 财务指标</span>
       <span class="feature-tag"> 盈利能力</span>
@@ -64,7 +63,7 @@ currentBook: theory
       <span class="chapter-number">5.4</span>
       <h3>估值方法论</h3>
     </div>
-    <p>系统介绍市盈率、市净率、PEG比率、DCF模型等估值方法，结合行业特性和公司发展阶段，提供科学的估值分析框架。</p>
+    <p>系统介绍市盈率、市净率、<span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span>比率、<GlossaryTerm term="DCF" />模型等估值方法，结合行业特性和公司发展阶段，提供科学的估值分析框架。</p>
     <div class="chapter-features">
       <span class="feature-tag"> 估值模型</span>
       <span class="feature-tag"> 估值指标</span>
@@ -107,7 +106,7 @@ currentBook: theory
 通过本章学习，您将能够：
 
 - **掌握多种选股方法**：学会基本面、技术面、量化等多种筛选策略
-- **运用核心财务指标**：熟练使用ROE、ROIC、PEG等关键指标
+- **运用核心财务指标**：熟练使用<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>、ROIC、<span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span>等关键指标
 - **进行技术分析**：掌握趋势跟踪、动量分析等技术工具
 - **科学估值分析**：运用多种估值方法评估投资价值
 - **实战筛选股票**：通过实际案例掌握完整的筛选流程
@@ -121,10 +120,10 @@ currentBook: theory
 - **事件驱动**：并购、财报、政策变化、行业新闻
 
 ### 核心财务指标
-- **盈利能力**：毛利率、净利润率、ROE、ROIC
-- **成长能力**：收入增长率、CAGR、EPS增长率
+- **盈利能力**：毛利率、净利润率、<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>、ROIC
+- **成长能力**：收入增长率、<span class="glossary-term" data-term="CAGR" data-definition='{"term":"CAGR","fullName":"Compound Annual Growth Rate","description":"复合年增长率，衡量投资或业务在特定时间段内的年均增长速度","category":"财务指标","example":"一家公司5年内从100万增长到200万，CAGR = (200/100)^(1/5) - 1 = 14.87%"}' title="复合年增长率，衡量投资或业务在特定时间段内的年均增长速度">CAGR</span>、EPS增长率
 - **财务健康**：负债比率、流动比率、自由现金流
-- **估值指标**：P/E、P/B、PEG、DCF
+- **估值指标**：P/E、P/B、<span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span>、<GlossaryTerm term="DCF" />
 
 ### 技术分析工具
 - **趋势指标**：移动平均线、MACD、趋势线

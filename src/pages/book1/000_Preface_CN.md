@@ -4,7 +4,6 @@ lang: zh
 alt: /en/000_Preface_en
 layout: /src/layouts/Layout.astro
 ---
-
 # 序言
 
 > **核心摘要：**

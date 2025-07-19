@@ -5,7 +5,6 @@ layout: /src/layouts/HandbookLayout.astro
 lang: zh
 alt: /en/013_Example_Loading_Stock_Price_Data_en
 ---
-
 <div class="page-nav">
   <a href="/012_Strategy_Logic_CN">← 上一章</a>
   <a href="/014_Example_Calculating_Momentum_Factor_CN">下一章 →</a>
@@ -36,7 +35,7 @@ data = yf.download(tickers, start="2015-01-01", end="2025-01-01")['Adj Close']
 
 基本面因子：
 
-P/E、P/B、ROE、净利润增长率等，用于衡量企业质量。
+P/E、P/B、<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>、净利润增长率等，用于衡量企业质量。
 
 <div class="nav-links">
   <a href="/012_Strategy_Logic_CN">← 上一章</a>

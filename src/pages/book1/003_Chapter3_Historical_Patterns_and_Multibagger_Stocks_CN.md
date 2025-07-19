@@ -5,7 +5,6 @@ alt: /en/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_en
 layout: /src/layouts/Layout.astro
 currentBook: theory
 ---
-
 # 第三章：历史规律与高倍股研究
 
 > **核心摘要：**

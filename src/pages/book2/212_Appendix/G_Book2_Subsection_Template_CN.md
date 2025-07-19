@@ -6,7 +6,6 @@ alt: "第二册小节模板"
 layout: "/src/layouts/HandbookLayout.astro"
 updateDate: "2025-07-13"
 ---
-
 # G 第二册小节标准模板
 
 **核心摘要：**

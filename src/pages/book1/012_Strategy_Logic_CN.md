@@ -4,7 +4,6 @@ layout: /src/layouts/HandbookLayout.astro
 lang: zh
 alt: /en/012_Strategy_Logic_en
 ---
-
 <div class="page-nav">
   <a href="/011_Appendix_CN">← 上一章</a>
   <a href="/013_Example_Loading_Stock_Price_Data_CN">下一章 →</a>
@@ -248,7 +247,7 @@ StockAnalysis.com 是高效筛选和分析股票的工具，尤其适合快速�
 
 中英文主要平台：
 
-英文：Twitter（现X）、Reddit（r/investing、r/wallstreetbets）、Seeking Alpha、YouTube财经频道
+英文：Twitter（现X）、Reddit（r/investing、r/wallstreetbets）、Seeking <GlossaryTerm term="Alpha" />、YouTube财经频道
 
 中文：雪球、东方财富、知乎、B站财经UP主
 
@@ -315,7 +314,7 @@ Morningstar：以基金和 ETF 的研究报告为核心，提供深入的资产�
 Motley Fool：通过专家文章和精选股票建议，为投资者提供清晰的投资思路和操作建议。
 应用场景：验证投资逻辑或挖掘增长型个股。
 
-Seeking Alpha：涵盖多种金融分析与意见，是深入理解市场趋势和个股机会的重要平台。
+Seeking <GlossaryTerm term="Alpha" />：涵盖多种金融分析与意见，是深入理解市场趋势和个股机会的重要平台。
 应用场景：结合多维度观点完善投资决策。
 
 实时股票热力图
@@ -457,7 +456,7 @@ ChatGPT可以快速整合多个来源的研究报告、新闻和数据，帮助�
 
 WSJ+（The Wall Street Journal, MarketWatch, Barron's, IBD）：通过ChatGPT整合这些平台的宏观经济动态、行业深度分析、个股报告，为投资逻辑提供多维度支撑。
 
-StockAnalysis.com：利用筛选器功能，结合ChatGPT生成个性化的筛选条件（如市值、PE、EPS增长率等），更高效地识别潜力股票。
+StockAnalysis.com：利用筛选器功能，结合ChatGPT生成个性化的筛选条件（如市值、<GlossaryTerm term="PE" />、EPS增长率等），更高效地识别潜力股票。
 
 Yahoo Finance：通过ChatGPT提取财报、估值指标和技术分析信息，进行动态跟踪。
 
@@ -521,7 +520,7 @@ ChatGPT可以作为学习助手和策略优化工具，为投资者提供持续�
 
 结合资源：
 
-Seeking Alpha & Motley Fool：ChatGPT总结专家文章的核心观点，并生成投资者易于理解的执行步骤。
+Seeking <GlossaryTerm term="Alpha" /> & Motley Fool：ChatGPT总结专家文章的核心观点，并生成投资者易于理解的执行步骤。
 
 Investopedia：通过ChatGPT定制学习计划，从技术分析到资产配置，逐步提升投资技能。
 
@@ -529,7 +528,7 @@ IBD：通过ChatGPT解析评分和趋势报告，帮助投资者改进选股策�
 
 应用示例：
 
-ChatGPT根据投资目标制定个性化学习计划，结合Seeking Alpha的深度分析提升投资逻辑。
+ChatGPT根据投资目标制定个性化学习计划，结合Seeking <GlossaryTerm term="Alpha" />的深度分析提升投资逻辑。
 
 6. 自动化与个性化
 

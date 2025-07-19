@@ -6,7 +6,6 @@ alt: "小节模板指南"
 layout: "/src/layouts/HandbookLayout.astro"
 updateDate: "2025-01-03"
 ---
-
 # K.1 小节页面模板指南
 
 > **核心摘要：**
@@ -88,7 +87,7 @@ updateDate: "2025-01-03"
       夏普比率 = (投资组合收益率 - 无风险收益率) / 投资组合标准差
     </div>
     <div class="formula-latex">
-      $$\text{Sharpe Ratio} = \frac{R_p - R_f}{\sigma_p}$$
+      $$\text{<GlossaryTerm term="Sharpe" /> Ratio} = \frac{R_p - R_f}{\sigma_p}$$
     </div>
   </div>
   <div class="info-explanation">
@@ -101,7 +100,7 @@ updateDate: "2025-01-03"
 夏普比率定义如下：
 
 $$
-\text{Sharpe Ratio} = \frac{R_p - R_f}{\sigma_p}
+\text{<GlossaryTerm term="Sharpe" /> Ratio} = \frac{R_p - R_f}{\sigma_p}
 $$
 
 其中 $R_p$ 为投资组合收益率，$R_f$ 为无风险收益率，$\sigma_p$ 为投资组合标准差。
@@ -871,7 +870,7 @@ updateDate: "2025-01-03"
       夏普比率 = (投资组合收益率 - 无风险收益率) / 投资组合标准差
     </div>
     <div class="formula-latex">
-      $$\text{Sharpe Ratio} = \frac{R_p - R_f}{\sigma_p}$$
+      $$\text{<GlossaryTerm term="Sharpe" /> Ratio} = \frac{R_p - R_f}{\sigma_p}$$
     </div>
   </div>
   <div class="info-explanation">
@@ -884,7 +883,7 @@ updateDate: "2025-01-03"
 夏普比率定义如下：
 
 $$
-\text{Sharpe Ratio} = \frac{R_p - R_f}{\sigma_p}
+\text{<GlossaryTerm term="Sharpe" /> Ratio} = \frac{R_p - R_f}{\sigma_p}
 $$
 
 其中 $R_p$ 为投资组合收益率，$R_f$ 为无风险收益率，$\sigma_p$ 为投资组合标准差。

@@ -7,7 +7,6 @@ layout: "../../layouts/Layout.astro"
 updateDate: "2025-01-03"
 currentBook: macro
 ---
-
 # 第五章：国际宏观环境分析
 
 > **核心摘要：**

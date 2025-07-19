@@ -4,7 +4,6 @@ lang: zh
 alt: /en/011_Appendix/C.1_Quantitative_Analysis_and_Backtesting_en
 layout: /src/layouts/HandbookLayout.astro
 ---
-
 # C.1 量化分析与回测
 
 > **核心摘要：**
@@ -29,7 +28,7 @@ layout: /src/layouts/HandbookLayout.astro
 #### 1.1 数据来源
 **免费平台：**
 - Yahoo Finance：股票历史数据
-- Alpha Vantage：实时市场数据
+- <GlossaryTerm term="Alpha" /> Vantage：实时市场数据
 - Quandl：经济金融数据
 
 **专业平台：**
@@ -71,7 +70,7 @@ pe_factor = 1 / pe_ratio  # 市盈率倒数
 pb_factor = 1 / pb_ratio  # 市净率倒数
 ```
 
-**企业价值倍数因子（EV/EBITDA Factor）：**
+**企业价值倍数因子（EV/<span class="glossary-term" data-term="EBITDA" data-definition='{"term":"EBITDA","fullName":"Earnings Before Interest, Taxes, Depreciation and Amortization","description":"息税折旧摊销前利润，反映公司核心经营盈利能力","category":"财务指标","example":"EBITDA = 净利润 + 利息 + 税费 + 折旧 + 摊销"}' title="息税折旧摊销前利润，反映公司核心经营盈利能力">EBITDA</span> Factor）：**
 ```python
 ev_ebitda_factor = 1 / ev_ebitda_ratio
 ```
@@ -87,7 +86,7 @@ earnings_growth = (current_eps - past_eps) / past_eps
 revenue_growth = (current_revenue - past_revenue) / past_revenue
 ```
 
-**ROE增长因子：**
+**<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>增长因子：**
 ```python
 roe_growth = (current_roe - past_roe) / past_roe
 ```

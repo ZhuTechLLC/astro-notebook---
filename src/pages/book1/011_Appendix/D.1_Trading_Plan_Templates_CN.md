@@ -4,7 +4,6 @@ lang: zh
 alt: /en/011_Appendix/D.1_Trading_Plan_Templates_en
 layout: /src/layouts/HandbookLayout.astro
 ---
-
 # D.1 交易计划模板
 
 > **核心摘要：**
@@ -78,7 +77,7 @@ layout: /src/layouts/HandbookLayout.astro
 #### 3.1 基本面筛选
 ```
 财务指标要求：
-- ROE > 15%
+- <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> > 15%
 - 净利润增长率 > 20%
 - 负债率 < 60%
 - 毛利率 > 30%
@@ -110,7 +109,7 @@ layout: /src/layouts/HandbookLayout.astro
 ```
 估值标准：
 - P/E < 行业平均值的1.5倍
-- PEG < 1.5
+- <span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span> < 1.5
 - P/B < 5
 - 市净率 < 行业平均值的2倍
 

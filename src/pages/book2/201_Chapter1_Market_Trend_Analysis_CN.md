@@ -7,7 +7,6 @@ layout: "../../layouts/Layout.astro"
 updateDate: "2025-01-10"
 currentBook: macro
 ---
-
 # 第一章：市场趋势判断的重要性
 
 > **核心摘要：**

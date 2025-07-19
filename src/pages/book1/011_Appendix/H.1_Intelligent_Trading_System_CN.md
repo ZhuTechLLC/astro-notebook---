@@ -4,7 +4,6 @@ lang: zh
 alt: /en/011_Appendix/H.1_Intelligent_Trading_System_en
 layout: /src/layouts/HandbookLayout.astro
 ---
-
 # H.1 智能化交易系统开发概述
 
 > **核心摘要：**
@@ -130,7 +129,7 @@ NoSQL数据库：
 - 分笔数据：逐笔成交数据
 
 数据提供商：
-- Alpha Vantage：免费API
+- <GlossaryTerm term="Alpha" /> Vantage：免费API
 - Yahoo Finance：免费数据
 - IEX Cloud：付费服务
 - Bloomberg：专业数据
@@ -141,7 +140,7 @@ NoSQL数据库：
 ```
 财务数据：
 - 财务报表：收入、利润、资产等
-- 财务比率：P/E、P/B、ROE等
+- 财务比率：P/E、P/B、<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>等
 - 现金流：经营、投资、筹资现金流
 - 债务数据：负债率、利息覆盖率
 
@@ -219,7 +218,7 @@ NoSQL数据库：
 
 成长策略：
 - 高增长：营收利润增长
-- 高ROE：盈利能力策略
+- 高<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>：盈利能力策略
 - 行业龙头：龙头股策略
 - 新兴行业：成长行业策略
 ```

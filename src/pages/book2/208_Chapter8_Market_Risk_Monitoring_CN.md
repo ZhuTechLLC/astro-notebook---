@@ -143,7 +143,7 @@ currentBook: macro
     <div class="overview-item">
       <div class="card-icon">📊</div>
       <h3>风险度量指标</h3>
-      <p><strong>市场风险</strong>：VaR、CVaR、波动率、Beta系数<br>
+      <p><strong>市场风险</strong>：VaR、CVaR、波动率、<GlossaryTerm term="Beta" />系数<br>
       <strong>流动性风险</strong>：买卖价差、市场深度、交易成本<br>
       <strong>信用风险</strong>：违约概率、信用利差、评级变化</p>
     </div>

@@ -7,7 +7,6 @@ layout: "../../layouts/Layout.astro"
 updateDate: "2025-01-03"
 currentBook: macro
 ---
-
 # 附录：宏观分析专业资源
 
 > **核心摘要：**

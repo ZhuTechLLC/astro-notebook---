@@ -7,7 +7,6 @@ currentBook: theory
 description: 详细分析美股投资实操手册的导航系统优化方案，包括快速跳转、智能搜索、个性化导航等功能设计建议
 updateDate: "2025-01-03"
 ---
-
 # M.1 导航优化与快速跳转功能建议
 
 **核心摘要：**
@@ -177,7 +176,7 @@ updateDate: "2025-01-03"
 <div class="flow-title">🏷️ 标签搜索</div>
 <div class="flow-indicators">
 <div class="flow-indicator">投资策略</div>
-<div class="flow-indicator">技术分析</div>
+<div class="flow-indicator"><span class="glossary-term" data-term="技术分析" data-definition='{"term":"技术分析","fullName":"Technical Analysis","description":"通过价格图表和交易量分析预测股价走势的方法","category":"分析方法","example":"移动平均线、RSI、MACD等技术指标"}' title="通过价格图表和交易量分析预测股价走势的方法"><span class="glossary-term" data-term="技术分析" data-definition='{"term":"技术分析","fullName":"Technical Analysis","description":"通过价格图表和交易量分析预测股价走势的方法","category":"分析方法","example":"移动平均线、RSI、MACD等技术指标"}' title="通过价格图表和交易量分析预测股价走势的方法">技术分析</span></span></div>
 <div class="flow-indicator">风险管理</div>
 <div class="flow-indicator">工具使用</div>
 </div>

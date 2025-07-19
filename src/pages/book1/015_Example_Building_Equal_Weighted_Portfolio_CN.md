@@ -6,7 +6,6 @@ layout: /src/layouts/HandbookLayout.astro
 lang: zh
 alt: /en/015_Example_Building_Equal_Weighted_Portfolio_en
 ---
-
 <div class="page-nav">
   <a href="/">← 返回目录</a>
   <a href="/016_Example_Backtesting_Return_Curve_CN">下一章 →</a>

@@ -35,7 +35,7 @@ QuantConnect、Zipline（已停止维护但可用）
 
 免费数据：
 
-Yahoo Finance、Alpha Vantage、IEX Cloud
+Yahoo Finance、<GlossaryTerm term="Alpha" /> Vantage、IEX Cloud
 
 专业数据：
 
@@ -234,7 +234,7 @@ Barra（MSCI）：量化因子分析。
 
 实时数据：___（如 Bloomberg、Yahoo Finance）
 
-历史数据：___（如 Alpha Vantage、Quandl）
+历史数据：___（如 <GlossaryTerm term="Alpha" /> Vantage、Quandl）
 
 分析工具：
 
@@ -348,7 +348,7 @@ Barra（MSCI）：量化因子分析。
 
 收入增长率（Revenue Growth Rate）：
 
-筛选年复合增长率（CAGR）高于行业平均值的公司​。
+筛选年复合增长率（<span class="glossary-term" data-term="CAGR" data-definition='{"term":"CAGR","fullName":"Compound Annual Growth Rate","description":"复合年增长率，衡量投资或业务在特定时间段内的年均增长速度","category":"财务指标","example":"一家公司5年内从100万增长到200万，CAGR = (200/100)^(1/5) - 1 = 14.87%"}' title="复合年增长率，衡量投资或业务在特定时间段内的年均增长速度">CAGR</span>）高于行业平均值的公司​。
 
 净利润率（Net Profit Margin）：
 
@@ -358,15 +358,15 @@ Barra（MSCI）：量化因子分析。
 
 高毛利率表明公司具有较强的定价能力和竞争优势​。
 
-资产回报率（ROA）和股本回报率（ROE）：
+资产回报率（ROA）和股本回报率（<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>）：
 
-筛选ROA高于5%、ROE高于15%的公司，反映其管理效率​​。
+筛选ROA高于5%、<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>高于15%的公司，反映其管理效率​​。
 
 2. 估值相关指标
 
 市盈率（P/E Ratio）：
 
-P/E低于同行业均值，但结合增长预期，PEG（P/E与增长比）小于1可能更理想​。
+P/E低于同行业均值，但结合增长预期，<span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span>（P/E与增长比）小于1可能更理想​。
 
 市净率（P/B Ratio）：
 
@@ -438,7 +438,7 @@ P/E低于同行业均值，但结合增长预期，PEG（P/E与增长比）小�
 
 筛选条件：
 
-收入增长率：年复合增长率（CAGR） > 20%。
+收入增长率：年复合增长率（<span class="glossary-term" data-term="CAGR" data-definition='{"term":"CAGR","fullName":"Compound Annual Growth Rate","description":"复合年增长率，衡量投资或业务在特定时间段内的年均增长速度","category":"财务指标","example":"一家公司5年内从100万增长到200万，CAGR = (200/100)^(1/5) - 1 = 14.87%"}' title="复合年增长率，衡量投资或业务在特定时间段内的年均增长速度">CAGR</span>） > 20%。
 
 净利润增长率：连续 3 个季度正增长，或同比增长率 > 15%。
 
@@ -600,7 +600,7 @@ Wind 终端的资金流向模块，或券商“北上资金”流动监控。
 
 特点
 
-免费版本：支持基本的筛选条件，如市值、PE、EPS 增长、行业分类等。
+免费版本：支持基本的筛选条件，如市值、<GlossaryTerm term="PE" />、EPS 增长、行业分类等。
 
 付费版本（Finviz Elite）：
 
@@ -778,7 +778,7 @@ Earnings Surprise > 10%。
 
 增长型策略：
 
-EPS Growth Past 5 Years > 20%，Sales Growth > 15%，PEG < 1。
+EPS Growth Past 5 Years > 20%，Sales Growth > 15%，<span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span> < 1。
 
 Beta > 1（高风险高回报偏好）。
 
@@ -826,7 +826,7 @@ Volume 显著增加，表明市场关注度提升。
 
 Piotroski F-Score：用于判断财务健康水平（7~9分较好）。
 
-检查流动比率、债务/EBITDA 等指标。
+检查流动比率、债务/<span class="glossary-term" data-term="EBITDA" data-definition='{"term":"EBITDA","fullName":"Earnings Before Interest, Taxes, Depreciation and Amortization","description":"息税折旧摊销前利润，反映公司核心经营盈利能力","category":"财务指标","example":"EBITDA = 净利润 + 利息 + 税费 + 折旧 + 摊销"}' title="息税折旧摊销前利润，反映公司核心经营盈利能力">EBITDA</span> 等指标。
 
 例如：AVGO Piotroski F-Score = 7，现金流充足，长期债务高但可控。
 
@@ -1128,7 +1128,7 @@ ROC（514.89%） 远超行业，显示公司在资本使用效率上有显著优
 
 ROIC（6.46%） 和 3-Year ROIC（0.71%） 表现不佳，反映投资资本的回报效率较低，需优化资本配置。
 
-ROA（3.88%） 和 ROE（9.91%） 表现中等，说明公司整体回报水平有待提高。
+ROA（3.88%） 和 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>（9.91%） 表现中等，说明公司整体回报水平有待提高。
 
 优化方向：
 
@@ -1272,7 +1272,7 @@ Forward Rate of Return（20.78%） 表现出良好的长期回报预期，显示
 
 劣势：
 
-大部分估值指标（如 EV-to-EBITDA、Price-to-GF-Value、EV-to-FCF）显著高于行业和历史水平，反映公司整体估值偏高。
+大部分估值指标（如 EV-to-<span class="glossary-term" data-term="EBITDA" data-definition='{"term":"EBITDA","fullName":"Earnings Before Interest, Taxes, Depreciation and Amortization","description":"息税折旧摊销前利润，反映公司核心经营盈利能力","category":"财务指标","example":"EBITDA = 净利润 + 利息 + 税费 + 折旧 + 摊销"}' title="息税折旧摊销前利润，反映公司核心经营盈利能力">EBITDA</span>、Price-to-GF-Value、EV-to-FCF）显著高于行业和历史水平，反映公司整体估值偏高。
 
 盈利和自由现金流收益率偏低（Earnings Yield 1.25%、FCF Yield 1.85%），显示当前股价缺乏实际盈利与现金流支撑。
 
@@ -1290,7 +1290,7 @@ Forward Rate of Return（20.78%） 表现出良好的长期回报预期，显示
 
 <!-- 图表占位：自动识别 -->
 
-左侧图表：收入、净利润和EBITDA趋势
+左侧图表：收入、净利润和<span class="glossary-term" data-term="EBITDA" data-definition='{"term":"EBITDA","fullName":"Earnings Before Interest, Taxes, Depreciation and Amortization","description":"息税折旧摊销前利润，反映公司核心经营盈利能力","category":"财务指标","example":"EBITDA = 净利润 + 利息 + 税费 + 折旧 + 摊销"}' title="息税折旧摊销前利润，反映公司核心经营盈利能力">EBITDA</span>趋势
 
 <!-- 图表占位：自动识别 -->
 
@@ -1300,7 +1300,7 @@ Revenue（收入） - 蓝色柱状图
 
 Net Income（净利润） - 绿色柱状图
 
-EBITDA - 黄色柱状图
+<span class="glossary-term" data-term="EBITDA" data-definition='{"term":"EBITDA","fullName":"Earnings Before Interest, Taxes, Depreciation and Amortization","description":"息税折旧摊销前利润，反映公司核心经营盈利能力","category":"财务指标","example":"EBITDA = 净利润 + 利息 + 税费 + 折旧 + 摊销"}' title="息税折旧摊销前利润，反映公司核心经营盈利能力">EBITDA</span> - 黄色柱状图
 
 观察与分析：
 
@@ -1316,11 +1316,11 @@ EBITDA - 黄色柱状图
 
 评价：尽管收入增长强劲，但净利润增速不匹配，可能是由于运营成本、资本支出增加，或财务费用上升导致利润受到压缩。
 
-EBITDA：
+<span class="glossary-term" data-term="EBITDA" data-definition='{"term":"EBITDA","fullName":"Earnings Before Interest, Taxes, Depreciation and Amortization","description":"息税折旧摊销前利润，反映公司核心经营盈利能力","category":"财务指标","example":"EBITDA = 净利润 + 利息 + 税费 + 折旧 + 摊销"}' title="息税折旧摊销前利润，反映公司核心经营盈利能力">EBITDA</span>：
 
-趋势：EBITDA与收入趋势相似，逐年增加，但2022-2023年增速稍有放缓。
+趋势：<span class="glossary-term" data-term="EBITDA" data-definition='{"term":"EBITDA","fullName":"Earnings Before Interest, Taxes, Depreciation and Amortization","description":"息税折旧摊销前利润，反映公司核心经营盈利能力","category":"财务指标","example":"EBITDA = 净利润 + 利息 + 税费 + 折旧 + 摊销"}' title="息税折旧摊销前利润，反映公司核心经营盈利能力">EBITDA</span>与收入趋势相似，逐年增加，但2022-2023年增速稍有放缓。
 
-评价：EBITDA的增长反映出核心业务的盈利能力较强，但需要关注运营开支和利润率变化，确保盈利稳定增长。
+评价：<span class="glossary-term" data-term="EBITDA" data-definition='{"term":"EBITDA","fullName":"Earnings Before Interest, Taxes, Depreciation and Amortization","description":"息税折旧摊销前利润，反映公司核心经营盈利能力","category":"财务指标","example":"EBITDA = 净利润 + 利息 + 税费 + 折旧 + 摊销"}' title="息税折旧摊销前利润，反映公司核心经营盈利能力">EBITDA</span>的增长反映出核心业务的盈利能力较强，但需要关注运营开支和利润率变化，确保盈利稳定增长。
 
 右侧图表：现金与债务水平
 
@@ -1350,7 +1350,7 @@ Debt（债务） - 红色柱状图
 
 增长优势：
 
-公司 收入 和 EBITDA 保持稳健增长，反映出业务扩张能力强，市场需求旺盛。
+公司 收入 和 <span class="glossary-term" data-term="EBITDA" data-definition='{"term":"EBITDA","fullName":"Earnings Before Interest, Taxes, Depreciation and Amortization","description":"息税折旧摊销前利润，反映公司核心经营盈利能力","category":"财务指标","example":"EBITDA = 净利润 + 利息 + 税费 + 折旧 + 摊销"}' title="息税折旧摊销前利润，反映公司核心经营盈利能力">EBITDA</span> 保持稳健增长，反映出业务扩张能力强，市场需求旺盛。
 
 收入持续创新高 是公司最大的亮点，显示出市场竞争力和规模效应。
 
@@ -1787,15 +1787,15 @@ Broadcom 具有全球化的市场布局，持续在中国、亚太地区等高�
 
 以下是 Broadcom Inc (AVGO) FY2024 的 5-Step DuPont 分析 的详细解读：
 
-ROE（股东权益回报率）
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>（股东权益回报率）
 
-ROE %：12.86%
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> %：12.86%
 
 定义：衡量公司对股东资本的回报水平。
 
-分解：ROE = 净利润率 × 资产周转率 × 权益乘数
+分解：<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> = 净利润率 × 资产周转率 × 权益乘数
 
-ROE的三个主要组成部分分别为 盈利能力（Net Margin）、运营效率（Asset Turnover） 和 财务杠杆（Equity Multiplier）。
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>的三个主要组成部分分别为 盈利能力（Net Margin）、运营效率（Asset Turnover） 和 财务杠杆（Equity Multiplier）。
 
 1. 净利润率（Net Margin %）：11.43%
 
@@ -1877,7 +1877,7 @@ Average Total Stockholders Equity（平均股东权益）：$45.8B
 
 综合总结
 
-ROE % = 12.86%，主要由以下因素驱动：
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> % = 12.86%，主要由以下因素驱动：
 
 净利润率（11.43%）：盈利能力稳健，但受税负与利息支出拖累。
 
@@ -1903,7 +1903,7 @@ ROE % = 12.86%，主要由以下因素驱动：
 
 降低负债依赖，逐步降低权益乘数，平衡财务风险与回报。
 
-整体评价：Broadcom 的 ROE 表现稳健，主要依赖高净利润率和财务杠杆，但资产使用效率偏低。通过优化税负、提升资产周转和降低负债，公司有望进一步提高股东回报率。
+整体评价：Broadcom 的 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> 表现稳健，主要依赖高净利润率和财务杠杆，但资产使用效率偏低。通过优化税负、提升资产周转和降低负债，公司有望进一步提高股东回报率。
 
 竞争对手对比分析：Broadcom (AVGO)
 
@@ -1913,51 +1913,51 @@ ROE % = 12.86%，主要由以下因素驱动：
 
 市值：$1.11 Trillion，领先所有竞争对手，反映出 Broadcom 在半导体行业的绝对规模优势。
 
-ROE（股东权益回报率）：9.91%，位于中游，低于部分竞争对手，如 Qualcomm (42.24%) 和 Texas Instruments (29.21%)。
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>（股东权益回报率）：9.91%，位于中游，低于部分竞争对手，如 Qualcomm (42.24%) 和 Texas Instruments (29.21%)。
 
 评价：
 
-虽然 Broadcom 在规模上占据领先地位，但其 ROE 表现平平。
+虽然 Broadcom 在规模上占据领先地位，但其 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> 表现平平。
 
-ROE 较低可能受到较高的财务杠杆、税负和资本支出拖累，反映盈利效率尚有改善空间。
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> 较低可能受到较高的财务杠杆、税负和资本支出拖累，反映盈利效率尚有改善空间。
 
 3. 竞争对手亮点
 
 Qualcomm (QCOM)
 
-ROE：42.24%，行业最高。
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>：42.24%，行业最高。
 
-Qualcomm 通过高盈利能力和高资本使用效率，保持了卓越的 ROE 水平。
+Qualcomm 通过高盈利能力和高资本使用效率，保持了卓越的 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> 水平。
 
 Texas Instruments (TXN)
 
-ROE：29.21%，表现优异。
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>：29.21%，表现优异。
 
 Texas Instruments 凭借稳健的盈利能力和运营效率，维持较高的股东回报。
 
 Monolithic Power Systems (MPWR)
 
-ROE：20.38%，表现较强。
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>：20.38%，表现较强。
 
 尽管市值较小，但在盈利能力和资本使用上表现出色，说明中小公司在细分市场中具备高回报优势。
 
 Microchip Technology Inc (MCHP)
 
-ROE：11.70%，高于 Broadcom。
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>：11.70%，高于 Broadcom。
 
 4. 表现较差的公司
 
 Intel Corp (INTC)
 
-ROE：-15.11%，处于亏损状态，反映公司盈利能力大幅下滑，且可能受到高额资本支出拖累。
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>：-15.11%，处于亏损状态，反映公司盈利能力大幅下滑，且可能受到高额资本支出拖累。
 
 Marvell Technology (MRVL)
 
-ROE：-10.25%，负值表明公司目前亏损严重，盈利改善任重道远。
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>：-10.25%，负值表明公司目前亏损严重，盈利改善任重道远。
 
 Micron Technology (MU)
 
-ROE：1.77%，盈利能力较弱，需改善业务效率。
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>：1.77%，盈利能力较弱，需改善业务效率。
 
 5. 图表解读
 
@@ -1965,7 +1965,7 @@ ROE：1.77%，盈利能力较弱，需改善业务效率。
 
 X轴：市值规模。Broadcom 位于最右侧，市值最大。
 
-Y轴：ROE 表现。Broadcom 位于中部，高 ROE 的竞争者（如 Qualcomm 和 Texas Instruments）位于上方。
+Y轴：<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> 表现。Broadcom 位于中部，高 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> 的竞争者（如 Qualcomm 和 Texas Instruments）位于上方。
 
 圆圈大小：代表市值。Broadcom 的圆圈最大，显示出其市场影响力和规模优势。
 
@@ -1979,13 +1979,13 @@ Broadcom 的优势：
 
 不足之处：
 
-ROE 不及行业领头羊 Qualcomm 和 Texas Instruments，反映盈利效率和资本回报需进一步优化。
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> 不及行业领头羊 Qualcomm 和 Texas Instruments，反映盈利效率和资本回报需进一步优化。
 
 高市值带来的资本扩张压力，可能影响资产周转率和利润率。
 
 竞争对手启示：
 
-Qualcomm 的高 ROE 值得学习，通过盈利能力和资本运作实现股东回报最大化。
+Qualcomm 的高 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> 值得学习，通过盈利能力和资本运作实现股东回报最大化。
 
 Monolithic Power Systems 等中小公司展现出高回报潜力，提示 Broadcom 需持续创新和优化细分市场布局。
 
@@ -1997,17 +1997,17 @@ Monolithic Power Systems 等中小公司展现出高回报潜力，提示 Broadc
 
 持续加大研发投入，保持半导体技术领先地位，提高盈利能力。
 
-Broadcom 需在保持规模优势的同时，通过提升盈利效率和资本回报率，实现更高的 ROE，稳固行业领先地位。
+Broadcom 需在保持规模优势的同时，通过提升盈利效率和资本回报率，实现更高的 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>，稳固行业领先地位。
 
-5-Step DuPont 分析 是一种深入剖析 股东权益回报率 (Return on Equity, ROE) 的方法，通过分解 ROE 的五个关键驱动因素，揭示公司盈利能力、运营效率和财务杠杆的来源。
+5-Step DuPont 分析 是一种深入剖析 股东权益回报率 (Return on Equity, <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>) 的方法，通过分解 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> 的五个关键驱动因素，揭示公司盈利能力、运营效率和财务杠杆的来源。
 
 5-Step DuPont 分析框架
 
-股东权益回报率（ROE）公式：
+股东权益回报率（<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>）公式：
 
-ROE=净利润率 (Net Margin)×资产周转率 (Asset Turnover)×权益乘数 (Equity Multiplier)\text{ROE} = \text{净利润率 (Net Margin)} \times \text{资产周转率 (Asset Turnover)} \times \text{权益乘数 (Equity Multiplier)}ROE=净利润率 (Net Margin)×资产周转率 (Asset Turnover)×权益乘数 (Equity Multiplier)
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>=净利润率 (Net Margin)×资产周转率 (Asset Turnover)×权益乘数 (Equity Multiplier)\text{<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>} = \text{净利润率 (Net Margin)} \times \text{资产周转率 (Asset Turnover)} \times \text{权益乘数 (Equity Multiplier)}<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>=净利润率 (Net Margin)×资产周转率 (Asset Turnover)×权益乘数 (Equity Multiplier)
 
-为了更精细地剖析 ROE，DuPont 分析分为五步：
+为了更精细地剖析 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>，DuPont 分析分为五步：
 
 营业利润率（Operating Margin）
 
@@ -2073,12 +2073,12 @@ Interest Burden=税前利润 (Pretax Income)营业利润 (Operating Income)
 
 权益乘数 显示公司通过杠杆放大回报的程度。
 
-ROE 的五大驱动因素全面揭示了公司盈利能力、运营效率及财务风险。
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> 的五大驱动因素全面揭示了公司盈利能力、运营效率及财务风险。
 
 其他相关的财务分析方法
 
 三步 DuPont 分析
-简化版，将 ROE 分解为三部分： 适合初步分析企业盈利能力、效率与财务杠杆的平衡。
+简化版，将 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> 分解为三部分： 适合初步分析企业盈利能力、效率与财务杠杆的平衡。
 
 ROA 分析（资产回报率）
 公式：
@@ -2111,10 +2111,10 @@ ROA 分析（资产回报率）
 
 总结
 
-5-Step DuPont 分析 通过细致分解 ROE 的构成，帮助投资者和管理层识别影响 ROE 的具体因素，揭示公司盈利能力、运营效率和财务风险。
+5-Step DuPont 分析 通过细致分解 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> 的构成，帮助投资者和管理层识别影响 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> 的具体因素，揭示公司盈利能力、运营效率和财务风险。
 同时，可以结合 ROA、杠杆分析 和 现金流分析 等方法，全面评估企业的财务健康状况，制定更有效的改善策略。
 
-杜邦分析法（DuPont Analysis） 是由美国化工巨头 杜邦公司（DuPont Corporation） 在 20世纪20年代 发明并推广的。该方法最早用于内部管理和财务分析，帮助公司高效评估财务表现，并找出提高 股东权益回报率 (Return on Equity, ROE) 的关键驱动因素。
+杜邦分析法（DuPont Analysis） 是由美国化工巨头 杜邦公司（DuPont Corporation） 在 20世纪20年代 发明并推广的。该方法最早用于内部管理和财务分析，帮助公司高效评估财务表现，并找出提高 股东权益回报率 (Return on Equity, <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>) 的关键驱动因素。
 
 发明背景
 
@@ -2128,21 +2128,21 @@ ROA 分析（资产回报率）
 
 杜邦公司（DuPont）作为化工行业的领先企业，面临着如何优化资源配置、提升投资回报率的问题。
 
-杜邦的财务团队开发了这一分析方法，将 ROE（股东权益回报率） 分解为更易理解和管理的多个指标。
+杜邦的财务团队开发了这一分析方法，将 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>（股东权益回报率） 分解为更易理解和管理的多个指标。
 
 财务指标间的关系
 
 杜邦分析法的核心在于理解 盈利能力、运营效率 和 财务杠杆 之间的相互关系。
 
-通过分解 ROE，管理者可以更有针对性地改进公司经营和资本结构。
+通过分解 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>，管理者可以更有针对性地改进公司经营和资本结构。
 
 杜邦分析法的原理
 
 核心公式
 
-杜邦分析将 股东权益回报率 (ROE) 分解为三个主要组成部分：
+杜邦分析将 股东权益回报率 (<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>) 分解为三个主要组成部分：
 
-ROE=净利润率 (Net Margin)×资产周转率 (Asset Turnover)×权益乘数 (Equity Multiplier)\text{ROE} = \text{净利润率 (Net Margin)} \times \text{资产周转率 (Asset Turnover)} \times \text{权益乘数 (Equity Multiplier)}ROE=净利润率 (Net Margin)×资产周转率 (Asset Turnover)×权益乘数 (Equity Multiplier)
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>=净利润率 (Net Margin)×资产周转率 (Asset Turnover)×权益乘数 (Equity Multiplier)\text{<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>} = \text{净利润率 (Net Margin)} \times \text{资产周转率 (Asset Turnover)} \times \text{权益乘数 (Equity Multiplier)}<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>=净利润率 (Net Margin)×资产周转率 (Asset Turnover)×权益乘数 (Equity Multiplier)
 
 净利润率 (Net Margin)： 衡量公司每单位收入的盈利能力。
 
@@ -2152,15 +2152,15 @@ ROE=净利润率 (Net Margin)×资产周转率 (Asset Turnover)×权益乘�
 
 原理：
 
-ROE = 盈利能力 × 运营效率 × 财务杠杆
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> = 盈利能力 × 运营效率 × 财务杠杆
 
-通过这三个因素的分解，可以清晰地识别 ROE 的来源，从而更精准地评估公司财务健康状况。
+通过这三个因素的分解，可以清晰地识别 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> 的来源，从而更精准地评估公司财务健康状况。
 
 发明的核心逻辑
 
 综合指标分解法：
 
-杜邦分析通过分解 ROE，揭示盈利、效率和杠杆这三大因素如何共同作用于股东回报。
+杜邦分析通过分解 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>，揭示盈利、效率和杠杆这三大因素如何共同作用于股东回报。
 
 这种分解使复杂的财务数据变得更易理解，并能够找出具体的改进点。
 
@@ -2186,19 +2186,19 @@ ROE = 盈利能力 × 运营效率 × 财务杠杆
 
 在投资分析中的应用
 
-投资者通过杜邦分析，可以更清晰地理解一家公司是通过提高利润率、提升运营效率，还是依靠杠杆放大来实现高 ROE。
+投资者通过杜邦分析，可以更清晰地理解一家公司是通过提高利润率、提升运营效率，还是依靠杠杆放大来实现高 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>。
 
 这有助于识别公司的盈利质量和财务风险。
 
 在财务风险管理上的启示
 
-如果 ROE 过高，且主要由高 权益乘数 驱动，说明公司依赖高负债进行扩张，财务风险较高。
+如果 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> 过高，且主要由高 权益乘数 驱动，说明公司依赖高负债进行扩张，财务风险较高。
 
 杜邦分析帮助管理层平衡盈利和风险，制定更合理的资本结构。
 
 总结
 
-杜邦分析法的发明源于 杜邦公司 内部管理的实际需求，经过长期实践证明，它不仅是企业内部分析的利器，也成为了财务管理、投资分析的标准工具。通过分解 ROE，它直观地揭示了公司盈利能力、运营效率和财务杠杆三者之间的动态关系，帮助管理者和投资者做出更科学的决策。
+杜邦分析法的发明源于 杜邦公司 内部管理的实际需求，经过长期实践证明，它不仅是企业内部分析的利器，也成为了财务管理、投资分析的标准工具。通过分解 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>，它直观地揭示了公司盈利能力、运营效率和财务杠杆三者之间的动态关系，帮助管理者和投资者做出更科学的决策。
 
 相关分析方法
 
@@ -2501,7 +2501,7 @@ Steven Cohen 和 Paul Tudor Jones 等大幅减持，可能反映短期对估值�
 
 选股重点：
 
-市盈率（P/E）与增长率（PEG）之间的匹配关系。
+市盈率（P/E）与增长率（<span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span>）之间的匹配关系。
 
 公司盈利增长的持续性。
 
@@ -2528,7 +2528,7 @@ Steven Cohen 和 Paul Tudor Jones 等大幅减持，可能反映短期对估值�
 
 财务健康情况，避免负债过高。
 
-估值合理性（PEG < 1）。
+估值合理性（<span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span> < 1）。
 
 示例：
 科技公司、新兴行业龙头，如苹果（AAPL）和特斯拉（TSLA）。
@@ -2696,9 +2696,9 @@ P/E比率基准：林奇认为市盈率15倍是衡量普通成长型公司合理
 
 盈利增长率：关注每年15%-20%的盈利稳定增长公司。
 
-PEG比率：市盈率相对盈利增长率（PEG） = P/E ÷ 增长率。
+<span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span>比率：市盈率相对盈利增长率（<span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span>） = P/E ÷ 增长率。
 
-PEG < 1 表示股票可能被低估。
+<span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span> < 1 表示股票可能被低估。
 
 同行业对比：与同类公司对比市盈率，判断估值合理性。
 
@@ -2724,7 +2724,7 @@ PEG < 1 表示股票可能被低估。
 
 总结
 
-彼得·林奇图表 是一种简单实用的工具，通过股价与每股收益的对比，帮助投资者识别股票的高估或低估状态。结合盈利增长率和PEG比率等指标，投资者可以找到具备长期增长潜力的优质公司，实现稳定的回报。
+彼得·林奇图表 是一种简单实用的工具，通过股价与每股收益的对比，帮助投资者识别股票的高估或低估状态。结合盈利增长率和<span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span>比率等指标，投资者可以找到具备长期增长潜力的优质公司，实现稳定的回报。
 
 <!-- 图表占位：自动识别 -->
 
@@ -3093,7 +3093,7 @@ Broadcom (AVGO) 估值图表分析 (2024年)
 
 GF Value：$111.01
 
-DCF (FCF Based) 和 DCF (Earnings Based) 显示的估值分别为 $127.94 和 $117.57。
+<GlossaryTerm term="DCF" /> (FCF Based) 和 <GlossaryTerm term="DCF" /> (Earnings Based) 显示的估值分别为 $127.94 和 $117.57。
 
 观察：Broadcom 当前价格比多种估值方法高出至少一倍，表明市场对其未来增长抱有极高的预期。
 
@@ -3115,7 +3115,7 @@ DCF (FCF Based) 和 DCF (Earnings Based) 显示的估值分别为 $127.94 和 $1
 
 短期：谨慎追高，关注回调机会。
 
-长期：等待价格回归合理估值区域（如GF Value 或 DCF 指标附近），逢低布局。
+长期：等待价格回归合理估值区域（如GF Value 或 <GlossaryTerm term="DCF" /> 指标附近），逢低布局。
 
 5. 总结
 
@@ -3139,7 +3139,7 @@ GuruFocus 估值图表框 提供了一系列基于不同方法的估值工具，
 
 计算原理：
 
-历史市盈率 (PE)、市销率 (PS)、市净率 (PB) 和自由现金流 (FCF)。
+历史市盈率 (<GlossaryTerm term="PE" />)、市销率 (<GlossaryTerm term="PS" />)、市净率 (<GlossaryTerm term="PB" />) 和自由现金流 (FCF)。
 
 调整因子：基于公司过往回报率和增长率进行修正。
 
@@ -3163,7 +3163,7 @@ GF Value 意义：
 
 适用于 增长率稳定在8%-25% 的公司。
 
-P/E 的设定基于5年EBITDA增长率，而非固定15倍市盈率。
+P/E 的设定基于5年<span class="glossary-term" data-term="EBITDA" data-definition='{"term":"EBITDA","fullName":"Earnings Before Interest, Taxes, Depreciation and Amortization","description":"息税折旧摊销前利润，反映公司核心经营盈利能力","category":"财务指标","example":"EBITDA = 净利润 + 利息 + 税费 + 折旧 + 摊销"}' title="息税折旧摊销前利润，反映公司核心经营盈利能力">EBITDA</span>增长率，而非固定15倍市盈率。
 
 格雷厄姆数值：
 
@@ -3173,9 +3173,9 @@ P/E 的设定基于5年EBITDA增长率，而非固定15倍市盈率。
 
 适用于市值低于净营运资本的公司（Ben Graham "Net-Net" 概念）。
 
-DCF 方法：
+<GlossaryTerm term="DCF" /> 方法：
 
-适用于盈利和现金流可预测的公司，GuruFocus 对不可预测企业（1星或无星评级）不进行 DCF 估算。
+适用于盈利和现金流可预测的公司，GuruFocus 对不可预测企业（1星或无星评级）不进行 <GlossaryTerm term="DCF" /> 估算。
 
 4. 估值图表框的应用场景
 
@@ -3199,13 +3199,13 @@ DCF 方法：
 
 总结
 
-GuruFocus 估值图表框整合了多种经典估值方法，如 GF Value、彼得林奇估值和 DCF 方法等，为投资者提供了直观、实用的估值参考。在实际应用中，投资者应结合个股基本面、行业动态与市场情绪，理性判断当前股价与估值之间的合理性。
+GuruFocus 估值图表框整合了多种经典估值方法，如 GF Value、彼得林奇估值和 <GlossaryTerm term="DCF" /> 方法等，为投资者提供了直观、实用的估值参考。在实际应用中，投资者应结合个股基本面、行业动态与市场情绪，理性判断当前股价与估值之间的合理性。
 
 <!-- 图表占位：自动识别 -->
 
 Broadcom (AVGO) - 分析师预期估算 (2025-2026 年)
 
-以下是 Broadcom (AVGO) 在未来两年内的 营收、EBIT、EBITDA、每股收益 (EPS) 和股息 (DPS) 预期数据分析：
+以下是 Broadcom (AVGO) 在未来两年内的 营收、EBIT、<span class="glossary-term" data-term="EBITDA" data-definition='{"term":"EBITDA","fullName":"Earnings Before Interest, Taxes, Depreciation and Amortization","description":"息税折旧摊销前利润，反映公司核心经营盈利能力","category":"财务指标","example":"EBITDA = 净利润 + 利息 + 税费 + 折旧 + 摊销"}' title="息税折旧摊销前利润，反映公司核心经营盈利能力">EBITDA</span>、每股收益 (EPS) 和股息 (DPS) 预期数据分析：
 
 1. 数据总结
 
@@ -3217,7 +3217,7 @@ Broadcom (AVGO) - 分析师预期估算 (2025-2026 年)
 
 EBIT：运营利润 (EBIT) 将从 9,163.58百万美元 增长至 12,037.90百万美元，反映出公司运营效率的提升。
 
-EBITDA：从 9,262.66百万美元 增长至 12,090.37百万美元，现金流与盈利能力稳步提升。
+<span class="glossary-term" data-term="EBITDA" data-definition='{"term":"EBITDA","fullName":"Earnings Before Interest, Taxes, Depreciation and Amortization","description":"息税折旧摊销前利润，反映公司核心经营盈利能力","category":"财务指标","example":"EBITDA = 净利润 + 利息 + 税费 + 折旧 + 摊销"}' title="息税折旧摊销前利润，反映公司核心经营盈利能力">EBITDA</span>：从 9,262.66百万美元 增长至 12,090.37百万美元，现金流与盈利能力稳步提升。
 
 (2) 每股收益 (EPS)
 
@@ -3245,7 +3245,7 @@ EPS 增长率：剔除非经常项目的 EPS 预计每年将增长 10-15%，反�
 
 稳定的增长预期：Broadcom 在营收、EBIT 和 EPS 层面均呈现持续稳定的增长趋势。
 
-盈利能力提升：EBITDA 和剔除非经常项的 EPS 增长清晰，表明公司核心业务强劲。
+盈利能力提升：<span class="glossary-term" data-term="EBITDA" data-definition='{"term":"EBITDA","fullName":"Earnings Before Interest, Taxes, Depreciation and Amortization","description":"息税折旧摊销前利润，反映公司核心经营盈利能力","category":"财务指标","example":"EBITDA = 净利润 + 利息 + 税费 + 折旧 + 摊销"}' title="息税折旧摊销前利润，反映公司核心经营盈利能力">EBITDA</span> 和剔除非经常项的 EPS 增长清晰，表明公司核心业务强劲。
 
 回报稳定性：股息逐步提升，符合稳健派投资者的需求。
 
@@ -3407,7 +3407,7 @@ TipRanks：提供分析师的个体评级表现和成功率统计，展示哪些
 
 步骤二：目标价与估值模型对比
 
-结合 GuruFocus GF Value、DCF估值 和历史 P/E 进行交叉验证。
+结合 GuruFocus GF Value、<GlossaryTerm term="DCF" />估值 和历史 P/E 进行交叉验证。
 
 例如：AVGO 的平均目标价（$223.7）与 GF Value（$129.32）的差异说明估值高企风险。
 
@@ -3425,7 +3425,7 @@ TipRanks：提供分析师的个体评级表现和成功率统计，展示哪些
 
 总结
 
-分析师目标价在短期内具有一定的参考价值，特别是对市场一致预期的反映。但投资者应结合多个估值模型（如 DCF 和 GF Value）、宏观因素以及分析师历史表现进行交叉验证，确保投资决策更加稳健。
+分析师目标价在短期内具有一定的参考价值，特别是对市场一致预期的反映。但投资者应结合多个估值模型（如 <GlossaryTerm term="DCF" /> 和 GF Value）、宏观因素以及分析师历史表现进行交叉验证，确保投资决策更加稳健。
 
 具体工具推荐：
 
@@ -3658,7 +3658,7 @@ Piotroski F-Score 是一套简单有效的财务健康量化工具，通过分�
 
 低分 (0-3)：需谨慎投资，存在潜在财务问题。
 
-投资者应结合其他估值指标（如市盈率、市净率、DCF估值）和基本面分析，以获得更全面的投资决策支持。
+投资者应结合其他估值指标（如市盈率、市净率、<GlossaryTerm term="DCF" />估值）和基本面分析，以获得更全面的投资决策支持。
 
 Broadcom Inc. - 股份拆分历史与财务申报记录分析
 
@@ -3858,7 +3858,7 @@ EPS 持续增长往往与股价上涨高度相关，尤其是超出市场预期�
 
 2. 估值与市场情绪参数
 
-估值参数 (P/E, PEG, GF Value)：
+估值参数 (P/E, <span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span>, GF Value)：
 
 估值较低、增长预期强的股票，吸引投资者关注，容易推动股价上涨。
 
@@ -3960,11 +3960,11 @@ AI、云计算、半导体需求增长等行业催化剂对公司股价推动显
 
 1. 强劲的盈利增长
 
-规律：公司具备持续的盈利增长，特别是 EPS（每股收益） 和 营业利润率 的年复合增长率（CAGR）稳定高于行业平均水平。
+规律：公司具备持续的盈利增长，特别是 EPS（每股收益） 和 营业利润率 的年复合增长率（<span class="glossary-term" data-term="CAGR" data-definition='{"term":"CAGR","fullName":"Compound Annual Growth Rate","description":"复合年增长率，衡量投资或业务在特定时间段内的年均增长速度","category":"财务指标","example":"一家公司5年内从100万增长到200万，CAGR = (200/100)^(1/5) - 1 = 14.87%"}' title="复合年增长率，衡量投资或业务在特定时间段内的年均增长速度">CAGR</span>）稳定高于行业平均水平。
 
 表现：
 
-例如：2023年 Broadcom (AVGO) 的 CAGR 达到13%​20240320 Enabling AI In…。
+例如：2023年 Broadcom (AVGO) 的 <span class="glossary-term" data-term="CAGR" data-definition='{"term":"CAGR","fullName":"Compound Annual Growth Rate","description":"复合年增长率，衡量投资或业务在特定时间段内的年均增长速度","category":"财务指标","example":"一家公司5年内从100万增长到200万，CAGR = (200/100)^(1/5) - 1 = 14.87%"}' title="复合年增长率，衡量投资或业务在特定时间段内的年均增长速度">CAGR</span> 达到13%​20240320 Enabling AI In…。
 
 2. 行业或技术变革的受益者
 
@@ -4032,7 +4032,7 @@ Broadcom 每季度持续派发股息并进行股票回购​20240320 Enabling AI
 
 4. 估值筛选与验证
 
-使用 GF Value、DCF（自由现金流法）、彼得林奇估值 确定股价是否被低估。
+使用 GF Value、<GlossaryTerm term="DCF" />（自由现金流法）、彼得林奇估值 确定股价是否被低估。
 
 筛选市盈率（P/E） < 历史平均估值，同时具备成长潜力的公司。
 
@@ -4138,7 +4138,7 @@ Two Sigma投资：Two Sigma是全球知名的量化对冲基金，2001年由前D
 
 Citadel证券：Citadel由Ken Griffin创立，旗下包括对冲基金Citadel LLC和做市商Citadel Securities两大板块。Citadel Securities是美国股市最大的做市商之一，以高频自动化交易闻名。它通过先进的算法在纳秒之间为股票和期权提供流动性，据披露Citadel Securities执行了约40%的美国散户股交易量，相当于全美每四笔股票交易就有一笔由其撮合 ()。凭借强大的技术投入和严密风控，Citadel Securities在2020年实现了创纪录的交易收入 ()。其核心竞争优势在于极速交易和庞大规模：例如在美股交易中占据23%的总市场份额、约40%的零售订单流量 ()。Citadel的成功表明，在美股市场中，先进的算法和基础设施可带来巨大的竞争优势，使其成为市场流动性的主要提供者之一 ()。同时，Citadel的对冲基金部门在2022年以38%的年收益率创下行业记录，也反映出算法策略与主动管理结合的威力。
 
-个人量化交易者：不仅机构，个人投资者中也不乏成功运用自动化交易的例子。一些具有编程和数理背景的个人，通过开发自己的交易系统，实现了稳定盈利甚至令人瞩目的战绩。例如，有工程师出身的交易者利用业余时间编写程序，在盈透证券的API上运行美股日内交易策略，几年内获得了远超市场的累计收益。早期著名案例包括“操盘手爸爸”李笑来在国内使用全自动交易程序实现资产翻倍（尽管后来转战他途），以及国外论坛上分享经验的个人交易者，他们通过回测优化找到有效的期指套利和均值回复策略，每月保持稳定的正收益。有的个人量化交易者还通过社区平台获得机构青睐，例如QuantConnect的“Alpha Streams”项目曾使优秀的个人策略被对冲基金以许可费购买，从而让个人开发者直接受益于机构资金。虽然个人无法具备机构那样的人才和资金优势，但依托公开平台和工具，个人也能构建小型但高效的量化交易系统，在细分领域取得优势。例如，一位名为Nitesh Khandelwal的印度交易者组建小型团队开发高频交易策略，在微秒级博弈中赚取利润，并将经验用于教育他人 () ()。总的来说，这些案例证明：个人交易者若掌握策略开发和编程技能，同样可以借助智能交易系统在市场中立足并获利。
+个人量化交易者：不仅机构，个人投资者中也不乏成功运用自动化交易的例子。一些具有编程和数理背景的个人，通过开发自己的交易系统，实现了稳定盈利甚至令人瞩目的战绩。例如，有工程师出身的交易者利用业余时间编写程序，在盈透证券的API上运行美股日内交易策略，几年内获得了远超市场的累计收益。早期著名案例包括“操盘手爸爸”李笑来在国内使用全自动交易程序实现资产翻倍（尽管后来转战他途），以及国外论坛上分享经验的个人交易者，他们通过回测优化找到有效的期指套利和均值回复策略，每月保持稳定的正收益。有的个人量化交易者还通过社区平台获得机构青睐，例如QuantConnect的“<GlossaryTerm term="Alpha" /> Streams”项目曾使优秀的个人策略被对冲基金以许可费购买，从而让个人开发者直接受益于机构资金。虽然个人无法具备机构那样的人才和资金优势，但依托公开平台和工具，个人也能构建小型但高效的量化交易系统，在细分领域取得优势。例如，一位名为Nitesh Khandelwal的印度交易者组建小型团队开发高频交易策略，在微秒级博弈中赚取利润，并将经验用于教育他人 () ()。总的来说，这些案例证明：个人交易者若掌握策略开发和编程技能，同样可以借助智能交易系统在市场中立足并获利。
 
 需要注意的是，机构的成功往往不可复制——Two Sigma和Citadel倾注了庞大资源在人才、数据和技术上。而个人案例的成功也常伴随高风险和曲折（一些交易者公开了暴利后又因程序错误爆仓的经历 ()）。因此，借鉴成功经验的同时，个人投资者应根据自身条件理性设定目标。但可以肯定的是，掌握自动化交易技术将大大提升个人在投资中的竞争力。
 
@@ -4254,7 +4254,7 @@ Citadel证券：Citadel由Ken Griffin创立，旗下包括对冲基金Citadel LL
 
 美股上市公司的财报发布时间与格式有何规律？
 
-怎样查询公司基本面数据（PE、PB、ROE）？
+怎样查询公司基本面数据（<GlossaryTerm term="PE" />、<GlossaryTerm term="PB" />、<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>）？
 
 美股有哪些行业ETF值得关注？
 
@@ -4360,7 +4360,7 @@ Citadel证券：Citadel由Ken Griffin创立，旗下包括对冲基金Citadel LL
 
 对冲基金、指数基金与私人股本基金在美股中的角色？
 
-如何根据PEG（市盈增长比率）选择成长股？
+如何根据<span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span>（市盈增长比率）选择成长股？
 
 美股中公司派发特别股息意味着什么？
 
@@ -4382,7 +4382,7 @@ Citadel证券：Citadel由Ken Griffin创立，旗下包括对冲基金Citadel LL
 
 如何评估美股公司的管理层质量和治理结构？
 
-美股现金流折现（DCF）估值法如何运用？
+美股现金流折现（<GlossaryTerm term="DCF" />）估值法如何运用？
 
 市销率（P/S）、市现率（P/CF）在美股中有何意义？
 
@@ -4432,7 +4432,7 @@ Citadel证券：Citadel由Ken Griffin创立，旗下包括对冲基金Citadel LL
 
 分析师排名与数据整合平台：可通过TipRanks、Bloomberg Terminal或FactSet来查看各位分析师的历史预测准确度和当前观点。
 
-获取方式：投资者可通过券商的研究报告订阅、机构官网或财经媒体（如Seeking Alpha、MarketWatch、Yahoo Finance等）看到研报摘要和分析。部分服务需要付费订阅。
+获取方式：投资者可通过券商的研究报告订阅、机构官网或财经媒体（如Seeking <GlossaryTerm term="Alpha" />、MarketWatch、Yahoo Finance等）看到研报摘要和分析。部分服务需要付费订阅。
 
 29. 如何避免投资美股时的信息不对称？
 

@@ -4,7 +4,6 @@ lang: zh
 alt: /en/011_Appendix/F.1_GuruFocus_Plus_Case_Study_en
 layout: /src/layouts/HandbookLayout.astro
 ---
-
 # F.1 GuruFocus Plus个股研究案例
 
 > **核心摘要：**
@@ -73,15 +72,15 @@ layout: /src/layouts/HandbookLayout.astro
 - 行业领先：高于半导体行业平均水平
 ```
 
-#### 1.3 ROE分析
+#### 1.3 <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>分析
 ```
-ROE数据：
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>数据：
 2020年：18.5%
 2021年：22.1%
 2022年：25.8%
 2023年：28.5%
 
-ROE驱动因素：
+<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>驱动因素：
 - 高利润率：27.5%的净利率
 - 资产周转：高效的资产利用
 - 财务杠杆：适度的债务水平
@@ -183,18 +182,18 @@ P/E评估：
 
 P/B评估：
 - 高于行业平均
-- 反映高ROE
+- 反映高<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>
 - 资产质量优秀
 - 估值合理
 ```
 
-#### 1.3 PEG分析
+#### 1.3 <span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span>分析
 ```
-当前PEG：1.2x
-历史PEG范围：0.8x - 1.8x
-行业平均PEG：1.5x
+当前<span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span>：1.2x
+历史<span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span>范围：0.8x - 1.8x
+行业平均<span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span>：1.5x
 
-PEG评估：
+<span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span>评估：
 - 低于行业平均
 - 成长性被低估
 - 投资价值显现
@@ -202,7 +201,7 @@ PEG评估：
 
 ### 2. 绝对估值
 
-#### 2.1 DCF模型
+#### 2.1 <GlossaryTerm term="DCF" />模型
 ```
 关键假设：
 - 收入增长率：未来5年7%，之后3%
@@ -434,7 +433,7 @@ PEG评估：
 ### 1. 基本面检查
 - [ ] 收入增长趋势
 - [ ] 利润率稳定性
-- [ ] ROE水平
+- [ ] <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>水平
 - [ ] 现金流质量
 - [ ] 财务健康状况
 - [ ] 研发投入水平

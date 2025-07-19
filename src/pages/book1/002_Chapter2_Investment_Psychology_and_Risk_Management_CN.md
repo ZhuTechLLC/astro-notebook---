@@ -4,9 +4,6 @@ lang: zh
 alt: /en/002_Chapter2_Investment_Psychology_and_Risk_Management_en
 layout: /src/layouts/Layout.astro
 ---
-
-
-
 # 第二章：投资心理与风险管理
 
 > **核心摘要：**

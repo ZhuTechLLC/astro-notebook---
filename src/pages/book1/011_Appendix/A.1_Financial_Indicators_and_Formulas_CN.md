@@ -4,7 +4,6 @@ lang: zh
 alt: /en/011_Appendix/A.1_Financial_Indicators_and_Formulas_en
 layout: /src/layouts/HandbookLayout.astro
 ---
-
 # A.1 常用财务指标及计算公式
 
 > **核心摘要：**
@@ -50,9 +49,9 @@ layout: /src/layouts/HandbookLayout.astro
 **推荐筛选值：** 年增长率 > 10%（稳定增长），年增长率 > 20%（高增长）
 **应用场景：** 评估业务扩张能力
 
-### 净资产收益率（ROE）
-**计算公式：** ROE = 净利润 ÷ 股东权益 × 100%
-**推荐筛选值：** ROE > 15%（优秀），ROE > 20%（卓越）
+### 净资产收益率（<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span>）
+**计算公式：** <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> = 净利润 ÷ 股东权益 × 100%
+**推荐筛选值：** <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> > 15%（优秀），<span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> > 20%（卓越）
 **应用场景：** 评估股东投资回报率
 
 ### 总资产收益率（ROA）
@@ -144,7 +143,7 @@ layout: /src/layouts/HandbookLayout.astro
 
 #### 1.2 指标筛选框架
 **核心指标组合：**
-- 估值：低P/E、P/S和P/B，PEG < 1
+- 估值：低P/E、P/S和P/B，<span class="glossary-term" data-term="PEG" data-definition='{"term":"PEG","fullName":"Price/Earnings to Growth","description":"市盈率相对盈利增长比率，用于评估成长股的估值合理性","category":"估值指标","example":"PEG = PE / 盈利增长率，<1通常认为被低估"}' title="市盈率相对盈利增长比率，用于评估成长股的估值合理性">PEG</span> < 1
 - 成长性：高EPS增长率、销售额增长率
 - 盈利能力：高ROE、ROA和净利润率
 - 现金流：正向且增长的自由现金流
@@ -152,7 +151,7 @@ layout: /src/layouts/HandbookLayout.astro
 
 **示例筛选条件：**
 ```
-P/E < 15, PEG < 1, EPS Growth > 15%, ROE > 15%, Debt/Equity < 0.3
+P/E < 15, PEG < 1, EPS Growth > 15%, <span class="glossary-term" data-term="ROE" data-definition='{"term":"ROE","fullName":"Return on Equity","description":"净资产收益率，衡量公司利用股东投资创造利润的效率","category":"财务指标","example":"ROE = 净利润 / 股东权益，通常>15%为优秀"}' title="净资产收益率，衡量公司利用股东投资创造利润的效率">ROE</span> > 15%, Debt/Equity < 0.3
 ```
 
 ### 2. 动态跟踪和筛选工具
@@ -181,7 +180,7 @@ P/E < 15, PEG < 1, EPS Growth > 15%, ROE > 15%, Debt/Equity < 0.3
 ## 📋 实用工具清单
 
 ### 数据来源
-- **免费平台**：Yahoo Finance、Alpha Vantage
+- **免费平台**：Yahoo Finance、<GlossaryTerm term="Alpha" /> Vantage
 - **专业平台**：Bloomberg、Refinitiv
 - **国内平台**：Wind、同花顺、东方财富
 

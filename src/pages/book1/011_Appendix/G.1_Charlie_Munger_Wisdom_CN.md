@@ -4,7 +4,6 @@ lang: zh
 alt: /en/011_Appendix/G.1_Charlie_Munger_Wisdom_en
 layout: /src/layouts/HandbookLayout.astro
 ---
-
 # G.1 查理·芒格宝典摘要
 
 > **核心摘要：**

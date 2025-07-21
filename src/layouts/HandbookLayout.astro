@@ -36,19 +36,101 @@ const {
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']],
         displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: true
+        processEscapes: true,
+        packages: ['base', 'ams', 'noerrors', 'noundefined']
+      },
+      chtml: {
+        scale: 1.0,
+        minScale: 0.5,
+        matchFontHeight: true,
+        displayAlign: 'center',
+        displayIndent: '0',
+        fontURL: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2'
       },
       options: {
         renderActions: {
-          addMenu: []
+          addMenu: [],
+          checkLoading: []
+        },
+        enableMenu: false,
+        menuOptions: {
+          settings: {
+            texHints: true,
+            semantics: false,
+            renderer: 'CHTML'
+          }
+        }
+      },
+      startup: {
+        pageReady: () => {
+          return MathJax.startup.defaultPageReady().then(() => {
+            console.log('MathJax is loaded and ready');
+          });
         }
       }
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+  
+  <!-- MathJax样式优化 -->
+  <style>
+    /* MathJax公式样式优化 */
+    .MathJax {
+      font-size: 1.1em !important;
+      line-height: 1.4 !important;
+    }
+    
+    /* 显示公式样式 */
+    .MathJax_Display {
+      margin: 1.5em 0 !important;
+      text-align: center !important;
+    }
+    
+    /* 内联公式样式 */
+    .MathJax_Display .MathJax {
+      text-align: left !important;
+    }
+    
+    /* 公式字体优化 */
+    .MathJax .MathJax_MathML {
+      font-family: 'Times New Roman', serif !important;
+    }
+    
+    /* 暗色主题下的公式样式 */
+    [data-theme="dark"] .MathJax {
+      color: #e5e7eb !important;
+    }
+    
+    /* status-label中的公式样式 */
+    .status-label .MathJax {
+      font-size: 0.9em !important;
+      margin: 0.2em 0 !important;
+    }
+    
+    /* 确保公式在卡片中正确显示 */
+    .status-card .MathJax_Display {
+      margin: 0.5em 0 !important;
+    }
+    
+    /* 公式容器样式 */
+    .formula-display {
+      background: rgba(59, 130, 246, 0.05);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1rem 0;
+      text-align: center;
+    }
+    
+    [data-theme="dark"] .formula-display {
+      background: rgba(59, 130, 246, 0.1);
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+  </style>
   <!-- KaTeX样式已移除，如需MathJax前端渲染可在此引入MathJax CDN -->
   <link rel="stylesheet" href="/src/styles/style.css" />
   <link rel="stylesheet" href="/src/styles/components.css" />
+  <link rel="stylesheet" href="/src/styles/enhanced-flowchart.css" />
   
   <!-- 完美主义级别的Checkbox样式修复 -->
   <style>
@@ -224,7 +306,7 @@ const {
   alt={alt}
 >
   <slot />
-  <GlossaryTerm />
+  <GlossaryTerm term="" />
 </Layout>
 
 <style>
@@ -246,3 +328,118 @@ const {
     color: #d4d4d4 !important;
     border: 1px solid #3e3e3e !important;
   }
+</style>
+
+<script>
+  // 智能状态卡片布局检测
+  function initSmartStatusCards() {
+    // 等待DOM加载完成
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSmartStatusCards);
+      return;
+    }
+
+    const statusCardsContainers = document.querySelectorAll('.status-cards');
+    
+    statusCardsContainers.forEach(container => {
+      const cards = container.querySelectorAll('.status-card');
+      const cardCount = cards.length;
+      
+      // 处理单张卡片的内容分析
+      if (cardCount === 1) {
+        analyzeSingleCard(cards[0]);
+        return;
+      }
+      
+      // 只处理3张或4张卡片的容器
+      if (cardCount !== 3 && cardCount !== 4) return;
+      
+      let shouldUseCompactLayout = true;
+      let totalContentLength = 0;
+      
+      cards.forEach(card => {
+        const title = card.querySelector('.status-header h4');
+        const content = card.querySelector('.status-content');
+        const labels = card.querySelectorAll('.status-label');
+        
+        // 检测内容长度
+        const titleLength = title ? (title.textContent || '').trim().length : 0;
+        const contentLength = content ? (content.textContent || '').trim().length : 0;
+        const labelCount = labels.length;
+        
+        totalContentLength += titleLength + contentLength;
+        
+        // 判断是否需要使用标准布局（非紧凑）
+        const titleThreshold = cardCount === 3 ? 30 : 25;  // 3张卡片允许稍长标题
+        const contentThreshold = cardCount === 3 ? 120 : 100;  // 3张卡片允许稍多内容
+        
+        if (titleLength > titleThreshold || contentLength > contentThreshold || labelCount > 1) {
+          shouldUseCompactLayout = false;
+        }
+      });
+      
+      // 如果平均每张卡片内容超过阈值，也使用标准布局
+      const avgContentThreshold = cardCount === 3 ? 50 : 40;
+      if (totalContentLength / cardCount > avgContentThreshold) {
+        shouldUseCompactLayout = false;
+      }
+      
+      // 清除所有布局类
+      container.classList.remove('compact-3', 'compact-4', 'compact-layout', 'grid-layout');
+      
+      // 应用相应的布局类
+      if (shouldUseCompactLayout) {
+        if (cardCount === 3) {
+          container.classList.add('compact-3');
+        } else if (cardCount === 4) {
+          container.classList.add('compact-4');
+        }
+      } else {
+        // 内容较多时，3张卡片使用默认auto-fit，4张卡片使用grid-layout
+        if (cardCount === 4) {
+          container.classList.add('grid-layout');
+        }
+        // 3张卡片不添加特殊类，使用默认的auto-fit布局
+      }
+    });
+  }
+
+  // 分析单张卡片是否需要拆分为多个小卡片
+  function analyzeSingleCard(card) {
+    // 跳过已经是multi-card的卡片
+    if (card.classList.contains('multi-card')) return;
+    
+    const content = card.querySelector('.status-content');
+    if (!content) return;
+    
+    const contentText = (content.textContent || '').trim();
+    const contentLength = contentText.length;
+    
+    // 检测是否有明显的分段结构
+    const paragraphs = content.querySelectorAll('p');
+    const lists = content.querySelectorAll('ul, ol');
+    const strongElements = content.querySelectorAll('strong');
+    
+    // 判断是否需要拆分的条件
+    const shouldSplit = (
+      contentLength > 300 ||  // 内容超过300字符
+      paragraphs.length > 3 ||  // 超过3个段落
+      lists.length > 1 ||  // 超过1个列表
+      strongElements.length > 2  // 超过2个强调元素
+    );
+    
+    if (shouldSplit) {
+      // 添加建议拆分的标记类
+      card.classList.add('suggest-multi-card');
+      
+      // 可以在这里添加一个提示或自动转换逻辑
+      console.log('建议将此卡片拆分为多个小卡片:', card);
+    }
+  }
+
+  // 初始化
+  initSmartStatusCards();
+  
+  // 监听主题切换，重新计算布局
+  document.addEventListener('themeChange', initSmartStatusCards);
+</script>

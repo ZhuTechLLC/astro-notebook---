@@ -1228,6 +1228,6 @@ export function clearExpiredCache() {
   return cleared;
 }
 
-// 导出本地词典供其他模块使用
-export { LOCAL_GLOSSARY, API_CONFIG }; 
+// 导出API配置供其他模块使用
+export { API_CONFIG }; 
  

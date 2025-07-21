@@ -1,9 +1,10 @@
 ---
-title: 第四章：赛道选择与行业趋势
-lang: zh
-alt: /en/004_Chapter4_Track_Selection_and_Industry_Trends_en
-layout: /src/layouts/Layout.astro
-currentBook: theory
+title: "第四章：赛道选择与行业趋势"
+description: "系统分析赛道选择方法、行业趋势识别和投资机会把握，通过多维度分析帮助投资者聚焦高成长行业，优化投资布局"
+lang: "zh-CN"
+alt: "赛道选择与行业趋势"
+layout: "/src/layouts/HandbookLayout.astro"
+updateDate: "2025-01-03"
 ---
 # 第四章：赛道选择与行业趋势
 
@@ -11,7 +12,7 @@ currentBook: theory
 > 
 > 本章探讨如何筛选具备长期成长潜力的赛道，分析技术创新、政策环境、全球化趋势等多维度因素。通过数据驱动和案例分析，指导投资者聚焦未来高成长行业，优化投资布局。
 
-##  本章学习路径
+## 📖 本章学习路径
 
 按照以下顺序学习，构建完整的赛道选择分析体系：
 
@@ -23,9 +24,9 @@ currentBook: theory
     </div>
     <p>深入探讨赛道筛选的核心方法和关键指标，从高增长性、持续需求、技术门槛等多维度分析，帮助投资者识别具备长期成长潜力的投资机会。</p>
     <div class="chapter-features">
-      <span class="feature-tag"> 筛选方法</span>
-      <span class="feature-tag"> 关键指标</span>
-      <span class="feature-tag"> 投资机会</span>
+      <span class="feature-tag">🔍 筛选方法</span>
+      <span class="feature-tag">📊 关键指标</span>
+      <span class="feature-tag">💡 投资机会</span>
     </div>
     <a href="/book1/004_Chapter4/4.1_Track_Screening_Methods_CN" class="chapter-link">开始学习 →</a>
   </div>
@@ -37,9 +38,9 @@ currentBook: theory
     </div>
     <p>分析AI和大数据技术的核心驱动力、关键应用领域和市场规模，探讨这一革命性技术带来的投资机会和典型案例。</p>
     <div class="chapter-features">
-      <span class="feature-tag"> AI技术</span>
-      <span class="feature-tag"> 大数据</span>
-      <span class="feature-tag"> 应用领域</span>
+      <span class="feature-tag">🤖 AI技术</span>
+      <span class="feature-tag">📊 大数据</span>
+      <span class="feature-tag">🎯 应用领域</span>
     </div>
     <a href="/book1/004_Chapter4/4.2_AI_and_Big_Data_Revolution_CN" class="chapter-link">开始学习 →</a>
   </div>
@@ -51,9 +52,9 @@ currentBook: theory
     </div>
     <p>深入分析新能源和电动车行业的驱动力、核心应用领域和投资机会，探讨这一黄金赛道的未来发展趋势。</p>
     <div class="chapter-features">
-      <span class="feature-tag"> 新能源</span>
-      <span class="feature-tag"> 电动车</span>
-      <span class="feature-tag"> 绿色发展</span>
+      <span class="feature-tag">⚡ 新能源</span>
+      <span class="feature-tag">🚗 电动车</span>
+      <span class="feature-tag">🌱 绿色发展</span>
     </div>
     <a href="/book1/004_Chapter4/4.3_New_Energy_and_EV_Golden_Decade_CN" class="chapter-link">开始学习 →</a>
   </div>
@@ -65,9 +66,9 @@ currentBook: theory
     </div>
     <p>探讨生物科技和精准医疗的行业驱动力、核心应用领域和投资机会，分析这一前沿技术带来的医疗革命。</p>
     <div class="chapter-features">
-      <span class="feature-tag"> 生物科技</span>
-      <span class="feature-tag"> 精准医疗</span>
-      <span class="feature-tag"> 基因疗法</span>
+      <span class="feature-tag">🧬 生物科技</span>
+      <span class="feature-tag">🏥 精准医疗</span>
+      <span class="feature-tag">🧪 基因疗法</span>
     </div>
     <a href="/book1/004_Chapter4/4.4_Biotech_and_Precision_Medicine_CN" class="chapter-link">开始学习 →</a>
   </div>
@@ -79,9 +80,9 @@ currentBook: theory
     </div>
     <p>分析半导体行业的核心角色和元宇宙的技术驱动，探讨这一技术组合带来的投资机会和未来发展趋势。</p>
     <div class="chapter-features">
-      <span class="feature-tag"> 半导体</span>
-      <span class="feature-tag"> 元宇宙</span>
-      <span class="feature-tag"> 下一代技术</span>
+      <span class="feature-tag">🔌 半导体</span>
+      <span class="feature-tag">🌐 元宇宙</span>
+      <span class="feature-tag">🚀 下一代技术</span>
     </div>
     <a href="/book1/004_Chapter4/4.5_Semiconductor_and_Metaverse_CN" class="chapter-link">开始学习 →</a>
   </div>
@@ -93,9 +94,9 @@ currentBook: theory
     </div>
     <p>深入分析中概股的投资机遇与挑战，探讨在全球化背景下如何把握中国经济增长带来的投资机会。</p>
     <div class="chapter-features">
-      <span class="feature-tag"> 中概股</span>
-      <span class="feature-tag"> 全球化</span>
-      <span class="feature-tag"> 风险控制</span>
+      <span class="feature-tag">🇨🇳 中概股</span>
+      <span class="feature-tag">🌍 全球化</span>
+      <span class="feature-tag">🛡️ 风险控制</span>
     </div>
     <a href="/book1/004_Chapter4/4.6_Chinese_Stocks_Opportunities_CN" class="chapter-link">开始学习 →</a>
   </div>

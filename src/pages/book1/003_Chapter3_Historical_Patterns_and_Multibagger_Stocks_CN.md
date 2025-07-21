@@ -1,9 +1,10 @@
 ---
-title: 第三章：历史规律与高倍股研究
-lang: zh
-alt: /en/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_en
-layout: /src/layouts/Layout.astro
-currentBook: theory
+title: "第三章：历史规律与高倍股研究"
+description: "深入分析高倍股的定义、成长路径及其行业分布，结合历史数据和典型案例，揭示高倍股背后的驱动因素"
+lang: "zh-CN"
+alt: "历史规律与高倍股研究"
+layout: "/src/layouts/HandbookLayout.astro"
+updateDate: "2025-01-03"
 ---
 # 第三章：历史规律与高倍股研究
 

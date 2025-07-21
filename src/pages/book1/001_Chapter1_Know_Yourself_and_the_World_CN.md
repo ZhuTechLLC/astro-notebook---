@@ -1,9 +1,10 @@
 ---
-title: 第一章：看清自己，看懂世界
-lang: zh
-alt: /en/001_Chapter1_Know_Yourself_and_the_World_en
-layout: /src/layouts/Layout.astro
-currentBook: theory
+title: "第一章：看清自己，看懂世界"
+description: "从认知科学和投资心理学的角度，深入探讨投资者如何建立正确的自我认知，理解市场运行规律，以及如何将认知转化为有效的投资行动"
+lang: "zh-CN"
+alt: "看清自己，看懂世界"
+layout: "/src/layouts/HandbookLayout.astro"
+updateDate: "2025-01-03"
 ---
 
 

@@ -1,9 +1,10 @@
 ---
-title: 第六章：交易策略与执行
-lang: zh
-alt: /en/006_Chapter6_Trading_Strategies_and_Execution_en
-layout: /src/layouts/Layout.astro
-currentBook: theory
+title: "第六章：交易策略与执行"
+description: "对比长期投资与短期波段交易的适用场景与优劣，详细讲解仓位管理、资金分配、止损止盈等实战策略，强调策略执行的纪律性和持续优化"
+lang: "zh-CN"
+alt: "交易策略与执行"
+layout: "/src/layouts/HandbookLayout.astro"
+updateDate: "2025-01-03"
 ---
 # 第六章：交易策略与执行
 
@@ -11,7 +12,7 @@ currentBook: theory
 > 
 > 本章对比了长期投资与短期波段交易的适用场景与优劣，详细讲解了仓位管理、资金分配、止损止盈等实战策略。强调策略执行的纪律性和持续优化，助力投资者提升整体交易表现。
 
-## 本章学习路径
+## 📖 本章学习路径
 
 按照以下顺序学习，构建完整的交易策略体系：
 
@@ -23,9 +24,9 @@ currentBook: theory
     </div>
     <p>对比长期投资与短期波段交易的适用场景与优劣，帮助投资者根据自身情况选择最适合的交易策略，实现投资目标。</p>
     <div class="chapter-features">
-      <span class="feature-tag">策略选择</span>
-      <span class="feature-tag">适用场景</span>
-      <span class="feature-tag">风险收益</span>
+      <span class="feature-tag">🎯 策略选择</span>
+      <span class="feature-tag">📊 适用场景</span>
+      <span class="feature-tag">⚖️ 风险收益</span>
     </div>
     <a href="/book1/006_Chapter6/6.1_Long_term_vs_Short_term_CN" class="chapter-link">开始学习 →</a>
   </div>
@@ -37,9 +38,9 @@ currentBook: theory
     </div>
     <p>详细讲解仓位管理的核心原则、资金分配策略和动态调整方法，通过科学的仓位管理控制风险并最大化收益潜力。</p>
     <div class="chapter-features">
-      <span class="feature-tag">仓位管理</span>
-      <span class="feature-tag">资金分配</span>
-      <span class="feature-tag">风险控制</span>
+      <span class="feature-tag">💰 仓位管理</span>
+      <span class="feature-tag">📊 资金分配</span>
+      <span class="feature-tag">🛡️ 风险控制</span>
     </div>
     <a href="/book1/006_Chapter6/6.2_Position_Management_CN" class="chapter-link">开始学习 →</a>
   </div>
@@ -51,9 +52,9 @@ currentBook: theory
     </div>
     <p>介绍ETF的基本特性和优势，详细讲解如何利用ETF进行资产配置、风险对冲和收益增强，优化投资组合表现。</p>
     <div class="chapter-features">
-      <span class="feature-tag">ETF策略</span>
-      <span class="feature-tag">组合优化</span>
-      <span class="feature-tag">风险对冲</span>
+      <span class="feature-tag">📈 ETF策略</span>
+      <span class="feature-tag">⚖️ 组合优化</span>
+      <span class="feature-tag">🛡️ 风险对冲</span>
     </div>
     <a href="/book1/006_Chapter6/6.3_ETF_Optimization_CN" class="chapter-link">开始学习 →</a>
   </div>
@@ -65,9 +66,9 @@ currentBook: theory
     </div>
     <p>从基本面、技术面到行业面的多维度跟踪，建立动态调整的实战框架，及时应对市场变化，优化投资组合。</p>
     <div class="chapter-features">
-      <span class="feature-tag">动态调整</span>
-      <span class="feature-tag">多维度跟踪</span>
-      <span class="feature-tag">实战框架</span>
+      <span class="feature-tag">🔄 动态调整</span>
+      <span class="feature-tag">📊 多维度跟踪</span>
+      <span class="feature-tag">🏗️ 实战框架</span>
     </div>
     <a href="/book1/006_Chapter6/6.4_Dynamic_Adjustment_CN" class="chapter-link">开始学习 →</a>
   </div>
@@ -79,9 +80,9 @@ currentBook: theory
     </div>
     <p>系统介绍高成长型个股的卖出策略，包括技术分析信号、基本面变化、宏观环境等多维度卖出决策体系。</p>
     <div class="chapter-features">
-      <span class="feature-tag">卖出策略</span>
-      <span class="feature-tag">成长股</span>
-      <span class="feature-tag">决策体系</span>
+      <span class="feature-tag">📉 卖出策略</span>
+      <span class="feature-tag">🚀 成长股</span>
+      <span class="feature-tag">🎯 决策体系</span>
     </div>
     <a href="/book1/006_Chapter6/6.5_Growth_Stock_Exit_CN" class="chapter-link">开始学习 →</a>
   </div>
@@ -93,9 +94,9 @@ currentBook: theory
     </div>
     <p>强调策略执行的纪律性和持续优化，建立完善的执行机制和风险控制体系，确保交易策略的有效实施。</p>
     <div class="chapter-features">
-      <span class="feature-tag">策略执行</span>
-      <span class="feature-tag">纪律性</span>
-      <span class="feature-tag">风险控制</span>
+      <span class="feature-tag">⚡ 策略执行</span>
+      <span class="feature-tag">📋 纪律性</span>
+      <span class="feature-tag">🛡️ 风险控制</span>
     </div>
     <a href="/book1/006_Chapter6/6.6_Strategy_Execution_CN" class="chapter-link">开始学习 →</a>
   </div>

@@ -20,6 +20,16 @@ export default defineConfig({
 
   integrations: [mdx()],
 
+  // 内容配置
+  content: {
+    // 忽略realtime目录的自动集合生成
+    collections: {
+      realtime: {
+        type: 'data'
+      }
+    }
+  },
+
   markdown: {
     // 允许HTML在Markdown中渲染
     allowHTML: true,

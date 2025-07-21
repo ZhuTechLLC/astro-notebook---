@@ -1,8 +1,10 @@
 ---
-title: 第二章：投资心理与风险管理
-lang: zh
-alt: /en/002_Chapter2_Investment_Psychology_and_Risk_Management_en
-layout: /src/layouts/Layout.astro
+title: "第二章：投资心理与风险管理"
+description: "系统讲解投资心理、风险容忍度建模、止损与风险控制执行体系，以及常见心理陷阱与应对策略，帮助投资者建立稳健的风险管理体系"
+lang: "zh-CN"
+alt: "投资心理与风险管理"
+layout: "/src/layouts/HandbookLayout.astro"
+updateDate: "2025-01-03"
 ---
 # 第二章：投资心理与风险管理
 

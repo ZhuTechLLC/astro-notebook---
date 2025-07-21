@@ -183,6 +183,20 @@ currentBook: theory
     </div>
     <a href="/book1/011_Appendix/L.1_Handbook_Summary_and_Format_Optimization_CN" class="chapter-link">查看总结 →</a>
   </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-number">M</span>
+      <h3>第一到第六章内容质量全面评估报告</h3>
+    </div>
+    <p>对美股投资实操手册第一到第六章进行全面的内容质量评估，包括完整性、系统性、逻辑性、丰富度、易理解度等维度分析，并提出系统性改进建议和优先级计划。</p>
+    <div class="chapter-features">
+      <span class="feature-tag">📊 质量评估</span>
+      <span class="feature-tag">🔧 改进建议</span>
+      <span class="feature-tag">📈 优先级计划</span>
+    </div>
+    <a href="/book1/011_Appendix/M.1_Content_Quality_Assessment_and_Improvement_Plan_CN" class="chapter-link">查看评估 →</a>
+  </div>
 </div>
 
 ## 🎯 学习目标

@@ -42,8 +42,8 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           </button>
           <button id="decreaseFont" class="font-btn" title="缩小字体">A-</button>
           <button id="increaseFont" class="font-btn" title="放大字体">A+</button>
-          <a class="lang-btn" id="langSwitchEn" href={alt} title="English">EN</a>
-          <a class="lang-btn" id="langSwitchCn" href={alt} title="中文">CN</a>
+          <button class="lang-btn" id="langSwitchEn" title="Translate to English">EN</button>
+          <button class="lang-btn" id="langSwitchCn" title="恢复中文原文">CN</button>
         </div>
       </header>
 
@@ -264,16 +264,50 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         border-radius: 20px;
         background: var(--bg-secondary);
         color: var(--text-primary);
-        text-decoration: none;
+        border: none;
         font-weight: 600;
         transition: all 0.3s ease;
         border: 1px solid var(--border-color);
+        cursor: pointer;
+        font-size: 14px;
+        min-width: 45px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .lang-btn:hover {
         background: var(--primary-color);
         color: white;
         transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      }
+
+      /* EN按钮特殊样式 */
+      #langSwitchEn {
+        background: linear-gradient(135deg, #2196f3, #42a5f5);
+        color: white;
+        border: none;
+      }
+
+      #langSwitchEn:hover {
+        background: linear-gradient(135deg, #1976d2, #2196f3);
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 6px 20px rgba(33, 150, 243, 0.3);
+      }
+
+      /* CN按钮特殊样式 */
+      #langSwitchCn {
+        background: linear-gradient(135deg, #ff9800, #ffb74d);
+        color: white;
+        border: none;
+      }
+
+      #langSwitchCn:hover {
+        background: linear-gradient(135deg, #f57c00, #ff9800);
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 6px 20px rgba(255, 152, 0, 0.3);
       }
 
       /* 阅读进度条 */
@@ -677,6 +711,8 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           margin-top: 48px;
         }
       }
+
+
     </style>
 
     <script>
@@ -696,6 +732,7 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         initializeFocusMode();
         initializeSidebar();
         initializeNavigation();
+        initializeLanguageSwitch();
         initializeBackToTop();
         initializeReadingProgress();
         setupKeyboardShortcuts();
@@ -797,7 +834,7 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
       });
       
         // 点击外部关闭侧边栏
-      document.addEventListener('click', (e) => {
+        document.addEventListener('click', (e) => {
         const target = e.target as Node;
         if (sidebar && sidebarToggle && target &&
             !sidebar.contains(target) && 
@@ -823,26 +860,57 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
         
         if (currentPath === '/' || currentPath === '/index.html') {
           currentBook = 'home';
-        } else if (currentPath.startsWith('/000_') || currentPath.startsWith('/001_') || 
-            currentPath.startsWith('/002_') || currentPath.startsWith('/003_') || 
-            currentPath.startsWith('/004_') || currentPath.startsWith('/005_') || 
-            currentPath.startsWith('/006_') || currentPath.startsWith('/007_') || 
-            currentPath.startsWith('/008_') || currentPath.startsWith('/009_') || 
-            currentPath.startsWith('/010_') || currentPath.startsWith('/011_')) {
+        } else if (currentPath === '/000_Series_Preface_CN') {
+          // 总序页面显示手册总目录
+          currentBook = 'home';
+        } else if (currentPath === '/handbook/theory' || currentPath.includes('/handbook/theory')) {
+          // 第一册章节导航页面显示第一册导航
           currentBook = 'theory';
-        } else if (currentPath.startsWith('/book2/201_') || currentPath.startsWith('/book2/202_') || 
-            currentPath.startsWith('/book2/203_') || currentPath.startsWith('/book2/204_') || 
-            currentPath.startsWith('/book2/205_') || currentPath.startsWith('/book2/206_') || 
-            currentPath.startsWith('/book2/207_') || currentPath.startsWith('/book2/208_') || 
-            currentPath.startsWith('/book2/209_') || currentPath.startsWith('/book2/210_') || 
-            currentPath.startsWith('/book2/211_') || currentPath.startsWith('/book2/212_') || 
-            currentPath.includes('/macro')) {
+        } else if (currentPath.startsWith('/book1/') && currentPath.endsWith('_CN')) {
+          // 第一册章节主页显示第一册导航
+          currentBook = 'theory';
+        } else if (currentPath.includes('/book1/') && currentPath.includes('/')) {
+          // 第一册子章节页面显示对应章节的子导航
+          if (currentPath.includes('001_Chapter1')) {
+            currentBook = 'theory-chapter1';
+          } else if (currentPath.includes('002_Chapter2')) {
+            currentBook = 'theory-chapter2';
+          } else if (currentPath.includes('003_Chapter3')) {
+            currentBook = 'theory-chapter3';
+          } else if (currentPath.includes('004_Chapter4')) {
+            currentBook = 'theory-chapter4';
+          } else if (currentPath.includes('005_Chapter5')) {
+            currentBook = 'theory-chapter5';
+          } else if (currentPath.includes('006_Chapter6')) {
+            currentBook = 'theory-chapter6';
+          } else if (currentPath.includes('007_Chapter7')) {
+            currentBook = 'theory-chapter7';
+          } else if (currentPath.includes('008_Chapter8')) {
+            currentBook = 'theory-chapter8';
+          } else if (currentPath.includes('009_Chapter9')) {
+            currentBook = 'theory-chapter9';
+          } else if (currentPath.includes('010_Chapter10')) {
+            currentBook = 'theory-chapter10';
+          } else if (currentPath.includes('011_Appendix')) {
+            currentBook = 'theory-appendix';
+          } else {
+            currentBook = 'theory';
+          }
+        } else if (currentPath.startsWith('/book2/') || currentPath.includes('/book2/') ||
+            currentPath.includes('201_Chapter1') || currentPath.includes('202_Chapter2') ||
+            currentPath.includes('203_Chapter3') || currentPath.includes('204_Chapter4') ||
+            currentPath.includes('205_Chapter5') || currentPath.includes('206_Chapter6') ||
+            currentPath.includes('207_Chapter7') || currentPath.includes('208_Chapter8') ||
+            currentPath.includes('209_Chapter9') || currentPath.includes('210_Chapter10') ||
+            currentPath.includes('211_Chapter11') || currentPath.includes('212_Appendix')) {
           currentBook = 'macro';
-        } else if (currentPath.includes('/stocks')) {
+        } else if (currentPath === '/handbook/macro' || currentPath.includes('/handbook/macro')) {
+          currentBook = 'macro';
+        } else if (currentPath === '/handbook/stocks' || currentPath.includes('/handbook/stocks')) {
           currentBook = 'stocks';
-        } else if (currentPath.includes('/technical')) {
+        } else if (currentPath === '/handbook/technical' || currentPath.includes('/handbook/technical')) {
           currentBook = 'technical';
-        } else if (currentPath.includes('/quantitative')) {
+        } else if (currentPath === '/handbook/quantitative' || currentPath.includes('/handbook/quantitative')) {
           currentBook = 'quantitative';
         }
         
@@ -850,7 +918,8 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           home: {
             title: '📚 美股投资实操手册',
             chapters: [
-              { number: '📖', title: '美股投资实操手册I', url: '/001_Chapter1_Know_Yourself_and_the_World_CN' },
+              { number: '✨', title: '总序：投资实用手册导读', url: '/000_Series_Preface_CN' },
+              { number: '📖', title: '美股投资实操手册I', url: '/book1/001_Chapter1_Know_Yourself_and_the_World_CN' },
               { number: '🌍', title: '美股投资实操手册II', url: '/handbook/macro' },
               { number: '🔍', title: '美股投资实操手册III', url: '/handbook/stocks' },
               { number: '📊', title: '美股投资实操手册IV', url: '/handbook/technical' },
@@ -860,9 +929,8 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           theory: {
             title: '📖 美股投资实操手册I',
             chapters: [
-              { number: '✨', title: '总序：投资实用手册导读', url: '/000_Series_Preface_CN' },
               { number: '📖', title: '序言', url: '/book1/000_Preface_CN' },
-              { number: '1️⃣', title: '第一章：投资认知起点', url: '/book1/001_Chapter1_Know_Yourself_and_the_World_CN' },
+              { number: '1️⃣', title: '第一章：看清自己，看懂世界', url: '/book1/001_Chapter1_Know_Yourself_and_the_World_CN' },
               { number: '2️⃣', title: '第二章：投资心理与风险管理', url: '/book1/002_Chapter2_Investment_Psychology_and_Risk_Management_CN' },
               { number: '3️⃣', title: '第三章：历史规律与高倍股研究', url: '/book1/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_CN' },
               { number: '4️⃣', title: '第四章：赛道选择与行业趋势', url: '/book1/004_Chapter4_Track_Selection_and_Industry_Trends_CN' },
@@ -875,40 +943,108 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
               { number: '📋', title: '附录', url: '/book1/011_Appendix_CN' }
             ]
           },
+          'theory-chapter1': {
+            title: '📖 第一章：看清自己，看懂世界',
+            chapters: [
+              { number: '↩️', title: '返回第一册目录', url: '/book1/001_Chapter1_Know_Yourself_and_the_World_CN' },
+              { number: '1.1', title: '自我觉知与投资智慧', url: '/book1/001_Chapter1/1.1_Self_Awareness_and_Investment_Wisdom_CN' },
+              { number: '1.2', title: '理解世界的运行规律', url: '/book1/001_Chapter1/1.2_Understanding_the_World_CN' },
+              { number: '1.3', title: '从认知到行动', url: '/book1/001_Chapter1/1.3_From_Cognition_to_Action_CN' }
+            ]
+          },
+          'theory-chapter2': {
+            title: '📖 第二章：投资心理与风险管理',
+            chapters: [
+              { number: '↩️', title: '返回第一册目录', url: '/book1/002_Chapter2_Investment_Psychology_and_Risk_Management_CN' },
+              { number: '2.1', title: '个性化风险容忍度模型', url: '/book1/002_Chapter2/2.1_Personalized_Risk_Tolerance_Model_CN' },
+              { number: '2.2', title: '止损与风险控制', url: '/book1/002_Chapter2/2.2_Stop_Loss_and_Risk_Control_CN' },
+              { number: '2.3', title: '投资情绪与决策陷阱', url: '/book1/002_Chapter2/2.3_Investment_Emotions_and_Decision_Traps_CN' },
+              { number: '2.4', title: '波动市场中的纪律性', url: '/book1/002_Chapter2/2.4_Maintaining_Discipline_in_Volatile_Markets_CN' }
+            ]
+          },
+          'theory-chapter3': {
+            title: '📖 第三章：历史规律与高倍股研究',
+            chapters: [
+              { number: '↩️', title: '返回第一册目录', url: '/book1/003_Chapter3_Historical_Patterns_and_Multibagger_Stocks_CN' },
+              { number: '3.1', title: '高倍股的定义与时间维度', url: '/book1/003_Chapter3/3.1_Definition_and_Time_Dimensions_CN' },
+              { number: '3.2', title: '高倍股的行业分布与特性', url: '/book1/003_Chapter3/3.2_Industry_Distribution_and_Characteristics_CN' },
+              { number: '3.3', title: '从财务指标到市场热点：驱动因素', url: '/book1/003_Chapter3/3.3_Driving_Factors_CN' },
+              { number: '3.4', title: '经典案例研究', url: '/book1/003_Chapter3/3.4_Case_Studies_CN' }
+            ]
+          },
+          'theory-chapter4': {
+            title: '📖 第四章：赛道选择与行业趋势',
+            chapters: [
+              { number: '↩️', title: '返回第一册目录', url: '/book1/004_Chapter4_Track_Selection_and_Industry_Trends_CN' },
+              { number: '4.1', title: '赛道筛选方法', url: '/book1/004_Chapter4/4.1_Track_Screening_Methods_CN' },
+              { number: '4.2', title: '人工智能与大数据革命', url: '/book1/004_Chapter4/4.2_AI_and_Big_Data_Revolution_CN' },
+              { number: '4.3', title: '新能源与电动汽车黄金十年', url: '/book1/004_Chapter4/4.3_New_Energy_and_EV_Golden_Decade_CN' },
+              { number: '4.4', title: '生物科技与精准医疗', url: '/book1/004_Chapter4/4.4_Biotech_and_Precision_Medicine_CN' },
+              { number: '4.5', title: '半导体与元宇宙', url: '/book1/004_Chapter4/4.5_Semiconductor_and_Metaverse_CN' },
+              { number: '4.6', title: '中概股投资机会', url: '/book1/004_Chapter4/4.6_Chinese_Stocks_Opportunities_CN' }
+            ]
+          },
+          'theory-chapter5': {
+            title: '📖 第五章：股票筛选策略',
+            chapters: [
+              { number: '↩️', title: '返回第一册目录', url: '/book1/005_Chapter5_Stock_Screening_Strategies_CN' },
+              { number: '5.1', title: '股票筛选方法', url: '/book1/005_Chapter5/5.1_Stock_Screening_Methods_CN' },
+              { number: '5.2', title: '基本面筛选参数', url: '/book1/005_Chapter5/5.2_Fundamental_Screening_Parameters_CN' },
+              { number: '5.3', title: '技术分析与时机把握', url: '/book1/005_Chapter5/5.3_Technical_Analysis_CN' },
+              { number: '5.4', title: '估值方法论', url: '/book1/005_Chapter5/5.4_Valuation_Methodology_CN' },
+              { number: '5.5', title: '股票筛选实战示例', url: '/book1/005_Chapter5/5.5_Stock_Screening_Practice_CN' },
+              { number: '5.6', title: '利用衍生品提升收益', url: '/book1/005_Chapter5/5.6_Derivatives_Enhancement_CN' }
+            ]
+          },
+          'theory-chapter6': {
+            title: '📖 第六章：交易策略与执行',
+            chapters: [
+              { number: '↩️', title: '返回第一册目录', url: '/book1/006_Chapter6_Trading_Strategies_and_Execution_CN' },
+              { number: '6.1', title: '长期投资 vs. 短期波段', url: '/book1/006_Chapter6/6.1_Long_term_vs_Short_term_CN' },
+              { number: '6.2', title: '仓位管理与资金分配', url: '/book1/006_Chapter6/6.2_Position_Management_CN' },
+              { number: '6.3', title: '利用ETF优化组合收益', url: '/book1/006_Chapter6/6.3_ETF_Optimization_CN' },
+              { number: '6.4', title: '动态调整策略', url: '/book1/006_Chapter6/6.4_Dynamic_Adjustment_CN' },
+              { number: '6.5', title: '高成长型个股卖出策略', url: '/book1/006_Chapter6/6.5_Growth_Stock_Exit_CN' },
+              { number: '6.6', title: '策略执行与监控体系', url: '/book1/006_Chapter6/6.6_Strategy_Execution_CN' }
+            ]
+          },
           macro: {
             title: '🌍 美股投资实操手册II',
             chapters: [
-              { number: '📖', title: '宏观经济分析导航', url: '/handbook/macro' },
+              { number: '📖', title: '前言：宏观经济与股市走向追踪', url: '/book2/000_Preface_CN' },
               { number: '1️⃣', title: '第一章：市场趋势判断的重要性', url: '/book2/201_Chapter1_Market_Trend_Analysis_CN' },
-              { number: '2️⃣', title: '第二章：经济周期与股市表现', url: '/book2/202_Chapter2_Economic_Cycles_and_Market_Performance_CN' },
-              { number: '3️⃣', title: '第三章：货币政策与股市传导机制', url: '/book2/203_Chapter3_Monetary_Policy_and_Market_Transmission_CN' },
-              { number: '4️⃣', title: '第四章：核心经济指标分析与追踪', url: '/book2/204_Chapter4_Core_Economic_Indicators_Analysis_CN' },
-              { number: '5️⃣', title: '第五章：地缘政治与全球市场', url: '/book2/205_Chapter5_Geopolitics_and_Global_Markets_CN' },
+              { number: '2️⃣', title: '第二章：经济周期与市场表现', url: '/book2/202_Chapter2_Economic_Cycles_and_Market_Performance_CN' },
+              { number: '3️⃣', title: '第三章：货币政策与市场传导', url: '/book2/203_Chapter3_Monetary_Policy_and_Market_Transmission_CN' },
+              { number: '4️⃣', title: '第四章：财政政策与市场影响', url: '/book2/204_Chapter4_Fiscal_Policy_and_Market_Impact_CN' },
+              { number: '5️⃣', title: '第五章：国际宏观环境分析', url: '/book2/205_Chapter5_International_Macro_Environment_CN' },
               { number: '6️⃣', title: '第六章：宏观数据解读与应用', url: '/book2/206_Chapter6_Macro_Data_Interpretation_CN' },
               { number: '7️⃣', title: '第七章：宏观经济风险评估与预警', url: '/book2/207_Chapter7_Macro_Forecasting_Models_CN' },
               { number: '8️⃣', title: '第八章：市场风险监控系统', url: '/book2/208_Chapter8_Market_Risk_Monitoring_CN' },
-              { number: '9️⃣', title: '第九章：实时宏观数据监控系统', url: '/book2/209_Chapter9_Real_Time_Macro_Data_Monitoring_CN' },
-              { number: '🔟', title: '第十章：数据源与分析工具', url: '/book2/210_Chapter10_Data_Sources_and_Analysis_Tools_CN' },
-              { number: '1️⃣1️⃣', title: '第十一章：综合投资交易策略', url: '/book2/211_Chapter11_Comprehensive_Investment_Trading_Strategies_CN' },
-              { number: '📋', title: '附录', url: '/book2/212_Appendix_CN' }
+              { number: '9️⃣', title: '第九章：宏观驱动的资产配置', url: '/book2/209_Chapter9_Macro_Driven_Asset_Allocation_CN' },
+              { number: '🔟', title: '第十章：宏观择时策略', url: '/book2/210_Chapter10_Macro_Timing_Strategies_CN' },
+              { number: '1️⃣1️⃣', title: '第十一章：宏观分析工具箱', url: '/book2/211_Chapter11_Macro_Analysis_Toolkit_CN' },
+              { number: '📋', title: '附录：宏观分析专业资源', url: '/book2/212_Appendix_CN' }
             ]
           },
           stocks: {
             title: '🔍 美股投资实操手册III',
             chapters: [
-              { number: '📖', title: '个股分析', url: '/handbook/stocks' }
+              { number: '📖', title: '个股分析导航', url: '/handbook/stocks' },
+              { number: '🚧', title: '个股分析章节开发中...', url: '/handbook/stocks' }
             ]
           },
           technical: {
             title: '📊 美股投资实操手册IV',
             chapters: [
-              { number: '📖', title: '技术分析', url: '/handbook/technical' }
+              { number: '📖', title: '技术分析导航', url: '/handbook/technical' },
+              { number: '🚧', title: '技术分析章节开发中...', url: '/handbook/technical' }
             ]
           },
           quantitative: {
             title: '⚡ 美股投资实操手册V',
             chapters: [
-              { number: '📖', title: '量化分析', url: '/handbook/quantitative' }
+              { number: '📖', title: '量化分析导航', url: '/handbook/quantitative' },
+              { number: '🚧', title: '量化分析章节开发中...', url: '/handbook/quantitative' }
             ]
           }
         };
@@ -1232,6 +1368,7 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           '/book1/011_Appendix/J.1_Document_System_Construction_Guide_CN',
           '/book1/011_Appendix/K.1_Subchapter_Template_Guide_CN',
           '/book1/011_Appendix/L.1_Handbook_Summary_and_Format_Optimization_CN',
+          '/book1/011_Appendix/M.1_Content_Quality_Assessment_and_Improvement_Plan_CN',
           
           
           // 69. 第二册导航页
@@ -1508,6 +1645,139 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
             document.getElementById('themeToggle')?.click();
           }
         });
+      }
+
+      // 语言切换管理
+      function initializeLanguageSwitch() {
+        const enBtn = document.getElementById('langSwitchEn');
+        const cnBtn = document.getElementById('langSwitchCn');
+        
+        // EN按钮 - 准备页面翻译
+        enBtn?.addEventListener('click', () => {
+          prepareForTranslation();
+        });
+        
+        // CN按钮 - 恢复中文
+        cnBtn?.addEventListener('click', () => {
+          window.location.reload();
+        });
+      }
+
+      // 准备页面翻译
+      function prepareForTranslation() {
+        // 设置页面语言属性，帮助浏览器识别
+        document.documentElement.lang = 'zh-CN';
+        document.documentElement.setAttribute('translate', 'yes');
+        
+        // 添加翻译提示
+        showTranslationTip();
+        
+        // 尝试触发浏览器翻译提示（如果可能）
+        tryTriggerTranslation();
+      }
+
+      // 显示翻译提示
+      function showTranslationTip() {
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+          position: fixed;
+          top: 60px;
+          right: 20px;
+          background: #2196f3;
+          color: white;
+          padding: 16px;
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          z-index: 10000;
+          font-size: 14px;
+          max-width: 300px;
+          line-height: 1.4;
+          font-family: inherit;
+        `;
+        
+        const browserInfo = getBrowserTranslationInfo();
+        notification.innerHTML = `
+          <div style="font-weight: 600; margin-bottom: 8px;">🌐 ${browserInfo.title}</div>
+          <div style="margin-bottom: 8px;">${browserInfo.instruction}</div>
+          ${browserInfo.shortcut ? `<div style="font-size: 12px; opacity: 0.9;">快捷键: ${browserInfo.shortcut}</div>` : ''}
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // 5秒后自动移除
+        setTimeout(() => {
+          if (notification.parentNode) {
+            notification.remove();
+          }
+        }, 5000);
+      }
+
+      // 尝试触发翻译（有限制）
+      function tryTriggerTranslation() {
+        // 方法1: 尝试模拟右键菜单（有限制）
+        try {
+          const contextEvent = new MouseEvent('contextmenu', {
+            bubbles: true,
+            cancelable: true,
+            clientX: window.innerWidth / 2,
+            clientY: window.innerHeight / 2
+          });
+          document.body.dispatchEvent(contextEvent);
+        } catch (e) {
+          console.log('Context menu simulation not supported');
+        }
+
+        // 方法2: 尝试快捷键（有限制）
+        setTimeout(() => {
+          try {
+            const keyEvent = new KeyboardEvent('keydown', {
+              key: 't',
+              ctrlKey: true,
+              shiftKey: true,
+              bubbles: true
+            });
+            document.dispatchEvent(keyEvent);
+          } catch (e) {
+            console.log('Keyboard simulation not supported');
+          }
+        }, 100);
+      }
+
+      // 获取浏览器翻译信息
+      function getBrowserTranslationInfo() {
+        const userAgent = navigator.userAgent;
+        
+        if (userAgent.includes('Chrome')) {
+          return {
+            title: 'Chrome 翻译已准备',
+            instruction: '右键点击页面 → "翻译为英语"，或查看地址栏右侧的翻译图标',
+            shortcut: 'Ctrl+Shift+T (部分版本)'
+          };
+        } else if (userAgent.includes('Edge')) {
+          return {
+            title: 'Edge 翻译已准备',
+            instruction: '右键点击页面 → "翻译为英语"，或查看地址栏的翻译图标',
+            shortcut: null
+          };
+        } else if (userAgent.includes('Firefox')) {
+          return {
+            title: 'Firefox 翻译',
+            instruction: '需要安装翻译扩展，推荐使用 "To Google Translate" 扩展',
+            shortcut: null
+          };
+        } else if (userAgent.includes('Safari')) {
+          return {
+            title: 'Safari 翻译已准备',
+            instruction: '右键点击页面 → "翻译为英语"（需要 macOS Big Sur 或更高版本）',
+            shortcut: null
+          };
+        } else {
+          return {
+            title: '浏览器翻译已准备',
+            instruction: '右键点击页面选择翻译选项',
+            shortcut: null
+          };
+        }
       }
     </script>
   </body>

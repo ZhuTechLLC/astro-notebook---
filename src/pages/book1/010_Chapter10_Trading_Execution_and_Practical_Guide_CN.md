@@ -47,15 +47,29 @@ currentBook: theory
   <div class="chapter-card">
     <div class="chapter-header">
       <span class="chapter-number">10.3</span>
-      <h3>实战交易执行</h3>
+      <h3>IBD投资方法论深度应用</h3>
     </div>
-    <p>学习实战交易的具体执行方法，包括交易时机把握、仓位管理、风险控制和交易纪律，提升交易执行力和成功率。</p>
+    <p>全面解析IBD投资方法论的四大支柱体系与实战应用，包括基本面分析、技术面筛选、市场趋势判断和风险管理策略，显著提升选股精准度和投资成功率。</p>
     <div class="chapter-features">
-      <span class="feature-tag">交易执行</span>
-      <span class="feature-tag">仓位管理</span>
-      <span class="feature-tag">执行纪律</span>
+      <span class="feature-tag">IBD方法论</span>
+      <span class="feature-tag">四大支柱</span>
+      <span class="feature-tag">实战应用</span>
     </div>
     <a href="/book1/010_Chapter10/10.3_Trading_Execution_CN" class="chapter-link">开始学习 →</a>
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-number">10.4</span>
+      <h3>投资旅程总结与未来展望</h3>
+    </div>
+    <p>全面总结第一册投资知识体系，回顾学习成果，展望投资未来发展方向。从个人投资系统构建到宏观环境分析，为投资者提供完整的投资认知升级路径。</p>
+    <div class="chapter-features">
+      <span class="feature-tag">知识总结</span>
+      <span class="feature-tag">能力评估</span>
+      <span class="feature-tag">未来展望</span>
+    </div>
+    <a href="/book1/010_Chapter10/10.4_Investment_Journey_Summary_and_Future_Outlook_CN" class="chapter-link">开始学习 →</a>
   </div>
 </div>
 
@@ -65,9 +79,12 @@ currentBook: theory
 
 - **做好交易准备**：掌握交易前的各项准备工作
 - **熟练使用工具**：熟练使用Gurufocus等投资工具
-- **执行实战交易**：掌握实战交易的具体执行方法
-- **控制交易风险**：有效控制交易风险和损失
-- **提升执行纪律**：提升交易执行纪律和成功率
+- **掌握IBD方法论**：深入理解四大支柱体系和CAN SLIM策略
+- **应用IBD工具**：熟练使用IBD各种核心分析工具
+- **提升选股精准度**：通过系统化方法提高投资成功率
+- **建立风险控制体系**：构建科学的止损和仓位管理策略
+- **总结投资成果**：系统总结第一册学习成果和能力提升
+- **展望投资未来**：了解投资能力发展方向和完整学习体系
 
 ## 核心概念
 
@@ -83,11 +100,17 @@ currentBook: theory
 - **结果分析**：分析筛选结果和投资价值
 - **标的评估**：评估投资标的的适合性
 
-### 交易执行
-- **时机把握**：把握最佳交易时机
-- **仓位管理**：科学管理投资仓位
-- **风险控制**：有效控制交易风险
-- **执行纪律**：严格执行交易纪律
+### IBD方法论应用
+- **四大支柱**：基本面、技术面、大盘分析、风险管理
+- **工具应用**：IBD Stock Checkup、Stock Screener、IBD 50
+- **实战策略**：基于CAN SLIM策略的完整投资框架
+- **风险控制**：系统化的止损和仓位管理策略
+
+### 投资总结与展望
+- **认知升级**：从投资心理到实战执行的完整路径
+- **能力评估**：量化评估投资能力提升和实战表现
+- **未来展望**：从微观投资向宏观分析的能力拓展
+- **智慧传承**：投资智慧的传承和持续进化机制
 
 ## 相关章节
 

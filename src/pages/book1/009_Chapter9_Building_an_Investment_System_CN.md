@@ -57,6 +57,20 @@ currentBook: theory
     </div>
     <a href="/book1/009_Chapter9/9.3_Personal_Investment_System_CN" class="chapter-link">开始学习 →</a>
   </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-number">9.4</span>
+      <h3>投资心理建设与行为管理</h3>
+    </div>
+    <p>深入探讨投资体系中心理素质的系统性建设和行为偏差的科学管理，建立完整的心理管理解决方案，确保投资决策的理性化和可持续化。</p>
+    <div class="chapter-features">
+      <span class="feature-tag">心理建设</span>
+      <span class="feature-tag">行为纠正</span>
+      <span class="feature-tag">理性决策</span>
+    </div>
+    <a href="/book1/009_Chapter9/9.4_Investment_Psychology_and_Behavior_Management_CN" class="chapter-link">开始学习 →</a>
+  </div>
 </div>
 
 ## 学习目标
@@ -66,6 +80,7 @@ currentBook: theory
 - **掌握高效投资方法**：学会在繁忙生活中高效投资的方法和技巧
 - **建立复盘机制**：建立投资策略的定期复盘和优化机制
 - **构建投资系统**：构建完整的个人投资系统
+- **建设心理素质**：系统性建设投资心理素质和行为管理能力
 - **优化时间管理**：优化投资时间管理和精力分配
 - **提升投资效率**：提升投资决策和执行效率
 

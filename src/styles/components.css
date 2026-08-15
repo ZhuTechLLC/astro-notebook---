@@ -781,7 +781,6 @@
     color: var(--text-secondary);
     line-height: 1.4;
 }
-
 /* ========== VS Code 官方主题样式 ========== */
 
 /* VS Code 主题变量定义 */
@@ -1145,7 +1144,7 @@ code {
     color: #9cdcfe !important; /* Bash 环境变量浅蓝 */
 }
 
-/* 亮色模式语言特定增强 */
+/* 亮色主题语言特定增强 */
 .language-python .token.decorator {
     color: #af00db !important; /* Python 装饰器紫色 */
 }
@@ -1579,7 +1578,6 @@ pre::-webkit-scrollbar-thumb:hover {
   background: var(--card-bg);
   border-color: var(--border-color);
 }
-
 [data-theme="dark"] .checklist-item {
   background: var(--bg-primary);
   border-color: var(--border-color);
@@ -2366,7 +2364,6 @@ pre::-webkit-scrollbar-thumb:hover {
   gap: 1rem;
   margin-top: 1.5rem;
 }
-
 .component-card,
 .method-card,
 .mechanism-card,
@@ -3168,7 +3165,6 @@ pre::-webkit-scrollbar-thumb:hover {
     margin: 0;
     padding-left: 1.5rem;
 }
-
 .method-item li {
     margin-bottom: 0.5rem;
     line-height: 1.5;
@@ -3959,7 +3955,6 @@ pre::-webkit-scrollbar-thumb:hover {
         width: 100%;
     }
 }
-
 /* 暗色主题适配 */
 [data-theme="dark"] .feature-item,
 [data-theme="dark"] .challenge-item,
@@ -4760,7 +4755,6 @@ h3::before {
   background: #9333ea;
   color: white;
 }
-
 .status-card.purple .status-content {
   color: #6b21a8;
 }
@@ -5557,7 +5551,6 @@ h3::before {
 .status-content strong {
   font-weight: 600;
 }
-
 /* 绿色主题 */
 .status-card.green .status-header h4 {
   color: #15803d;
@@ -6357,7 +6350,6 @@ h3::before {
   line-height: 1.2 !important;
   margin: 0.1em 0 !important;
 }
-
 .status-label .MathJax_Display {
   margin: 0.2em 0 !important;
   text-align: center !important;
@@ -7157,7 +7149,6 @@ h3::before {
   background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
   border-left: 4px solid #6b7280;
 }
-
 /* 卡片头部 */
 .status-header {
   display: flex;
@@ -7953,7 +7944,6 @@ h3::before {
     padding: 0.6rem;
   }
 }
-
 /* ========== 状态卡片智能布局系统 ========== */
 .status-cards {
   display: grid;
@@ -8749,7 +8739,6 @@ h3::before {
   font-size: 0.9rem;
   line-height: 1.4;
 }
-
 /* 策略网格优化 */
 .strategy-grid {
   display: grid;
@@ -9551,7 +9540,6 @@ h3::before {
   font-size: 0.9rem;
   line-height: 1.4;
 }
-
 /* 策略网格优化 */
 .strategy-grid {
   display: grid;
@@ -10352,7 +10340,6 @@ h3::before {
 .auto-color-cycle > *:nth-child(6n+4) .metric-value {
   color: #dcdcaa !important;
 }
-
 .auto-color-cycle > *:nth-child(6n+5) h3,
 .auto-color-cycle > *:nth-child(6n+5) h4,
 .auto-color-cycle > *:nth-child(6n+5) h5,
@@ -11152,7 +11139,6 @@ h3::before {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, sans-serif;
 }
-
 /* 2X2网格布局 */
 .closed-loop-grid {
     display: grid;
@@ -11941,7 +11927,6 @@ h3::before {
     font-size: 0.85rem;
   }
 }
-
 @media (max-width: 480px) {
   .status-card.multi-card {
     padding: 1.25rem;

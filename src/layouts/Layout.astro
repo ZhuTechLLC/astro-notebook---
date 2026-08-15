@@ -896,6 +896,9 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           } else {
             currentBook = 'theory';
           }
+        } else if (currentPath.includes('202_Chapter2/') || currentPath.includes('/book2/202_Chapter2/')) {
+          // 第二册第二章子节：显示 2.1–2.5 侧栏（含 2026-07 增补 2.5）
+          currentBook = 'macro-chapter2';
         } else if (currentPath.startsWith('/book2/') || currentPath.includes('/book2/') ||
             currentPath.includes('201_Chapter1') || currentPath.includes('202_Chapter2') ||
             currentPath.includes('203_Chapter3') || currentPath.includes('204_Chapter4') ||
@@ -904,12 +907,43 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
             currentPath.includes('209_Chapter9') || currentPath.includes('210_Chapter10') ||
             currentPath.includes('211_Chapter11') || currentPath.includes('212_Appendix')) {
           currentBook = 'macro';
+        } else if (currentPath === '/trquant_northstar_alignment_CN' || currentPath.includes('trquant_northstar_alignment')) {
+          currentBook = 'macro';
         } else if (currentPath === '/handbook/macro' || currentPath.includes('/handbook/macro')) {
           currentBook = 'macro';
         } else if (currentPath === '/handbook/stocks' || currentPath.includes('/handbook/stocks')) {
           currentBook = 'stocks';
         } else if (currentPath === '/handbook/technical' || currentPath.includes('/handbook/technical')) {
           currentBook = 'technical';
+        } else if (currentPath.startsWith('/book4/') || currentPath.includes('/book4/')) {
+          // 第四册章节页面显示对应章节的子导航
+          if (currentPath.includes('401_Chapter1')) {
+            currentBook = 'technical-chapter1';
+          } else if (currentPath.includes('402_Chapter2')) {
+            currentBook = 'technical-chapter2';
+          } else if (currentPath.includes('403_Chapter3')) {
+            currentBook = 'technical-chapter3';
+          } else if (currentPath.includes('404_Chapter4')) {
+            currentBook = 'technical-chapter4';
+          } else if (currentPath.includes('405_Chapter5')) {
+            currentBook = 'technical-chapter5';
+          } else if (currentPath.includes('406_Chapter6')) {
+            currentBook = 'technical-chapter6';
+          } else if (currentPath.includes('407_Chapter7')) {
+            currentBook = 'technical-chapter7';
+          } else if (currentPath.includes('408_Chapter8')) {
+            currentBook = 'technical-chapter8';
+          } else if (currentPath.includes('409_Chapter9')) {
+            currentBook = 'technical-chapter9';
+          } else if (currentPath.includes('410_Chapter10')) {
+            currentBook = 'technical-chapter10';
+          } else if (currentPath.includes('411_Chapter11')) {
+            currentBook = 'technical-chapter11';
+          } else if (currentPath.includes('412_Chapter12')) {
+            currentBook = 'technical-chapter12';
+          } else {
+            currentBook = 'technical';
+          }
         } else if (currentPath === '/handbook/quantitative' || currentPath.includes('/handbook/quantitative')) {
           currentBook = 'quantitative';
         }
@@ -981,7 +1015,8 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
               { number: '4.3', title: '新能源与电动汽车黄金十年', url: '/book1/004_Chapter4/4.3_New_Energy_and_EV_Golden_Decade_CN' },
               { number: '4.4', title: '生物科技与精准医疗', url: '/book1/004_Chapter4/4.4_Biotech_and_Precision_Medicine_CN' },
               { number: '4.5', title: '半导体与元宇宙', url: '/book1/004_Chapter4/4.5_Semiconductor_and_Metaverse_CN' },
-              { number: '4.6', title: '中概股投资机会', url: '/book1/004_Chapter4/4.6_Chinese_Stocks_Opportunities_CN' }
+              { number: '4.6', title: '中概股投资机会', url: '/book1/004_Chapter4/4.6_Chinese_Stocks_Opportunities_CN' },
+              { number: '4.7', title: '产业链与板块内涨幅因子（2026-07）', url: '/book1/004_Chapter4/4.7_Industry_Chain_and_Within_Sector_Magnitude_CN' }
             ]
           },
           'theory-chapter5': {
@@ -1023,7 +1058,19 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
               { number: '9️⃣', title: '第九章：宏观驱动的资产配置', url: '/book2/209_Chapter9_Macro_Driven_Asset_Allocation_CN' },
               { number: '🔟', title: '第十章：宏观择时策略', url: '/book2/210_Chapter10_Macro_Timing_Strategies_CN' },
               { number: '1️⃣1️⃣', title: '第十一章：宏观分析工具箱', url: '/book2/211_Chapter11_Macro_Analysis_Toolkit_CN' },
-              { number: '📋', title: '附录：宏观分析专业资源', url: '/book2/212_Appendix_CN' }
+              { number: '📋', title: '附录：宏观分析专业资源', url: '/book2/212_Appendix_CN' },
+              { number: '🧭', title: 'TRQuant NorthStar 对齐（2026-07）', url: '/trquant_northstar_alignment_CN' }
+            ]
+          },
+          'macro-chapter2': {
+            title: '🌍 第二章：经济周期与市场表现',
+            chapters: [
+              { number: '↩️', title: '返回第二册目录', url: '/book2/202_Chapter2_Economic_Cycles_and_Market_Performance_CN' },
+              { number: '2.1', title: '经济周期的识别与分析', url: '/book2/202_Chapter2/2.1_Economic_Cycle_Identification_CN' },
+              { number: '2.2', title: '不同周期阶段的市场特征', url: '/book2/202_Chapter2/2.2_Market_Characteristics_by_Cycle_CN' },
+              { number: '2.3', title: '周期性投资策略与时机把握', url: '/book2/202_Chapter2/2.3_Cyclical_Investment_Strategies_CN' },
+              { number: '2.4', title: '交互式笔记：周期追踪', url: '/book2/202_Chapter2/2.4_Interactive_Notes_Cycle_Tracking_CN' },
+              { number: '2.5', title: '每日板块轮动阶段代理卡（2026-07）', url: '/book2/202_Chapter2/2.5_Daily_Sector_Rotation_Stage_Proxy_Card_CN' }
             ]
           },
           stocks: {
@@ -1036,8 +1083,31 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           technical: {
             title: '📊 美股投资实操手册IV',
             chapters: [
-              { number: '📖', title: '技术分析导航', url: '/handbook/technical' },
-              { number: '🚧', title: '技术分析章节开发中...', url: '/handbook/technical' }
+              { number: '📖', title: '序言：自动化交易的革命', url: '/book4/000_Preface_CN' },
+              { number: '1️⃣', title: '第一章：从手工交易到自动化执行', url: '/book4/401_Chapter1_From_Manual_to_Automated_Trading_CN' },
+              { number: '2️⃣', title: '第二章：平台搭建与工具链', url: '/book4/402_Chapter2_Platform_Setup_and_Toolchain_CN' },
+              { number: '3️⃣', title: '第三章：量化研究方法论', url: '/book4/403_Chapter3_Quantitative_Research_Methodology_CN' },
+              { number: '4️⃣', title: '第四章：QuantConnect策略开发', url: '/book4/404_Chapter4_QuantConnect_Strategy_Development_CN' },
+              { number: '5️⃣', title: '第五章：回测与模拟交易', url: '/book4/405_Chapter5_Backtesting_and_Simulation_CN' },
+              { number: '6️⃣', title: '第六章：IBKR API与订单执行', url: '/book4/406_Chapter6_IBKR_API_and_Order_Execution_CN' },
+              { number: '7️⃣', title: '第七章：实盘部署与监控', url: '/book4/407_Chapter7_Live_Trading_Deployment_CN' },
+              { number: '8️⃣', title: '第八章：风险管理框架', url: '/book4/408_Chapter8_Risk_Management_Framework_CN' },
+              { number: '9️⃣', title: '第九章：衍生品与对冲策略', url: '/book4/409_Chapter9_Derivatives_and_Hedging_CN' },
+              { number: '🔟', title: '第十章：绩效归因与评估', url: '/book4/410_Chapter10_Performance_Attribution_CN' },
+              { number: '1️⃣1️⃣', title: '第十一章：策略优化与迭代', url: '/book4/411_Chapter11_Strategy_Optimization_CN' },
+              { number: '1️⃣2️⃣', title: '第十二章：合规与职业道德', url: '/book4/412_Chapter12_Compliance_and_Ethics_CN' }
+            ]
+          },
+          'technical-chapter1': {
+            title: '📊 第一章：从手工交易到自动化执行',
+            chapters: [
+              { number: '↩️', title: '返回第四册目录', url: '/book4/401_Chapter1_From_Manual_to_Automated_Trading_CN' },
+              { number: '1.1', title: '自动化交易的定义与演变', url: '/book4/401_Chapter1/1.1_Definition_and_Evolution_of_Automated_Trading_CN' },
+              { number: '1.2', title: '手工交易的局限性分析', url: '/book4/401_Chapter1/1.2_Limitations_of_Manual_Trading_CN' },
+              { number: '1.3', title: '自动化交易的核心优势', url: '/book4/401_Chapter1/1.3_Core_Advantages_of_Automated_Trading_CN' },
+              { number: '1.4', title: '技术挑战与风险管理', url: '/book4/401_Chapter1/1.4_Technical_Challenges_and_Risk_Management_CN' },
+              { number: '1.5', title: '现代金融市场中的应用', url: '/book4/401_Chapter1/1.5_Applications_in_Modern_Financial_Markets_CN' },
+              { number: '1.6', title: '个人投资者的转型路径', url: '/book4/401_Chapter1/1.6_Transformation_Path_for_Individual_Investors_CN' }
             ]
           },
           quantitative: {
@@ -1197,6 +1267,61 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           return '/handbook/macro';
         }
         
+        // 第四册子节页面，返回对应章节导航页
+        if (currentPath.includes('/401_Chapter1/')) {
+          return '/book4/401_Chapter1_From_Manual_to_Automated_Trading_CN';
+        }
+        if (currentPath.includes('/402_Chapter2/')) {
+          return '/book4/402_Chapter2_Platform_Setup_and_Toolchain_CN';
+        }
+        if (currentPath.includes('/403_Chapter3/')) {
+          return '/book4/403_Chapter3_Quantitative_Research_Methodology_CN';
+        }
+        if (currentPath.includes('/404_Chapter4/')) {
+          return '/book4/404_Chapter4_QuantConnect_Strategy_Development_CN';
+        }
+        if (currentPath.includes('/405_Chapter5/')) {
+          return '/book4/405_Chapter5_Backtesting_and_Simulation_CN';
+        }
+        if (currentPath.includes('/406_Chapter6/')) {
+          return '/book4/406_Chapter6_IBKR_API_and_Order_Execution_CN';
+        }
+        if (currentPath.includes('/407_Chapter7/')) {
+          return '/book4/407_Chapter7_Live_Trading_Deployment_CN';
+        }
+        if (currentPath.includes('/408_Chapter8/')) {
+          return '/book4/408_Chapter8_Risk_Management_Framework_CN';
+        }
+        if (currentPath.includes('/409_Chapter9/')) {
+          return '/book4/409_Chapter9_Derivatives_and_Hedging_CN';
+        }
+        if (currentPath.includes('/410_Chapter10/')) {
+          return '/book4/410_Chapter10_Performance_Attribution_CN';
+        }
+        if (currentPath.includes('/411_Chapter11/')) {
+          return '/book4/411_Chapter11_Strategy_Optimization_CN';
+        }
+        if (currentPath.includes('/412_Chapter12/')) {
+          return '/book4/412_Chapter12_Compliance_and_Ethics_CN';
+        }
+        
+        // 如果在第四册章节页，返回第四册导航页
+        if (currentPath.startsWith('/book4/401_Chapter') ||
+            currentPath.startsWith('/book4/402_Chapter') ||
+            currentPath.startsWith('/book4/403_Chapter') ||
+            currentPath.startsWith('/book4/404_Chapter') ||
+            currentPath.startsWith('/book4/405_Chapter') ||
+            currentPath.startsWith('/book4/406_Chapter') ||
+            currentPath.startsWith('/book4/407_Chapter') ||
+            currentPath.startsWith('/book4/408_Chapter') ||
+            currentPath.startsWith('/book4/409_Chapter') ||
+            currentPath.startsWith('/book4/410_Chapter') ||
+            currentPath.startsWith('/book4/411_Chapter') ||
+            currentPath.startsWith('/book4/412_Chapter') ||
+            currentPath.startsWith('/book4/000_Preface')) {
+          return '/handbook/technical';
+        }
+        
         // 如果在手册导航页，返回首页
         if (currentPath.includes('/handbook/')) {
           return '/';
@@ -1293,6 +1418,7 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           '/book1/004_Chapter4/4.4_Biotech_and_Precision_Medicine_CN',
           '/book1/004_Chapter4/4.5_Semiconductor_and_Metaverse_CN',
           '/book1/004_Chapter4/4.6_Chinese_Stocks_Opportunities_CN',
+          '/book1/004_Chapter4/4.7_Industry_Chain_and_Within_Sector_Magnitude_CN',
           
           // 25. 第五章导航页
           '/book1/005_Chapter5_Stock_Screening_Strategies_CN',
@@ -1391,13 +1517,14 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           // 77. 第二册第二章导航页
           '/book2/202_Chapter2_Economic_Cycles_and_Market_Performance_CN',
           
-          // 78-81. 第二册第二章子节
+          // 78-82. 第二册第二章子节（含 2026-07 增补 2.5）
           '/book2/202_Chapter2/2.1_Economic_Cycle_Identification_CN',
           '/book2/202_Chapter2/2.2_Market_Characteristics_by_Cycle_CN',
           '/book2/202_Chapter2/2.3_Cyclical_Investment_Strategies_CN',
           '/book2/202_Chapter2/2.4_Interactive_Notes_Cycle_Tracking_CN',
+          '/book2/202_Chapter2/2.5_Daily_Sector_Rotation_Stage_Proxy_Card_CN',
           
-          // 82. 第二册第三章导航页
+          // 83. 第二册第三章导航页
           '/book2/203_Chapter3_Monetary_Policy_and_Market_Transmission_CN',
           
           // 83-87. 第二册第三章子节
@@ -1552,7 +1679,24 @@ const isEn = lang === 'en' || (typeof window !== 'undefined' && window.location.
           '/book3/304_Chapter4/304_Chapter4_Valuation_Analysis_CN',
           
           // 99. 第三册第四章第一节
-          '/book3/304_Chapter4/4.1_Valuation_Methods_CN'
+          '/book3/304_Chapter4/4.1_Valuation_Methods_CN',
+          
+          // 100. 第四册导航页
+          '/handbook/technical',
+          
+          // 101. 第四册序言
+          '/book4/000_Preface_CN',
+          
+          // 102. 第四册第一章导航页
+          '/book4/401_Chapter1_From_Manual_to_Automated_Trading_CN',
+          
+          // 103-108. 第四册第一章子节
+          '/book4/401_Chapter1/1.1_Definition_and_Evolution_of_Automated_Trading_CN',
+          '/book4/401_Chapter1/1.2_Limitations_of_Manual_Trading_CN',
+          '/book4/401_Chapter1/1.3_Core_Advantages_of_Automated_Trading_CN',
+          '/book4/401_Chapter1/1.4_Technical_Challenges_and_Risk_Management_CN',
+          '/book4/401_Chapter1/1.5_Applications_in_Modern_Financial_Markets_CN',
+          '/book4/401_Chapter1/1.6_Transformation_Path_for_Individual_Investors_CN'
         ];
       }
 

@@ -100,3 +100,14 @@ layout: /src/layouts/Layout.astro
 
 ---
 
+## 📌 2026-07 边界说明（增补，不改上文）
+
+本手册是**认知与方法论**读本。若你同时使用 TRQuant 北极星交易系统：
+
+- 手册帮助建立判断框架；**执行门禁、证据等级与仓位纪律以 TRQuant 为准**。
+- 自动化交易是长期目标；当前系统未完善、盈利模式未摸透前，运行时默认 `recommendation_only_no_order_submission`（决策支持 / 纸面或影子组合）。
+- 对齐入口：[TRQuant NorthStar 对齐说明](/trquant_northstar_alignment_CN)
+- 产业链与板块内弹性：[4.7](/book1/004_Chapter4/4.7_Industry_Chain_and_Within_Sector_Magnitude_CN)
+
+---
+

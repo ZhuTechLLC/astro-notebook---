@@ -90,6 +90,19 @@ updateDate: "2025-01-10"
 - ⚡ 建立市场风险监测和预警系统
 - 🎯 实现基于宏观分析的精准择时
 
+---
+
+## 📌 2026-07 增补入口（不改上文）
+
+本册是**宏观认知与周期方法论**读本。若你同时使用 TRQuant 北极星交易系统：
+
+- 轮动阶段日卡：[2.5 每日板块轮动阶段代理卡](/book2/202_Chapter2/2.5_Daily_Sector_Rotation_Stage_Proxy_Card_CN)
+- 周期阶段特征补完：[2.2](/book2/202_Chapter2/2.2_Market_Characteristics_by_Cycle_CN)（§2.2.2–2.2.5）
+- 与执行门禁对齐：[TRQuant NorthStar 对齐说明](/trquant_northstar_alignment_CN)
+- 默认边界：`recommendation_only_no_order_submission`
+
+---
+
 <style>
 .chapter-overview {
     background: var(--card-bg);

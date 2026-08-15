@@ -4,7 +4,7 @@ description: "系统分析赛道选择方法、行业趋势识别和投资机会
 lang: "zh-CN"
 alt: "赛道选择与行业趋势"
 layout: "/src/layouts/HandbookLayout.astro"
-updateDate: "2025-01-03"
+updateDate: "2026-07-18"
 ---
 # 第四章：赛道选择与行业趋势
 
@@ -100,6 +100,20 @@ updateDate: "2025-01-03"
     </div>
     <a href="/book1/004_Chapter4/4.6_Chinese_Stocks_Opportunities_CN" class="chapter-link">开始学习 →</a>
   </div>
+
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <span class="chapter-number">4.7</span>
+      <h3>产业链分析与板块内涨幅因子（2026-07 增补）</h3>
+    </div>
+    <p>通用产业链八问框架、龙头/中军/跟随分层、主题 S0–S4 与 AI 四层链示例；不产生买卖指令。</p>
+    <div class="chapter-features">
+      <span class="feature-tag">🔗 产业链</span>
+      <span class="feature-tag">📊 弹性因子</span>
+      <span class="feature-tag">🧭 S0–S4</span>
+    </div>
+    <a href="/book1/004_Chapter4/4.7_Industry_Chain_and_Within_Sector_Magnitude_CN" class="chapter-link">开始学习 →</a>
+  </div>
 </div>
 
 ##  学习目标
@@ -138,7 +152,7 @@ updateDate: "2025-01-03"
 
 ##  学习建议
 
-1. **循序渐进**：按照4.1→4.2→4.3→4.4→4.5→4.6的顺序学习，构建完整的赛道选择体系
+1. **循序渐进**：按照4.1→4.2→4.3→4.4→4.5→4.6→4.7的顺序学习，构建完整的赛道选择体系
 2. **实践结合**：每学完一个赛道，及时进行实际研究和分析
 3. **持续更新**：关注行业最新发展，保持投资机会的敏感度
 4. **工具整合**：整合各种研究工具和资源，提升分析效率

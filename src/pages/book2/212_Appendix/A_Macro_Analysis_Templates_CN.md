@@ -304,4 +304,20 @@ GDP增长、就业创造、通胀推动作用
 
 ---
 
+## 附录增补：轮动阶段卡 v1（2026-07）
+
+> 完整版见 [2.5 每日板块轮动阶段代理卡](/book2/202_Chapter2/2.5_Daily_Sector_Rotation_Stage_Proxy_Card_CN)。权威合同：TRQuant `context/US_SECTOR_ROTATION_STAGE_PROXY_TEMPLATE_v1.md`。
+
+**最小日卡字段：**
+
+1. 强势 Top3 / 弱势 Bottom3（20d，兼看 5d/60d）  
+2. 三层判档：市场微观（进攻/切换/防守/震荡）× 周期假说 × 主题 S0–S4  
+3. 主假说 H1–H5（保留/淘汰）  
+4. 确认条件与失效条件（必填）  
+5. 动作带：默认 `WAIT_SELECTIVE`，`recommendation_only_no_order_submission`
+
+**边界：** 轮动代理可引证风格阶段，不可单独给经济周期盖章；不因 ETF 强弱直接下单。
+
+---
+
 *本模板库将根据市场发展和用户反馈持续更新，确保其实用性和有效性。* 

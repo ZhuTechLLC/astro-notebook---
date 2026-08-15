@@ -4,7 +4,7 @@ description: "深入解析经济周期的识别方法、不同周期阶段的市
 lang: "zh-CN"
 alt: "经济周期与市场表现"
 layout: /src/layouts/HandbookLayout.astro
-updateDate: "2025-01-10"
+updateDate: "2026-07-18"
 ---
 # 第二章：经济周期与市场表现
 
@@ -67,6 +67,13 @@ updateDate: "2025-01-10"
 <p>经济周期指标追踪工具、投资决策记录和策略优化笔记</p>
 <div class="subsection-links">
 <a href="/book2/202_Chapter2/2.4_Interactive_Notes_Cycle_Tracking_CN" class="subsection-link">进入学习 →</a>
+</div>
+</div>
+<div class="overview-item">
+<h4>🧭 2.5 每日板块轮动阶段代理卡（2026-07 增补）</h4>
+<p>用 ETF 强弱代理推断微观阶段与周期假说，强制确认/失效条件</p>
+<div class="subsection-links">
+<a href="/book2/202_Chapter2/2.5_Daily_Sector_Rotation_Stage_Proxy_Card_CN" class="subsection-link">进入学习 →</a>
 </div>
 </div>
 </div>

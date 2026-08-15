@@ -116,3 +116,37 @@ updateDate: "2025-01-03"
 2. **实践结合**：每学完一个概念，及时进行实际操作和练习
 3. **持续优化**：建立持续优化和改进的机制
 4. **心理建设**：重视投资心理的培养和管理
+
+---
+
+## 📌 2026-07 系统对接清单（增补，不改上文）
+
+读完本章后，把“心理与纪律”接到 TRQuant 运行时——**自动交易是长期目标，当前阶段先把这些勾选跑通**：
+
+### A. 认知 → 系统对象
+
+| 本章概念 | TRQuant 落点 | 是否已用 |
+|---|---|---|
+| 风险容忍度 / 仓位纪律 | UnifiedSizing + 组合预算阻断 | ☐ |
+| 止损与规则执行 | PreTrade Checklist + hard veto | ☐ |
+| 情绪陷阱 / FOMO / 损失厌恶 | Reflection 心理偏差捕获 | ☐ |
+| 交易前承诺（先写计划再动手） | Precommit | ☐ |
+| 复盘与错失机会 | ReviewCompiler + DecisionLedger / Event Lake | ☐ |
+
+### B. 每次想法变成动作前（强制勾选）
+
+1. ☐ 已写出**失效条件**（价格 / 时间 / 叙事失效至少一项）
+2. ☐ 已过 freshness / EvidenceTier（证据未过期、等级足够）
+3. ☐ 已过 PreTrade 硬门（非“感觉可以”）
+4. ☐ 已写 Precommit（仓位上限、触发、退出）
+5. ☐ 动作带是 hold / trim / wait / watchlist / shadow 之一——**不是**因情绪或叙事直接 EXECUTE
+6. ☐ 正式事件已写入 Reflection / Event Lake（不只停在笔记）
+
+### C. 与自动交易目标的关系
+
+- 本章纪律是自动执行的前置条件：规则不清、复盘不落盘、预算可绕过时，不上生产自动下单。
+- 当前运行时默认 `recommendation_only_no_order_submission`；目标态仍是自动化交易。
+- 对齐总览：[TRQuant NorthStar 对齐说明](/trquant_northstar_alignment_CN)
+- 周期×轮动日卡（风格阶段，不单独盖经济周期章）：[II · 2.5](/book2/202_Chapter2/2.5_Daily_Sector_Rotation_Stage_Proxy_Card_CN)
+
+> TRQuant 合同（仓库）：`context/PSYCHOLOGY_AND_JOURNAL_CONTRACT_v1.md`、`context/US_NORTHSTAR_USER_MANUAL_20260716.md`

@@ -1,5 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "mkdir -p dist && cp public/family-tree-v2.html dist/index.html",
-  "outputDirectory": "dist"
+  "buildCommand": "cd family-tree-app && npm install --no-audit --no-fund && npm run build",
+  "outputDirectory": "family-tree-app/dist"
 }

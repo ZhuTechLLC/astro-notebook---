@@ -1,1 +1,1 @@
-{"name":"trquant-3d-stock-map","private":true,"scripts":{"build":"rm -rf dist && mkdir -p dist && cp index.html app.js styles.css dist/"}}
+{"name":"trquant-ai-infrastructure-3d-map","private":true,"scripts":{"build":"rm -rf dist && mkdir -p dist && cp index.html dist/"}}

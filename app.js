@@ -52,7 +52,7 @@ function ThreeMap({items,mode,selected,onSelect,showLabels,showRelations,autoRot
  useEffect(()=>{
   const el=ref.current;if(!el)return;
   const scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0x061018,.023);
-  const cam=new THREE.PerspectiveCamera(42,1,.1,100);cam.position.set(16,15,20);
+  const cam=new THREE.PerspectiveCamera(42,1,.1,100);const camTarget=new THREE.Vector3(0,2,1),camOffset=new THREE.Vector3(0,13,24);let zoom=1;const applyCamera=()=>{cam.position.copy(camTarget).add(camOffset.clone().multiplyScalar(zoom));cam.lookAt(camTarget)};applyCamera();
   const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});renderer.setPixelRatio(Math.min(devicePixelRatio,1.7));el.appendChild(renderer.domElement);
   scene.add(new THREE.AmbientLight(0xffffff,.95));const dl=new THREE.DirectionalLight(0xc8f3ff,2.4);dl.position.set(8,14,10);scene.add(dl);
   const group=new THREE.Group();scene.add(group);const floor=new THREE.GridHelper(28,28,0x214b58,0x12303b);floor.position.y=-.02;group.add(floor);
@@ -61,17 +61,19 @@ function ThreeMap({items,mode,selected,onSelect,showLabels,showRelations,autoRot
   if(showRelations){rel.forEach(([a,b])=>{const A=meta[a].pos,B=meta[b].pos;const line=new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(A[0],.22,A[1]),new THREE.Vector3(B[0],.22,B[1])]),new THREE.LineDashedMaterial({color:0x5b8f9c,dashSize:.3,gapSize:.23,transparent:true,opacity:.4}));line.computeLineDistances();group.add(line)})}
   const bySector={};items.forEach(x=>(bySector[x.s]??=[]).push(x));
   Object.entries(bySector).forEach(([s,a])=>a.forEach((d,i)=>{const m=meta[s],ang=i*2.399963,r=.6+.38*Math.sqrt(i+1),sx=m.pos[0]+Math.cos(ang)*r,sz=m.pos[1]+Math.sin(ang)*r;const score=mode==="trq"?(d.trq?.opp??0):mode==="terrain"?Math.max(12,d.liveHeat):d.liveHeat;const hgt=mode==="trq"?(d.trq?1+score/17:.38):.75+score/18;const top=islandTop[s],sy=top+hgt,liq=.18+.26*norm(Math.log10(d.adv),liqExt),color=mode==="trq"&&!d.trq?0x63737a:m.c;const ball=new THREE.Mesh(new THREE.SphereGeometry(liq,22,16),new THREE.MeshStandardMaterial({color,roughness:.3,metalness:.22,emissive:color,emissiveIntensity:d.t===selected?.34:.08,transparent:true,opacity:mode==="trq"&&!d.trq?.48:1}));ball.position.set(sx,sy,sz);ball.userData={kind:"stock",stock:d};group.add(ball);pickables.push(ball);group.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(sx,top,sz),new THREE.Vector3(sx,sy-liq,sz)]),new THREE.LineBasicMaterial({color,transparent:true,opacity:.28})));if(showLabels){const lab=sprite(d.t,d.t===selected?"#ffffff":"#ccecf2",.45);lab.position.set(sx,sy+.48,sz);group.add(lab)}}));
-  let rx=-.22,ry=-.42,zoom=1,drag=false,moved=0,px=0,py=0;group.rotation.set(rx,ry,0);const ray=new THREE.Raycaster(),mouse=new THREE.Vector2();
+  let rx=-.22,ry=-.42,drag=false,dragMode="rotate",moved=0,px=0,py=0;group.rotation.set(rx,ry,0);const ray=new THREE.Raycaster(),mouse=new THREE.Vector2();
   function resize(){const w=el.clientWidth,hg=el.clientHeight;renderer.setSize(w,hg,false);cam.aspect=w/hg;cam.updateProjectionMatrix()}resize();const ro=new ResizeObserver(resize);ro.observe(el);
   function hit(ev){const r=renderer.domElement.getBoundingClientRect();mouse.x=((ev.clientX-r.left)/r.width)*2-1;mouse.y=-((ev.clientY-r.top)/r.height)*2+1;ray.setFromCamera(mouse,cam);return ray.intersectObjects(pickables,false)[0]||null}
   function hover(ev){const q=hit(ev);if(!q){tip.current.style.display="none";renderer.domElement.style.cursor=drag?"grabbing":"grab";return}renderer.domElement.style.cursor="pointer";const r=renderer.domElement.getBoundingClientRect();tip.current.style.display="block";tip.current.style.left=(ev.clientX-r.left+10)+"px";tip.current.style.top=(ev.clientY-r.top+10)+"px";tip.current.textContent=q.object.userData.kind==="stock"?`${q.object.userData.stock.t} · ${q.object.userData.stock.n}`:`${q.object.userData.sector} · 行业地形`}
-  const down=e=>{drag=true;moved=0;px=e.clientX;py=e.clientY;renderer.domElement.setPointerCapture(e.pointerId)};
-  const move=e=>{if(!drag){hover(e);return}const dx=e.clientX-px,dy=e.clientY-py;moved+=Math.abs(dx)+Math.abs(dy);ry+=dx*.006;rx=clamp(rx+dy*.004,-.72,.28);px=e.clientX;py=e.clientY;group.rotation.set(rx,ry,0)};
-  const up=e=>{drag=false;if(moved<7){const q=hit(e);if(q?.object.userData.kind==="stock")onSelect(q.object.userData.stock.t);if(q?.object.userData.kind==="sector")onSector(q.object.userData.sector)}};
-  const wheel=e=>{e.preventDefault();zoom=clamp(zoom+Math.sign(e.deltaY)*.08,.7,1.55);cam.position.set(16*zoom,15*zoom,20*zoom)};
-  renderer.domElement.addEventListener("pointerdown",down);renderer.domElement.addEventListener("pointermove",move);renderer.domElement.addEventListener("pointerup",up);renderer.domElement.addEventListener("wheel",wheel,{passive:false});
+  const down=e=>{drag=true;dragMode=(e.button===2||e.shiftKey)?"pan":"rotate";moved=0;px=e.clientX;py=e.clientY;renderer.domElement.setPointerCapture(e.pointerId)};
+  const move=e=>{if(!drag){hover(e);return}const dx=e.clientX-px,dy=e.clientY-py;moved+=Math.abs(dx)+Math.abs(dy);px=e.clientX;py=e.clientY;if(dragMode==="pan"){camTarget.x-=dx*.012*zoom;camTarget.y+=dy*.008*zoom;camTarget.z-=dy*.008*zoom;applyCamera()}else{ry+=dx*.006;rx=clamp(rx+dy*.004,-.72,.28);group.rotation.set(rx,ry,0)}};
+  const up=e=>{drag=false;if(moved<7&&dragMode==="rotate"){const q=hit(e);if(q?.object.userData.kind==="stock")onSelect(q.object.userData.stock.t);if(q?.object.userData.kind==="sector")onSector(q.object.userData.sector)}};
+  const wheel=e=>{e.preventDefault();zoom=clamp(zoom+Math.sign(e.deltaY)*.08,.7,1.55);applyCamera()};
+  const resetCamera=()=>{zoom=1;rx=-.22;ry=-.42;camTarget.set(0,2,1);group.rotation.set(rx,ry,0);applyCamera()};
+  const context=e=>e.preventDefault();
+  renderer.domElement.addEventListener("pointerdown",down);renderer.domElement.addEventListener("pointermove",move);renderer.domElement.addEventListener("pointerup",up);renderer.domElement.addEventListener("pointercancel",up);renderer.domElement.addEventListener("wheel",wheel,{passive:false});renderer.domElement.addEventListener("dblclick",resetCamera);renderer.domElement.addEventListener("contextmenu",context);
   let af;const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;function loop(){af=requestAnimationFrame(loop);if(autoRotate&&!drag&&!reduce){ry+=.0014;group.rotation.y=ry}renderer.render(scene,cam)}loop();
-  return()=>{cancelAnimationFrame(af);ro.disconnect();renderer.dispose();if(el.contains(renderer.domElement))el.removeChild(renderer.domElement)}
+  return()=>{cancelAnimationFrame(af);ro.disconnect();renderer.domElement.removeEventListener("contextmenu",context);renderer.dispose();if(el.contains(renderer.domElement))el.removeChild(renderer.domElement)}
  },[items,mode,selected,showLabels,showRelations,autoRotate]);
  return html`<div ref=${ref} style=${{width:"100%",height:"100%",position:"relative"}}><div ref=${tip} className="tooltip"></div></div>`
 }
@@ -84,7 +86,7 @@ function App(){
  const tabs=[{k:"live",a:"实盘状态",b:"IBKR REALTIME"},{k:"trq",a:"TRQuant证据",b:"Unknown 明示"},{k:"terrain",a:"行业地貌",b:"94 行业背景"}];
  const rankValue=d=>sort==="trq"?(d.trq?fmt(d.trq.opp,0):"—"):sort==="vol"?fmt(d.hv*100,0):sort==="liq"?money(d.adv):sort==="day"?`${d.d>=0?"+":""}${fmt(d.d)}%`:sort==="ytd"?`${d.ytd>=0?"+":""}${fmt(d.ytd)}%`:d.liveHeat;
  return html`<div className="app">
- <header className="top"><div><div className="eyebrow">TRQUANT · 3D STOCK MAP · PRACTICAL V1</div><div className="title">交互式 3D 选股地图</div><div className="sub">19 只实盘标的 + Damodaran 94 行业背景 + TRQuant evidence overlay。拖拽旋转、滚轮缩放、点击标的/板块。</div></div>
+ <header className="top"><div><div className="eyebrow">TRQUANT · 3D STOCK MAP · PRACTICAL V1.1</div><div className="title">交互式 3D 选股地图</div><div className="sub">19 只实盘标的 + Damodaran 94 行业背景 + TRQuant evidence overlay。默认居中；左键拖拽旋转，Shift+拖拽或右键拖动画面，滚轮缩放，双击复位。</div></div>
  <div className="tabs">${tabs.map(x=>html`<button key=${x.k} className=${mode===x.k?"active":""} onClick=${()=>setMode(x.k)}><b>${x.a}</b>${x.b}</button>`)}</div>
  <div className="kpis"><div className="kpi"><span>IBKR 实盘覆盖</span><b>19 / 19</b></div><div className="kpi"><span>TRQuant 结构化证据</span><b>${known} / 19</b></div><div className="kpi"><span>行业背景</span><b>94 / 5994</b></div><div className="kpi"><span>市场风险权威</span><b>UNAVAILABLE</b></div></div></header>
  <div className="workspace">

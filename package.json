@@ -5,5 +5,5 @@
   "type":"module",
   "scripts":{"build":"vite build"},
   "dependencies":{"react":"19.1.1","react-dom":"19.1.1","three":"0.179.1"},
-  "devDependencies":{"@vitejs/plugin-react":"latest","vite":"7.1.4"}
+  "devDependencies":{"@vitejs/plugin-react":"5.0.4","vite":"7.1.4"}
 }

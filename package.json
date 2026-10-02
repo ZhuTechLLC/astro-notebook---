@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node ./node_modules/astro/astro.js build",
     "preview": "astro preview",
     "deploy": "astro build && npx gh-pages -d dist"    
   },

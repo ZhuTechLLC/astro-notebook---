@@ -1,0 +1,10 @@
+<!DOCTYPE html><meta charset="utf-8"><h1 id="示例回测收益曲线">示例：回测收益曲线</h1>
+<p>portfolio_returns = data.pct_change().dot(pd.Series(weights))</p>
+<p>cumulative_returns = (1 + portfolio_returns).cumprod()</p>
+<p>指标计算公式：</p>
+<p>夏普比率： Sharpe Ratio=组合年化收益率−无风险利率年化波动率\text{Sharpe Ratio} = \frac{\text{组合年化收益率} - \text{无风险利率}}{\text{年化波动率}}</p>
+<p>最大回撤： 最大回撤=累计收益的最大值−累计收益的最小值累计收益的最大值\text{最大回撤} = \frac{\text{累计收益的最大值} - \text{累计收益的最小值}}{\text{累计收益的最大值}}</p>
+<p>2.5 优化扩展</p>
+<p>通过数学模型优化组合权重，实现风险和收益的动态平衡。</p>
+<p>均值方差优化： 目标是最大化夏普比率或最小化组合波动率。</p>
+<p>from scipy.optimize import minimize</p>

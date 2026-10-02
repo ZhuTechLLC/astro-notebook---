@@ -1,0 +1,174 @@
+<!DOCTYPE html><meta charset="utf-8"><h1 id="美股投资实操手册astro--cursor--gpt-项目构建完整流程文档">《美股投资实操手册》Astro + Cursor + GPT 项目构建完整流程文档</h1>
+<hr>
+<h2 id="-一项目目标与核心定位">🧭 一、项目目标与核心定位</h2>
+<p>本项目目标是将原始 Word 文档版的《美股投资实操手册》转化为可交互、结构清晰、可集成 GPT / 回测 / 实盘系统的现代化金融教育平台。</p>
+<p>核心需求包括：</p>
+<ul>
+<li>✅ 每章内容结构化呈现（Markdown 格式）</li>
+<li>✅ 支持 GPT 插入提示框与图表组件</li>
+<li>✅ 使用 Astro 构建静态站点，支持中文命名</li>
+<li>✅ 使用 Cursor + GPT 提高写作与开发效率</li>
+<li>✅ 支持未来接入量化回测与实盘执行系统</li>
+</ul>
+<hr>
+<h2 id="-二手册-markdown-构建阶段day-1">🧱 二、手册 Markdown 构建阶段（Day 1）</h2>
+<h3 id="-内容初始化">📂 内容初始化</h3>
+<ul>
+<li>将原始 Word 文档拆分为独立章节</li>
+<li>每章转为 UTF-8 编码的 <code>.md</code> 文件</li>
+<li>命名格式：<code>001_序言.md</code>、<code>002_第一章：xxx.md</code></li>
+</ul>
+<h3 id="️-标准结构设计每章-md">✍️ 标准结构设计（每章 md）</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#79B8FF;font-weight:bold">---</span></span>
+<span class="line"><span style="color:#E1E4E8">title: 第一章：xxx</span></span>
+<span class="line"><span style="color:#E1E4E8">layout: ../layouts/HandbookLayout.astro</span></span>
+<span class="line"><span style="color:#E1E4E8">slug: /chapter-001</span></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold"># 第一章：xxx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">:::gpt-tip</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8"> 提示1</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8"> 提示2</span></span>
+<span class="line"><span style="color:#E1E4E8">:::</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;ChartPlaceholder title="图表标题" /></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold">## 小节标题</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">正文内容...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">[</span><span style="color:#DBEDFF;text-decoration:underline">返回首页</span><span style="color:#E1E4E8">](</span><span style="color:#E1E4E8;text-decoration:underline">../index.md</span><span style="color:#E1E4E8">)</span></span></code></pre>
+<hr>
+<h2 id="️-三astro-项目搭建day-1">🖥️ 三、Astro 项目搭建（Day 1）</h2>
+<ul>
+<li>使用命令初始化 Astro 项目：</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> create</span><span style="color:#9ECBFF"> astro@latest</span></span></code></pre>
+<ul>
+<li>目录结构如下：</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>src/</span></span>
+<span class="line"><span>├─ pages/               # 所有章节 Markdown 页面</span></span>
+<span class="line"><span>├─ layouts/</span></span>
+<span class="line"><span>│    └─ HandbookLayout.astro</span></span>
+<span class="line"><span>├─ styles/</span></span>
+<span class="line"><span>│    └─ global.css</span></span>
+<span class="line"><span>astro.config.mjs</span></span>
+<span class="line"><span>package.json</span></span></code></pre>
+<ul>
+<li>运行项目：</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span></span>
+<span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> run</span><span style="color:#9ECBFF"> dev</span></span></code></pre>
+<p>访问 <code>http://localhost:4321/</code> 查看站点页面。</p>
+<hr>
+<h2 id="-四slug-路由规范与链接跳转day-2">🔁 四、slug 路由规范与链接跳转（Day 2）</h2>
+<h3 id="-问题">🔧 问题：</h3>
+<p>Astro 默认以中文文件名作为 URL，会导致 <code>/第二章：xxx</code> 报 404。</p>
+<h3 id="-解决方案">✅ 解决方案：</h3>
+<p>在每个 <code>.md</code> 的 YAML 区增加 <code>slug</code> 字段：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#85E89D">slug</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">/chapter-002</span></span></code></pre>
+<p>并在跳转时统一使用 slug：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#E1E4E8">[</span><span style="color:#DBEDFF;text-decoration:underline">下一章</span><span style="color:#E1E4E8">](</span><span style="color:#E1E4E8;text-decoration:underline">../chapter-003</span><span style="color:#E1E4E8">)</span></span></code></pre>
+<p>我们定义了如下 slug 映射规范：</p>
+<ul>
+<li><code>/preface</code> → 序言</li>
+<li><code>/chapter-001</code> ~ <code>/chapter-010</code> → 正文</li>
+<li><code>/appendix</code> → 附录</li>
+<li><code>/example-001</code> ~ <code>/example-006</code> → 示例页</li>
+</ul>
+<p>同时生成了 <code>slug_映射对照表.md</code> 供全局管理。</p>
+<hr>
+<h2 id="-五cursor-中的开发技巧day-23">🧠 五、Cursor 中的开发技巧（Day 2~3）</h2>
+<h3 id="-内容协作">✅ 内容协作</h3>
+<ul>
+<li>使用 <code>Ctrl + K</code> 调出 GPT 提示</li>
+<li>右键段落 → Ask GPT</li>
+<li>自动摘要、提问、生成策略代码、改写风格</li>
+</ul>
+<h3 id="-批量操作技巧">✅ 批量操作技巧</h3>
+<ul>
+<li><code>Ctrl + Shift + F</code>：多文件全局搜索</li>
+<li>批量修改 title、slug、跳转链接</li>
+</ul>
+<h3 id="-调试技巧">✅ 调试技巧</h3>
+<ul>
+<li>Terminal 输入 <code>npm run dev</code></li>
+<li>输入 <code>ls</code> 确认是否在项目根目录</li>
+<li>若卡住：删除 node_modules 并重新安装依赖</li>
+</ul>
+<hr>
+<h2 id="-六页面样式与布局调整">🎨 六、页面样式与布局调整</h2>
+<ul>
+<li>修改 <code>global.css</code> 设置统一背景颜色：</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#85E89D">body</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">  @</span><span style="color:#79B8FF">apply</span><span style="color:#79B8FF"> bg-green-</span><span style="color:#E1E4E8">100;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<ul>
+<li>或在 <code>HandbookLayout.astro</code> 中：</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="astro"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">main</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"bg-green-100 px-6 py-8"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">slot</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">main</span><span style="color:#E1E4E8">></span></span></code></pre>
+<hr>
+<h2 id="-七目录导航页与章节跳转建议">🔗 七、目录导航页与章节跳转（建议）</h2>
+<p>生成 <code>index.md</code> 目录页，结构如下：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#79B8FF;font-weight:bold"># 手册目录</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8"> [</span><span style="color:#DBEDFF;text-decoration:underline">序言</span><span style="color:#E1E4E8">](</span><span style="color:#E1E4E8;text-decoration:underline">../preface</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8"> [</span><span style="color:#DBEDFF;text-decoration:underline">第一章：xxx</span><span style="color:#E1E4E8">](</span><span style="color:#E1E4E8;text-decoration:underline">../chapter-001</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#FFAB70">-</span><span style="color:#E1E4E8"> [</span><span style="color:#DBEDFF;text-decoration:underline">第二章：xxx</span><span style="color:#E1E4E8">](</span><span style="color:#E1E4E8;text-decoration:underline">../chapter-002</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">...</span></span></code></pre>
+<p>也支持顶部导航组件：<code>&#x3C;NavBar /></code></p>
+<hr>
+<h2 id="-八文件成果与打包输出">📦 八、文件成果与打包输出</h2>
+<p>已生成：</p>
+<ul>
+<li>✅ 所有章节标准 Markdown 模板（含 GPT 提示与图表占位）</li>
+<li>✅ slug 映射对照表 Markdown</li>
+<li>✅ Astro 项目 zip 包（可部署）</li>
+</ul>
+<hr>
+<h2 id="-九未来扩展方向">🔮 九、未来扩展方向</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>模块</th><th>可拓展功能</th></tr></thead><tbody><tr><td>📈 图表集成</td><td>TradingView iframe、绘图组件</td></tr><tr><td>📊 数据回测</td><td>QuantConnect 策略页面嵌入</td></tr><tr><td>🧠 智能问答</td><td>GPT 问答模块嵌入页面（章节理解、策略诊断）</td></tr><tr><td>🧾 策略模拟</td><td>GPT 生成策略 → QuantConnect 回测 → IBKR 实盘</td></tr><tr><td>📱 多端适配</td><td>移动端 UI 优化，支持 PWA、小程序等</td></tr></tbody></table>
+<hr>
+<h2 id="-十你已掌握的能力总结">✅ 十、你已掌握的能力总结</h2>
+<ul>
+<li>内容结构化编写与发布（.md）</li>
+<li>Astro + Tailwind 样式与组件控制</li>
+<li>Cursor + GPT 辅助编辑与开发</li>
+<li>slug 路由设计与多页面跳转</li>
+<li>本地运行、调试、打包与部署能力</li>
+</ul>
+<p>你已进入 <strong>AI+内容+技术+金融系统开发的黄金工作流</strong>！</p>

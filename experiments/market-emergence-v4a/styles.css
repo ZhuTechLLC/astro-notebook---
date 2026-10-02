@@ -151,3 +151,10 @@ footer div b{display:block;font-size:10px}footer div span{font-size:8px}footer a
 .asset-hitbox{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border:0;border-radius:50%;background:transparent;pointer-events:auto;cursor:pointer;outline:none}
 .asset-hitbox:focus-visible{box-shadow:0 0 0 2px #9ce7f5,0 0 0 5px rgba(156,231,245,.18)}
 .asset-hitbox:hover{background:rgba(127,223,240,.06)}
+
+.experiment-actions{border-top:1px solid rgba(151,211,232,.08);margin-top:13px;padding-top:11px}
+.experiment-actions>div:first-child{display:flex;justify-content:space-between;align-items:center;color:#6f8c99;font-size:8px}
+.experiment-actions>div:first-child b{font:700 9px ui-monospace,Consolas,monospace;color:#c5e8f1}
+.experiment-buttons{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:8px}
+.experiment-buttons button{border:1px solid rgba(139,211,235,.12);border-radius:7px;background:#0b1d29;color:#819eaa;padding:7px 5px;font-size:7px;cursor:pointer}
+.experiment-buttons button:hover{border-color:rgba(139,225,248,.36);color:#e1f7fb}

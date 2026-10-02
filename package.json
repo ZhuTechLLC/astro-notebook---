@@ -3,7 +3,9 @@
   "private":true,
   "version":"2.0.0",
   "type":"module",
-  "scripts":{"build":"vite build"},
+  "scripts":{
+    "build":"rm -rf dist && mkdir -p dist && cp src/styles.css dist/styles.css && sed 's#href=\"/src/styles.css\"#href=\"/styles.css\"#; s#src=\"/src/main.jsx\"#src=\"/app.js\"#' index.html > dist/index.html && esbuild src/main.jsx --bundle --format=esm --jsx=automatic --outfile=dist/app.js"
+  },
   "dependencies":{"react":"19.1.1","react-dom":"19.1.1","three":"0.179.1"},
-  "devDependencies":{"@vitejs/plugin-react":"5.0.4","vite":"7.1.4"}
+  "devDependencies":{"esbuild":"0.25.12"}
 }

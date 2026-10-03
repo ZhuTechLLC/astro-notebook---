@@ -1,0 +1,177 @@
+{
+  "contract_version": "case-01-v1",
+  "case_id": "case-01-semiconductor-synchronised-rise",
+  "title_zh": "半导体为什么同步上涨？",
+  "title_en": "Why are semiconductors rising together?",
+  "theory_contract": "MARKET_DYNAMICS_THEORY_V2",
+  "authority": "simulation_research_only",
+  "scope": {
+    "market_reference": [
+      "SPY",
+      "QQQ"
+    ],
+    "theme": {
+      "id": "ai_semiconductor",
+      "label_zh": "AI / 半导体",
+      "weighting": "equal_weight_normalized_price_v1",
+      "assets": [
+        "NVDA",
+        "AMD",
+        "AVGO",
+        "MU",
+        "AMAT",
+        "LRCX"
+      ]
+    },
+    "default_focus_asset": "NVDA"
+  },
+  "baseline": {
+    "seed": 20261003,
+    "duration_ms": 60000,
+    "sample_interval_ms": 250,
+    "environment": "balanced",
+    "noise": 0.35,
+    "network_strength": 0.55,
+    "liquidity": 0.7
+  },
+  "mechanisms": [
+    {
+      "id": "market_beta",
+      "label_zh": "整体市场共同变化"
+    },
+    {
+      "id": "theme_information",
+      "label_zh": "主题共同信息重估"
+    },
+    {
+      "id": "leader_information_propagation",
+      "label_zh": "龙头信息与后续传播",
+      "default_leader": "NVDA"
+    },
+    {
+      "id": "common_flow",
+      "label_zh": "共同资金流"
+    },
+    {
+      "id": "trend_feedback",
+      "label_zh": "趋势反馈"
+    },
+    {
+      "id": "liquidity_amplification",
+      "label_zh": "流动性放大"
+    },
+    {
+      "id": "coincidence_residual",
+      "label_zh": "随机/未解释共同运动"
+    }
+  ],
+  "allowed_interventions": {
+    "information_shock": {
+      "scopes": [
+        "market",
+        "theme",
+        "asset"
+      ]
+    },
+    "persistent_flow": {
+      "scopes": [
+        "theme",
+        "asset"
+      ]
+    },
+    "parameter_change": {
+      "parameters": [
+        "trend_gain",
+        "network_strength",
+        "liquidity",
+        "noise"
+      ]
+    }
+  },
+  "first_ab_experiment": {
+    "shared": [
+      "case_version",
+      "engine_version",
+      "source_commit",
+      "seed",
+      "initial_state",
+      "baseline_parameters",
+      "duration_ms",
+      "sample_interval_ms"
+    ],
+    "run_a": {
+      "label": "theme_information_repricing",
+      "intervention": {
+        "type": "information_shock",
+        "scope": "theme",
+        "target": "ai_semiconductor",
+        "direction": 1,
+        "strength": 1
+      }
+    },
+    "run_b": {
+      "label": "common_theme_flow",
+      "intervention": {
+        "type": "persistent_flow",
+        "scope": "theme",
+        "target": "ai_semiconductor",
+        "direction": 1,
+        "strength": 1,
+        "duration_ms": 3000
+      }
+    }
+  },
+  "required_outputs": {
+    "paths": [
+      "market_normalized",
+      "theme_normalized",
+      "focus_stock_normalized"
+    ],
+    "structural_attribution": [
+      "market_return",
+      "theme_return",
+      "focus_stock_return",
+      "theme_excess_vs_market",
+      "stock_excess_vs_theme"
+    ],
+    "model_accounting": [
+      "information",
+      "flow",
+      "feedback",
+      "network",
+      "liquidity_constraint",
+      "residual"
+    ],
+    "summaries": [
+      "cross_section",
+      "flow_summary",
+      "propagation_summary",
+      "feedback_summary",
+      "dynamics_fingerprint",
+      "event_timeline",
+      "ab_comparison"
+    ],
+    "evidence_status_values": [
+      "UNKNOWN",
+      "AVAILABLE",
+      "SUPPORTS",
+      "INCONSISTENT",
+      "UNAVAILABLE"
+    ]
+  },
+  "replay_requires": [
+    "source_commit",
+    "engine_version",
+    "case_version",
+    "seed",
+    "baseline_parameters",
+    "ordered_event_stream"
+  ],
+  "simulation_does_not_authorize": [
+    "buy_sell_instruction",
+    "capital_allocation",
+    "position_size",
+    "automated_execution",
+    "real_market_causal_claim"
+  ]
+}

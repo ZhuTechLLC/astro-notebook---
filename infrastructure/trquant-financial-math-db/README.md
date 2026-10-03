@@ -21,7 +21,7 @@ The schema therefore does **not** assume that the market is fully represented by
 - `estimator_observations` stores measured values. Every value points to exactly one estimator.
 - `latest_estimator_observations` is a convenience view over the latest value per estimator + scope.
 
-A concept-level read must therefore return the contributing estimators and evidence; it must not fabricate a synthetic concept score unless an explicit aggregation estimator has been separately defined and validated.
+A concept-level read must therefore return the contributing estimators and evidence, including explicit `UNKNOWN` rows when a linked estimator has no available observation; it must not fabricate a synthetic concept score unless an explicit aggregation estimator has been separately defined and validated.
 
 ## Stable estimator codes A / C / Q / L / E / P
 

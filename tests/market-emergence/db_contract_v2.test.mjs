@@ -35,6 +35,9 @@ assert.doesNotMatch(readme,/A\/C\/Q\/L\/E\/P snapshot/i);
 
 assert.match(asOf,/estimator_observations/);
 assert.match(concept,/concept_estimator_links/);
+assert.match(concept,/LEFT JOIN LATERAL/);
+assert.match(concept,/evidence_status/);
+assert.match(concept,/'UNKNOWN'/);
 assert.doesNotMatch(concept,/IN\s*\(\s*'A'\s*,\s*'C'\s*,\s*'Q'\s*,\s*'L'\s*,\s*'E'\s*,\s*'P'\s*\)/i);
 
 assert.equal(fs.existsSync(path.join(db,'queries/as_of_metrics.sql')),false,'retired metric query must not remain active');

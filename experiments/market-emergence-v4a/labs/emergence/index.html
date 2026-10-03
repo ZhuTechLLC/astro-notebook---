@@ -16,12 +16,11 @@
   <header class="topbar shell">
     <a class="brand" href="/"><span class="brand-dot"></span><span>TRQUANT</span><b>金融数学</b></a>
     <nav>
-      <a href="/phenomena/">市场现象</a>
-      <a href="/labs/">交互实验</a>
-      <a href="/tools/">金融数学工具</a>
-      <a href="/learn/">方法与知识</a>
+      <a href="/labs/emergence/">市场模拟器</a>
+      <a href="/tools/">工具箱</a>
+      <a href="/learn/">方法索引</a>
     </nav>
-    <span class="version">研究模型 · 非实时行情</span>
+    <span class="version">机制模拟 · 非实时行情</span>
   </header>
 
   <main id="top">    <section class="hero shell">
@@ -34,8 +33,8 @@
           <span>移动鼠标改变局部注意力 · 单击加入一次信息冲击 · Shift+单击加入负向冲击 · 拖拽模拟持续订单流</span>
         </div>
         <div class="hero-actions">
-          <a class="primary" href="#sandbox">开始交互观察</a>
-          <a class="secondary" href="#compression">查看方法框架</a>
+          <a class="primary" href="/labs/emergence/?mode=trend">打开趋势情景</a>
+          <a class="secondary" href="/labs/emergence/?mode=stress">打开流动性压力情景</a>
         </div>
       </div>
 
@@ -226,11 +225,11 @@
     </section>
     <section class="section sources-section shell">
       <div class="section-kicker">07 · 延伸阅读</div>
-      <div class="section-title"><h2>继续从现象、数学或方法深入</h2><p>这个实验只负责解释市场涌现与反馈；其它主题已经拆分到独立页面。</p></div>
+      <div class="section-title"><h2>把模拟中的结构带到可计算工具</h2><p>下面三个页面可以直接改变参数并看到结果，不需要先读一层说明。</p></div>
       <div class="sources">
-        <a href="/phenomena/"><b>市场现象</b><span>趋势、扩散、拥挤与踩踏</span><p>从真实行情中常见的现象进入。</p></a>
-        <a href="/tools/"><b>金融数学工具</b><span>PCA / RMT / OFI / Hawkes</span><p>按问题查找对应数学方法。</p></a>
-        <a href="/learn/"><b>方法与知识</b><span>公式、假设与适用边界</span><p>查看状态变量与模型的严格定义。</p></a>
+        <a href="/tools/common-mode/"><b>共同模态分析</b><span>相关矩阵 · 第一特征模态</span><p>直接观察共同运动如何随相关结构变化。</p></a>
+        <a href="/tools/price-impact/"><b>价格冲击实验</b><span>订单流 · 深度 · 恢复</span><p>直接比较不同承接条件下的冲击路径。</p></a>
+        <a href="/tools/hawkes/"><b>Hawkes 自激过程</b><span>事件 · 条件强度 · 稳定性</span><p>直接观察事件对后续强度的影响。</p></a>
       </div>
     </section>
   </main>

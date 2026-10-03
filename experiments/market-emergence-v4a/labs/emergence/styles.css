@@ -193,3 +193,14 @@ footer div b{display:block;font-size:10px}footer div span{font-size:8px}footer a
 @media(max-width:1050px){.case01-main-grid{grid-template-columns:1fr}.case01-real-readouts{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:780px){.case01-heading{grid-template-columns:1fr}.case01-heading h2{font-size:34px}.case01-asof{max-width:340px}.case01-evidence-grid{grid-template-columns:1fr}.case01-fingerprint{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.case01-real-readouts{grid-template-columns:1fr 1fr}.case01-scenario-buttons{grid-template-columns:1fr}.case01-chart{height:290px}}
+
+
+.case01-discrimination-grid{display:grid;grid-template-columns:1.35fr .825fr .825fr;gap:10px;margin-top:12px}
+.case01-timing-panel{min-height:420px}.case01-proof-panel{min-height:420px}
+.case01-timing-readouts{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:8px}.case01-timing-readouts>div{padding:10px;border-radius:9px;background:#0a202d;border:1px solid rgba(137,210,233,.08)}.case01-timing-readouts span,.case01-timing-readouts small{display:block;color:#607f8c;font-size:7px}.case01-timing-readouts b{display:block;margin:3px 0;font:700 16px ui-monospace,Consolas,monospace;color:#c7eff6}
+.case01-timing-chart{height:255px;border-radius:11px;background:#071822}.case01-timing-note{margin:8px 1px 0;color:#6f8995;font-size:8px;line-height:1.65}
+.case01-proof-panel>h3{font-size:14px;line-height:1.35;margin:11px 0 12px}.case01-proof-readouts{display:grid;gap:7px}.case01-proof-readouts>div{padding:11px;border-radius:9px;background:#0a202d;border:1px solid rgba(137,210,233,.08)}.case01-proof-readouts span,.case01-proof-readouts small{display:block;color:#607f8c;font-size:7px}.case01-proof-readouts b{display:block;margin:3px 0;font:700 18px ui-monospace,Consolas,monospace;color:#c7eff6}
+.case01-proof-verdict{margin-top:10px;padding:11px;border-radius:10px;background:rgba(72,135,151,.08);border:1px solid rgba(137,210,233,.09)}.case01-proof-verdict b{font-size:8px;color:#8db3c0}.case01-proof-verdict p{margin:4px 0 0;color:#718a95;font-size:8px;line-height:1.65}
+.case01-current-read{margin-top:10px;padding:15px 17px;border-radius:13px;background:linear-gradient(90deg,rgba(39,116,118,.16),rgba(12,36,49,.55));border:1px solid rgba(101,205,199,.16)}.case01-current-read span{display:block;font:800 7px ui-monospace,Consolas,monospace;letter-spacing:.12em;color:#65b9b5}.case01-current-read b{display:block;margin-top:5px;font-size:13px;color:#c9efeb}.case01-current-read p{margin:6px 0 0;color:#6f8c97;font-size:9px;line-height:1.7}
+@media(max-width:1120px){.case01-discrimination-grid{grid-template-columns:1fr 1fr}.case01-timing-panel{grid-column:1/-1}}
+@media(max-width:720px){.case01-discrimination-grid{grid-template-columns:1fr}.case01-timing-panel{grid-column:auto}.case01-timing-readouts{grid-template-columns:1fr}.case01-timing-chart{height:300px}}

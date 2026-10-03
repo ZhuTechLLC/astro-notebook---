@@ -1,6 +1,7 @@
 import {agentSignal,alignmentRatio,normalizedConcentration,createSeededRandom,applyInformationShockToFairValue} from './model-rules.mjs';
 import {runCase01} from './case01-engine.mjs';
 import {deriveCase01RealEvidence} from './case01-evidence.mjs';
+import {deriveCase01EvidenceV2} from './case01-evidence-v2.mjs';
 
 (() => {
 'use strict';
@@ -70,7 +71,8 @@ document.querySelectorAll('[data-inject]').forEach(b=>b.addEventListener('click'
 $('noiseSlider')?.addEventListener('input',e=>{noise=Number(e.target.value);$('noiseOut').textContent=noise.toFixed(2)});$('networkSlider')?.addEventListener('input',e=>{network=Number(e.target.value);$('networkOut').textContent=network.toFixed(2)});$('liquiditySlider')?.addEventListener('input',e=>{liquidity=Number(e.target.value);$('liquidityOut').textContent=liquidity.toFixed(2)});$('resetButton')?.addEventListener('click',()=>resetSim(false));$('pauseButton')?.addEventListener('click',e=>{paused=!paused;e.target.textContent=paused?'继续':'暂停'});if(canvas&&ctx){makeAssets();resize();makeAgents();resize();resetSim(false);document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));buildHitboxes();initAnalytics();window.addEventListener('resize',resize,{passive:true});requestAnimationFrame(draw)}
 
 const CASE01_EVIDENCE_URL='../../cases/evidence/case01-real-2026-10-02.raw.json';
-let case01Chart=null,case01Data=null,case01Runs=null,case01Selected='theme_information_repricing';
+const CASE01_EVIDENCE_V2_URL='../../cases/evidence/case01-evidence-v2-2026-10-02.raw.json';
+let case01Chart=null,case01TimingChart=null,case01Data=null,case01DataV2=null,case01Runs=null,case01Selected='theme_information_repricing';
 const pct=(v,d=2)=>(v>=0?'+':'')+(v*100).toFixed(d)+'%';
 const pp=(v,d=2)=>(v>=0?'+':'')+(v*100).toFixed(d)+' pp';
 
@@ -148,10 +150,75 @@ function renderCase01Scenario(kind){
   renderCase01Chart();
 }
 
+
+function renderCase01TimingChart(){
+  const el=$('case01TimingChart');
+  if(!el||!case01DataV2)return;
+  if(!window.echarts){
+    el.innerHTML='<p class="case01-chart-fallback">分时证据图未加载；上方数值仍可使用。</p>';
+    return;
+  }
+  if(!case01TimingChart)case01TimingChart=window.echarts.init(el);
+  const windows=[
+    ['08:30后5分','labor_0830_5m'],
+    ['08:30后30分','labor_0830_30m'],
+    ['08:30→开盘','labor_0830_to_open'],
+    ['开盘后30分','open_first_30m'],
+    ['开盘→收盘','regular_session']
+  ];
+  const values=key=>windows.map(([,w])=>case01DataV2.intraday[w][key]*100);
+  case01TimingChart.setOption({
+    animationDuration:260,
+    backgroundColor:'transparent',
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},valueFormatter:v=>(Number(v)>=0?'+':'')+Number(v).toFixed(2)+'%'},
+    legend:{top:0,textStyle:{color:'#7895a2',fontSize:9}},
+    grid:{left:48,right:16,top:34,bottom:42},
+    xAxis:{type:'category',data:windows.map(x=>x[0]),axisLabel:{color:'#6c8995',fontSize:8,rotate:22},axisLine:{lineStyle:{color:'rgba(137,210,233,.15)'}}},
+    yAxis:{type:'value',axisLabel:{formatter:'{value}%',color:'#647f8c',fontSize:8},splitLine:{lineStyle:{color:'rgba(137,210,233,.07)'}}},
+    series:[
+      {name:'半导体主题',type:'bar',data:values('theme'),barMaxWidth:22,itemStyle:{color:'#61d0c7'}},
+      {name:'SPY',type:'bar',data:values('spy'),barMaxWidth:22,itemStyle:{color:'#65798a'}},
+      {name:'QQQ',type:'bar',data:values('qqq'),barMaxWidth:22,itemStyle:{color:'#d5a45f'}}
+    ]
+  },true);
+}
+
+function renderCase01EvidenceV2(){
+  if(!case01DataV2)return;
+  const set=(id,v)=>{const el=$(id);if(el)el.textContent=v};
+  const d=case01DataV2;
+  set('case01Macro5m',pct(d.intraday.labor_0830_5m.theme));
+  set('case01Macro30m',pct(d.intraday.labor_0830_30m.theme));
+  set('case01OpenClose',pct(d.intraday.regular_session.theme));
+  set('case01MuEpsBeat',pct(d.expectation.eps_guidance_vs_consensus,1));
+  set('case01MuRevBeat',pct(d.expectation.revenue_guidance_vs_consensus,1));
+  set('case01TargetRaises',String(d.expectation.explicit_target_raises_in_sample));
+  const flowM=d.flow.SOXQ.aum_adjusted_flow_proxy_usd/1e6;
+  set('case01SoxqFlow',(flowM>=0?'+':'-')+'
+
+initCase01Lab();
+
+const search=$('toolSearch'),grid=$('toolGrid'),count=$('toolCount');search?.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();let n=0;grid.querySelectorAll('article').forEach(card=>{const hit=!q||(card.dataset.search+' '+card.textContent).toLowerCase().includes(q);card.classList.toggle('hidden',!hit);if(hit)n++});if(count)count.textContent=n+' 项'});
+const bgCanvas=$('flockCanvas'),bctx=bgCanvas?.getContext('2d');let BW=0,BH=0,BDPR=1,birds=[];const gp={x:-9999,y:-9999,inside:false};
+function resizeBg(){if(!bgCanvas||!bctx)return;BDPR=Math.min(devicePixelRatio||1,1.5);BW=innerWidth;BH=innerHeight;bgCanvas.width=Math.round(BW*BDPR);bgCanvas.height=Math.round(BH*BDPR);bctx.setTransform(BDPR,0,0,BDPR,0,0);if(!birds.length){for(let i=0;i<88;i++){const a=visualRand(0,Math.PI*2);birds.push({x:visualRand(0,BW),y:visualRand(0,BH),vx:Math.cos(a),vy:Math.sin(a),s:visualRand(2.4,4.5)})}}}
+window.addEventListener('pointermove',e=>{gp.x=e.clientX;gp.y=e.clientY;gp.inside=true},{passive:true});window.addEventListener('mouseout',e=>{if(!e.relatedTarget)gp.inside=false});
+function flockStep(){for(let i=0;i<birds.length;i++){const b=birds[i],near=[];for(let j=0;j<birds.length;j++){if(i===j)continue;const q=birds[j],dx=q.x-b.x,dy=q.y-b.y;near.push([dx*dx+dy*dy,j])}near.sort((a,c)=>a[0]-c[0]);let ax=0,ay=0,cx=0,cy=0,sx=0,sy=0,n=0;for(let k=0;k<Math.min(6,near.length);k++){const d2=near[k][0],q=birds[near[k][1]];if(d2<220*220){n++;ax+=q.vx;ay+=q.vy;cx+=q.x;cy+=q.y;if(d2<28*28){const d=Math.sqrt(d2)||1;sx+=(b.x-q.x)/d*(28-d)/28;sy+=(b.y-q.y)/d*(28-d)/28}}}if(n){ax/=n;ay/=n;cx/=n;cy/=n;b.vx+=(ax-b.vx)*.010;b.vy+=(ay-b.vy)*.010;b.vx+=(cx-b.x)*.00005;b.vy+=(cy-b.y)*.00005;b.vx+=sx*.065;b.vy+=sy*.065}if(gp.inside){const dx=b.x-gp.x,dy=b.y-gp.y,d=Math.hypot(dx,dy);if(d<130&&d>1){b.vx+=dx/d*(1-d/130)*.035;b.vy+=dy/d*(1-d/130)*.035}}b.vx+=visualRand(-.006,.006);b.vy+=visualRand(-.006,.006);const sp=Math.hypot(b.vx,b.vy)||1;b.vx=b.vx/sp*.48;b.vy=b.vy/sp*.48;b.x+=b.vx;b.y+=b.vy;if(b.x<-20)b.x=BW+20;if(b.x>BW+20)b.x=-20;if(b.y<-20)b.y=BH+20;if(b.y>BH+20)b.y=-20}}
+function drawFlock(){if(!bctx)return;flockStep();bctx.fillStyle='#061019';bctx.fillRect(0,0,BW,BH);const g=bctx.createRadialGradient(BW*.74,BH*.10,20,BW*.74,BH*.10,Math.max(BW,BH)*.68);g.addColorStop(0,'rgba(20,58,79,.70)');g.addColorStop(.5,'rgba(7,28,42,.36)');g.addColorStop(1,'rgba(4,12,18,.04)');bctx.fillStyle=g;bctx.fillRect(0,0,BW,BH);birds.forEach((b,i)=>{const a=Math.atan2(b.vy,b.vx),co=Math.cos(a),si=Math.sin(a),z=b.s,x=b.x,y=b.y;bctx.strokeStyle='rgba(202,242,251,'+(.10+(i%6)*.018)+')';bctx.lineWidth=.8;bctx.beginPath();bctx.moveTo(x-co*z-si*z*.9,y-si*z+co*z*.9);bctx.lineTo(x-co*z*.1,y-si*z*.1);bctx.lineTo(x+co*z*1.5,y+si*z*1.5);bctx.lineTo(x-co*z+si*z*.9,y-si*z-co*z*.9);bctx.stroke()});requestAnimationFrame(drawFlock)}
+if(bgCanvas&&bctx){resizeBg();window.addEventListener('resize',resizeBg,{passive:true});requestAnimationFrame(drawFlock)}
+})();+Math.abs(flowM).toFixed(1)+'M');
+  set('case01SoxqVol',d.flow.SOXQ.volume_vs_30d_avg.toFixed(2)+'×');
+  set('case01SmhVol',d.flow.SMH.volume_vs_30d_avg.toFixed(2)+'×');
+  set('case01EvidenceVerdict','宏观时点触发的重新定价 + 主题内分化；现有 ETF 代理不支持把 10 月 2 日解释成持续共同买盘。');
+  renderCase01TimingChart();
+}
+
 async function initCase01Lab(){
   const status=$('case01LoadStatus');
   try{
-    const res=await fetch(CASE01_EVIDENCE_URL,{cache:'no-store'});
+    const [res,resV2]=await Promise.all([
+      fetch(CASE01_EVIDENCE_URL,{cache:'no-store'}),
+      fetch(CASE01_EVIDENCE_V2_URL,{cache:'no-store'})
+    ]);
     if(!res.ok)throw new Error('evidence '+res.status);
     const raw=await res.json();
     case01Data=deriveCase01RealEvidence(raw);
@@ -170,8 +237,15 @@ async function initCase01Lab(){
     };
     document.querySelectorAll('[data-case01-run]').forEach(b=>b.addEventListener('click',()=>renderCase01Scenario(b.dataset.case01Run)));
     renderCase01Scenario(case01Selected);
-    if(status)status.textContent='真实市场数据已固定到 2026-10-02；反事实实验使用相同初始条件与随机序列。';
-    window.addEventListener('resize',()=>case01Chart?.resize(),{passive:true});
+
+    if(resV2.ok){
+      case01DataV2=deriveCase01EvidenceV2(await resV2.json());
+      renderCase01EvidenceV2();
+      if(status)status.textContent='真实市场数据已固定到 2026-10-02；分时证据、预期证据与 ETF 代理已载入。';
+    }else if(status){
+      status.textContent='真实市场主快照已载入；增强证据暂时不可用。';
+    }
+    window.addEventListener('resize',()=>{case01Chart?.resize();case01TimingChart?.resize()},{passive:true});
   }catch(err){
     if(status)status.textContent='真实证据文件暂时无法读取；下方静态快照仍保留，反事实实验暂不可运行。';
   }

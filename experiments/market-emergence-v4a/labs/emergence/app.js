@@ -2,7 +2,8 @@ import {agentSignal,alignmentRatio,normalizedConcentration,createSeededRandom,ap
 
 (() => {
 'use strict';
-const $=id=>document.getElementById(id),clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),lerp=(a,b,t)=>a+(b-a)*t,visualRand=(a,b)=>a+Math.random()*(b-a),sign0=v=>v>0?1:v<0?-1:0;\nconst DEFAULT_SIM_SEED=20261003,FIXED_SIM_DT=1/60;let simRandom=createSeededRandom(DEFAULT_SIM_SEED);const simRand=(a,b)=>a+simRandom()*(b-a);
+const $=id=>document.getElementById(id),clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),lerp=(a,b,t)=>a+(b-a)*t,visualRand=(a,b)=>a+Math.random()*(b-a),sign0=v=>v>0?1:v<0?-1:0;
+const DEFAULT_SIM_SEED=20261003,FIXED_SIM_DT=1/60;let simRandom=createSeededRandom(DEFAULT_SIM_SEED);const simRand=(a,b)=>a+simRandom()*(b-a);
 const COLORS={retail:'#e4b362',fundamental:'#5a9fd0',trend:'#57d0c9',statarb:'#5eb989',dealer:'#d97368',hft:'#d8edf4'};
 const TYPE_META={retail:{label:'散户 / 注意力资金',rule:'注意力 + 短期动量 + 随机扰动',capital:[.35,.85],speed:1.18},fundamental:{label:'主动基本面基金',rule:'估值偏离 + 信息冲击',capital:[1.15,2.1],speed:.58},trend:{label:'趋势策略',rule:'趋势强度 + 波动缩放',capital:[.75,1.45],speed:.90},statarb:{label:'统计套利',rule:'残差偏离 + 均值回复',capital:[.55,1.1],speed:1.05},dealer:{label:'做市 / 库存对冲',rule:'短期价格变化 + 库存约束',capital:[.8,1.55],speed:.78},hft:{label:'高频做市商',rule:'短期价格变化 + 库存约束',capital:[.25,.65],speed:1.45}};
 const MODE={balanced:{trendGain:1,retailGain:1,meanRevGain:1,dealerGain:1,targetBias:0,liquidity:1,network:1},trend:{trendGain:1.65,retailGain:1.15,meanRevGain:.78,dealerGain:.82,targetBias:.12,liquidity:.92,network:1.16},crowded:{trendGain:1.35,retailGain:1.35,meanRevGain:.70,dealerGain:.78,targetBias:.85,liquidity:.82,network:1.20},stress:{trendGain:1.18,retailGain:1.12,meanRevGain:.58,dealerGain:.48,targetBias:.35,liquidity:.38,network:1.48}};

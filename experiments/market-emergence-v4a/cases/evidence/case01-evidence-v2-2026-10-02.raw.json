@@ -1,0 +1,293 @@
+{
+  "schema_version": "case01_evidence_upgrade_v2",
+  "snapshot_id": "case01-evidence-v2-2026-10-02",
+  "base_snapshot_id": "case01-real-2026-10-02-v1",
+  "case_id": "case-01-semiconductor-synchronised-rise",
+  "created_on": "2026-10-03",
+  "authority": {
+    "purpose": "research_and_simulation_discrimination_only",
+    "causal_authority": false,
+    "trading_authority": false,
+    "sizing_authority": false,
+    "execution_authority": false
+  },
+  "event_timing": {
+    "market_timezone": "America/New_York",
+    "event": {
+      "name": "US Employment Situation September 2026",
+      "released_at": "2026-10-02T08:30:00-04:00",
+      "facts": {
+        "nonfarm_payroll_change": 29000,
+        "unemployment_rate": 0.042,
+        "july_august_combined_revision": -60000
+      },
+      "source_name": "U.S. Bureau of Labor Statistics",
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_10022026.htm"
+    },
+    "intraday_source": {
+      "source_name": "Interactive Brokers",
+      "request": {
+        "period": "ONE_DAY",
+        "step": "ONE_MIN",
+        "outside_rth": true,
+        "security_type": "STK"
+      }
+    },
+    "anchors_utc": [
+      "2026-10-02T12:29:00Z",
+      "2026-10-02T12:35:00Z",
+      "2026-10-02T13:00:00Z",
+      "2026-10-02T13:30:00Z",
+      "2026-10-02T14:00:00Z",
+      "2026-10-02T20:00:00Z"
+    ],
+    "by_symbol": {
+      "SPY": {
+        "close": [
+          768,
+          770.81,
+          771.21,
+          770.29,
+          770.38,
+          769.75
+        ],
+        "volume_windows": {
+          "labor_0830_5m": 449752,
+          "labor_0830_to_open": 1164891,
+          "open_first_30m": 4838622,
+          "regular_session": 30327816
+        }
+      },
+      "QQQ": {
+        "close": [
+          747.3,
+          750.6,
+          751.59,
+          750.04,
+          751.99,
+          749.58
+        ],
+        "volume_windows": {
+          "labor_0830_5m": 359369,
+          "labor_0830_to_open": 1187977,
+          "open_first_30m": 4231104,
+          "regular_session": 21464390
+        }
+      },
+      "NVDA": {
+        "close": [
+          235.05,
+          235.97,
+          235.86,
+          235.37,
+          237.28,
+          233.94
+        ],
+        "volume_windows": {
+          "labor_0830_5m": 620295,
+          "labor_0830_to_open": 2767998,
+          "open_first_30m": 20966444,
+          "regular_session": 80300490
+        }
+      },
+      "AMD": {
+        "close": [
+          628.32,
+          632.4,
+          633.36,
+          632.48,
+          639.7,
+          633.13
+        ],
+        "volume_windows": {
+          "labor_0830_5m": 51604,
+          "labor_0830_to_open": 275906,
+          "open_first_30m": 3048936,
+          "regular_session": 11119289
+        }
+      },
+      "AVGO": {
+        "close": [
+          347.88,
+          349.39,
+          350.33,
+          349.87,
+          352.61,
+          354.95
+        ],
+        "volume_windows": {
+          "labor_0830_5m": 55526,
+          "labor_0830_to_open": 299020,
+          "open_first_30m": 3026804,
+          "regular_session": 14036142
+        }
+      },
+      "MU": {
+        "close": [
+          1101.01,
+          1105.2,
+          1109.65,
+          1094.75,
+          1086.59,
+          1074.58
+        ],
+        "volume_windows": {
+          "labor_0830_5m": 91900,
+          "labor_0830_to_open": 548423,
+          "open_first_30m": 4121473,
+          "regular_session": 17005716
+        }
+      },
+      "AMAT": {
+        "close": [
+          536,
+          541.51,
+          544.95,
+          540.77,
+          541.34,
+          540.04
+        ],
+        "volume_windows": {
+          "labor_0830_5m": 7460,
+          "labor_0830_to_open": 41287,
+          "open_first_30m": 707862,
+          "regular_session": 3404794
+        }
+      },
+      "LRCX": {
+        "close": [
+          345.1,
+          350,
+          351.79,
+          347.89,
+          348.83,
+          347.49
+        ],
+        "volume_windows": {
+          "labor_0830_5m": 5962,
+          "labor_0830_to_open": 27064,
+          "open_first_30m": 1018611,
+          "regular_session": 3839118
+        }
+      }
+    },
+    "rates_reaction_context": {
+      "status": "PUBLIC_NEWS_CONTEXT_ONLY",
+      "ten_year_initial_move_bp": -8.1,
+      "later_reversed_higher": true,
+      "interpretation_boundary": "Supports a transient rates-relief channel around the payroll release but is not synchronized tick-level yield evidence.",
+      "source_name": "MarketWatch",
+      "source_url": "https://www.marketwatch.com/livecoverage/stock-market-today-dow-s-p-500-nasdaq-september-jobs-report/card/treasury-yields-head-up-again-shrugging-off-soft-jobs-report-Vbn9psqqGSwTs5Pf9xlG"
+    }
+  },
+  "expectation_evidence": {
+    "MU": {
+      "status": "SINGLE_NAME_EVENT_EVIDENCE",
+      "event_date": "2026-09-30",
+      "q1_fy2027_guidance": {
+        "eps_low": 37.15,
+        "eps_high": 39.15,
+        "revenue_low_usd": 60000000000,
+        "revenue_high_usd": 63000000000
+      },
+      "event_time_consensus": {
+        "eps": 36.02,
+        "revenue_usd": 56770000000,
+        "source_name": "Investing.com",
+        "source_url": "https://www.investing.com/news/earnings/micron-earnings-beat-by-226-revenue-topped-estimates-4925835"
+      },
+      "post_event_analyst_actions": [
+        {
+          "date": "2026-10-01",
+          "firm": "Mizuho",
+          "action": "target_raise",
+          "from": 1300,
+          "to": 1400
+        },
+        {
+          "date": "2026-10-01",
+          "firm": "DA Davidson",
+          "action": "target_raise",
+          "from": 2000,
+          "to": 2100
+        },
+        {
+          "date": "2026-10-01",
+          "firm": "Rosenblatt Securities",
+          "action": "target_raise",
+          "from": 1500,
+          "to": 1900
+        },
+        {
+          "date": "2026-10-01",
+          "firm": "Goldman Sachs",
+          "action": "target_raise",
+          "from": 1100,
+          "to": 1250
+        }
+      ],
+      "analyst_actions_source_name": "MarketBeat",
+      "analyst_actions_source_url": "https://www.marketbeat.com/stocks/NASDAQ/MU/forecast/",
+      "pre_event_context": [
+        {
+          "date": "2026-09-23",
+          "fact": "Citi raised its Micron price target and raised Q4 FY2026 and Q1 FY2027 estimates before the report.",
+          "source_name": "TipRanks",
+          "source_url": "https://www.tipranks.com/news/citi-raises-micron-stock-mu-price-target-ahead-of-q4-earnings-heres-why"
+        },
+        {
+          "date": "2026-09-23",
+          "fact": "Wells Fargo raised FY2027 and FY2028 EPS estimates by more than 10% before the report while cutting its price target.",
+          "source_name": "TipRanks",
+          "source_url": "https://www.tipranks.com/news/micron-stock-forecast-why-wells-fargo-cuts-price-target-by-8-but-raises-eps-estimates-ahead-of-q4-earnings"
+        }
+      ],
+      "theme_synchronized_revision_series": "UNAVAILABLE"
+    }
+  },
+  "flow_and_activity_proxies": {
+    "SOXQ": {
+      "proxy_type": "AUM_ADJUSTED_CREATION_REDEMPTION_PROXY",
+      "aum_usd": {
+        "2026-10-01": 3235000000,
+        "2026-10-02": 3310000000
+      },
+      "close": {
+        "2026-10-01": 100.97,
+        "2026-10-02": 103.41
+      },
+      "volume": {
+        "2026-10-02": 1275000,
+        "avg_30d_2026_10_02": 1283000
+      },
+      "source_name": "YCharts",
+      "aum_source_url": "https://ycharts.com/companies/SOXQ/assets_under_management",
+      "price_source_url": "https://ycharts.com/companies/SOXQ/price",
+      "average_volume_source_url": "https://ycharts.com/companies/SOXQ/average_volume_30",
+      "boundary": "AUM-adjusted daily fund-level proxy; not signed intraday order flow and not proof of portfolio-wide common flow."
+    },
+    "SMH": {
+      "proxy_type": "TRADING_ACTIVITY_ONLY",
+      "volume": {
+        "2026-10-02": 7329000,
+        "avg_30d": 6335000
+      },
+      "source_name": "YCharts",
+      "price_source_url": "https://ycharts.com/companies/SMH/price",
+      "average_volume_source_url": "https://ycharts.com/companies/SMH/average_volume_30",
+      "boundary": "Trading volume measures activity, not direction or creations/redemptions."
+    }
+  },
+  "evidence_availability": {
+    "event_aligned_intraday_price_volume": "AVAILABLE",
+    "single_name_guidance_vs_consensus": "AVAILABLE",
+    "post_event_analyst_action_sample": "AVAILABLE",
+    "theme_synchronized_analyst_revision_panel": "UNAVAILABLE",
+    "semiconductor_etf_aum_flow_proxy": "PARTIAL_ONE_FUND",
+    "signed_flow_ofi": "UNAVAILABLE",
+    "historical_bid_ask_spread": "UNAVAILABLE",
+    "historical_order_book_depth": "UNAVAILABLE",
+    "dealer_inventory_gamma": "UNAVAILABLE",
+    "return_to_future_flow": "UNAVAILABLE"
+  }
+}

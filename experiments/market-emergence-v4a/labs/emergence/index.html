@@ -127,6 +127,112 @@
     </section>
 
 
+    <section id="case01-lab" class="case01-section">
+      <div class="shell">
+        <div class="section-kicker">CASE 01 · 真实市场 × 反事实实验</div>
+        <div class="case01-heading">
+          <div>
+            <h2>半导体一起上涨，<br><span>是预期重估，还是共同买盘？</span></h2>
+            <p>先固定同一个真实市场截面，再让两个不同机制从完全相同的初始条件出发。目的不是给上涨编一个故事，而是看哪些动态特征能够区分机制，哪些地方仍然缺证据。</p>
+          </div>
+          <div class="case01-asof"><span>真实观察</span><b>2026-10-02</b><small>最新完整交易日 · SPY / QQQ + 6 只半导体</small></div>
+        </div>
+
+        <div id="case01LoadStatus" class="case01-load-status">正在读取已冻结的真实市场证据…</div>
+
+        <div class="case01-main-grid">
+          <article class="case01-panel real-panel">
+            <header>
+              <div><span>真实观察</span><h3>先描述发生了什么，不急着解释为什么</h3></div>
+              <small>同一交易日 / 同一 21 日窗口</small>
+            </header>
+
+            <div class="case01-real-readouts">
+              <div><span>当日主题等权</span><b id="case01Real1d">+1.63%</b></div>
+              <div><span>上涨家数</span><b id="case01Breadth">5 / 6</b></div>
+              <div><span>5 日主题等权</span><b id="case01Real5d">+4.34%</b></div>
+              <div><span>20 日主题等权</span><b id="case01Real20d">+15.94%</b></div>
+              <div><span>20 日共同模态</span><b id="case01CommonMode">68.30%</b><small>共同运动 ≠ 拥挤</small></div>
+            </div>
+
+            <div class="case01-cross-wrap">
+              <div class="case01-subhead"><b>20 日横截面</b><span>主题很强，但内部并不整齐</span></div>
+              <table class="case01-table">
+                <thead><tr><th>股票</th><th>20 日</th><th>相对主题</th></tr></thead>
+                <tbody id="case01CrossTable">
+                  <tr><td>AMD</td><td>+38.97%</td><td>+23.03 pp</td></tr>
+                  <tr><td>AMAT</td><td>+23.89%</td><td>+7.95 pp</td></tr>
+                  <tr><td>LRCX</td><td>+18.74%</td><td>+2.80 pp</td></tr>
+                  <tr><td>MU</td><td>+12.18%</td><td>-3.75 pp</td></tr>
+                  <tr><td>NVDA</td><td>+2.41%</td><td>-13.53 pp</td></tr>
+                  <tr><td>AVGO</td><td>-0.57%</td><td>-16.50 pp</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="case01-observation">
+              <b>这不是“六只股票做了同一件事”。</b>
+              <p>更准确的描述是：主题共同结构很强，但个股分化同样很大。AMD、AMAT、LRCX 领先，而 NVDA、AVGO 明显落后于主题；10 月 2 日 MU 甚至逆势下跌。</p>
+            </div>
+          </article>
+
+          <article class="case01-panel counterfactual-panel">
+            <header>
+              <div><span>反事实实验</span><h3>同一个初始市场，只改变一个原因</h3></div>
+              <small>固定 seed / agents / liquidity / network / noise</small>
+            </header>
+
+            <div class="case01-scenario-buttons">
+              <button class="active" data-case01-run="theme_information_repricing"><b>A · 预期重估</b><span>改变经济参考锚，不注入共同买盘</span></button>
+              <button data-case01-run="common_theme_flow"><b>B · 共同资金流</b><span>只注入有限时长买盘，不改变经济参考锚</span></button>
+            </div>
+
+            <div id="case01PathChart" class="case01-chart" role="img" aria-label="半导体预期重估与共同资金流的反事实模拟路径"></div>
+
+            <div class="case01-fingerprint">
+              <div><span>参考锚变化</span><b id="case01FairShift">+1.20%</b></div>
+              <div><span>外生共同流占比</span><b id="case01FlowShare">0.00%</b></div>
+              <div><span>干预后路径</span><b id="case01Recovery">继续重估</b></div>
+              <div><span>模拟主题终值</span><b id="case01ThemeEnd">—</b></div>
+            </div>
+
+            <div class="case01-explain">
+              <span id="case01ScenarioLabel">A · 预期重估</span>
+              <p id="case01ScenarioExplain">只有潜在参考锚发生变化。后续订单流可以放大价格发现，但不能再被重复计算成第二个独立“原因”。</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="case01-evidence-grid">
+          <article>
+            <span class="case01-state observed">已观察</span>
+            <h3>真实市场已经告诉我们什么</h3>
+            <ul>
+              <li>主题在 1D / 5D / 20D 均可计算并明显强于市场。</li>
+              <li>20 日共同运动很强，同时个股离散度也很大。</li>
+              <li>MU 9 月 30 日财报后先涨、次日回落，价格反应并非单调。</li>
+            </ul>
+          </article>
+          <article>
+            <span class="case01-state unknown">仍待证据</span>
+            <h3>现在不能下结论的部分</h3>
+            <ul id="case01UnknownList">
+              <li>是否主要来自同步的盈利预期上修。</li>
+              <li>是否存在共同 ETF / 机构资金流。</li>
+              <li>趋势资金是否在价格上涨后继续加速。</li>
+              <li>流动性是否放大了相同订单流的价格冲击。</li>
+            </ul>
+          </article>
+          <article>
+            <span class="case01-state rule">使用边界</span>
+            <h3>模型负责提出可检验差异，不替现实市场作证</h3>
+            <p>真实市场与模拟器只比较双方都能观察到的维度。共同模态不是拥挤，成交量不是有符号资金流，日线先后关系也不是因果传导。缺的数据保持未知。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
     <section id="price-attribution" class="analytics-section">
       <div class="shell">
         <div class="section-kicker">02 · 价格路径与归因</div>

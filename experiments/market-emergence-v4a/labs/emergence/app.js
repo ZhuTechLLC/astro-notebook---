@@ -1,4 +1,6 @@
 import {agentSignal,alignmentRatio,normalizedConcentration,createSeededRandom,applyInformationShockToFairValue} from './model-rules.mjs';
+import {runCase01} from './case01-engine.mjs';
+import {deriveCase01RealEvidence} from './case01-evidence.mjs';
 
 (() => {
 'use strict';
@@ -66,6 +68,117 @@ function draw(now){if(!ctx)return;const frameDt=clamp((now-last)/1000,0,.08);las
 document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>applyMode(b.dataset.mode)));
 document.querySelectorAll('[data-inject]').forEach(b=>b.addEventListener('click',()=>{const a=getAsset(selectedAssetId),kind=b.dataset.inject;if(kind==='positive')shock(a,1,1,'user');else if(kind==='negative')shock(a,-1,1,'user');else{const s=kind==='buy'?1:-1;metaorder(a,s,1.25,a.x-70,a.y,a.x+70,a.y,'user')}showAssetInspector(a)}));
 $('noiseSlider')?.addEventListener('input',e=>{noise=Number(e.target.value);$('noiseOut').textContent=noise.toFixed(2)});$('networkSlider')?.addEventListener('input',e=>{network=Number(e.target.value);$('networkOut').textContent=network.toFixed(2)});$('liquiditySlider')?.addEventListener('input',e=>{liquidity=Number(e.target.value);$('liquidityOut').textContent=liquidity.toFixed(2)});$('resetButton')?.addEventListener('click',()=>resetSim(false));$('pauseButton')?.addEventListener('click',e=>{paused=!paused;e.target.textContent=paused?'继续':'暂停'});if(canvas&&ctx){makeAssets();resize();makeAgents();resize();resetSim(false);document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));buildHitboxes();initAnalytics();window.addEventListener('resize',resize,{passive:true});requestAnimationFrame(draw)}
+
+const CASE01_EVIDENCE_URL='../../cases/evidence/case01-real-2026-10-02.raw.json';
+let case01Chart=null,case01Data=null,case01Runs=null,case01Selected='theme_information_repricing';
+const pct=(v,d=2)=>(v>=0?'+':'')+(v*100).toFixed(d)+'%';
+const pp=(v,d=2)=>(v>=0?'+':'')+(v*100).toFixed(d)+' pp';
+
+function case01RunLabel(kind){
+  return kind==='common_theme_flow'?'B · 共同资金流':'A · 预期重估';
+}
+
+function renderCase01Cross(){
+  if(!case01Data)return;
+  const body=$('case01CrossTable');
+  if(!body)return;
+  const ids=['NVDA','AMD','AVGO','MU','AMAT','LRCX']
+    .sort((a,b)=>case01Data.by_symbol[b].ret_20d-case01Data.by_symbol[a].ret_20d);
+  body.innerHTML=ids.map(id=>{
+    const r=case01Data.by_symbol[id];
+    return '<tr><td><b>'+id+'</b></td><td>'+pct(r.ret_20d)+'</td><td>'+pp(r.ret_20d_excess_theme)+'</td></tr>';
+  }).join('');
+}
+
+function renderCase01Chart(){
+  const el=$('case01PathChart');
+  if(!el||!case01Runs)return;
+  if(!window.echarts){
+    el.innerHTML='<p class="case01-chart-fallback">反事实路径图未加载；上方模拟器仍可正常使用。</p>';
+    return;
+  }
+  if(!case01Chart)case01Chart=window.echarts.init(el);
+  const colors={baseline:'#5b7180',theme_information_repricing:'#61d0c7',common_theme_flow:'#e3aa62'};
+  const labels={baseline:'基线',theme_information_repricing:'A · 预期重估',common_theme_flow:'B · 共同资金流'};
+  const series=['baseline','theme_information_repricing','common_theme_flow'].map(kind=>({
+    name:labels[kind],
+    type:'line',
+    showSymbol:false,
+    smooth:.18,
+    data:case01Runs[kind].samples.map(s=>[s.t_ms/1000,s.theme]),
+    lineStyle:{width:kind===case01Selected?3.2:1.6,color:colors[kind],opacity:kind==='baseline'?.68:kind===case01Selected?1:.52},
+    emphasis:{disabled:true},
+    markLine:kind===case01Selected?{
+      silent:true,
+      symbol:'none',
+      label:{formatter:'干预开始',color:'#7f9aa6',fontSize:9},
+      lineStyle:{color:'rgba(173,218,231,.22)',type:'dashed'},
+      data:[{xAxis:5}]
+    }:undefined
+  }));
+  case01Chart.setOption({
+    animationDuration:260,
+    backgroundColor:'transparent',
+    tooltip:{trigger:'axis',valueFormatter:v=>Number(v).toFixed(3)},
+    legend:{top:0,textStyle:{color:'#7895a2',fontSize:9}},
+    grid:{left:42,right:18,top:34,bottom:30},
+    xAxis:{type:'value',name:'模拟秒',axisLabel:{color:'#617f8d',fontSize:9},axisLine:{lineStyle:{color:'rgba(137,210,233,.16)'}},splitLine:{show:false}},
+    yAxis:{type:'value',name:'起点=100',scale:true,axisLabel:{color:'#617f8d',fontSize:9},axisLine:{lineStyle:{color:'rgba(137,210,233,.16)'}},splitLine:{lineStyle:{color:'rgba(137,210,233,.07)'}}},
+    series
+  },true);
+}
+
+function renderCase01Scenario(kind){
+  if(!case01Runs)return;
+  case01Selected=kind;
+  document.querySelectorAll('[data-case01-run]').forEach(b=>b.classList.toggle('active',b.dataset.case01Run===kind));
+  const run=case01Runs[kind],f=run.fingerprint;
+  const set=(id,v)=>{const el=$(id);if(el)el.textContent=v};
+  set('case01ScenarioLabel',case01RunLabel(kind));
+  set('case01FairShift',pct(f.theme_fair_shift));
+  set('case01FlowShare',pct(f.exogenous_share_of_total_flow));
+  set('case01ThemeEnd',pct(f.theme_return));
+  if(kind==='common_theme_flow'){
+    set('case01Recovery',f.post_intervention_recovery_index_points>0?'冲击后回落':'未见回落');
+    set('case01ScenarioExplain','经济参考锚保持不变，只给半导体加入有限时长的共同买盘。买盘结束后出现回落，因此“恢复速度”成为与预期重估不同的动态指纹。');
+  }else{
+    set('case01Recovery',f.post_intervention_recovery_index_points<0?'继续重估':'趋于回落');
+    set('case01ScenarioExplain','只有潜在经济参考锚发生变化。后续基本面资金和趋势资金可以参与价格发现，但这些下游交易不会被重复计算成第二个独立“原因”。');
+  }
+  renderCase01Chart();
+}
+
+async function initCase01Lab(){
+  const status=$('case01LoadStatus');
+  try{
+    const res=await fetch(CASE01_EVIDENCE_URL,{cache:'no-store'});
+    if(!res.ok)throw new Error('evidence '+res.status);
+    const raw=await res.json();
+    case01Data=deriveCase01RealEvidence(raw);
+    const set=(id,v)=>{const el=$(id);if(el)el.textContent=v};
+    set('case01Real1d',pct(case01Data.theme.ret_1d_equal_weight));
+    set('case01Breadth',Math.round(case01Data.theme.breadth_positive_1d*6)+' / 6');
+    set('case01Real5d',pct(case01Data.theme.ret_5d_equal_weight));
+    set('case01Real20d',pct(case01Data.theme.ret_20d_equal_weight));
+    set('case01CommonMode',(case01Data.theme.common_mode_share_20d*100).toFixed(2)+'%');
+    renderCase01Cross();
+
+    case01Runs={
+      baseline:runCase01({kind:'baseline',config:{source_commit:'b3916f93c196d9b91f12932f9ff27408ccd17468'}}),
+      theme_information_repricing:runCase01({kind:'theme_information_repricing',config:{source_commit:'b3916f93c196d9b91f12932f9ff27408ccd17468'}}),
+      common_theme_flow:runCase01({kind:'common_theme_flow',config:{source_commit:'b3916f93c196d9b91f12932f9ff27408ccd17468'}})
+    };
+    document.querySelectorAll('[data-case01-run]').forEach(b=>b.addEventListener('click',()=>renderCase01Scenario(b.dataset.case01Run)));
+    renderCase01Scenario(case01Selected);
+    if(status)status.textContent='真实市场数据已固定到 2026-10-02；反事实实验使用相同初始条件与随机序列。';
+    window.addEventListener('resize',()=>case01Chart?.resize(),{passive:true});
+  }catch(err){
+    if(status)status.textContent='真实证据文件暂时无法读取；下方静态快照仍保留，反事实实验暂不可运行。';
+  }
+}
+
+initCase01Lab();
+
 const search=$('toolSearch'),grid=$('toolGrid'),count=$('toolCount');search?.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();let n=0;grid.querySelectorAll('article').forEach(card=>{const hit=!q||(card.dataset.search+' '+card.textContent).toLowerCase().includes(q);card.classList.toggle('hidden',!hit);if(hit)n++});if(count)count.textContent=n+' 项'});
 const bgCanvas=$('flockCanvas'),bctx=bgCanvas?.getContext('2d');let BW=0,BH=0,BDPR=1,birds=[];const gp={x:-9999,y:-9999,inside:false};
 function resizeBg(){if(!bgCanvas||!bctx)return;BDPR=Math.min(devicePixelRatio||1,1.5);BW=innerWidth;BH=innerHeight;bgCanvas.width=Math.round(BW*BDPR);bgCanvas.height=Math.round(BH*BDPR);bctx.setTransform(BDPR,0,0,BDPR,0,0);if(!birds.length){for(let i=0;i<88;i++){const a=visualRand(0,Math.PI*2);birds.push({x:visualRand(0,BW),y:visualRand(0,BH),vx:Math.cos(a),vy:Math.sin(a),s:visualRand(2.4,4.5)})}}}

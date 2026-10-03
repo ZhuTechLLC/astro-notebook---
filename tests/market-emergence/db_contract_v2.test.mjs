@@ -16,7 +16,10 @@ assert.match(migration,/CREATE TABLE concept_estimator_links/);
 assert.match(migration,/ALTER TABLE metric_definitions RENAME TO estimator_definitions/);
 assert.match(migration,/ALTER TABLE metric_observations RENAME TO estimator_observations/);
 assert.match(migration,/CREATE VIEW latest_estimator_observations/);
-assert.match(migration,/DO \$\$[\s\S]*END;\s*\$\$;/,'PL/pgSQL DO block must terminate END with semicolon');
+assert.match(migration,/CREATE TEMP TABLE _concept_estimator_migration_guard/);
+assert.match(migration,/CHECK \(ok\)/);
+assert.match(migration,/SELECT NOT EXISTS \([\s\S]*metric_observations[\s\S]*metric_code IN \('A','C','Q','L','E','P'\)/);
+assert.doesNotMatch(migration,/DO \$\$/,'migration guard must remain plain SQL for Neon compatibility');
 
 for(const code of ['A','C','Q','L','E','P']){
   assert.match(migration,new RegExp("WHERE estimator_code = '"+code+"'"),code+' estimator code must be preserved');

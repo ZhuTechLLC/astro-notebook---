@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#061019">
+  <meta name="description" content="TRQuant 市场涌现与金融数学：用交互模型理解趋势、传播、拥挤与流动性风险。">
+  <title>市场涌现与互动｜TRQuant 金融数学</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <canvas id="flockCanvas" aria-hidden="true"></canvas>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <header class="topbar shell">
+    <a class="brand" href="/"><span class="brand-dot"></span><span>TRQUANT</span><b>金融数学</b></a>
+    <nav>
+      <a href="/phenomena/">市场现象</a>
+      <a href="/labs/">交互实验</a>
+      <a href="/tools/">金融数学工具</a>
+      <a href="/learn/">方法与知识</a>
+    </nav>
+    <span class="version">研究模型 · 非实时行情</span>
+  </header>
+
+  <main id="top">    <section class="hero shell">
+      <div class="hero-copy">
+        <div class="eyebrow">从参与者行为，到整体市场结构</div>
+        <h1>从参与者行为，<br><span>看见市场结构如何形成。</span></h1>
+        <p class="hero-lead">股票市场由散户、主动基金、被动资金、趋势策略、统计套利、做市商与自动交易共同驱动。这里把这些相互作用压缩为 <span class="em">同步、传播、拥挤、耦合、流动性与内生性</span> 等可观察状态，用来解释趋势、扩散与风险如何形成。</p>
+        <div class="hero-formula">
+          <code>参与者 → 交易行为 → 资产价格 → 反馈</code>
+          <span>移动鼠标改变局部注意力 · 单击加入一次信息冲击 · Shift+单击加入负向冲击 · 拖拽模拟持续订单流</span>
+        </div>
+        <div class="hero-actions">
+          <a class="primary" href="#sandbox">开始交互观察</a>
+          <a class="secondary" href="#compression">查看方法框架</a>
+        </div>
+      </div>
+
+      <aside class="hero-lab glass">
+        <div class="lab-head">
+          <div><span>当前模型状态</span><h2>市场结构概览</h2></div>
+          <span class="demo-badge">机制演示 · 非实时行情</span>
+        </div>
+        <div class="hero-live-metrics">
+          <div><span>A · 同步度</span><b id="heroA">0.00</b></div>
+          <div><span>P · 传播度</span><b id="heroP">0.00</b></div>
+          <div><span>Q · 拥挤度</span><b id="heroQ">0.00</b></div>
+        </div>
+        <div class="hero-live-list">
+          <div><span>活跃参与者</span><b id="activeAgents">0</b></div>
+          <div><span>受影响资产</span><b id="affectedAssets">0 / 12</b></div>
+          <div><span>人为冲击 / 随机冲击 / 传播事件</span><b id="eventMix">0 / 0 / 0</b></div>
+          <div><span>最近事件</span><b id="lastEvent">—</b></div>
+        </div>
+        <p class="live-note">A / P / Q 由当前模型状态实时计算，仅用于观察机制，不代表真实市场行情。</p>
+      </aside>
+    </section>
+
+    <section id="sandbox" class="sandbox-section">
+      <div class="shell">
+        <div class="section-kicker">01 · 市场互动</div>
+        <div class="section-title light">
+          <h2>改变一个条件，观察市场结构如何响应</h2>
+          <p>鼠标移动会改变局部注意力；单击加入一次正向信息冲击；Shift + 单击加入负向冲击；拖拽模拟持续买卖压力。参与者规则、资产联系、流动性和随机扰动共同决定结果。</p>
+        </div>
+        <div class="sandbox-grid">
+          <aside class="sandbox-controls glass">
+            <div class="control-title"><span>情景选择</span><h3>市场环境</h3></div>
+            <div class="scenario-stack">
+              <button class="active" data-mode="balanced"><b>平衡市场</b><span>各类参与者影响相对均衡</span></button>
+              <button data-mode="trend"><b>趋势主导</b><span>趋势型资金对价格变化更敏感</span></button>
+              <button data-mode="crowded"><b>主题拥挤</b><span>资金集中在少数相关资产</span></button>
+              <button data-mode="stress"><b>流动性压力</b><span>市场承接能力下降，价格冲击放大</span></button>
+            </div>
+            <div class="control-block"><label><span>随机扰动</span><output id="noiseOut">0.35</output></label><input id="noiseSlider" type="range" min="0" max="1" step="0.05" value="0.35"></div>
+            <div class="control-block"><label><span>网络传播</span><output id="networkOut">0.55</output></label><input id="networkSlider" type="range" min="0" max="1" step="0.05" value="0.55"></div>
+            <div class="control-block"><label><span>流动性</span><output id="liquidityOut">0.70</output></label><input id="liquiditySlider" type="range" min="0.15" max="1" step="0.05" value="0.70"></div>
+            <div class="interaction-help">
+              <b>交互说明</b>
+              <span><i>移动</i>改变局部注意力</span>
+              <span><i>单击</i>正向信息冲击</span>
+              <span><i>Shift + 单击</i>负向信息冲击</span>
+              <span><i>拖拽</i>持续买卖压力</span>
+            </div>
+            <div class="experiment-actions">
+              <div><span>当前观察资产</span><b id="selectedAssetLabel">NVDA</b></div>
+              <div class="experiment-buttons">
+                <button data-inject="positive">正向冲击</button>
+                <button data-inject="negative">负向冲击</button>
+                <button data-inject="buy">持续买入</button>
+                <button data-inject="sell">持续卖出</button>
+              </div>
+            </div>
+            <button id="resetButton" class="reset-button">重置模型</button>
+          </aside>
+
+          <div class="sandbox-stage-wrap">
+            <canvas id="marketCanvas" aria-label="市场参与者互动模型"></canvas>
+            <div id="assetHitLayer" class="asset-hit-layer" aria-label="可交互资产节点层"></div>
+            <div class="stage-toolbar"><span><b>行为关系图</b> · 节点距离表示行为与资产联系强弱，不代表地理距离</span><button id="pauseButton">暂停</button></div>
+            <div class="canvas-legend">
+              <span><i class="shape circle retail"></i>散户</span>
+              <span><i class="shape square fundamental"></i>主动基本面</span>
+              <span><i class="shape triangle trend"></i>趋势策略</span>
+              <span><i class="shape diamond statarb"></i>统计套利</span>
+              <span><i class="shape hex dealer"></i>期权做市/对冲</span>
+              <span><i class="shape arrow hft"></i>高频做市</span>
+            </div>
+          </div>
+
+          <aside class="sandbox-inspector glass">
+            <div class="control-title"><span>观察详情</span><h3>当前对象</h3></div>
+            <div id="inspectorCard" class="inspector-card empty"><b>将鼠标移到参与者或资产节点上</b><p>查看参与者类型、当前行为，以及它对订单流和市场状态的影响。</p></div>
+            <div class="live-order-params">
+              <div class="param-head"><span>当前状态指标</span><small>由模型实时计算</small></div>
+              <div class="op-row"><label>A · 同步度</label><div><i id="aBar"></i></div><b id="aVal">0.00</b></div>
+              <div class="op-row"><label>P · 传播度</label><div><i id="pBar"></i></div><b id="pVal">0.00</b></div>
+              <div class="op-row"><label>Q · 拥挤度</label><div><i id="qBar"></i></div><b id="qVal">0.00</b></div>
+            </div>
+            <div class="not-live-yet"><span>指标说明</span><p>当前交互区实时计算 <b>A</b> 同步度、<b>P</b> 传播度和 <b>Q</b> 拥挤度。<b>C</b> 耦合度、<b>L</b> 流动性脆弱度和 <b>E</b> 内生性需要更完整的市场数据，因此此处不显示伪实时值。</p></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="compression" class="section shell">
+      <div class="section-kicker">02 · 复杂性压缩</div>
+      <div class="section-title">
+        <h2>从海量交易行为中提取少数关键状态</h2>
+        <p>市场参与者数量巨大、规则各异，但许多整体行为可以由少数状态变量概括。目标不是复刻每一笔交易，而是识别哪些结构正在增强、扩散或变得脆弱。</p>
+      </div>
+      <div class="compression-flow">
+        <article><span>01</span><h3>参与者生态</h3><p>不同参与者拥有不同信号、约束、反应速度与持仓周期。</p></article>
+        <i>→</i>
+        <article><span>02</span><h3>反应函数</h3><p>信息、约束与交易规则共同形成订单流。</p></article>
+        <i>→</i>
+        <article><span>03</span><h3>市场微观结构</h3><p>订单流通过深度、做市库存、价差和冲击转化成价格。</p></article>
+        <i>→</i>
+        <article><span>04</span><h3>反馈网络</h3><p>价格变化重新触发趋势、止损、对冲、再平衡与模仿。</p></article>
+        <i>→</i>
+        <article class="accent"><span>05</span><h3>宏观状态 Zₜ</h3><p>最终只保留真正有解释力和决策增量的状态量。</p></article>
+      </div>
+
+      <div class="equation-strip">
+        <div><span>订单流生成</span><code>Qₜ = Σₖ wₖ,ₜ fₖ(Xₜ)</code></div>
+        <div><span>价格形成</span><code>ΔPₜ = Λₜ(Qₜ, depthₜ, inventoryₜ) + εₜ</code></div>
+        <div><span>状态演化</span><code>Zₜ₊₁ = F(Zₜ, uₜ) + εₜ</code></div>
+      </div>
+    </section>    <section class="section dark-section">
+      <div class="shell">
+        <div class="section-kicker">03 · 市场参与者</div>
+        <div class="section-title light">
+          <h2>同一条信息，不同参与者会做出不同反应</h2>
+          <p>理解市场时，与其按机构名称分类，不如看资金如何决策：它依据什么信息、受什么约束、以什么速度交易。一个大型机构内部也可能同时存在多种完全不同的交易逻辑。</p>
+        </div>
+        <div class="agent-grid">
+          <article data-tone="human"><b>散户 / 注意力资金</b><p>新闻、涨幅、社交热度、期权杠杆</p><small>常见足迹：热门标的成交集中、短期期权活跃</small></article>
+          <article data-tone="fundamental"><b>主动基本面基金</b><p>盈利、估值、产业趋势、管理层信息</p><small>常见足迹：财报窗口、持续建仓、行业比较</small></article>
+          <article data-tone="passive"><b>被动 ETF / 指数</b><p>申赎、权重、指数调整、收盘再平衡</p><small>常见足迹：机械性资金流与竞价成交</small></article>
+          <article data-tone="systematic"><b>CTA / 趋势量化</b><p>趋势强度、突破、波动目标、跨资产信号</p><small>常见足迹：同向加减仓、风险缩放</small></article>
+          <article data-tone="systematic"><b>统计套利</b><p>价差、残差、协整、均值回复</p><small>常见足迹：短周期反转、篮子/配对交易</small></article>
+          <article data-tone="risk"><b>风险平价 / 波控</b><p>波动率、相关性、风险预算</p><small>常见足迹：波动上升时系统性去杠杆</small></article>
+          <article data-tone="dealer"><b>期权 Dealer</b><p>Delta、Gamma、Vanna、Charm、库存</p><small>常见足迹：关键执行价附近机械对冲</small></article>
+          <article data-tone="dealer"><b>做市商 / HFT</b><p>盘口、库存、短期订单流、延迟优势</p><small>常见足迹：价差、深度、撤单率变化</small></article>
+          <article data-tone="machine"><b>执行算法</b><p>VWAP、TWAP、POV、Metaorder</p><small>常见足迹：订单流长记忆与持续压力</small></article>
+          <article data-tone="forced"><b>强制 / 企业资金</b><p>保证金、赎回、回购、发行、解禁</p><small>常见足迹：非观点驱动的机械交易</small></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="model" class="section shell">
+      <div class="section-kicker">04 · 数学模型</div>
+      <div class="section-title">
+        <h2>用数学描述不同参与者的交易反应</h2>
+        <p>同样的价格变化可能触发追涨、均值回复、对冲或流动性提供。下面的简化方程用于说明这些行为差异如何进入订单流。</p>
+      </div>
+      <div class="reaction-grid">
+        <article><span class="reaction-tag retail">散户 / 注意力资金</span><code>qᵢ = α·Attention + β·Momentum + εᵢ</code><p>对注意力、涨幅和噪声最敏感。</p></article>
+        <article><span class="reaction-tag fundamental">主动基本面</span><code>qᵢ = α·(V - P) + β·InfoShock</code><p>资本较大、反应较慢，偏离价值时倾向逆向。</p></article>
+        <article><span class="reaction-tag trend">趋势策略</span><code>qᵢ = α·Momentum - β·Volatility</code><p>趋势越强越跟随，波动过高限制风险预算。</p></article>
+        <article><span class="reaction-tag statarb">统计套利</span><code>qᵢ = -α·Residual - β·ShortMove</code><p>提供均值回复力量，吸收局部失衡。</p></article>
+        <article><span class="reaction-tag dealer">期权做市 / 对冲</span><code>qᵢ = f(Inventory, Hedge, Shock)</code><p>这里用库存与对冲需求作简化表达；真实期权对冲还需要 Delta、Gamma、Vanna、Charm 等数据。</p></article>
+        <article><span class="reaction-tag hft">高频做市</span><code>qᵢ = -α·MicroMove - β·Inventory</code><p>高频、小资本、短周期流动性供给。</p></article>
+      </div>
+      <div class="system-equations">
+        <div><span>订单汇聚</span><code>Qⱼ,ₜ = Σᵢ qᵢⱼ,ₜ</code></div>
+        <div><span>价格与网络传播</span><code>ΔPⱼ,ₜ = λⱼ,ₜQⱼ,ₜ + ΣₖWⱼₖΔPₖ,ₜ + εⱼ,ₜ</code></div>
+        <div><span>反馈</span><code>Xₜ₊₁ = G(Pₜ, Qₜ, Networkₜ)</code></div>
+      </div>
+    </section>
+
+    <section id="state" class="section shell">
+      <div class="section-kicker">05 · 市场状态指标</div>
+      <div class="section-title">
+        <h2>用六个指标描述市场结构</h2>
+        <p>每个指标都对应一个明确问题：市场是否同向、是否耦合、是否拥挤、流动性是否脆弱、反馈是否主要来自市场内部、冲击是否正在扩散。</p>
+      </div>
+      <div class="state-grid">
+        <article><div class="state-symbol">A</div><h3>同步度（Alignment）</h3><code>Aₜ = |Σᵢωᵢsᵢ,ₜ| / Σᵢωᵢ</code><p>市场方向是否越来越一致。第一版用收益方向、广度和资金流方向做代理。</p><span class="ready">日频可估</span></article>
+        <article><div class="state-symbol">C</div><h3>耦合度（Coupling）</h3><code>Cₜ = λ₁(Σₜ) / tr(Σₜ)</code><p>相关矩阵第一共同模态占比。上升意味着资产独立性下降、共同驱动增强。</p><span class="ready">日频可估</span></article>
+        <article><div class="state-symbol">Q</div><h3>拥挤度（Crowding）</h3><code>Qₜ ≈ HHI(exposure, flow, ownership)</code><p>资金是否挤在相似暴露上。用 ETF 流、因子、持仓重叠与成交集中度重建。</p><span class="partial">需组合数据</span></article>
+        <article><div class="state-symbol">L</div><h3>流动性脆弱度</h3><code>Δpₜ = βₜ·OFIₜ + εₜ</code><p>同样订单流失衡需要多大价格变化才能被吸收。β 越大，系统越脆弱。</p><span class="partial">需盘口数据</span></article>
+        <article><div class="state-symbol">E</div><h3>内生性（Endogeneity）</h3><code>Eₜ = ρ(Kₜ), Kᵢⱼ = ∫φᵢⱼ(τ)dτ</code><p>事件有多少是由过去事件继续激发。完整实现需要逐笔/订单事件级数据。</p><span class="blocked">需逐笔数据</span></article>
+        <article><div class="state-symbol">P</div><h3>传播度 Propagation</h3><code>Pₜ = ρ(Bₜ)</code><p>冲击是否从龙头、行业、供应链或因子网络向其它资产继续扩散。</p><span class="ready">日频可估</span></article>
+      </div>
+    </section>    <section id="phenomena" class="section shell">
+      <div class="section-kicker">06 · 市场现象</div>
+      <div class="section-title">
+        <h2>同样的涨跌，背后的市场结构可能完全不同</h2>
+        <p>同样是上涨，如果背后的同步、传播、拥挤与流动性结构不同，后续路径和风险性质可能完全不同。</p>
+      </div>
+      <div class="signature-grid">
+        <article><header><b>趋势 / 动量</b><span>持续性反馈</span></header><div class="chips"><i>A ↑</i><i>P ↑</i><i>E ↗</i><i>C ↗</i></div><p>越来越多参与者对既有方向作出同向反应，价格变化成为下一轮交易的输入。</p></article>
+        <article><header><b>板块扩散</b><span>局部 → 中观</span></header><div class="chips"><i>P ↑↑</i><i>A 局部↑</i><i>C 局部↑</i></div><p>真正的“扩散”应表现为 lead-lag 网络增强，而不只是多只股票同日上涨。</p></article>
+        <article><header><b>拥挤 / 泡沫</b><span>资本同质化</span></header><div class="chips"><i>Q ↑↑</i><i>A ↑</i><i>C ↑</i><i>κ → 1</i></div><p>策略收益吸引更多同类资本，价格上行又强化收益和叙事，形成正反馈。</p></article>
+        <article><header><b>流动性踩踏</b><span>非线性风险</span></header><div class="chips"><i>L ↑↑</i><i>C ↑↑</i><i>E ↑↑</i><i>P ↑↑</i></div><p>卖出、撤单、对冲和去杠杆互相强化，同样的卖盘开始造成更大的价格位移。</p></article>
+        <article><header><b>均值回复</b><span>扰动衰减</span></header><div class="chips"><i>P ↓</i><i>E 低</i><i>κ ≪ 1</i></div><p>冲击无法持续自我激发，流动性提供者和逆向资金逐步吸收偏离。</p></article>
+        <article><header><b>状态切换</b><span>Regime Change</span></header><div class="chips"><i>ΔZ 大</i><i>κ 变化</i></div><p>研究重点不是命名牛熊，而是识别 Zₜ 的组合是否跨越了稳定结构的边界。</p></article>
+      </div>
+    </section>    <section class="section sources-section shell">
+      <div class="section-kicker">07 · 延伸阅读</div>
+      <div class="section-title"><h2>继续从现象、数学或方法深入</h2><p>这个实验只负责解释市场涌现与反馈；其它主题已经拆分到独立页面。</p></div>
+      <div class="sources">
+        <a href="/phenomena/"><b>市场现象</b><span>趋势、扩散、拥挤与踩踏</span><p>从真实行情中常见的现象进入。</p></a>
+        <a href="/tools/"><b>金融数学工具</b><span>PCA / RMT / OFI / Hawkes</span><p>按问题查找对应数学方法。</p></a>
+        <a href="/learn/"><b>方法与知识</b><span>公式、假设与适用边界</span><p>查看状态变量与模型的严格定义。</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <div><b>TRQuant · 金融数学</b><span>市场涌现与互动实验 · 用于理解机制，不提供实时行情，也不构成交易建议。</span></div>
+    <a href="#top">回到顶部 ↑</a>
+  </footer>
+  <script src="./app.js" defer></script>
+</body>
+</html>

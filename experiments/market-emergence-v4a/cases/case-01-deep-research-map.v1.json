@@ -1,0 +1,241 @@
+{
+  "schema_version": "case01_deep_research_map_v1",
+  "case_id": "case-01-semiconductor-synchronised-rise",
+  "parent_contract": "case-01-v1",
+  "source_basis": [
+    {
+      "name": "TRQuant_理论与思想基础_投资者版.pdf",
+      "role": [
+        "decision_sufficient_compression",
+        "common_structure_sparse_shock_unknown",
+        "evidence_before_narrative",
+        "time_scale_separation",
+        "production_gate"
+      ]
+    },
+    {
+      "name": "TRQuant_PILOT_从证据到资本行动.pdf",
+      "role": [
+        "evidence_probability_decision_learning",
+        "investment_operating_system",
+        "unknown_preservation"
+      ]
+    },
+    {
+      "name": "投资实战与情绪管理.txt",
+      "role": [
+        "investment_first",
+        "attention_allocation",
+        "expectations_consensus_price",
+        "missed_opportunity_review"
+      ]
+    },
+    {
+      "name": "交易复盘与下一步计划.txt",
+      "role": [
+        "market_industry_stock_hierarchy",
+        "relative_strength_decay",
+        "pit_validation_discipline"
+      ]
+    },
+    {
+      "name": "expectation investment.pdf",
+      "role": [
+        "price_implied_expectations",
+        "expectations_revision",
+        "value_triggers",
+        "value_factors"
+      ]
+    },
+    {
+      "name": "Quantitative Trading How to Build Your Own Algorithmic Trading Business (Ernest P. Chan) .pdf",
+      "role": [
+        "backtest_bias",
+        "transaction_costs",
+        "regime_robustness",
+        "survivorship_bias"
+      ]
+    }
+  ],
+  "universe": {
+    "market_reference": [
+      "SPY",
+      "QQQ"
+    ],
+    "theme_id": "ai_semiconductor",
+    "assets": [
+      "NVDA",
+      "AMD",
+      "AVGO",
+      "MU",
+      "AMAT",
+      "LRCX"
+    ],
+    "default_focus": "NVDA"
+  },
+  "expectation_state": {
+    "dimensions": [
+      "expected_end_demand",
+      "expected_price_mix",
+      "expected_margin_operating_leverage",
+      "expected_investment_intensity",
+      "expected_capacity_supply_constraint"
+    ],
+    "note": "latent research state; not directly observed fair value"
+  },
+  "mechanism_grammar": {
+    "initiator": [
+      "market_beta",
+      "theme_information",
+      "leader_information",
+      "common_flow",
+      "residual_shock"
+    ],
+    "price_formation": [
+      "signed_flow",
+      "price_impact",
+      "depth",
+      "transient_permanent_impact"
+    ],
+    "amplifier": [
+      "trend_feedback",
+      "attention_response",
+      "dealer_inventory_response",
+      "constraint_flow"
+    ],
+    "propagation": [
+      "common_exposure",
+      "model_network",
+      "lead_lag",
+      "economic_link",
+      "common_holdings"
+    ],
+    "environment": [
+      "market_risk_state",
+      "liquidity",
+      "volatility",
+      "participant_mix"
+    ],
+    "residual": [
+      "stochastic_disturbance",
+      "missing_information",
+      "model_misspecification",
+      "measurement_error"
+    ]
+  },
+  "first_ab": {
+    "A": {
+      "id": "theme_information_repricing",
+      "changes": [
+        "theme_expectation_state",
+        "theme_reference_anchor"
+      ],
+      "must_not_inject": [
+        "exogenous_common_flow"
+      ]
+    },
+    "B": {
+      "id": "common_theme_flow",
+      "changes": [
+        "exogenous_theme_flow"
+      ],
+      "must_not_change": [
+        "theme_expectation_state",
+        "theme_reference_anchor"
+      ]
+    },
+    "shared": [
+      "seed",
+      "agents",
+      "initial_inventory",
+      "liquidity",
+      "network",
+      "noise",
+      "baseline_prices",
+      "duration",
+      "event_time"
+    ]
+  },
+  "required_diagnostics": {
+    "structural": [
+      "market_return",
+      "theme_return",
+      "stock_return",
+      "theme_excess_vs_market",
+      "stock_excess_vs_theme",
+      "breadth",
+      "dispersion"
+    ],
+    "common_structure": [
+      "common_mode_share"
+    ],
+    "flow": [
+      "signed_flow",
+      "absolute_flow",
+      "participant_mix",
+      "flow_concentration"
+    ],
+    "feedback": [
+      "return_to_future_flow",
+      "feedback_acceleration_or_decay"
+    ],
+    "propagation": [
+      "active_links",
+      "lead_lag_summary",
+      "propagation_breadth"
+    ],
+    "liquidity": [
+      "depth",
+      "impact",
+      "peak_impact",
+      "impact_decay",
+      "recovery_time"
+    ],
+    "fingerprint": [
+      "permanent_component",
+      "post_intervention_recovery",
+      "participant_mix_shift",
+      "exogenous_flow_share"
+    ]
+  },
+  "attribution_policy": {
+    "rule": "separate initiating intervention from downstream price-formation and amplification channels",
+    "prohibited": [
+      "double_count_information_and_its_induced_flow_as_independent_causes",
+      "infer_real_market_causal_percentages_from_simulation",
+      "label_common_mode_as_crowding",
+      "label_lead_lag_as_transmission_without_channel_evidence"
+    ]
+  },
+  "real_evidence_ladder": [
+    "observation",
+    "statistical_structure",
+    "temporal_structure",
+    "mechanism_observables",
+    "economic_channel",
+    "decision_relevance"
+  ],
+  "current_data_readiness": {
+    "as_of": "2026-10-03",
+    "status": "INSUFFICIENT_FOR_SYNCHRONIZED_DECISION_GRADE_THEME_PANEL",
+    "observation": "single-stock security packet coverage is uneven across NVDA/AMD/AVGO/MU/AMAT/LRCX; dedicated synchronized cross-sectional snapshot is required before real-market validation",
+    "trading_authority": false
+  },
+  "next_engine_slice": {
+    "includes": [
+      "baseline",
+      "theme_expectation_revision",
+      "common_theme_flow",
+      "deterministic_event_log",
+      "replay",
+      "ab_fingerprint"
+    ],
+    "excludes": [
+      "ui_redesign",
+      "all_seven_mechanisms",
+      "full_backend",
+      "historical_price_fitting",
+      "trade_recommendation"
+    ]
+  }
+}

@@ -16,7 +16,7 @@ assert.match(migration,/CREATE TABLE concept_estimator_links/);
 assert.match(migration,/ALTER TABLE metric_definitions RENAME TO estimator_definitions/);
 assert.match(migration,/ALTER TABLE metric_observations RENAME TO estimator_observations/);
 assert.match(migration,/CREATE VIEW latest_estimator_observations/);
-assert.match(migration,/DO \\$\\$[\\s\\S]*END;[\\s\\S]*\\$\\$;/,'PL/pgSQL DO block must terminate END with semicolon');
+assert.match(migration,/DO \$\$[\s\S]*END;\s*\$\$;/,'PL/pgSQL DO block must terminate END with semicolon');
 
 for(const code of ['A','C','Q','L','E','P']){
   assert.match(migration,new RegExp("WHERE estimator_code = '"+code+"'"),code+' estimator code must be preserved');

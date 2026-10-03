@@ -13,8 +13,8 @@ BEGIN
     RAISE EXCEPTION
       '003_concept_estimator_model requires zero existing A/C/Q/L/E/P observations; migrate historical observations explicitly before changing estimator semantics';
   END IF;
-END
-$$;
+END;
+$;
 
 DROP VIEW latest_metric_observations;
 

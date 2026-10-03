@@ -3,18 +3,18 @@ BEGIN;
 -- Guard against silently changing the meaning of previously measured values.
 -- The current production database is expected to have zero observations for
 -- these six estimator codes before this migration.
-DO $$
-BEGIN
-  IF EXISTS (
-    SELECT 1
-    FROM metric_observations
-    WHERE metric_code IN ('A','C','Q','L','E','P')
-  ) THEN
-    RAISE EXCEPTION
-      '003_concept_estimator_model requires zero existing A/C/Q/L/E/P observations; migrate historical observations explicitly before changing estimator semantics';
-  END IF;
-END
-$$;
+CREATE TEMP TABLE _concept_estimator_migration_guard (
+  ok boolean NOT NULL CHECK (ok)
+);
+
+INSERT INTO _concept_estimator_migration_guard (ok)
+SELECT NOT EXISTS (
+  SELECT 1
+  FROM metric_observations
+  WHERE metric_code IN ('A','C','Q','L','E','P')
+);
+
+DROP TABLE _concept_estimator_migration_guard;
 
 DROP VIEW latest_metric_observations;
 

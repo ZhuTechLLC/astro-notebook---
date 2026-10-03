@@ -45,9 +45,9 @@
           <span class="demo-badge">机制演示 · 非实时行情</span>
         </div>
         <div class="hero-live-metrics">
-          <div><span>方向一致性</span><b id="heroA">0.00</b></div>
-          <div><span>模型激活</span><b id="heroP">0.00</b></div>
-          <div><span>暴露集中</span><b id="heroQ">0.00</b></div>
+          <div><span>方向一致性</span><b id="heroAlignment">0.00</b></div>
+          <div><span>模型激活</span><b id="heroActivation">0.00</b></div>
+          <div><span>订单流集中</span><b id="heroFlowConcentration">0.00</b></div>
         </div>
         <div class="hero-live-list">
           <div><span>活跃参与者</span><b id="activeAgents">0</b></div>
@@ -55,7 +55,7 @@
           <div><span>人为冲击 / 随机冲击 / 传播事件</span><b id="eventMix">0 / 0 / 0</b></div>
           <div><span>最近事件</span><b id="lastEvent">—</b></div>
         </div>
-        <p class="live-note">三个读数均为模拟摘要：模型激活不等于跨资产传播，暴露集中不等于真实市场拥挤；它们不代表实时行情或实证估计。</p>
+        <p class="live-note">三个读数均为模拟摘要：模型激活不等于跨资产传播，订单流集中不等于真实市场持仓拥挤；它们不代表实时行情或实证估计。</p>
       </aside>
     </section>
 
@@ -83,7 +83,7 @@
               <span><i>移动</i>改变局部注意力</span>
               <span><i>单击</i>正向信息冲击</span>
               <span><i>Shift + 单击</i>负向信息冲击</span>
-              <span><i>拖拽</i>持续买卖压力</span>
+              <span><i>拖拽</i>持续买卖压力</span>\n              <span><i>重置</i>回到同一实验随机序列，便于情景比较</span>
             </div>
             <div class="experiment-actions">
               <div><span>当前观察资产</span><b id="selectedAssetLabel">NVDA</b></div>
@@ -116,11 +116,11 @@
             <div id="inspectorCard" class="inspector-card empty"><b>将鼠标移到参与者或资产节点上</b><p>查看参与者类型、当前行为，以及它对订单流和市场状态的影响。</p></div>
             <div class="live-order-params">
               <div class="param-head"><span>当前状态指标</span><small>由模型实时计算</small></div>
-              <div class="op-row"><label>方向一致性</label><div><i id="aBar"></i></div><b id="aVal">0.00</b></div>
-              <div class="op-row"><label>模型激活</label><div><i id="pBar"></i></div><b id="pVal">0.00</b></div>
-              <div class="op-row"><label>暴露集中</label><div><i id="qBar"></i></div><b id="qVal">0.00</b></div>
+              <div class="op-row"><label>方向一致性</label><div><i id="alignmentBar"></i></div><b id="alignmentVal">0.00</b></div>
+              <div class="op-row"><label>模型激活</label><div><i id="activationBar"></i></div><b id="activationVal">0.00</b></div>
+              <div class="op-row"><label>订单流集中</label><div><i id="flowConcentrationBar"></i></div><b id="flowConcentrationVal">0.00</b></div>
             </div>
-            <div class="not-live-yet"><span>读数说明</span><p>交互区只显示模型内部可直接计算的方向一致性、激活程度与暴露集中度。共同模态、订单流价格冲击、Hawkes 事件激发和跨资产传导需要各自的真实数据与估计器，因此不在这里制造伪实时值。</p></div>
+            <div class="not-live-yet"><span>读数说明</span><p>交互区只显示模型内部可直接计算的方向一致性、激活程度与订单流集中度。共同模态、订单流价格冲击、Hawkes 事件激发和跨资产传导需要各自的真实数据与估计器，因此不在这里制造伪实时值。</p></div>
           </aside>
         </div>
       </div>
@@ -141,7 +141,7 @@
         <i>→</i>
         <article><span>04</span><h3>反馈网络</h3><p>价格变化重新触发趋势、止损、对冲、再平衡与模仿。</p></article>
         <i>→</i>
-        <article class="accent"><span>05</span><h3>宏观状态 Zₜ</h3><p>最终只保留真正有解释力和决策增量的状态量。</p></article>
+        <article class="accent"><span>05</span><h3>决策相关状态摘要</h3><p>最终只保留有明确估计方法、证据支持和决策增量的状态信息。</p></article>
       </div>
 
       <div class="equation-strip">
@@ -193,18 +193,20 @@
     </section>
 
     <section id="state" class="section shell">
-      <div class="section-kicker">05 · 候选状态摘要</div>
+      <div class="section-kicker">05 · 概念与估计器</div>
       <div class="section-title">
-        <h2>概念、估计器和模拟读数必须分开</h2>
-        <p>下面六项用于组织研究问题，不是固定的“市场本体”，也不是每项都由一个公式定义。真实市场读数必须同时说明方法、数据、期限、覆盖范围和不确定性。</p>
+        <h2>不预设固定状态向量</h2>
+        <p>每个投资问题先区分 Observable、Mechanism、Estimator 与 Evidence。下面只是当前实验和研究中会用到的对象示例；是否进入状态摘要由具体数据、期限和决策价值决定。</p>
       </div>
       <div class="state-grid">
-        <article><div class="state-symbol">A</div><h3>方向一致性</h3><code>A_sim = |Σᵢwᵢqᵢ| / Σᵢwᵢ|qᵢ|</code><p>描述当前模拟订单方向是否趋同。真实市场可以分别研究 signed flow、收益方向和 breadth，不能默认它们是同一测量。</p><span class="ready">模拟可直接计算</span></article>
-        <article><div class="state-symbol">C</div><h3>共同模态占比</h3><code>c_corr = λ₁(Rₜ) / tr(Rₜ)</code><p>描述横截面共同运动的统计集中度。共同模态升高不等于存在已识别的经济“耦合”或因果关系。</p><span class="ready">日频可估 · 统计摘要</span></article>
-        <article><div class="state-symbol">Q</div><h3>暴露 / 资金流集中度</h3><code>Concentration = HHI(p)</code><p>集中度可以是拥挤研究的一项证据，但 HHI 本身不等于拥挤风险；持仓重叠、退出容量与约束仍需单独检查。</p><span class="partial">依赖持仓 / 资金流口径</span></article>
-        <article><div class="state-symbol">L</div><h3>订单流价格冲击</h3><code>Δpₜ = β_OFI,ₜ·OFIₜ + εₜ</code><p>这是特定条件下的 price-impact 估计器，不代表流动性的全部维度；价差、深度和恢复速度需要分别记录。</p><span class="partial">需成交 / 报价数据</span></article>
-        <article><div class="state-symbol">E</div><h3>Hawkes 事件激发</h3><code>Kᵢⱼ = ∫φᵢⱼ(τ)dτ ; ρ(K)&lt;1</code><p>谱半径用于指定线性 Hawkes 模型的稳定性与反馈结构；多元模型的内生后代事件占比不能直接写成 ρ(K)。</p><span class="blocked">需事件级数据</span></article>
-        <article><div class="state-symbol">P</div><h3>跨资产传导</h3><code>IRFᵢⱼ(h) · FEVDᵢⱼ(h) · lead-lag</code><p>传导必须带方向与期限。脉冲响应、方差分解连通性和 lead-lag 回答的问题不同，不能用单个谱半径替代全部传播信息。</p><span class="ready">方法依问题选择</span></article>
+        <article><div class="state-symbol">FLOW</div><h3>订单流方向一致性</h3><code>alignment_sim = |Σᵢwᵢqᵢ| / Σᵢwᵢ|qᵢ|</code><p>当前模拟可直接计算的订单方向摘要。它不是收益 breadth，也不是持仓拥挤度。</p><span class="ready">模拟输出</span></article>
+        <article><div class="state-symbol">FLOW HHI</div><h3>订单流集中度</h3><code>HHI(flow share)</code><p>描述当期交易活动是否集中到少数资产。只有持仓、暴露、资金集中和退出容量等证据齐备时，才使用 Crowding。</p><span class="ready">模拟输出</span></article>
+        <article><div class="state-symbol">IMPACT</div><h3>Price Impact</h3><code>Δpₜ = β_OFI,ₜ·OFIₜ + εₜ</code><p>资金流或订单流对价格的条件响应。它是流动性的一个维度，不等同于 Liquidity 本身。</p><span class="partial">需成交 / 报价数据</span></article>
+        <article><div class="state-symbol">R→F</div><h3>Return–Flow Response</h3><code>E[Flowₜ₊ₕ | Returnₜ]</code><p>价格变化与后续资金流响应的关系。没有识别设计时只称 response，不写成因果反馈。</p><span class="partial">需资金流与时间结构</span></article>
+        <article><div class="state-symbol">MODE</div><h3>Common-Mode Movement</h3><code>λ₁(Rₜ) / tr(Rₜ)</code><p>横截面共同运动的统计摘要。只有明确因子模型时才使用 Common Factor。</p><span class="ready">统计估计</span></article>
+        <article><div class="state-symbol">HAWKES</div><h3>Self-Excitation</h3><code>λᵢ(t)=μᵢ+Σⱼ∫φᵢⱼ(t-s)dNⱼ(s)</code><p>只在显式 Hawkes 类事件模型中使用，自激不是趋势、模仿或反馈的泛称。</p><span class="blocked">需事件级数据</span></article>
+        <article><div class="state-symbol">NET</div><h3>Connectedness / Spillover</h3><code>IRFᵢⱼ(h) · FEVDᵢⱼ(h) · lead-lag</code><p>连通性和 spillover 必须绑定具体方法、方向与期限；Transmission 还需要明确经济通道与识别证据。</p><span class="ready">方法依问题选择</span></article>
+        <article><div class="state-symbol">LIQ</div><h3>Liquidity / Depth / Resiliency</h3><code>spread · depth · impact · recovery</code><p>流动性是多维概念。深度、价格冲击和冲击后的恢复速度分别记录，不压成一个万能分数。</p><span class="partial">需微观结构数据</span></article>
       </div>
     </section>
     <section id="phenomena" class="section shell">
@@ -216,7 +218,7 @@
       <div class="signature-grid">
         <article><header><b>趋势 / 动量</b><span>持续性反馈</span></header><div class="chips"><i>方向一致性 ↑</i><i>反馈待检验</i></div><p>价格变化可能成为下一轮交易的输入，但必须与共同信息、基本面重估等竞争解释区分。</p></article>
         <article><header><b>板块扩散</b><span>局部 → 中观</span></header><div class="chips"><i>有向传导 ↑</i><i>期限明确</i></div><p>扩散需要 lead-lag、脉冲响应或连通性等方向证据，而不只是多只股票同日上涨。</p></article>
-        <article><header><b>拥挤</b><span>暴露同质化</span></header><div class="chips"><i>暴露集中 ↑</i><i>退出容量 ↓?</i></div><p>持仓或资金流集中只是证据之一；真正风险还取决于共同约束、流动性与退出路径。</p></article>
+        <article><header><b>拥挤</b><span>暴露同质化</span></header><div class="chips"><i>订单流集中 ↑</i><i>退出容量 ↓?</i></div><p>持仓或资金流集中只是证据之一；真正风险还取决于共同约束、流动性与退出路径。</p></article>
         <article><header><b>流动性踩踏</b><span>非线性风险</span></header><div class="chips"><i>价格冲击 ↑</i><i>深度 ↓</i><i>受约束流 ↑?</i></div><p>卖出、撤单、对冲和去杠杆可能互相强化，但每个通道都需要独立证据。</p></article>
         <article><header><b>均值回复</b><span>扰动衰减</span></header><div class="chips"><i>响应衰减</i><i>逆向流 / 吸收</i></div><p>冲击后价格与订单流回落可以支持均值回复解释，但仍需排除信息消退和共同因子反转。</p></article>
         <article><header><b>环境变化</b><span>Regime / Environment</span></header><div class="chips"><i>参数 / 分布迁移</i><i>模型需单独识别</i></div><p>关键不是事后命名牛熊，而是检验收益、波动、相关与行为参数是否发生持续结构变化。</p></article>

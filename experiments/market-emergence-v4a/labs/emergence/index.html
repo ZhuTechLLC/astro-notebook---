@@ -82,7 +82,8 @@
               <span><i>移动</i>改变局部注意力</span>
               <span><i>单击</i>正向信息冲击</span>
               <span><i>Shift + 单击</i>负向信息冲击</span>
-              <span><i>拖拽</i>持续买卖压力</span>\n              <span><i>重置</i>回到同一实验随机序列，便于情景比较</span>
+              <span><i>拖拽</i>持续买卖压力</span>
+              <span><i>重置</i>回到同一实验随机序列，便于情景比较</span>
             </div>
             <div class="experiment-actions">
               <div><span>当前观察资产</span><b id="selectedAssetLabel">NVDA</b></div>
@@ -125,8 +126,46 @@
       </div>
     </section>
 
+
+    <section id="price-attribution" class="analytics-section">
+      <div class="shell">
+        <div class="section-kicker">02 · 价格路径与归因</div>
+        <div class="section-title light analytics-title">
+          <div>
+            <h2>从整体市场，到主题，再到个股</h2>
+            <p>价格路径与上方模拟器使用同一套状态。这里不拟合真实行情，而是把当前模拟中的价格变化分层展开，并说明哪些机制正在推动或拖累所选个股。</p>
+          </div>
+          <label class="analytics-picker">观察个股<select id="analyticsAssetSelect" aria-label="选择观察个股"></select></label>
+        </div>
+        <div id="analyticsStatus" class="analytics-status">图表随模拟实时更新 · 起点统一为 100</div>
+        <div class="analytics-readouts">
+          <div><span>整体市场 · SPY</span><b id="analyticsMarket">+0.00%</b></div>
+          <div><span>主题 · <i id="analyticsThemeName">AI / 半导体</i></span><b id="analyticsTheme">+0.00%</b></div>
+          <div><span>个股 · <i id="analyticsStockName">NVDA</i></span><b id="analyticsStock">+0.00%</b></div>
+        </div>
+        <div class="analytics-grid">
+          <article class="analytics-card analytics-wide">
+            <header><div><span>价格路径</span><h3>市场 → 主题 → 个股</h3></div><small>归一化价格 · 起点 = 100</small></header>
+            <div id="marketPriceChart" class="echart echart-price" role="img" aria-label="整体市场、主题与个股的模拟价格路径"></div>
+          </article>
+          <article class="analytics-card">
+            <header><div><span>横截面</span><h3>当前个股表现</h3></div><small>点击柱形可切换个股</small></header>
+            <div id="marketCrossChart" class="echart" role="img" aria-label="模拟市场中各资产当前涨跌"></div>
+          </article>
+          <article class="analytics-card">
+            <header><div><span>模型归因</span><h3>当前变化由什么推动</h3></div><small>近期平滑贡献 · bp / 模型步</small></header>
+            <div id="attributionChart" class="echart" role="img" aria-label="所选个股的模型内部归因"></div>
+          </article>
+        </div>
+        <div class="attribution-summary">
+          <b id="attributionHeadline">NVDA：等待模拟开始</b>
+          <p id="attributionSummary">价格开始变化后，这里会总结订单流、信息冲击、注意力、网络反馈和随机扰动的相对贡献。</p>
+        </div>
+      </div>
+    </section>
+
     <section id="compression" class="section shell">
-      <div class="section-kicker">02 · 复杂性压缩</div>
+      <div class="section-kicker">03 · 复杂性压缩</div>
       <div class="section-title">
         <h2>从海量交易行为中提取少数关键状态</h2>
         <p>市场参与者数量巨大、规则各异，但许多整体行为可以由少数状态变量概括。目标不是复刻每一笔交易，而是识别哪些结构正在增强、扩散或变得脆弱。</p>
@@ -150,7 +189,7 @@
       </div>
     </section>    <section class="section dark-section">
       <div class="shell">
-        <div class="section-kicker">03 · 市场参与者</div>
+        <div class="section-kicker">04 · 市场参与者</div>
         <div class="section-title light">
           <h2>同一条信息，不同参与者会做出不同反应</h2>
           <p>理解市场时，与其按机构名称分类，不如看资金如何决策：它依据什么信息、受什么约束、以什么速度交易。一个大型机构内部也可能同时存在多种完全不同的交易逻辑。</p>
@@ -192,7 +231,7 @@
     </section>
 
     <section id="state" class="section shell">
-      <div class="section-kicker">05 · 概念与估计器</div>
+      <div class="section-kicker">06 · 概念与估计器</div>
       <div class="section-title">
         <h2>不预设固定状态向量</h2>
         <p>每个投资问题先区分 Observable、Mechanism、Estimator 与 Evidence。下面只是当前实验和研究中会用到的对象示例；是否进入状态摘要由具体数据、期限和决策价值决定。</p>
@@ -209,7 +248,7 @@
       </div>
     </section>
     <section id="phenomena" class="section shell">
-      <div class="section-kicker">06 · 市场现象</div>
+      <div class="section-kicker">07 · 市场现象</div>
       <div class="section-title">
         <h2>同样的涨跌，背后的机制可能完全不同</h2>
         <p>这里列的是待检验的结构特征，不把一个统计摘要直接升级成因果解释。真实分析必须同时保留竞争机制和 UNKNOWN。</p>
@@ -224,7 +263,7 @@
       </div>
     </section>
     <section class="section sources-section shell">
-      <div class="section-kicker">07 · 延伸阅读</div>
+      <div class="section-kicker">08 · 延伸阅读</div>
       <div class="section-title"><h2>把模拟中的结构带到可计算工具</h2><p>下面三个页面可以直接改变参数并看到结果，不需要先读一层说明。</p></div>
       <div class="sources">
         <a href="/tools/common-mode/"><b>共同模态分析</b><span>相关矩阵 · 第一特征模态</span><p>直接观察共同运动如何随相关结构变化。</p></a>
@@ -238,6 +277,7 @@
     <div><b>TRQuant · 金融数学</b><span>市场涌现与互动实验 · 用于理解机制，不提供实时行情，也不构成交易建议。</span></div>
     <a href="#top">回到顶部 ↑</a>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
   <script type="module" src="./app.js"></script>
 </body>
 </html>

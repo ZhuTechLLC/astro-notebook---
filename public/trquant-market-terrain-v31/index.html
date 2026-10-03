@@ -1,0 +1,1501 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#050b11" />
+  <title>TRQuant · Market Terrain V3.1</title>
+  <style>:root{font-family:Inter,"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;color:#e9f8fb;background:#050b11;font-synthesis:none}*{box-sizing:border-box}html,body,#root{margin:0;width:100%;height:100%;overflow:hidden}button,input{font:inherit}.app-shell{width:100vw;height:100vh;position:relative;background:radial-gradient(circle at 50% 40%,#102533 0,#050b11 55%)}canvas{position:absolute!important;inset:0}.hud{position:absolute;z-index:5;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(145,226,239,.14);background:linear-gradient(180deg,rgba(9,24,33,.88),rgba(5,14,21,.72));box-shadow:0 20px 60px rgba(0,0,0,.24)}.topbar{top:18px;left:20px;right:20px;height:88px;border-radius:18px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;pointer-events:none}.eyebrow{font-size:10px;letter-spacing:.24em;color:#77d5e5;font-weight:800}.topbar h1{font-size:23px;line-height:1.1;margin:4px 0 2px;letter-spacing:.03em}.topbar p{margin:0;font-size:11px;color:#86aab4}.benchmark-strip{display:flex;gap:9px}.metric-pill{min-width:96px;padding:8px 10px;border-radius:11px;background:rgba(105,181,196,.07);border:1px solid rgba(133,210,224,.10);display:flex;flex-direction:column;gap:3px}.metric-pill span{font-size:10px;color:#86aab4}.metric-pill b{font-size:15px;color:#eefcff}.metric-pill.growth b{color:#7ff0c7}.metric-pill.risk b{color:#ffb178}.metric-pill.peg b{color:#a9e4ff}.metric-pill.pe b{color:#f5da85}.mode-switch{top:119px;left:50%;transform:translateX(-50%);padding:5px;border-radius:14px;display:flex;gap:5px}.mode-switch button{border:0;cursor:pointer;color:#87aab4;background:transparent;border-radius:10px;padding:8px 16px;display:flex;flex-direction:column;align-items:flex-start;min-width:128px;transition:.2s}.mode-switch button b{font-size:12px;color:#cfe7ec}.mode-switch button span{font-size:9px;margin-top:2px}.mode-switch button.active{background:rgba(76,191,213,.14);box-shadow:inset 0 0 0 1px rgba(105,220,239,.22)}.mode-switch button.active b{color:#fff}.left-panel{left:20px;top:120px;width:235px;border-radius:18px;padding:15px}.section-title{font-size:12px;letter-spacing:.16em;color:#d8f8ff;font-weight:800;margin-bottom:11px}.search-wrap{position:relative}.search-wrap input{width:100%;border:1px solid rgba(128,216,232,.16);outline:0;background:#07131b;color:#e8fbff;padding:9px 10px;border-radius:9px;font-size:11px}.search-results{position:absolute;top:38px;left:0;right:0;background:#07131b;border:1px solid rgba(128,216,232,.18);border-radius:10px;overflow:hidden;z-index:20}.search-results button{display:flex;width:100%;justify-content:space-between;border:0;border-bottom:1px solid rgba(255,255,255,.05);background:transparent;color:#eafaff;padding:8px;cursor:pointer;font-size:10px}.search-results button span{color:#6e9aa5}.control-label{font-size:9px;color:#668f9a;text-transform:uppercase;letter-spacing:.14em;margin:14px 0 7px}.chips{display:flex;flex-wrap:wrap;gap:5px}.chips button{border:1px solid rgba(120,201,216,.13);background:rgba(255,255,255,.025);color:#8fb3bc;border-radius:999px;padding:5px 8px;font-size:9px;cursor:pointer}.chips button.active{color:#e9fdff;border-color:rgba(110,221,239,.38);background:rgba(66,188,212,.13)}.toggle{display:flex;align-items:center;gap:7px;margin:7px 0;font-size:10px;color:#a9c7ce;cursor:pointer}.toggle input{display:none}.toggle span{width:27px;height:14px;border-radius:99px;background:#152932;position:relative;border:1px solid #23424d}.toggle span:after{content:"";position:absolute;width:8px;height:8px;border-radius:50%;background:#60818a;top:2px;left:2px;transition:.2s}.toggle input:checked+span{background:#124454;border-color:#28758a}.toggle input:checked+span:after{left:15px;background:#8cecff}.mode-explain{margin-top:13px;border-top:1px solid rgba(255,255,255,.06);padding-top:11px}.mode-explain b{font-size:10px;color:#c9f6ff}.mode-explain p{font-size:9.5px;line-height:1.55;color:#769ba5;margin:5px 0 0}.right-panel{right:20px;top:120px;width:280px;border-radius:18px;padding:16px;min-height:265px}.industry-head>span{font-size:9px;color:#6fd7e7;letter-spacing:.12em}.industry-head h2{font-size:19px;margin:5px 0 9px}.score-line{display:flex;align-items:end;gap:8px;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:10px}.score-line b{font-size:30px;color:#f5d980}.score-line small{font-size:9px;color:#718f98;padding-bottom:5px}.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}.right-panel .metric-pill{min-width:0}.readout{margin-top:9px;border-top:1px solid rgba(255,255,255,.06);padding-top:7px}.readout div{display:flex;justify-content:space-between;font-size:9px;color:#799da6;padding:4px 0}.readout b{color:#d6f6fc}.note{margin-top:8px;padding:8px 9px;border-radius:9px;background:rgba(244,208,107,.05);border:1px solid rgba(244,208,107,.10);font-size:9px;line-height:1.5;color:#8ca5aa}.empty-card{text-align:center;padding:26px 12px}.empty-card .orb{width:48px;height:48px;margin:0 auto 14px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#a4f5ff,#1e7890 28%,#07151f 70%);box-shadow:0 0 35px rgba(79,220,242,.24)}.empty-card h2{font-size:14px;margin:0 0 7px}.empty-card p{font-size:10px;line-height:1.5;color:#6f949e;margin:0}.opportunity-dock{left:20px;bottom:48px;width:340px;max-height:300px;border-radius:16px;padding:12px}.dock-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}.dock-head span{font-size:11px;font-weight:800;color:#f4dc8b;letter-spacing:.1em}.dock-head small{font-size:8px;color:#6d8e96}.rank-list{max-height:243px;overflow:auto;padding-right:3px}.rank-list::-webkit-scrollbar{width:3px}.rank-list::-webkit-scrollbar-thumb{background:#214652;border-radius:5px}.rank-list button{width:100%;display:grid;grid-template-columns:26px 1fr 34px;align-items:center;text-align:left;border:0;border-top:1px solid rgba(255,255,255,.05);background:transparent;color:#bcdce4;padding:6px 4px;cursor:pointer}.rank-list button:hover,.rank-list button.active{background:rgba(240,207,106,.06)}.rank-list i{font-style:normal;font-size:9px;color:#5d8089}.rank-list span{min-width:0}.rank-list b{font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}.rank-list small{font-size:8px;color:#698b94;display:block;margin-top:2px}.rank-list strong{font-size:12px;color:#f2d575;text-align:right}.legend{bottom:15px;left:50%;transform:translateX(-50%);border-radius:12px;padding:7px 10px;display:flex;gap:13px;font-size:8.5px;color:#71959e;white-space:nowrap}.legend>div{display:flex;align-items:center;gap:5px}.dot{width:7px;height:7px;border-radius:50%;display:inline-block}.dot.altitude{background:#aeeeff}.dot.growth{background:#78efb4}.dot.particles{background:#ff9b66}.ring-icon{width:10px;height:10px;border:1.5px solid #9de7ff;border-radius:50%}.signal-icon{width:8px;height:8px;border-radius:50%;background:#f6d46d;box-shadow:0 0 9px #f6d46d}.territory-icon{width:10px;height:10px;border-radius:2px;border:1px solid #90dce7;background:rgba(111,214,231,.22)}.link-icon{width:14px;height:0;border-top:2px solid #f2ca76;display:inline-block;transform:translateY(-1px)}.source-tag{right:20px;bottom:15px;border-radius:10px;padding:7px 9px;font-size:8px;color:#587b84}.world-label{background:rgba(4,13,18,.86);border:1px solid rgba(130,222,236,.18);color:#c7f3fa;padding:4px 6px;border-radius:7px;font-size:9px;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.28)}.world-label.hot{border-color:rgba(244,210,103,.32);color:#f7dd89}@media(max-width:1100px){.right-panel{width:245px}.left-panel{width:210px}.benchmark-strip .metric-pill:nth-child(n+3){display:none}.opportunity-dock{width:300px}}@media(max-width:760px){.topbar{left:10px;right:10px;top:10px}.benchmark-strip{display:none}.left-panel{left:10px;top:175px;width:190px}.right-panel{right:10px;top:175px;width:220px}.mode-switch{top:110px}.opportunity-dock{display:none}.legend{display:none}.source-tag{display:none}}
+#canvasWrap{position:absolute;inset:0;z-index:0}.hidden{display:none!important}.ghost-btn{width:100%;margin-top:10px;border:1px solid rgba(120,201,216,.13);background:rgba(255,255,255,.025);color:#8fb3bc;border-radius:9px;padding:7px 8px;font-size:9px;cursor:pointer}.ghost-btn:hover{color:#e9fdff;border-color:rgba(110,221,239,.32);background:rgba(66,188,212,.10)}
+
+/* V2 semantic terrain */
+.score-line b{color:#f0d27c}.score-line .pressure{color:#ff9d82}.score-line .neutral{color:#9fdde8}
+.loss-matrix-wrap{margin-top:10px;padding-top:9px;border-top:1px solid rgba(255,255,255,.06)}
+.loss-matrix-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:9px;color:#7399a3}.loss-matrix-head b{color:#ffb083;font-size:10px}
+.loss-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:2px}.loss-dot{height:4px;border-radius:99px;background:rgba(135,190,202,.12)}.loss-dot.on{background:#d97860;box-shadow:0 0 4px rgba(217,120,96,.25)}
+.status-chip{display:inline-flex;align-items:center;padding:3px 7px;border-radius:999px;font-size:8px;margin:1px 4px 0 0;border:1px solid rgba(137,214,226,.16);color:#89b9c3;background:rgba(71,142,156,.08)}
+.status-chip.good{color:#f3db87;border-color:rgba(243,219,135,.24);background:rgba(243,219,135,.07)}
+.status-chip.warn{color:#ffad8e;border-color:rgba(255,173,142,.22);background:rgba(255,173,142,.06)}
+.semantic-readout{margin-top:8px;font-size:8.5px;line-height:1.45;color:#6f929b}.semantic-readout b{color:#bfeaf1}
+.opportunity-dock.lens-off{opacity:.22;pointer-events:none;filter:saturate(.35)}
+.lens-badge{display:inline-flex;align-items:center;gap:5px;margin-top:7px;padding:5px 7px;border-radius:8px;background:rgba(241,208,108,.06);border:1px solid rgba(241,208,108,.12);font-size:8px;color:#d4bd73}
+.relation-types{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:6px 0 2px}.relation-types button{display:flex;align-items:center;gap:6px;border:1px solid rgba(120,201,216,.11);background:rgba(255,255,255,.018);color:#6f949e;border-radius:8px;padding:5px 7px;font-size:8px;cursor:pointer}.relation-types button.active{color:#dffbff;border-color:rgba(150,225,238,.26);background:rgba(80,176,194,.09)}.relation-types i{width:13px;height:2px;display:inline-block;border-radius:3px}
+
+</style>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three.module.js",
+      "three/addons/": "./vendor/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+<div id="app">
+  <div class="hud topbar">
+    <div>
+      <div class="eyebrow">TRQUANT · MARKET TERRAIN V3.1</div>
+      <h1>美股行业领地地貌</h1>
+      <p>Damodaran · 2026 年 1 月 · 94 个行业 · 领地边界 / 地貌 / 板块关系</p>
+    </div>
+    <div id="benchmarkStrip" class="benchmark-strip"></div>
+  </div>
+
+  <div id="modeSwitch" class="mode-switch hud">
+    <button data-mode="valuation" class="active"><b>估值地形</b><span>海拔 = 相对 Forward PE</span></button>
+    <button data-mode="growth"><b>增长地形</b><span>海拔 = 5Y EPS 增长</span></button>
+    <button data-mode="risk"><b>盈利风险</b><span>海拔 = 亏损公司比例</span></button>
+  </div>
+
+  <aside class="hud left-panel">
+    <div class="section-title">研究导航</div>
+    <div class="search-wrap">
+      <input id="searchInput" placeholder="搜索行业…" autocomplete="off" />
+      <div id="searchResults" class="search-results hidden"></div>
+    </div>
+    <div class="control-label">板块大陆</div>
+    <div id="categoryChips" class="chips"></div>
+    <div class="control-label">视觉图层</div>
+    <label class="toggle"><input id="toggleParticles" type="checkbox" checked><span></span>亏损点阵</label>
+    <label class="toggle"><input id="togglePeg" type="checkbox" checked><span></span>PEG 轮廓环</label>
+    <label class="toggle"><input id="toggleSignals" type="checkbox" checked><span></span>机会透镜（估值错配）</label>
+    <label class="toggle"><input id="toggleRelations" type="checkbox" checked><span></span>板块关系通道</label>
+    <div id="relationTypeChips" class="relation-types"></div>
+    <button id="resetCamera" class="ghost-btn">重置视角</button>
+    <div id="modeExplain" class="mode-explain"></div>
+  </aside>
+
+  <aside id="rightPanel" class="hud right-panel"></aside>
+
+  <div class="hud opportunity-dock">
+    <div class="dock-head"><span>估值错配雷达</span><small>Opportunity Lens · 仅提示研究异常</small></div>
+    <div id="rankList" class="rank-list"></div>
+  </div>
+
+  <div id="legend" class="legend hud"></div>
+  <a class="source-tag hud" href="https://pages.stern.nyu.edu/adamodar/New_Home_Page/datafile/pedata.html" target="_blank" rel="noreferrer">数据：Aswath Damodaran · PE Ratio by Sector (US) · Jan 2026 ↗</a>
+  <div id="canvasWrap"></div>
+</div>
+<script id="embeddedData" type="application/json">{
+  "industries": [
+    {
+      "industry": "Advertising",
+      "firms": 52,
+      "lossRate": 78.85,
+      "currentPE": 132.24,
+      "trailingPE": 44.43,
+      "forwardPE": 52.87,
+      "aggregatePEAll": 460.52,
+      "aggregatePEProfitable": 25.51,
+      "growth5Y": 2.29,
+      "peg": 11.16
+    },
+    {
+      "industry": "Aerospace/Defense",
+      "firms": 79,
+      "lossRate": 50.63,
+      "currentPE": 118,
+      "trailingPE": 92.8,
+      "forwardPE": 45.87,
+      "aggregatePEAll": 78.11,
+      "aggregatePEProfitable": 35.27,
+      "growth5Y": 25.04,
+      "peg": 1.41
+    },
+    {
+      "industry": "Air Transport",
+      "firms": 23,
+      "lossRate": 60.87,
+      "currentPE": 15.55,
+      "trailingPE": 18.32,
+      "forwardPE": 11.37,
+      "aggregatePEAll": 26.12,
+      "aggregatePEProfitable": 12.87,
+      "growth5Y": 30.21,
+      "peg": 0.43
+    },
+    {
+      "industry": "Apparel",
+      "firms": 35,
+      "lossRate": 62.86,
+      "currentPE": 82.1,
+      "trailingPE": 37.83,
+      "forwardPE": 24.89,
+      "aggregatePEAll": 41.21,
+      "aggregatePEProfitable": 27.09,
+      "growth5Y": 13.63,
+      "peg": 1.99
+    },
+    {
+      "industry": "Auto & Truck",
+      "firms": 33,
+      "lossRate": 81.82,
+      "currentPE": 44.59,
+      "trailingPE": 64.32,
+      "forwardPE": 49.04,
+      "aggregatePEAll": 148.45,
+      "aggregatePEProfitable": 119.62,
+      "growth5Y": 10.22,
+      "peg": 11.71
+    },
+    {
+      "industry": "Auto Parts",
+      "firms": 35,
+      "lossRate": 48.57,
+      "currentPE": 27.85,
+      "trailingPE": 28.07,
+      "forwardPE": 15.13,
+      "aggregatePEAll": 46.96,
+      "aggregatePEProfitable": 20.23,
+      "growth5Y": 15.97,
+      "peg": 1.27
+    },
+    {
+      "industry": "Bank (Money Center)",
+      "firms": 15,
+      "lossRate": 6.67,
+      "currentPE": 17.58,
+      "trailingPE": 14.95,
+      "forwardPE": 13.04,
+      "aggregatePEAll": 14.99,
+      "aggregatePEProfitable": 14.17,
+      "growth5Y": 13.74,
+      "peg": 1.03
+    },
+    {
+      "industry": "Banks (Regional)",
+      "firms": 568,
+      "lossRate": 14.08,
+      "currentPE": 34.74,
+      "trailingPE": 33.6,
+      "forwardPE": 11,
+      "aggregatePEAll": 14.99,
+      "aggregatePEProfitable": 12.6,
+      "growth5Y": 13.96,
+      "peg": 0.9
+    },
+    {
+      "industry": "Beverage (Alcoholic)",
+      "firms": 14,
+      "lossRate": 64.29,
+      "currentPE": 34.97,
+      "trailingPE": 28.3,
+      "forwardPE": 12.84,
+      "aggregatePEAll": 24.3,
+      "aggregatePEProfitable": 16.57,
+      "growth5Y": 3.89,
+      "peg": 4.26
+    },
+    {
+      "industry": "Beverage (Soft)",
+      "firms": 27,
+      "lossRate": 70.37,
+      "currentPE": 37.11,
+      "trailingPE": 47.76,
+      "forwardPE": 23.7,
+      "aggregatePEAll": 26.92,
+      "aggregatePEProfitable": 26.25,
+      "growth5Y": 15.44,
+      "peg": 1.7
+    },
+    {
+      "industry": "Broadcasting",
+      "firms": 24,
+      "lossRate": 70.83,
+      "currentPE": 6.38,
+      "trailingPE": 44.76,
+      "forwardPE": 17.5,
+      "aggregatePEAll": null,
+      "aggregatePEProfitable": 13.47,
+      "growth5Y": 0.87,
+      "peg": 15.52
+    },
+    {
+      "industry": "Brokerage & Investment Banking",
+      "firms": 32,
+      "lossRate": 21.88,
+      "currentPE": 26.81,
+      "trailingPE": 86.54,
+      "forwardPE": 19.86,
+      "aggregatePEAll": 24.36,
+      "aggregatePEProfitable": 19.8,
+      "growth5Y": 20.3,
+      "peg": 0.98
+    },
+    {
+      "industry": "Building Materials",
+      "firms": 41,
+      "lossRate": 29.27,
+      "currentPE": 21.06,
+      "trailingPE": 32.8,
+      "forwardPE": 18.39,
+      "aggregatePEAll": 14.71,
+      "aggregatePEProfitable": 17.12,
+      "growth5Y": 10.19,
+      "peg": 1.68
+    },
+    {
+      "industry": "Business & Consumer Services",
+      "firms": 155,
+      "lossRate": 56.77,
+      "currentPE": 35.43,
+      "trailingPE": 36.4,
+      "forwardPE": 18.7,
+      "aggregatePEAll": 30.8,
+      "aggregatePEProfitable": 24.15,
+      "growth5Y": 12.8,
+      "peg": 1.89
+    },
+    {
+      "industry": "Cable TV",
+      "firms": 9,
+      "lossRate": 44.44,
+      "currentPE": 13.75,
+      "trailingPE": 6.1,
+      "forwardPE": 9.21,
+      "aggregatePEAll": 8.73,
+      "aggregatePEProfitable": 5.06,
+      "growth5Y": 5.43,
+      "peg": 0.93
+    },
+    {
+      "industry": "Chemical (Basic)",
+      "firms": 29,
+      "lossRate": 75.86,
+      "currentPE": 14.07,
+      "trailingPE": 24.42,
+      "forwardPE": 22.82,
+      "aggregatePEAll": 18.45,
+      "aggregatePEProfitable": 18.4,
+      "growth5Y": 19.81,
+      "peg": 0.93
+    },
+    {
+      "industry": "Chemical (Diversified)",
+      "firms": 4,
+      "lossRate": 100,
+      "currentPE": 20.55,
+      "trailingPE": null,
+      "forwardPE": 14.17,
+      "aggregatePEAll": null,
+      "aggregatePEProfitable": null,
+      "growth5Y": null,
+      "peg": null
+    },
+    {
+      "industry": "Chemical (Specialty)",
+      "firms": 59,
+      "lossRate": 59.32,
+      "currentPE": 161.7,
+      "trailingPE": 196.77,
+      "forwardPE": 19.32,
+      "aggregatePEAll": 48.06,
+      "aggregatePEProfitable": 23.18,
+      "growth5Y": 8.46,
+      "peg": 2.74
+    },
+    {
+      "industry": "Coal & Related Energy",
+      "firms": 16,
+      "lossRate": 81.25,
+      "currentPE": 23.85,
+      "trailingPE": 17.01,
+      "forwardPE": 34.39,
+      "aggregatePEAll": 52.16,
+      "aggregatePEProfitable": 19.75,
+      "growth5Y": 22.54,
+      "peg": 0.88
+    },
+    {
+      "industry": "Computer Services",
+      "firms": 64,
+      "lossRate": 54.69,
+      "currentPE": 26.45,
+      "trailingPE": 51.6,
+      "forwardPE": 56.54,
+      "aggregatePEAll": 30.24,
+      "aggregatePEProfitable": 26.06,
+      "growth5Y": 12.33,
+      "peg": 2.11
+    },
+    {
+      "industry": "Computers/Peripherals",
+      "firms": 36,
+      "lossRate": 61.11,
+      "currentPE": 80.95,
+      "trailingPE": 81.13,
+      "forwardPE": 36.15,
+      "aggregatePEAll": 36.18,
+      "aggregatePEProfitable": 34.33,
+      "growth5Y": 25.42,
+      "peg": 1.35
+    },
+    {
+      "industry": "Construction Supplies",
+      "firms": 40,
+      "lossRate": 30,
+      "currentPE": 26.96,
+      "trailingPE": 42.75,
+      "forwardPE": 17.69,
+      "aggregatePEAll": 21.91,
+      "aggregatePEProfitable": 25.8,
+      "growth5Y": 7.61,
+      "peg": 3.39
+    },
+    {
+      "industry": "Diversified",
+      "firms": 20,
+      "lossRate": 80,
+      "currentPE": 14.13,
+      "trailingPE": 15.73,
+      "forwardPE": 14.88,
+      "aggregatePEAll": 13.44,
+      "aggregatePEProfitable": 16.8,
+      "growth5Y": 7.57,
+      "peg": 2.22
+    },
+    {
+      "industry": "Drugs (Biotechnology)",
+      "firms": 496,
+      "lossRate": 89.52,
+      "currentPE": 109.27,
+      "trailingPE": 64.28,
+      "forwardPE": 63.76,
+      "aggregatePEAll": null,
+      "aggregatePEProfitable": 32.05,
+      "growth5Y": 38.08,
+      "peg": 0.84
+    },
+    {
+      "industry": "Drugs (Pharmaceutical)",
+      "firms": 228,
+      "lossRate": 84.65,
+      "currentPE": 335.27,
+      "trailingPE": 55.67,
+      "forwardPE": 24.19,
+      "aggregatePEAll": 58.92,
+      "aggregatePEProfitable": 24.95,
+      "growth5Y": 17.81,
+      "peg": 1.4
+    },
+    {
+      "industry": "Education",
+      "firms": 32,
+      "lossRate": 50,
+      "currentPE": 27.6,
+      "trailingPE": 26.97,
+      "forwardPE": 18.11,
+      "aggregatePEAll": 39.34,
+      "aggregatePEProfitable": 15.04,
+      "growth5Y": 19.03,
+      "peg": 0.79
+    },
+    {
+      "industry": "Electrical Equipment",
+      "firms": 112,
+      "lossRate": 75,
+      "currentPE": 76.44,
+      "trailingPE": 80.04,
+      "forwardPE": 29.61,
+      "aggregatePEAll": null,
+      "aggregatePEProfitable": 47.25,
+      "growth5Y": 18.86,
+      "peg": 2.5
+    },
+    {
+      "industry": "Electronics (Consumer & Office)",
+      "firms": 8,
+      "lossRate": 100,
+      "currentPE": null,
+      "trailingPE": null,
+      "forwardPE": 19.51,
+      "aggregatePEAll": null,
+      "aggregatePEProfitable": null,
+      "growth5Y": -56.8,
+      "peg": null
+    },
+    {
+      "industry": "Electronics (General)",
+      "firms": 114,
+      "lossRate": 59.65,
+      "currentPE": 52,
+      "trailingPE": 48.44,
+      "forwardPE": 29.61,
+      "aggregatePEAll": 56.65,
+      "aggregatePEProfitable": 40.2,
+      "growth5Y": 17.69,
+      "peg": 2.27
+    },
+    {
+      "industry": "Engineering/Construction",
+      "firms": 48,
+      "lossRate": 39.58,
+      "currentPE": 90.22,
+      "trailingPE": 63.33,
+      "forwardPE": 28.11,
+      "aggregatePEAll": 36.88,
+      "aggregatePEProfitable": 24.83,
+      "growth5Y": 21.04,
+      "peg": 1.18
+    },
+    {
+      "industry": "Entertainment",
+      "firms": 92,
+      "lossRate": 82.61,
+      "currentPE": 171.99,
+      "trailingPE": 108.63,
+      "forwardPE": 42.73,
+      "aggregatePEAll": null,
+      "aggregatePEProfitable": 32.46,
+      "growth5Y": 5.75,
+      "peg": 5.64
+    },
+    {
+      "industry": "Environmental & Waste Services",
+      "firms": 53,
+      "lossRate": 79.25,
+      "currentPE": 66.2,
+      "trailingPE": 66.55,
+      "forwardPE": 61.07,
+      "aggregatePEAll": 37.67,
+      "aggregatePEProfitable": 34.29,
+      "growth5Y": 12.2,
+      "peg": 2.81
+    },
+    {
+      "industry": "Farming/Agriculture",
+      "firms": 35,
+      "lossRate": 65.71,
+      "currentPE": 16.79,
+      "trailingPE": 19.12,
+      "forwardPE": 19.31,
+      "aggregatePEAll": 24.17,
+      "aggregatePEProfitable": 21.98,
+      "growth5Y": 11.99,
+      "peg": 1.83
+    },
+    {
+      "industry": "Financial Svcs. (Non-bank & Insurance)",
+      "firms": 176,
+      "lossRate": 40.91,
+      "currentPE": 65.59,
+      "trailingPE": 26.14,
+      "forwardPE": 16.38,
+      "aggregatePEAll": 22.85,
+      "aggregatePEProfitable": 22.08,
+      "growth5Y": 22.02,
+      "peg": 1
+    },
+    {
+      "industry": "Food Processing",
+      "firms": 78,
+      "lossRate": 60.26,
+      "currentPE": 30.97,
+      "trailingPE": 47.97,
+      "forwardPE": 17.23,
+      "aggregatePEAll": 16.78,
+      "aggregatePEProfitable": 16.5,
+      "growth5Y": 2.66,
+      "peg": 6.21
+    },
+    {
+      "industry": "Food Wholesalers",
+      "firms": 13,
+      "lossRate": 53.85,
+      "currentPE": 24.9,
+      "trailingPE": 26.8,
+      "forwardPE": 16.64,
+      "aggregatePEAll": 27.12,
+      "aggregatePEProfitable": 24.66,
+      "growth5Y": 36.93,
+      "peg": 0.67
+    },
+    {
+      "industry": "Furn/Home Furnishings",
+      "firms": 27,
+      "lossRate": 51.85,
+      "currentPE": 15.93,
+      "trailingPE": 17.38,
+      "forwardPE": 20.34,
+      "aggregatePEAll": 85.45,
+      "aggregatePEProfitable": 25.18,
+      "growth5Y": 12.28,
+      "peg": 2.05
+    },
+    {
+      "industry": "Green & Renewable Energy",
+      "firms": 15,
+      "lossRate": 86.67,
+      "currentPE": 44.56,
+      "trailingPE": 32.25,
+      "forwardPE": 42.71,
+      "aggregatePEAll": 66.37,
+      "aggregatePEProfitable": 25.95,
+      "growth5Y": 7.77,
+      "peg": 3.34
+    },
+    {
+      "industry": "Healthcare Products",
+      "firms": 204,
+      "lossRate": 75.98,
+      "currentPE": 55.87,
+      "trailingPE": 43.07,
+      "forwardPE": 42.33,
+      "aggregatePEAll": 46.52,
+      "aggregatePEProfitable": 30.35,
+      "growth5Y": 11.07,
+      "peg": 2.74
+    },
+    {
+      "industry": "Healthcare Support Services",
+      "firms": 104,
+      "lossRate": 62.5,
+      "currentPE": 94.43,
+      "trailingPE": 83.77,
+      "forwardPE": 55.29,
+      "aggregatePEAll": 23.64,
+      "aggregatePEProfitable": 21.07,
+      "growth5Y": 12.57,
+      "peg": 1.68
+    },
+    {
+      "industry": "Heathcare Information and Technology",
+      "firms": 115,
+      "lossRate": 76.52,
+      "currentPE": 219.64,
+      "trailingPE": 506.55,
+      "forwardPE": 37.38,
+      "aggregatePEAll": 109.93,
+      "aggregatePEProfitable": 37.27,
+      "growth5Y": 11.17,
+      "peg": 3.34
+    },
+    {
+      "industry": "Homebuilding",
+      "firms": 30,
+      "lossRate": 20,
+      "currentPE": 10.2,
+      "trailingPE": 11.45,
+      "forwardPE": 14.35,
+      "aggregatePEAll": 10.24,
+      "aggregatePEProfitable": 11.25,
+      "growth5Y": 1.97,
+      "peg": 5.72
+    },
+    {
+      "industry": "Hospitals/Healthcare Facilities",
+      "firms": 31,
+      "lossRate": 51.61,
+      "currentPE": 24.35,
+      "trailingPE": 18.8,
+      "forwardPE": 15.65,
+      "aggregatePEAll": 16.72,
+      "aggregatePEProfitable": 15.61,
+      "growth5Y": 14.98,
+      "peg": 1.04
+    },
+    {
+      "industry": "Hotel/Gaming",
+      "firms": 63,
+      "lossRate": 53.97,
+      "currentPE": 83.16,
+      "trailingPE": 46.6,
+      "forwardPE": 29.07,
+      "aggregatePEAll": 31.7,
+      "aggregatePEProfitable": 24.71,
+      "growth5Y": 13.57,
+      "peg": 1.82
+    },
+    {
+      "industry": "Household Products",
+      "firms": 110,
+      "lossRate": 71.82,
+      "currentPE": 65.89,
+      "trailingPE": 33.07,
+      "forwardPE": 16.85,
+      "aggregatePEAll": 24.19,
+      "aggregatePEProfitable": 19.66,
+      "growth5Y": 8.02,
+      "peg": 2.45
+    },
+    {
+      "industry": "Information Services",
+      "firms": 15,
+      "lossRate": 40,
+      "currentPE": 29.35,
+      "trailingPE": 24.92,
+      "forwardPE": 13.22,
+      "aggregatePEAll": 25.82,
+      "aggregatePEProfitable": 23.56,
+      "growth5Y": 10.12,
+      "peg": 2.33
+    },
+    {
+      "industry": "Insurance (General)",
+      "firms": 21,
+      "lossRate": 23.81,
+      "currentPE": 55.15,
+      "trailingPE": 33.96,
+      "forwardPE": 21.51,
+      "aggregatePEAll": 29.96,
+      "aggregatePEProfitable": 27.34,
+      "growth5Y": 24.58,
+      "peg": 1.11
+    },
+    {
+      "industry": "Insurance (Life)",
+      "firms": 20,
+      "lossRate": 25,
+      "currentPE": 19.86,
+      "trailingPE": 12.56,
+      "forwardPE": 9.3,
+      "aggregatePEAll": 10.17,
+      "aggregatePEProfitable": 11.82,
+      "growth5Y": -30.45,
+      "peg": null
+    },
+    {
+      "industry": "Insurance (Prop/Cas.)",
+      "firms": 57,
+      "lossRate": 14.04,
+      "currentPE": 18.05,
+      "trailingPE": 18.33,
+      "forwardPE": 16.36,
+      "aggregatePEAll": 16.52,
+      "aggregatePEProfitable": 11.78,
+      "growth5Y": 15.33,
+      "peg": 0.77
+    },
+    {
+      "industry": "Investments & Asset Management",
+      "firms": 283,
+      "lossRate": 57.6,
+      "currentPE": 378.64,
+      "trailingPE": 75.3,
+      "forwardPE": 18.77,
+      "aggregatePEAll": 24.8,
+      "aggregatePEProfitable": 22.99,
+      "growth5Y": 15,
+      "peg": 1.53
+    },
+    {
+      "industry": "Machinery",
+      "firms": 105,
+      "lossRate": 42.86,
+      "currentPE": 42.6,
+      "trailingPE": 35.76,
+      "forwardPE": 24.06,
+      "aggregatePEAll": 26.22,
+      "aggregatePEProfitable": 26.64,
+      "growth5Y": 13.55,
+      "peg": 1.97
+    },
+    {
+      "industry": "Metals & Mining",
+      "firms": 73,
+      "lossRate": 84.93,
+      "currentPE": 92.87,
+      "trailingPE": 54.12,
+      "forwardPE": 29.82,
+      "aggregatePEAll": 45.55,
+      "aggregatePEProfitable": 29.45,
+      "growth5Y": 34.42,
+      "peg": 0.86
+    },
+    {
+      "industry": "Office Equipment & Services",
+      "firms": 14,
+      "lossRate": 42.86,
+      "currentPE": 13.42,
+      "trailingPE": 18.55,
+      "forwardPE": 10.31,
+      "aggregatePEAll": 55.65,
+      "aggregatePEProfitable": 18.18,
+      "growth5Y": 14.4,
+      "peg": 1.26
+    },
+    {
+      "industry": "Oil/Gas (Integrated)",
+      "firms": 4,
+      "lossRate": 0,
+      "currentPE": 13.01,
+      "trailingPE": 16.24,
+      "forwardPE": 21.9,
+      "aggregatePEAll": 15.7,
+      "aggregatePEProfitable": 19.02,
+      "growth5Y": 4.14,
+      "peg": 4.6
+    },
+    {
+      "industry": "Oil/Gas (Production and Exploration)",
+      "firms": 142,
+      "lossRate": 59.15,
+      "currentPE": 21.36,
+      "trailingPE": 30.98,
+      "forwardPE": 16.14,
+      "aggregatePEAll": 15.22,
+      "aggregatePEProfitable": 12.68,
+      "growth5Y": 4.9,
+      "peg": 2.59
+    },
+    {
+      "industry": "Oil/Gas Distribution",
+      "firms": 23,
+      "lossRate": 43.48,
+      "currentPE": 20.2,
+      "trailingPE": 23.72,
+      "forwardPE": 42.52,
+      "aggregatePEAll": 21.61,
+      "aggregatePEProfitable": 18.55,
+      "growth5Y": 12.69,
+      "peg": 1.46
+    },
+    {
+      "industry": "Oilfield Svcs/Equip.",
+      "firms": 97,
+      "lossRate": 57.73,
+      "currentPE": 37.98,
+      "trailingPE": 33.3,
+      "forwardPE": 21.22,
+      "aggregatePEAll": 18.95,
+      "aggregatePEProfitable": 19.41,
+      "growth5Y": 3.47,
+      "peg": 5.6
+    },
+    {
+      "industry": "Packaging & Container",
+      "firms": 19,
+      "lossRate": 36.84,
+      "currentPE": 60.51,
+      "trailingPE": 16.43,
+      "forwardPE": 15.28,
+      "aggregatePEAll": 12.71,
+      "aggregatePEProfitable": 13.94,
+      "growth5Y": 18.96,
+      "peg": 0.74
+    },
+    {
+      "industry": "Paper/Forest Products",
+      "firms": 6,
+      "lossRate": 50,
+      "currentPE": 7.03,
+      "trailingPE": 12.85,
+      "forwardPE": 16.64,
+      "aggregatePEAll": 10.99,
+      "aggregatePEProfitable": 14.5,
+      "growth5Y": -9.3,
+      "peg": null
+    },
+    {
+      "industry": "Power",
+      "firms": 46,
+      "lossRate": 10.87,
+      "currentPE": 20.75,
+      "trailingPE": 24.74,
+      "forwardPE": 17.59,
+      "aggregatePEAll": 23.13,
+      "aggregatePEProfitable": 20.98,
+      "growth5Y": 9.6,
+      "peg": 2.19
+    },
+    {
+      "industry": "Precious Metals",
+      "firms": 56,
+      "lossRate": 85.71,
+      "currentPE": 119.66,
+      "trailingPE": 26.8,
+      "forwardPE": 16.45,
+      "aggregatePEAll": 50.91,
+      "aggregatePEProfitable": 18.55,
+      "growth5Y": 71.77,
+      "peg": 0.26
+    },
+    {
+      "industry": "Publishing & Newspapers",
+      "firms": 19,
+      "lossRate": 52.63,
+      "currentPE": 18.57,
+      "trailingPE": 15.18,
+      "forwardPE": 13.51,
+      "aggregatePEAll": 21.08,
+      "aggregatePEProfitable": 16.72,
+      "growth5Y": 9.39,
+      "peg": 1.78
+    },
+    {
+      "industry": "R.E.I.T.",
+      "firms": 190,
+      "lossRate": 33.68,
+      "currentPE": 62.98,
+      "trailingPE": 36.95,
+      "forwardPE": 45.11,
+      "aggregatePEAll": 56.11,
+      "aggregatePEProfitable": 28.1,
+      "growth5Y": 4.29,
+      "peg": 6.55
+    },
+    {
+      "industry": "Real Estate (Development)",
+      "firms": 14,
+      "lossRate": 78.57,
+      "currentPE": 29.45,
+      "trailingPE": 11.35,
+      "forwardPE": 12.34,
+      "aggregatePEAll": 23.35,
+      "aggregatePEProfitable": 13.38,
+      "growth5Y": -2.9,
+      "peg": null
+    },
+    {
+      "industry": "Real Estate (General/Diversified)",
+      "firms": 12,
+      "lossRate": 58.33,
+      "currentPE": 46.16,
+      "trailingPE": 40.25,
+      "forwardPE": 14.33,
+      "aggregatePEAll": 41.71,
+      "aggregatePEProfitable": 19.37,
+      "growth5Y": null,
+      "peg": null
+    },
+    {
+      "industry": "Real Estate (Operations & Services)",
+      "firms": 54,
+      "lossRate": 59.26,
+      "currentPE": 61.29,
+      "trailingPE": 107.34,
+      "forwardPE": 93.59,
+      "aggregatePEAll": 405.47,
+      "aggregatePEProfitable": 43.84,
+      "growth5Y": 33,
+      "peg": 1.33
+    },
+    {
+      "industry": "Recreation",
+      "firms": 49,
+      "lossRate": 57.14,
+      "currentPE": 24.85,
+      "trailingPE": 119.01,
+      "forwardPE": 38.02,
+      "aggregatePEAll": 96.02,
+      "aggregatePEProfitable": 18.18,
+      "growth5Y": 9.95,
+      "peg": 1.83
+    },
+    {
+      "industry": "Reinsurance",
+      "firms": 1,
+      "lossRate": 0,
+      "currentPE": 18.65,
+      "trailingPE": 15.42,
+      "forwardPE": 8.14,
+      "aggregatePEAll": 18.65,
+      "aggregatePEProfitable": 15.42,
+      "growth5Y": null,
+      "peg": null
+    },
+    {
+      "industry": "Restaurant/Dining",
+      "firms": 64,
+      "lossRate": 46.88,
+      "currentPE": 67.67,
+      "trailingPE": 48.33,
+      "forwardPE": 31.9,
+      "aggregatePEAll": 36.36,
+      "aggregatePEProfitable": 32.79,
+      "growth5Y": 3.53,
+      "peg": 9.29
+    },
+    {
+      "industry": "Retail (Automotive)",
+      "firms": 34,
+      "lossRate": 55.88,
+      "currentPE": 34.26,
+      "trailingPE": 54.83,
+      "forwardPE": 21.88,
+      "aggregatePEAll": 27.36,
+      "aggregatePEProfitable": 24.02,
+      "growth5Y": 17.82,
+      "peg": 1.35
+    },
+    {
+      "industry": "Retail (Building Supply)",
+      "firms": 14,
+      "lossRate": 50,
+      "currentPE": 31.22,
+      "trailingPE": 23.47,
+      "forwardPE": 23.14,
+      "aggregatePEAll": 23.42,
+      "aggregatePEProfitable": 22.31,
+      "growth5Y": 16.98,
+      "peg": 1.31
+    },
+    {
+      "industry": "Retail (Distributors)",
+      "firms": 62,
+      "lossRate": 45.16,
+      "currentPE": 103.56,
+      "trailingPE": 28.8,
+      "forwardPE": 43.84,
+      "aggregatePEAll": 25.41,
+      "aggregatePEProfitable": 22.43,
+      "growth5Y": 9.47,
+      "peg": 2.37
+    },
+    {
+      "industry": "Retail (General)",
+      "firms": 23,
+      "lossRate": 26.09,
+      "currentPE": 46.68,
+      "trailingPE": 51,
+      "forwardPE": 23.97,
+      "aggregatePEAll": 43.04,
+      "aggregatePEProfitable": 33.49,
+      "growth5Y": 11.71,
+      "peg": 2.86
+    },
+    {
+      "industry": "Retail (Grocery and Food)",
+      "firms": 15,
+      "lossRate": 40,
+      "currentPE": 17.46,
+      "trailingPE": 20.54,
+      "forwardPE": 14.34,
+      "aggregatePEAll": 17.66,
+      "aggregatePEProfitable": 25.23,
+      "growth5Y": 11.14,
+      "peg": 2.27
+    },
+    {
+      "industry": "Retail (REITs)",
+      "firms": 26,
+      "lossRate": 7.69,
+      "currentPE": 109.93,
+      "trailingPE": 368.69,
+      "forwardPE": 44.39,
+      "aggregatePEAll": 35.74,
+      "aggregatePEProfitable": 31.1,
+      "growth5Y": 3.99,
+      "peg": 7.79
+    },
+    {
+      "industry": "Retail (Special Lines)",
+      "firms": 94,
+      "lossRate": 61.7,
+      "currentPE": 26.04,
+      "trailingPE": 314.01,
+      "forwardPE": 21.52,
+      "aggregatePEAll": 27.75,
+      "aggregatePEProfitable": 24.91,
+      "growth5Y": 8.08,
+      "peg": 3.08
+    },
+    {
+      "industry": "Rubber& Tires",
+      "firms": 3,
+      "lossRate": 100,
+      "currentPE": 35.81,
+      "trailingPE": null,
+      "forwardPE": 7.3,
+      "aggregatePEAll": 42.7,
+      "aggregatePEProfitable": null,
+      "growth5Y": 9.07,
+      "peg": null
+    },
+    {
+      "industry": "Semiconductor",
+      "firms": 66,
+      "lossRate": 62.12,
+      "currentPE": 70.13,
+      "trailingPE": 100.18,
+      "forwardPE": 37.29,
+      "aggregatePEAll": 77.42,
+      "aggregatePEProfitable": 48.81,
+      "growth5Y": 22.88,
+      "peg": 2.13
+    },
+    {
+      "industry": "Semiconductor Equip",
+      "firms": 31,
+      "lossRate": 45.16,
+      "currentPE": 47.58,
+      "trailingPE": 46.83,
+      "forwardPE": 41.58,
+      "aggregatePEAll": 35.88,
+      "aggregatePEProfitable": 34.18,
+      "growth5Y": 18.74,
+      "peg": 1.82
+    },
+    {
+      "industry": "Shipbuilding & Marine",
+      "firms": 8,
+      "lossRate": 62.5,
+      "currentPE": 13.7,
+      "trailingPE": 18.87,
+      "forwardPE": 11.56,
+      "aggregatePEAll": 12.94,
+      "aggregatePEProfitable": 13.67,
+      "growth5Y": 16.4,
+      "peg": 0.83
+    },
+    {
+      "industry": "Shoe",
+      "firms": 11,
+      "lossRate": 36.36,
+      "currentPE": 18.7,
+      "trailingPE": 24.47,
+      "forwardPE": 17.1,
+      "aggregatePEAll": 22.5,
+      "aggregatePEProfitable": 30.47,
+      "growth5Y": 7.3,
+      "peg": 4.17
+    },
+    {
+      "industry": "Software (Entertainment)",
+      "firms": 77,
+      "lossRate": 71.43,
+      "currentPE": 70.74,
+      "trailingPE": 39.34,
+      "forwardPE": 18.52,
+      "aggregatePEAll": 34.47,
+      "aggregatePEProfitable": 29.62,
+      "growth5Y": 20.55,
+      "peg": 1.44
+    },
+    {
+      "industry": "Software (Internet)",
+      "firms": 29,
+      "lossRate": 72.41,
+      "currentPE": 162.98,
+      "trailingPE": 67.21,
+      "forwardPE": 64.81,
+      "aggregatePEAll": null,
+      "aggregatePEProfitable": 34.82,
+      "growth5Y": 20.9,
+      "peg": 1.67
+    },
+    {
+      "industry": "Software (System & Application)",
+      "firms": 309,
+      "lossRate": 70.23,
+      "currentPE": 122.49,
+      "trailingPE": 79.17,
+      "forwardPE": 34.13,
+      "aggregatePEAll": 49.13,
+      "aggregatePEProfitable": 37.52,
+      "growth5Y": 22.76,
+      "peg": 1.65
+    },
+    {
+      "industry": "Steel",
+      "firms": 19,
+      "lossRate": 36.84,
+      "currentPE": 77.37,
+      "trailingPE": 47.58,
+      "forwardPE": 16.85,
+      "aggregatePEAll": 23.62,
+      "aggregatePEProfitable": 24.07,
+      "growth5Y": 16.04,
+      "peg": 1.5
+    },
+    {
+      "industry": "Telecom (Wireless)",
+      "firms": 12,
+      "lossRate": 75,
+      "currentPE": 21.64,
+      "trailingPE": 107.14,
+      "forwardPE": 35.63,
+      "aggregatePEAll": 21.37,
+      "aggregatePEProfitable": 19.49,
+      "growth5Y": 15.1,
+      "peg": 1.29
+    },
+    {
+      "industry": "Telecom. Equipment",
+      "firms": 57,
+      "lossRate": 68.42,
+      "currentPE": 125.46,
+      "trailingPE": 84.72,
+      "forwardPE": 39.47,
+      "aggregatePEAll": 48.01,
+      "aggregatePEProfitable": 35.08,
+      "growth5Y": 40.27,
+      "peg": 0.87
+    },
+    {
+      "industry": "Telecom. Services",
+      "firms": 39,
+      "lossRate": 79.49,
+      "currentPE": 26.52,
+      "trailingPE": 16.79,
+      "forwardPE": 26.5,
+      "aggregatePEAll": 14.39,
+      "aggregatePEProfitable": 8.02,
+      "growth5Y": 59.42,
+      "peg": 0.13
+    },
+    {
+      "industry": "Tobacco",
+      "firms": 10,
+      "lossRate": 50,
+      "currentPE": 22.98,
+      "trailingPE": 23.21,
+      "forwardPE": 17.64,
+      "aggregatePEAll": 19.02,
+      "aggregatePEProfitable": 19.81,
+      "growth5Y": 6.11,
+      "peg": 3.24
+    },
+    {
+      "industry": "Transportation",
+      "firms": 19,
+      "lossRate": 52.63,
+      "currentPE": 60.03,
+      "trailingPE": 28.87,
+      "forwardPE": 19.76,
+      "aggregatePEAll": 24.4,
+      "aggregatePEProfitable": 13.35,
+      "growth5Y": 15.8,
+      "peg": 0.84
+    },
+    {
+      "industry": "Transportation (Railroads)",
+      "firms": 4,
+      "lossRate": 25,
+      "currentPE": 21.5,
+      "trailingPE": 21.53,
+      "forwardPE": 20.47,
+      "aggregatePEAll": 21.53,
+      "aggregatePEProfitable": 20.87,
+      "growth5Y": 7.66,
+      "peg": 2.72
+    },
+    {
+      "industry": "Trucking",
+      "firms": 26,
+      "lossRate": 50,
+      "currentPE": 33.87,
+      "trailingPE": 37.42,
+      "forwardPE": 46.17,
+      "aggregatePEAll": 34.58,
+      "aggregatePEProfitable": 32.67,
+      "growth5Y": 20.12,
+      "peg": 1.62
+    },
+    {
+      "industry": "Utility (General)",
+      "firms": 14,
+      "lossRate": 0,
+      "currentPE": 21.03,
+      "trailingPE": 19.92,
+      "forwardPE": 18.13,
+      "aggregatePEAll": 21.67,
+      "aggregatePEProfitable": 20.48,
+      "growth5Y": 6.91,
+      "peg": 2.96
+    },
+    {
+      "industry": "Utility (Water)",
+      "firms": 14,
+      "lossRate": 28.57,
+      "currentPE": 21.99,
+      "trailingPE": 23.07,
+      "forwardPE": 21.3,
+      "aggregatePEAll": 22,
+      "aggregatePEProfitable": 20.22,
+      "growth5Y": 7.65,
+      "peg": 2.64
+    }
+  ],
+  "benchmark": {
+    "Total Market": {
+      "industry": "Total Market",
+      "firms": 5994,
+      "lossRate": 57.16,
+      "currentPE": 72.19,
+      "trailingPE": 57.86,
+      "forwardPE": 27.66,
+      "aggregatePEAll": 34.22,
+      "aggregatePEProfitable": 26.56,
+      "growth5Y": 13.95,
+      "peg": 1.9
+    },
+    "Total Market (without financials)": {
+      "industry": "Total Market (without financials)",
+      "firms": 4822,
+      "lossRate": 63.98,
+      "currentPE": 60.26,
+      "trailingPE": 61.56,
+      "forwardPE": 30.89,
+      "aggregatePEAll": 38.63,
+      "aggregatePEProfitable": 28.86,
+      "growth5Y": 13.68,
+      "peg": 2.11
+    }
+  }
+}</script>
+<script type="module">import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const raw = JSON.parse(document.getElementById('embeddedData').textContent);
+const benchmark=raw.benchmark['Total Market'];
+
+const CATEGORY_ORDER=['科技','医疗健康','金融','消费','工业','能源材料','防御/公用'];
+const CATEGORY_ANCHORS={科技:[-10.5,-2],医疗健康:[-5,6.5],金融:[5.5,6.5],消费:[11,0],工业:[6,-7],能源材料:[-6,-7],'防御/公用':[0,0]};
+const CATEGORY_META={
+  科技:{color:'#4aa8ff',accent:'#9de9ff',rx:5.2,rz:4.1,rotation:-0.32,biome:'量子山脉',landform:'尖峰山脊 / 发光脉络',note:'高成长、高波动、高资本关注，内部由半导体—软件—通信构成层级链路。',contour:[1.08,1.00,1.12,0.96,1.10,0.94,1.05,1.12,0.90,1.06,0.95,1.02]},
+  医疗健康:{color:'#35c98d',accent:'#d7fff0',rx:4.4,rz:3.8,rotation:0.18,biome:'实验群岛',landform:'群岛海湾 / 生物裂隙',note:'创新药、器械、服务三层并存，右尾机会多，但分化和失败率也高。',contour:[0.94,1.08,0.92,1.10,0.88,1.00,1.12,0.90,1.04,0.86,1.05,0.96]},
+  金融:{color:'#c7a85b',accent:'#f6e9a6',rx:4.7,rz:3.9,rotation:-0.10,biome:'资本高原',landform:'层状台地 / 阶梯盆地',note:'银行、保险、券商与地产分区明显，地势更规则，反映成熟、杠杆与收益率驱动。',contour:[1.00,1.06,1.02,0.98,1.08,1.04,1.00,0.96,1.02,1.05,0.97,0.99]},
+  消费:{color:'#d07c42',accent:'#ffd39b',rx:5.0,rz:4.2,rotation:0.12,biome:'商贸平原',landform:'城市群 / 商路网络',note:'终端需求驱动，媒体、零售、品牌与体验消费交错，地势更开阔、网络化。',contour:[1.10,0.96,1.02,1.12,0.94,1.00,1.08,0.92,1.04,1.10,0.95,1.00]},
+  工业:{color:'#7d8a92',accent:'#d6e2ea',rx:4.8,rz:4.5,rotation:0.26,biome:'机械峡谷',landform:'山谷走廊 / 制造脊线',note:'军工、运输、机械、建筑围绕订单、产能和资本开支展开。',contour:[1.06,1.00,0.96,1.10,1.02,0.92,1.08,1.00,0.94,1.12,0.98,1.04]},
+  能源材料:{color:'#95563c',accent:'#e6a277',rx:4.9,rz:4.0,rotation:-0.14,biome:'矿脉盆地',landform:'矿带 / 熔岩丘陵',note:'资源价格、供给约束和周期弹性最强，内部沿化工—金属—油气形成矿脉结构。',contour:[1.00,1.12,0.94,1.04,1.08,0.90,1.10,0.96,1.02,1.05,0.92,1.06]},
+  '防御/公用':{color:'#4d8d96',accent:'#b8edf2',rx:4.0,rz:3.6,rotation:0.04,biome:'水网台地',landform:'堤坝 / 缓坡 / 水系',note:'公用事业与环境服务地势更平缓，现金流稳定，承担防御与底盘功能。',contour:[0.98,1.04,1.00,0.96,1.02,1.08,0.94,1.02,1.06,0.98,1.00,1.04]}
+};
+const RELATION_META={
+  supply:{label:'产业链',color:'#69d9ef',dash:0,gap:0,speed:.10},
+  capital:{label:'资本',color:'#f0cb72',dash:.62,gap:.32,speed:.085},
+  demand:{label:'需求',color:'#e58b5d',dash:.30,gap:.26,speed:.075},
+  defensive:{label:'防御',color:'#77c7a2',dash:.95,gap:.48,speed:.060}
+};
+const CATEGORY_RELATIONS=[
+  {a:'科技',b:'医疗健康',w:.92,type:'supply',label:'研发 / 仪器 / AI'},
+  {a:'科技',b:'工业',w:.86,type:'supply',label:'自动化 / 算力 / 设备'},
+  {a:'工业',b:'能源材料',w:.94,type:'supply',label:'资源 / 制造'},
+  {a:'工业',b:'防御/公用',w:.62,type:'supply',label:'基建 / 电力 / 公共项目'},
+  {a:'金融',b:'工业',w:.70,type:'capital',label:'资本开支 / 融资'},
+  {a:'金融',b:'消费',w:.76,type:'capital',label:'信用 / 支付 / 财富效应'},
+  {a:'金融',b:'科技',w:.52,type:'capital',label:'成长资本 / 估值折现'},
+  {a:'消费',b:'工业',w:.62,type:'demand',label:'终端需求 / 物流'},
+  {a:'科技',b:'消费',w:.74,type:'demand',label:'平台 / 终端 / 广告'},
+  {a:'能源材料',b:'消费',w:.40,type:'demand',label:'成本 / 商品价格'},
+  {a:'医疗健康',b:'防御/公用',w:.52,type:'defensive',label:'公共服务 / 稳定现金流'},
+  {a:'金融',b:'防御/公用',w:.38,type:'defensive',label:'利率 / 收益率防御'}
+];
+const CLUSTER_CENTERS={
+  'tech-semi':[-13,-4.2],'tech-hardware':[-10.4,-5.0],'tech-services':[-8.0,-3.0],'tech-software':[-8.8,.2],'tech-telecom':[-12.0,1.5],
+  'health-biopharma':[-7.1,8.2],'health-products':[-6.2,5.2],'health-support':[-3.7,5.0],'health-facilities':[-2.1,7.3],
+  'finance-banks':[3.4,8.2],'finance-capital':[6.2,8.2],'finance-insurance':[8.0,6.2],'finance-realestate':[4.4,4.2],'finance-diversified':[6.4,4.8],
+  'consumer-media':[10.0,4.0],'consumer-food':[13.3,2.1],'consumer-retail':[12.0,-.8],'consumer-discretionary':[9.6,-2.2],'consumer-experience':[13.2,-3.2],
+  'industrial-aerospace':[3.0,-9.0],'industrial-transport':[3.8,-6.0],'industrial-auto':[6.8,-9.0],'industrial-construction':[9.0,-6.0],'industrial-machinery':[6.8,-4.8],'industrial-services':[9.0,-9.0],
+  'energy-fossil':[-4.4,-9.0],'energy-metals':[-9.2,-9.0],'energy-chemicals':[-8.3,-6.1],'energy-agforest':[-9.0,-4.2],'energy-transition':[-4.2,-4.8],
+  'defense-utilities':[0,-1.2],'defense-environment':[-1.7,1.0],'defense-diversified':[1.7,1.0]
+};
+const MODE_META={
+  valuation:{label:'估值地形',height:'ln(行业 Forward PE / 市场 27.66×)',color:'5Y EPS 增长',desc:'行业位置按产业语义永久固定。市场 Forward PE 27.66× 是海平面；行业高于海面代表估值溢价，低于海面代表折价。'},
+  growth:{label:'增长地形',height:'5Y EPS 增长',color:'相对市场 Forward PE',desc:'位置不变，只把增长抬成地形。高峰代表更高的未来 5 年 EPS 预期；颜色帮助识别增长与估值是否匹配。'},
+  risk:{label:'盈利风险',height:'亏损公司比例',color:'盈利脆弱度',desc:'位置不变。海拔越高，行业中亏损公司比例越高；点阵密度同步表达盈利基础脆弱度。'}
+};
+const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
+const norm=(v,lo,hi)=>clamp((v-lo)/(hi-lo||1),0,1);
+const fmt=(v,d=2)=>Number.isFinite(v)?Number(v).toFixed(d):'NA';
+function classify(name){
+  if(name==='Retail (REITs)'||name.includes('R.E.I.T.')||name.startsWith('Real Estate'))return '金融';
+  if(name==='Power'||name.startsWith('Utility')||name==='Environmental & Waste Services'||name==='Diversified')return '防御/公用';
+  if(name==='Homebuilding')return '工业';
+  if(/Computer|Software|Semiconductor|Electronics|Telecom|Information Services/.test(name))return '科技';
+  if(/Drug|Healthcare|Heathcare|Hospital/.test(name))return '医疗健康';
+  if(/Bank|Brokerage|Financial|Insurance|Investments|Reinsurance/.test(name))return '金融';
+  if(/Advertising|Apparel|Beverage|Broadcasting|Cable TV|Entertainment|Food|Furn\/|Hotel\/Gaming|Household|Publishing|Recreation|Restaurant|Retail|Shoe|Tobacco|Education/.test(name))return '消费';
+  if(/Aerospace|Air Transport|Auto|Building|Business & Consumer Services|Construction|Engineering|Machinery|Office Equipment|Packaging|Shipbuilding|Transportation|Trucking|Electrical Equipment/.test(name))return '工业';
+  if(/Chemical|Coal|Farming|Green & Renewable|Metals|Oil\/|Oilfield|Paper\/|Precious Metals|Rubber|Steel/.test(name))return '能源材料';
+  return '防御/公用';
+}
+function semanticCluster(name,cat){
+  if(cat==='科技'){
+    if(name.includes('Semiconductor'))return 'tech-semi';
+    if(name.startsWith('Software'))return 'tech-software';
+    if(name.includes('Telecom'))return 'tech-telecom';
+    if(/Computers|Electronics/.test(name))return 'tech-hardware';
+    return 'tech-services';
+  }
+  if(cat==='医疗健康'){
+    if(name.startsWith('Drugs'))return 'health-biopharma';
+    if(name==='Healthcare Products')return 'health-products';
+    if(name.includes('Hospital'))return 'health-facilities';
+    return 'health-support';
+  }
+  if(cat==='金融'){
+    if(name.includes('Bank'))return 'finance-banks';
+    if(/Insurance|Reinsurance/.test(name))return 'finance-insurance';
+    if(/Real Estate|R.E.I.T.|REITs/.test(name))return 'finance-realestate';
+    if(/Brokerage|Investments/.test(name))return 'finance-capital';
+    return 'finance-diversified';
+  }
+  if(cat==='消费'){
+    if(/Advertising|Broadcasting|Cable TV|Publishing|Entertainment/.test(name))return 'consumer-media';
+    if(/Food|Beverage|Restaurant|Tobacco|Household/.test(name))return 'consumer-food';
+    if(name.startsWith('Retail'))return 'consumer-retail';
+    if(/Hotel|Recreation|Education/.test(name))return 'consumer-experience';
+    return 'consumer-discretionary';
+  }
+  if(cat==='工业'){
+    if(/Aerospace|Shipbuilding/.test(name))return 'industrial-aerospace';
+    if(/Air Transport|Transportation|Trucking/.test(name))return 'industrial-transport';
+    if(name.startsWith('Auto'))return 'industrial-auto';
+    if(/Building|Construction|Homebuilding/.test(name))return 'industrial-construction';
+    if(/Machinery|Electrical Equipment|Office Equipment|Packaging/.test(name))return 'industrial-machinery';
+    return 'industrial-services';
+  }
+  if(cat==='能源材料'){
+    if(/Oil\/|Oilfield|Coal/.test(name))return 'energy-fossil';
+    if(/Metals|Precious|Steel/.test(name))return 'energy-metals';
+    if(/Chemical|Rubber/.test(name))return 'energy-chemicals';
+    if(/Farming|Paper\//.test(name))return 'energy-agforest';
+    return 'energy-transition';
+  }
+  if(/Utility|Power/.test(name))return 'defense-utilities';
+  if(name.includes('Environmental'))return 'defense-environment';
+  return 'defense-diversified';
+}
+
+const staged=raw.industries.map((d,id)=>({...d,id,category:classify(d.industry)}));
+staged.forEach(d=>d.cluster=semanticCluster(d.industry,d.category));
+const members={};for(const d of staged)(members[d.cluster]??=[]).push(d);for(const a of Object.values(members))a.sort((a,b)=>a.industry.localeCompare(b.industry));
+function semanticPosition(d){
+  const center=CLUSTER_CENTERS[d.cluster]||CATEGORY_ANCHORS[d.category]||[0,0];const group=members[d.cluster]||[d];const i=group.findIndex(x=>x.id===d.id),n=group.length;
+  if(n===1)return center.slice();
+  const radius=Math.min(1.05,.38+.10*n),phase=((d.cluster.length%7)-3)*.12-Math.PI/2,angle=phase+i*Math.PI*2/n;
+  return [center[0]+Math.cos(angle)*radius,center[1]+Math.sin(angle)*radius];
+}
+function rotate2D(x,z,rot=0){const c=Math.cos(rot),s=Math.sin(rot);return [x*c-z*s,x*s+z*c];}
+function territoryLocal(cat,x,z){const meta=CATEGORY_META[cat],anchor=CATEGORY_ANCHORS[cat];if(!meta||!anchor)return {u:0,v:0,r:99,lx:0,lz:0};const dx=x-anchor[0],dz=z-anchor[1];const c=Math.cos(-(meta.rotation||0)),s=Math.sin(-(meta.rotation||0));const lx=dx*c-dz*s,lz=dx*s+dz*c;const u=lx/(meta.rx||1),v=lz/(meta.rz||1);return {u,v,r:Math.hypot(u,v),lx,lz};}
+function territoryInfluence(cat,x,z){const {r}=territoryLocal(cat,x,z);return Math.exp(-1.75*r*r);}
+function dominantCategoryAt(x,z){let bestCat=null,bestW=0,bestLocal=null;for(const cat of CATEGORY_ORDER){if(activeCategory!=='全部'&&activeCategory!==cat)continue;const local=territoryLocal(cat,x,z),w=Math.exp(-1.75*local.r*local.r);if(w>bestW){bestW=w;bestCat=cat;bestLocal=local;}}return {cat:bestCat,weight:bestW,local:bestLocal};}
+function biomeShape(cat,local){const {u,v,r}=local;const edge=Math.max(0,1-r);switch(cat){case '科技':return (.90*Math.abs(u)+.36*Math.abs(v)+.12*Math.sin(6*u))*.85*edge;case '医疗健康':return (0.42+0.36*Math.sin(5*u)*Math.cos(5*v)+0.24*Math.exp(-5*((u-.35)**2+(v+.1)**2)))*edge;case '金融':return (.62-.22*Math.max(Math.abs(u),Math.abs(v))+0.08*Math.cos(8*u)*Math.cos(8*v))*edge;case '消费':return (0.24+0.18*Math.sin(8*u)*Math.sin(7*v)+0.14*Math.cos(6*u))*edge;case '工业':return (0.48*Math.abs(Math.sin(4.5*u))+0.20*Math.cos(5*v)+0.10)*edge;case '能源材料':return (0.42+0.42*Math.abs(u)-0.28*Math.exp(-8*((u+.08)**2+(v-.06)**2))+0.10*Math.sin(7*v))*edge;default:return (0.18+0.12*Math.cos(5*u)*Math.cos(4*v))*edge;}}
+function biomeHeightAt(x,z){let sum=0;for(const cat of CATEGORY_ORDER){if(activeCategory!=='全部'&&activeCategory!==cat)continue;const local=territoryLocal(cat,x,z),w=Math.exp(-1.95*local.r*local.r);if(w<0.03)continue;sum+=biomeShape(cat,local)*w;}return sum;}
+function boundaryReliefAt(x,z){let relief=0;for(const cat of CATEGORY_ORDER){if(activeCategory!=='全部'&&activeCategory!==cat)continue;const {r}=territoryLocal(cat,x,z);const ridge=Math.exp(-Math.pow((r-.985)/.055,2));const moat=Math.exp(-Math.pow((r-1.075)/.070,2));relief+=.34*ridge-.13*moat;}return clamp(relief,-.18,.52);}
+function territoryOutline(cat){const meta=CATEGORY_META[cat],anchor=CATEGORY_ANCHORS[cat],mult=meta?.contour||[];const pts=[];for(let i=0;i<mult.length;i++){const a=Math.PI*2*i/mult.length,x=Math.cos(a)*(meta.rx*mult[i]),z=Math.sin(a)*(meta.rz*mult[i]);const [xr,zr]=rotate2D(x,z,meta.rotation||0);pts.push({x:anchor[0]+xr,z:anchor[1]+zr});}return pts;}
+function conformalShapeMesh(points,color,opacity=.16){const contour=points.map(p=>new THREE.Vector2(p.x,p.z));const tris=THREE.ShapeUtils.triangulateShape(contour,[]);const pos=[];points.forEach(p=>pos.push(p.x,fieldHeight(p.x,p.z)+.05,p.z));const idx=[];tris.forEach(t=>idx.push(t[0],t[1],t[2]));const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setIndex(idx);g.computeVertexNormals();return new THREE.Mesh(g,new THREE.MeshStandardMaterial({color,transparent:true,opacity,side:THREE.DoubleSide,roughness:.72,metalness:.06,depthWrite:false,emissive:new THREE.Color(color).multiplyScalar(.14)}));}
+function conformalLine(points,color){const pos=[];points.forEach(p=>pos.push(p.x,fieldHeight(p.x,p.z)+.12,p.z));pos.push(points[0].x,fieldHeight(points[0].x,points[0].z)+.12,points[0].z);const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));return new THREE.Line(g,new THREE.LineBasicMaterial({color,transparent:true,opacity:.55}));}
+function conformalTube(points,color,radius=.035,opacity=.7){const pts=points.map(p=>new THREE.Vector3(p.x,fieldHeight(p.x,p.z)+.14,p.z));pts.push(pts[0].clone());const curve=new THREE.CatmullRomCurve3(pts,true,'catmullrom',.42);const g=new THREE.TubeGeometry(curve,Math.max(72,points.length*8),radius,7,true);const m=new THREE.MeshBasicMaterial({color,transparent:true,opacity,depthWrite:false});return new THREE.Mesh(g,m);}
+
+function mismatchRaw(d){
+  if(!Number.isFinite(d.forwardPE)||!Number.isFinite(d.growth5Y))return -99;
+  const growth=Math.min(d.growth5Y,40),baseGrowth=benchmark.growth5Y||13.95,peRatio=Math.max(.05,d.forwardPE/(benchmark.forwardPE||27.66));
+  const growthTerm=Math.log((Math.max(growth,-8)+18)/(baseGrowth+18));
+  const valuationTerm=-.72*Math.log(peRatio);
+  const pegTerm=Number.isFinite(d.peg)?.18*Math.log(((benchmark.peg||1.9)+.5)/(Math.max(.05,d.peg)+.5)):0;
+  const fragility=Number.isFinite(d.lossRate)?Math.max(0,d.lossRate-60)/40*.18:0;
+  return growthTerm+valuationTerm+pegTerm-fragility;
+}
+const preNodes=staged.map(d=>{const [x,z]=semanticPosition(d);return {...d,x,z,mismatchRaw:mismatchRaw(d)};});
+const rankedRaw=preNodes.map(d=>d.mismatchRaw).filter(v=>v>-90).slice().sort((a,b)=>a-b);
+function mismatchScore(v){if(v<=-90||!rankedRaw.length)return 0;let i=0;while(i<rankedRaw.length&&rankedRaw[i]<=v)i++;return Math.round(100*i/rankedRaw.length);}
+const allNodes=preNodes.map(d=>{const score=mismatchScore(d.mismatchRaw);const mismatchType=score>=75?'正向错配候选':score<=25?'估值压力':'接近基准';return {...d,mismatchScore:score,mismatchType};});
+const topNodes=allNodes.slice().sort((a,b)=>b.mismatchScore-a.mismatchScore).slice(0,10);
+
+let mode='valuation',activeCategory='全部',selected=null;
+let showParticles=true,showPeg=true,showLens=true,showRelations=true,currentNodes=allNodes;
+const activeRelationTypes=new Set(Object.keys(RELATION_META));
+const SEA_LEVEL=2.05;
+function nodeHeight(d){
+  if(mode==='growth'){const g=Number.isFinite(d.growth5Y)?d.growth5Y:benchmark.growth5Y;return 2.5+.95*Math.asinh((g-(benchmark.growth5Y||13.95))/15);}
+  if(mode==='risk')return .40+4.20*clamp((d.lossRate??50)/100,0,1);
+  const pe=Number.isFinite(d.forwardPE)?d.forwardPE:(benchmark.forwardPE||27.66);return SEA_LEVEL+1.20*Math.log(Math.max(.08,pe/(benchmark.forwardPE||27.66)));
+}
+function fieldHeight(x,z,nodes=currentNodes){
+  let nearest=Infinity,nearestNode=null,ws=0,wh=0,density=0;
+  for(const d of nodes){const dx=x-d.x,dz=z-d.z,r2=dx*dx+dz*dz;if(r2<nearest){nearest=r2;nearestNode=d;}if(r2<1e-7)return nodeHeight(d)+.72*biomeHeightAt(x,z);const w=Math.exp(-r2/4.6)/(r2+.18);ws+=w;wh+=w*nodeHeight(d);density+=Math.exp(-r2/3.0);}
+  if(!ws||!nearestNode)return .06;const local=wh/ws,cov=1-Math.exp(-density*.62),base=.06*(1-cov)+local*cov;return base+.72*biomeHeightAt(x,z)+boundaryReliefAt(x,z);
+}
+function metricAt(x,z,getter){let ws=0,wm=0;for(const d of currentNodes){const dx=x-d.x,dz=z-d.z,r2=dx*dx+dz*dz,w=Math.exp(-r2/5.2);ws+=w;wm+=w*getter(d);}return ws?wm/ws:0;}
+function ramp(v,stops){v=clamp(v,0,1);for(let i=1;i<stops.length;i++){if(v<=stops[i][0]){const [p0,c0]=stops[i-1],[p1,c1]=stops[i],t=(v-p0)/(p1-p0||1);return new THREE.Color(c0).lerp(new THREE.Color(c1),t);}}return new THREE.Color(stops.at(-1)[1]);}
+const GROWTH_RAMP=[[0,'#18345c'],[.48,'#168d99'],[.76,'#58c3aa'],[1,'#f0df8a']];
+const VAL_RAMP=[[0,'#27679a'],[.50,'#68b8ad'],[.72,'#d0c979'],[1,'#df7d60']];
+const RISK_RAMP=[[0,'#143b4b'],[.48,'#4d9a91'],[.72,'#d19a52'],[1,'#d65f57']];
+function terrainColorAt(x,z){
+  let base;
+  if(mode==='valuation'){const g=metricAt(x,z,d=>d.growth5Y??0);base=ramp(norm(g,-10,45),GROWTH_RAMP);}
+  else if(mode==='growth'){const rel=metricAt(x,z,d=>Number.isFinite(d.forwardPE)?d.forwardPE/(benchmark.forwardPE||27.66):1);base=ramp(norm(rel,.35,2.3),VAL_RAMP);}
+  else{const r=metricAt(x,z,d=>(d.lossRate??50)/100);base=ramp(r,RISK_RAMP);}
+  const dom=dominantCategoryAt(x,z);
+  if(dom?.cat&&dom.weight>.08){const meta=CATEGORY_META[dom.cat],c1=new THREE.Color(meta.color),c2=new THREE.Color(meta.accent);const texture=.5+.5*Math.sin(dom.local.u*7+dom.local.v*5);base.lerp(texture>.52?c2:c1,.10+.18*dom.weight);}
+  return base;
+}
+function disposeObject(obj){obj?.traverse?.(o=>{o.geometry?.dispose?.();if(o.material){if(Array.isArray(o.material))o.material.forEach(m=>m.dispose?.());else o.material.dispose?.();}});}
+
+const wrap=document.getElementById('canvasWrap');
+const scene=new THREE.Scene();scene.background=new THREE.Color('#050b11');scene.fog=new THREE.Fog('#050b11',18,46);
+const camera=new THREE.PerspectiveCamera(46,innerWidth/innerHeight,.1,100);camera.position.set(17,16,22);
+const renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});renderer.setPixelRatio(Math.min(devicePixelRatio,1.7));renderer.setSize(innerWidth,innerHeight);renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.outputColorSpace=THREE.SRGBColorSpace;wrap.appendChild(renderer.domElement);
+const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.dampingFactor=.08;controls.minDistance=6;controls.maxDistance=42;controls.maxPolarAngle=Math.PI/2.08;controls.target.set(0,1.2,0);
+let cameraTarget=new THREE.Vector3(0,1.2,0);
+scene.add(new THREE.AmbientLight('#e3fbff',.48));const hemi=new THREE.HemisphereLight('#c8f4ff','#071118',.85);scene.add(hemi);const dir=new THREE.DirectionalLight('#ffffff',1.35);dir.position.set(9,16,8);dir.castShadow=true;dir.shadow.mapSize.set(2048,2048);scene.add(dir);const point=new THREE.PointLight('#58d8f5',16,22);point.position.set(-13,8,-5);scene.add(point);
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(42,34),new THREE.MeshStandardMaterial({color:'#061019',roughness:1}));floor.rotation.x=-Math.PI/2;floor.position.y=-.02;scene.add(floor);const grid=new THREE.GridHelper(36,36,'#1f5161','#102933');grid.position.y=.02;scene.add(grid);
+
+let terrain=null,nodesGroup=null,particles=null,categoryLabels=null,seaGroup=null,territoryGroup=null,relationGroup=null;
+let nodeMeshes=[],signalRings=[],relationFlows=[];
+function buildTerrain(){
+  if(terrain){scene.remove(terrain);disposeObject(terrain);}const cols=100,rows=76,minX=-17,maxX=17,minZ=-13,maxZ=13,pos=[],colsArr=[],idx=[];
+  for(let iz=0;iz<rows;iz++){const z=minZ+(maxZ-minZ)*iz/(rows-1);for(let ix=0;ix<cols;ix++){const x=minX+(maxX-minX)*ix/(cols-1),y=fieldHeight(x,z),c=terrainColorAt(x,z);const density=metricAt(x,z,d=>1);c.multiplyScalar(.58+.42*clamp(density,0,1));pos.push(x,y,z);colsArr.push(c.r,c.g,c.b);}}
+  for(let z=0;z<rows-1;z++)for(let x=0;x<cols-1;x++){const a=z*cols+x,b=a+1,c=a+cols,d=c+1;idx.push(a,c,b,b,c,d);}const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('color',new THREE.Float32BufferAttribute(colsArr,3));g.setIndex(idx);g.computeVertexNormals();terrain=new THREE.Mesh(g,new THREE.MeshStandardMaterial({vertexColors:true,roughness:.84,metalness:.04,side:THREE.DoubleSide}));terrain.receiveShadow=true;scene.add(terrain);
+}
+function makeLabelSprite(text,color='#8bdcec',scale=3.5){const c=document.createElement('canvas');c.width=512;c.height=128;const x=c.getContext('2d');x.clearRect(0,0,c.width,c.height);x.fillStyle='rgba(4,15,22,.76)';x.roundRect(20,24,472,78,20);x.fill();x.strokeStyle='rgba(120,215,232,.22)';x.lineWidth=2;x.stroke();x.font='700 34px sans-serif';x.fillStyle=color;x.textAlign='center';x.textBaseline='middle';x.fillText(text,256,64);const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;const s=new THREE.Sprite(new THREE.SpriteMaterial({map:t,transparent:true,depthTest:false,opacity:.88}));s.scale.set(scale,.88,1);return s;}
+function buildCategoryLabels(){if(categoryLabels){scene.remove(categoryLabels);disposeObject(categoryLabels);}categoryLabels=new THREE.Group();for(const c of CATEGORY_ORDER){if(activeCategory!=='全部'&&activeCategory!==c)continue;const ns=currentNodes.filter(d=>d.category===c);if(!ns.length)continue;const [x,z]=CATEGORY_ANCHORS[c],y=Math.min(5.4,Math.max(...ns.map(nodeHeight))+.46),s=makeLabelSprite(c,CATEGORY_META[c]?.accent||'#8bdcec');s.position.set(x,y,z);categoryLabels.add(s);}scene.add(categoryLabels);}
+function buildTerritories(){
+  if(territoryGroup){scene.remove(territoryGroup);disposeObject(territoryGroup);}territoryGroup=new THREE.Group();
+  for(const c of CATEGORY_ORDER){
+    if(activeCategory!=='全部'&&activeCategory!==c)continue;
+    const meta=CATEGORY_META[c],pts=territoryOutline(c);
+    const fill=conformalShapeMesh(pts,meta.color,.15);territoryGroup.add(fill);
+    const dark=conformalTube(pts,'#071017',.070,.72);territoryGroup.add(dark);
+    const edge=conformalTube(pts,meta.accent,.028,.95);territoryGroup.add(edge);
+  }
+  scene.add(territoryGroup);
+}
+function buildRelations(){
+  if(relationGroup){scene.remove(relationGroup);disposeObject(relationGroup);relationGroup=null;}relationFlows=[];
+  if(!showRelations)return;
+  relationGroup=new THREE.Group();
+  for(const rel of CATEGORY_RELATIONS){
+    const {a,b,w,type}=rel;if(!activeRelationTypes.has(type))continue;
+    if(activeCategory!=='全部'&&activeCategory!==a&&activeCategory!==b)continue;
+    const pa=CATEGORY_ANCHORS[a],pb=CATEGORY_ANCHORS[b],meta=RELATION_META[type];
+    const y1=fieldHeight(pa[0],pa[1])+.34,y2=fieldHeight(pb[0],pb[1])+.34;
+    const mid=new THREE.Vector3((pa[0]+pb[0])/2,Math.max(y1,y2)+1.15+1.9*w,(pa[1]+pb[1])/2);
+    const curve=new THREE.QuadraticBezierCurve3(new THREE.Vector3(pa[0],y1,pa[1]),mid,new THREE.Vector3(pb[0],y2,pb[1]));
+    const pts=curve.getPoints(52),g=new THREE.BufferGeometry().setFromPoints(pts);
+    let mat;if(meta.dash>0){mat=new THREE.LineDashedMaterial({color:meta.color,transparent:true,opacity:.34+.36*w,dashSize:meta.dash,gapSize:meta.gap,scale:1});}else{mat=new THREE.LineBasicMaterial({color:meta.color,transparent:true,opacity:.30+.40*w});}
+    const line=new THREE.Line(g,mat);if(meta.dash>0)line.computeLineDistances();relationGroup.add(line);
+    const glow=new THREE.Mesh(new THREE.SphereGeometry(.075+.035*w,12,12),new THREE.MeshBasicMaterial({color:meta.color,transparent:true,opacity:.88,depthWrite:false}));glow.userData={curve,phase:(a.length+b.length)*.071,speed:meta.speed*(.75+.5*w),type};relationGroup.add(glow);relationFlows.push(glow);
+  }
+  scene.add(relationGroup);
+}
+function buildSeaLevel(){if(seaGroup){scene.remove(seaGroup);disposeObject(seaGroup);seaGroup=null;}if(mode!=='valuation')return;seaGroup=new THREE.Group();const plane=new THREE.Mesh(new THREE.PlaneGeometry(34,26),new THREE.MeshPhysicalMaterial({color:'#2a91ad',transparent:true,opacity:.10,roughness:.32,metalness:.05,side:THREE.DoubleSide,depthWrite:false}));plane.rotation.x=-Math.PI/2;plane.position.y=SEA_LEVEL;seaGroup.add(plane);const label=makeLabelSprite(`市场海平面 · Forward PE ${fmt(benchmark.forwardPE)}×`,'#a9edf8',4.6);label.position.set(-10.8,SEA_LEVEL+.16,10.7);seaGroup.add(label);scene.add(seaGroup);}
+function addPegRing(group,d,y){const r=.36;const bg=new THREE.Mesh(new THREE.RingGeometry(r,r+.018,52),new THREE.MeshBasicMaterial({color:'#637983',transparent:true,opacity:.17,side:THREE.DoubleSide}));bg.rotation.x=Math.PI/2;bg.position.set(d.x,y-.02,d.z);group.add(bg);if(!Number.isFinite(d.peg)){for(let i=0;i<6;i++){const g=new THREE.RingGeometry(r,r+.025,16,1,i*Math.PI/3,.35),m=new THREE.MeshBasicMaterial({color:'#788c94',transparent:true,opacity:.45,side:THREE.DoubleSide}),seg=new THREE.Mesh(g,m);seg.rotation.x=Math.PI/2;seg.position.set(d.x,y-.015,d.z);group.add(seg);}return;}let frac,color,opacity;if(d.peg<1){frac=1;color='#78efb5';opacity=.95;}else if(d.peg<2){frac=.78;color='#9fe9f4';opacity=.85;}else if(d.peg<3){frac=.52;color='#e8c874';opacity=.80;}else{frac=.26;color='#f08a69';opacity=.78;}const g=new THREE.RingGeometry(r,r+.032,52,1,-Math.PI/2,Math.PI*2*frac),m=new THREE.MeshBasicMaterial({color,transparent:true,opacity,side:THREE.DoubleSide}),arc=new THREE.Mesh(g,m);arc.rotation.x=Math.PI/2;arc.position.set(d.x,y-.01,d.z);group.add(arc);}
+function buildNodes(){
+  if(nodesGroup){scene.remove(nodesGroup);disposeObject(nodesGroup);}nodesGroup=new THREE.Group();nodeMeshes=[];signalRings=[];const sphereG=new THREE.SphereGeometry(1,18,18);
+  for(const d of currentNodes){const y=nodeHeight(d)+.16,isLens=d.mismatchScore>=90,size=.12+.16*norm(Math.log1p(d.firms??1),Math.log(2),Math.log(570));let color=selected?.industry===d.industry?'#ffffff':'#9ae6ef';if(showLens&&isLens)color='#f3d77b';const tc=new THREE.Color(color),mat=new THREE.MeshStandardMaterial({color:tc,emissive:tc,emissiveIntensity:showLens&&isLens?1.05:.34}),m=new THREE.Mesh(sphereG.clone(),mat);m.scale.setScalar(size);m.position.set(d.x,y,d.z);m.userData.data=d;m.castShadow=true;nodesGroup.add(m);nodeMeshes.push(m);if(showPeg)addPegRing(nodesGroup,d,y);
+    if(showLens&&isLens){const rg=new THREE.RingGeometry(.48,.53,48),rm=new THREE.MeshBasicMaterial({color:'#ffd76b',transparent:true,opacity:.78,side:THREE.DoubleSide}),ring=new THREE.Mesh(rg,rm);ring.rotation.x=Math.PI/2;ring.position.set(d.x,y+.02,d.z);ring.userData.phase=d.id;nodesGroup.add(ring);signalRings.push(ring);const beam=new THREE.Mesh(new THREE.CylinderGeometry(.028,.09,1.35,12,1,true),new THREE.MeshBasicMaterial({color:'#ffd76b',transparent:true,opacity:.20,side:THREE.DoubleSide,depthWrite:false}));beam.position.set(d.x,y+.72,d.z);nodesGroup.add(beam);}
+  }scene.add(nodesGroup);
+}
+function buildParticles(){if(particles){scene.remove(particles);disposeObject(particles);particles=null;}if(!showParticles)return;const pos=[],col=[];for(const d of currentNodes){const loss=d.lossRate??0,count=Math.max(1,Math.round(loss/5.7)),y0=nodeHeight(d)+.28;for(let i=0;i<count;i++){const a=(i*2.399963+d.id*.37),r=.17+.055*i+(.12*Math.sin(i*1.7+d.id));pos.push(d.x+Math.cos(a)*Math.min(r,.95),y0+.12+(i%5)*.10,d.z+Math.sin(a)*Math.min(r,.95));const c=ramp(loss/100,RISK_RAMP);col.push(c.r,c.g,c.b);}}const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('color',new THREE.Float32BufferAttribute(col,3));particles=new THREE.Points(g,new THREE.PointsMaterial({size:.075,sizeAttenuation:true,transparent:true,opacity:.72,vertexColors:true,depthWrite:false}));scene.add(particles);}
+function rebuildWorld(){currentNodes=activeCategory==='全部'?allNodes:allNodes.filter(d=>d.category===activeCategory);if(selected&&activeCategory!=='全部'&&selected.category!==activeCategory)selected=null;buildTerrain();buildTerritories();buildSeaLevel();buildRelations();buildCategoryLabels();buildNodes();buildParticles();renderPanel();renderModeUI();renderRanks();}
+
+function metricPill(label,value,tone=''){return `<div class="metric-pill ${tone}"><span>${label}</span><b>${value}</b></div>`;}
+function renderBenchmark(){document.getElementById('benchmarkStrip').innerHTML=[metricPill('市场海平面',`${fmt(benchmark?.forwardPE)}×`,'pe'),metricPill('5Y EPS 增长',`${fmt(benchmark?.growth5Y)}%`,'growth'),metricPill('亏损公司',`${fmt(benchmark?.lossRate)}%`,'risk'),metricPill('PEG',fmt(benchmark?.peg),'peg')].join('');}
+function renderLossGrid(v){const n=clamp(Math.round(v??0),0,100);return `<div class="loss-matrix-wrap"><div class="loss-matrix-head"><span>亏损公司点阵</span><b>${n} / 100</b></div><div class="loss-grid">${Array.from({length:100},(_,i)=>`<i class="loss-dot ${i<n?'on':''}"></i>`).join('')}</div></div>`;}
+function renderPanel(){const p=document.getElementById('rightPanel');if(!selected){p.innerHTML='<div class="empty-card"><div class="orb"></div><h2>选择一个行业</h2><p>每个板块都有独立边界、颜色和地貌语法；板块之间的发光通道表示资本、产业链或需求传导关系。点击行业节点查看完整数据；拖动旋转，滚轮缩放。</p></div>';return;}const typeClass=selected.mismatchType==='正向错配候选'?'good':selected.mismatchType==='估值压力'?'warn':'';const caution=(selected.lossRate??0)>=70?'高亏损率':(selected.growth5Y??0)>=40?'增长预期极值':'需结合基本面';const meta=CATEGORY_META[selected.category]||{};p.innerHTML=`<div class="industry-head"><span>${selected.category} · ${selected.cluster}</span><h2>${selected.industry}</h2><div class="score-line"><b class="${selected.mismatchType==='估值压力'?'pressure':selected.mismatchType==='接近基准'?'neutral':''}">${selected.mismatchScore}</b><small>估值错配指数 / 100</small></div><div><span class="status-chip ${typeClass}">${selected.mismatchType}</span><span class="status-chip">${caution}</span></div></div><div class="metric-grid">${metricPill('Forward PE',`${fmt(selected.forwardPE)}×`,'pe')}${metricPill('5Y EPS 增长',`${fmt(selected.growth5Y)}%`,'growth')}${metricPill('PEG',fmt(selected.peg),'peg')}${metricPill('亏损公司',`${fmt(selected.lossRate)}%`,'risk')}${metricPill('公司数',selected.firms??'NA')}${metricPill('Trailing PE',`${fmt(selected.trailingPE)}×`)}</div><div class="readout"><div><span>相对市场 Forward PE</span><b>${Number.isFinite(selected.forwardPE)?fmt(selected.forwardPE/(benchmark?.forwardPE||1),2)+'×':'NA'}</b></div><div><span>相对市场增长</span><b>${Number.isFinite(selected.growth5Y)?fmt(selected.growth5Y/(benchmark?.growth5Y||1),2)+'×':'NA'}</b></div><div><span>当前海拔映射</span><b>${fmt(nodeHeight(selected),2)}</b></div></div>${renderLossGrid(selected.lossRate)}<div class="semantic-readout"><b>板块地貌：</b>${meta.biome||'—'} · ${meta.landform||'—'}<br><b>板块逻辑：</b>${meta.note||'行业位置由产业链/商业模式关系固定。'}<br><b>空间语义：</b>行业位置由产业链/商业模式关系固定，PE、增长和亏损率变化不会搬动行业。</div><div class="note">“估值错配指数”只表示 Damodaran 横截面里的增长—估值异常，不等于投资机会。结构变化、ROIC、资本强度、催化剂、State 与可执行性必须进入 TRQuant Investment Case 后再判断。</div>`;}
+function renderModeUI(){document.getElementById('modeExplain').innerHTML=`<b>${MODE_META[mode].label}</b><p>${MODE_META[mode].desc}</p>`;document.querySelectorAll('#modeSwitch button').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));const sea=mode==='valuation'?'<div><span class="dot altitude"></span>海平面：市场 Forward PE 27.66×</div>':'';const rel=showRelations?'<div><span class="link-icon"></span>板块关系：资本 / 产业链 / 需求传导</div>':'';document.getElementById('legend').innerHTML=`${sea}<div><span class="dot growth"></span>颜色：${MODE_META[mode].color}</div><div><span class="territory-icon"></span>边界：板块领地轮廓</div>${rel}<div><span class="dot particles"></span>点阵：亏损率</div><div><span class="ring-icon"></span>PEG 环：越完整越低</div><div><span class="signal-icon"></span>金色信标：估值错配候选</div>`;document.querySelector('.opportunity-dock')?.classList.toggle('lens-off',!showLens);}
+function renderRelationTypes(){const el=document.getElementById('relationTypeChips');if(!el)return;el.innerHTML=Object.entries(RELATION_META).map(([key,m])=>`<button data-rel="${key}" class="${activeRelationTypes.has(key)?'active':''}"><i style="background:${m.color}"></i>${m.label}</button>`).join('');el.querySelectorAll('button').forEach(b=>b.onclick=()=>{const k=b.dataset.rel;if(activeRelationTypes.has(k))activeRelationTypes.delete(k);else activeRelationTypes.add(k);renderRelationTypes();buildRelations();renderModeUI();});}
+function renderCategories(){const c=document.getElementById('categoryChips');c.innerHTML=['全部',...CATEGORY_ORDER].map(x=>`<button data-cat="${x}" class="${activeCategory===x?'active':''}">${x}</button>`).join('');c.querySelectorAll('button').forEach(b=>b.onclick=()=>{activeCategory=b.dataset.cat;renderCategories();rebuildWorld();});}
+function renderRanks(){const r=document.getElementById('rankList');const list=activeCategory==='全部'?topNodes:allNodes.filter(d=>d.category===activeCategory).sort((a,b)=>b.mismatchScore-a.mismatchScore).slice(0,10);r.innerHTML=list.map((d,i)=>`<button data-id="${d.id}" class="${selected?.id===d.id?'active':''}"><i>${String(i+1).padStart(2,'0')}</i><span><b>${d.industry}</b><small>${d.category} · PE ${fmt(d.forwardPE,1)}× · 增长 ${fmt(d.growth5Y,1)}%${(d.lossRate??0)>70?' · 高亏损':''}</small></span><strong>${d.mismatchScore}</strong></button>`).join('');r.querySelectorAll('button').forEach(b=>b.onclick=()=>{activeCategory='全部';renderCategories();selected=allNodes[+b.dataset.id];rebuildWorld();focusSelected();});}
+function renderSearch(q){const el=document.getElementById('searchResults'),s=q.trim().toLowerCase();if(!s){el.classList.add('hidden');el.innerHTML='';return;}const hits=allNodes.filter(d=>d.industry.toLowerCase().includes(s)).slice(0,8);if(!hits.length){el.classList.add('hidden');return;}el.innerHTML=hits.map(d=>`<button data-id="${d.id}">${d.industry}<span>${d.category}</span></button>`).join('');el.classList.remove('hidden');el.querySelectorAll('button').forEach(b=>b.onclick=()=>{activeCategory='全部';renderCategories();selected=allNodes[+b.dataset.id];document.getElementById('searchInput').value='';el.classList.add('hidden');rebuildWorld();focusSelected();});}
+function focusSelected(){if(!selected)return;cameraTarget.set(selected.x,nodeHeight(selected),selected.z);}
+function resetView(){selected=null;renderPanel();camera.position.set(17,16,22);cameraTarget.set(0,1.5,0);buildNodes();renderRanks();}
+
+renderBenchmark();renderCategories();renderRelationTypes();renderModeUI();renderPanel();rebuildWorld();
+document.querySelectorAll('#modeSwitch button').forEach(b=>b.onclick=()=>{mode=b.dataset.mode;rebuildWorld();if(selected)focusSelected();});
+document.getElementById('searchInput').addEventListener('input',e=>renderSearch(e.target.value));
+document.getElementById('toggleParticles').onchange=e=>{showParticles=e.target.checked;buildParticles();};
+document.getElementById('togglePeg').onchange=e=>{showPeg=e.target.checked;buildNodes();};
+document.getElementById('toggleSignals').onchange=e=>{showLens=e.target.checked;buildNodes();renderModeUI();renderRanks();};
+document.getElementById('toggleRelations').onchange=e=>{showRelations=e.target.checked;document.getElementById('relationTypeChips').style.opacity=showRelations?'1':'.28';buildRelations();renderModeUI();};
+document.getElementById('resetCamera').onclick=resetView;
+const raycaster=new THREE.Raycaster(),pointer=new THREE.Vector2();let down=null;renderer.domElement.addEventListener('pointerdown',e=>down=[e.clientX,e.clientY]);renderer.domElement.addEventListener('pointerup',e=>{if(!down||Math.hypot(e.clientX-down[0],e.clientY-down[1])>5)return;const rect=renderer.domElement.getBoundingClientRect();pointer.x=((e.clientX-rect.left)/rect.width)*2-1;pointer.y=-((e.clientY-rect.top)/rect.height)*2+1;raycaster.setFromCamera(pointer,camera);const hits=raycaster.intersectObjects(nodeMeshes,false);if(hits.length){selected=hits[0].object.userData.data;renderPanel();buildNodes();renderRanks();focusSelected();}else{selected=null;renderPanel();buildNodes();renderRanks();cameraTarget.set(0,1.5,0);}});
+window.addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);renderer.setPixelRatio(Math.min(devicePixelRatio,1.7));});
+const clock=new THREE.Clock();function animate(){requestAnimationFrame(animate);const t=clock.getElapsedTime();controls.target.lerp(cameraTarget,.055);controls.update();for(const r of signalRings){const q=1+.20*Math.sin(t*2.6+r.userData.phase);r.scale.setScalar(q);}for(const f of relationFlows){const u=(t*f.userData.speed+f.userData.phase)%1;f.position.copy(f.userData.curve.getPointAt(u));const q=.85+.35*Math.sin(t*5+f.userData.phase*12);f.scale.setScalar(q);}renderer.render(scene,camera);}animate();
+</script>
+</body>
+</html>

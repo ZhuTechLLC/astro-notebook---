@@ -1,0 +1,718 @@
+{
+  "schema_version": "case01_real_evidence_snapshot_v1",
+  "snapshot_id": "case01-real-2026-10-02-v1",
+  "case_id": "case-01-semiconductor-synchronised-rise",
+  "case_version": "case-01-v1",
+  "source_commit": "5ae43e4b5ab4a2be8e1f65f1a5e8316de591ed79",
+  "created_on": "2026-10-03",
+  "authority": {
+    "purpose": "research_and_simulation_comparison_only",
+    "causal_authority": false,
+    "trading_authority": false,
+    "sizing_authority": false,
+    "execution_authority": false
+  },
+  "clock": {
+    "market_timezone": "America/New_York",
+    "latest_completed_session": "2026-10-02",
+    "sessions": [
+      "2026-09-03",
+      "2026-09-04",
+      "2026-09-08",
+      "2026-09-09",
+      "2026-09-10",
+      "2026-09-11",
+      "2026-09-14",
+      "2026-09-15",
+      "2026-09-16",
+      "2026-09-17",
+      "2026-09-18",
+      "2026-09-21",
+      "2026-09-22",
+      "2026-09-23",
+      "2026-09-24",
+      "2026-09-25",
+      "2026-09-28",
+      "2026-09-29",
+      "2026-09-30",
+      "2026-10-01",
+      "2026-10-02"
+    ]
+  },
+  "universe": {
+    "market_reference": [
+      "SPY",
+      "QQQ"
+    ],
+    "theme_id": "ai_semiconductor",
+    "theme_assets": [
+      "NVDA",
+      "AMD",
+      "AVGO",
+      "MU",
+      "AMAT",
+      "LRCX"
+    ],
+    "focus_asset": "NVDA"
+  },
+  "price_evidence": {
+    "source_name": "Interactive Brokers",
+    "source_semantics": "daily regular-session history, source field Last",
+    "series": {
+      "SPY": {
+        "contract_id": 756733,
+        "close": [
+          773.17,
+          770.19,
+          765.96,
+          762.4,
+          757.83,
+          764.29,
+          760.88,
+          757.39,
+          754.05,
+          762.6,
+          761.69,
+          773.5,
+          773.38,
+          767.81,
+          767.18,
+          771.35,
+          765.61,
+          764.2,
+          762.63,
+          763.99,
+          769.64
+        ],
+        "volume": [
+          28771838,
+          21636582,
+          26794953,
+          22595471,
+          26745356,
+          24660436,
+          27174201,
+          22769258,
+          37771994,
+          27364606,
+          27034734,
+          32275742,
+          20071584,
+          29547110,
+          26905439,
+          24581750,
+          28097204,
+          23467686,
+          30391241,
+          30612996,
+          30327816
+        ]
+      },
+      "QQQ": {
+        "contract_id": 320227571,
+        "close": [
+          717.67,
+          718.96,
+          718.36,
+          716.31,
+          708.69,
+          714.88,
+          709.18,
+          704.54,
+          704.72,
+          716.92,
+          721.45,
+          741.47,
+          747.46,
+          741.21,
+          741.1,
+          744.5,
+          736.53,
+          737.93,
+          739.77,
+          742.03,
+          749.58
+        ],
+        "volume": [
+          19682124,
+          22812905,
+          18395576,
+          17866238,
+          20291818,
+          16634006,
+          22992858,
+          17486876,
+          26443562,
+          20524382,
+          23786343,
+          27626013,
+          20829343,
+          22074009,
+          18229200,
+          19629083,
+          24647558,
+          15337741,
+          17531345,
+          22387226,
+          21464390
+        ]
+      },
+      "NVDA": {
+        "contract_id": 4815747,
+        "close": [
+          228.45,
+          230.36,
+          225.73,
+          223.67,
+          218.36,
+          218.29,
+          210.96,
+          212.17,
+          213.9,
+          219.34,
+          222.27,
+          227.38,
+          228.87,
+          225.51,
+          224.58,
+          225.07,
+          228.86,
+          227.21,
+          228.38,
+          230.86,
+          233.95
+        ],
+        "volume": [
+          84245056,
+          84168793,
+          73951498,
+          45318885,
+          58029755,
+          50067315,
+          67932730,
+          47360531,
+          58316577,
+          50405386,
+          55355022,
+          61801398,
+          52067311,
+          46859538,
+          43917717,
+          51570276,
+          86955177,
+          59537084,
+          61113470,
+          58831688,
+          80300490
+        ]
+      },
+      "AMD": {
+        "contract_id": 4391,
+        "close": [
+          456.16,
+          477.57,
+          505.74,
+          521.1,
+          503.6,
+          516.13,
+          493.41,
+          504.2,
+          512.5,
+          545.09,
+          559.82,
+          615.52,
+          623.77,
+          614.61,
+          629.26,
+          630.63,
+          607.87,
+          607.57,
+          611.76,
+          615.73,
+          633.91
+        ],
+        "volume": [
+          8013878,
+          11015573,
+          15165111,
+          13329925,
+          8333680,
+          11413241,
+          13595819,
+          8915676,
+          13698860,
+          16312837,
+          14098874,
+          25245530,
+          15240812,
+          8754331,
+          14748935,
+          9819942,
+          11841742,
+          8848713,
+          8086768,
+          9765691,
+          11119289
+        ]
+      },
+      "AVGO": {
+        "contract_id": 313130367,
+        "close": [
+          357.16,
+          357.89,
+          368.56,
+          364.38,
+          360.83,
+          361.99,
+          344.72,
+          339.27,
+          339.51,
+          347.3,
+          357.61,
+          362.66,
+          364.54,
+          354.99,
+          350.36,
+          352.81,
+          349.57,
+          355.1,
+          351.19,
+          343.64,
+          355.14
+        ],
+        "volume": [
+          43801333,
+          20550900,
+          16828225,
+          13027954,
+          9106009,
+          8936320,
+          14943329,
+          14138988,
+          12453032,
+          11725928,
+          17438156,
+          14733407,
+          11375341,
+          11502826,
+          12195142,
+          9271991,
+          10237047,
+          11596217,
+          9060722,
+          12764920,
+          14036142
+        ]
+      },
+      "MU": {
+        "contract_id": 9939,
+        "close": [
+          958.16,
+          1016.59,
+          1000.26,
+          1027.77,
+          977.41,
+          975.26,
+          924.03,
+          927.6,
+          926.55,
+          977.5,
+          1015.8,
+          1043.96,
+          1096.16,
+          1071.88,
+          1080.53,
+          1082.28,
+          1053.98,
+          1065.08,
+          1065.11,
+          1097.39,
+          1074.89
+        ],
+        "volume": [
+          17058922,
+          23920753,
+          17490959,
+          16691471,
+          16092741,
+          13499772,
+          18007123,
+          12488783,
+          13356316,
+          14223668,
+          19497253,
+          17381604,
+          19444684,
+          14079383,
+          14548052,
+          13061093,
+          13415006,
+          11389176,
+          14976878,
+          31610945,
+          17005716
+        ]
+      },
+      "AMAT": {
+        "contract_id": 266093,
+        "close": [
+          435.91,
+          454.71,
+          472.79,
+          468.85,
+          454.01,
+          456.49,
+          424.21,
+          421.17,
+          415.38,
+          417.4,
+          444.57,
+          464.24,
+          472.46,
+          474.38,
+          474.25,
+          485,
+          486.76,
+          512.01,
+          511.38,
+          529.3,
+          540.04
+        ],
+        "volume": [
+          3288402,
+          3484686,
+          3462831,
+          1933370,
+          2417891,
+          2191974,
+          4112775,
+          2923690,
+          3379652,
+          3643333,
+          5342413,
+          5281620,
+          3051723,
+          2437483,
+          2501090,
+          2700540,
+          3318687,
+          4378757,
+          3463091,
+          3745014,
+          3404794
+        ]
+      },
+      "LRCX": {
+        "contract_id": 732440574,
+        "close": [
+          292.66,
+          307.65,
+          320.42,
+          315.84,
+          298.01,
+          298.22,
+          273.49,
+          270.87,
+          269.23,
+          269.31,
+          288.11,
+          302.28,
+          310.96,
+          307.28,
+          307.16,
+          315.21,
+          314.47,
+          323.86,
+          328.51,
+          340.1,
+          347.49
+        ],
+        "volume": [
+          3583276,
+          4103255,
+          3600281,
+          2459519,
+          2852947,
+          2519676,
+          5208759,
+          3999257,
+          3336952,
+          4394220,
+          5814804,
+          4983239,
+          3794340,
+          3086494,
+          2705805,
+          3404113,
+          3753270,
+          3656595,
+          3626676,
+          4702451,
+          3839118
+        ]
+      }
+    }
+  },
+  "structured_fundamental_evidence": {
+    "source_name": "TRQuant Equity Research",
+    "source_semantics": "current structured SEC/XBRL-derived evidence; current-only records are not historical PIT evidence",
+    "by_symbol": {
+      "NVDA": {
+        "status": "AVAILABLE_CURRENT_ONLY",
+        "revenue": {
+          "value": 96221000000,
+          "period_label": "FY2027 Q2",
+          "period_end": "2026-07-26",
+          "authoritative_available_at": "2026-08-26",
+          "source": "sec_xbrl",
+          "pit_status": "unverified_current_only"
+        },
+        "gross_margin": 0.7497531723844068,
+        "operating_income": 63734000000,
+        "net_income": 59688000000
+      },
+      "AMD": {
+        "status": "AVAILABLE_CURRENT_ONLY",
+        "revenue": {
+          "value": 11536000000,
+          "period_label": "FY2026 Q2",
+          "period_end": "2026-06-27",
+          "authoritative_available_at": "2026-08-05",
+          "source": "sec_xbrl",
+          "pit_status": "unverified_current_only"
+        },
+        "gross_margin": 0.5377080443828016,
+        "operating_margin": 0.17250346740638003,
+        "operating_income": 1990000000,
+        "net_income": 2297000000
+      },
+      "AVGO": {
+        "status": "UNAVAILABLE",
+        "evidence_gap": "fundamentals"
+      },
+      "MU": {
+        "status": "AVAILABLE_CURRENT_ONLY",
+        "revenue": {
+          "value": 41456000000,
+          "period_label": "FY2026 Q3",
+          "period_end": "2026-05-28",
+          "authoritative_available_at": "2026-06-25",
+          "source": "sec_xbrl",
+          "pit_status": "unverified_current_only"
+        },
+        "gross_margin": 0.8456194519490544,
+        "operating_margin": 0.8036954843689695,
+        "operating_income": 33318000000,
+        "net_income": 28243000000
+      },
+      "AMAT": {
+        "status": "AVAILABLE_CURRENT_ONLY",
+        "revenue": {
+          "value": 9115000000,
+          "period_label": "FY2026 Q3",
+          "period_end": "2026-07-26",
+          "authoritative_available_at": "2026-08-20",
+          "source": "sec_xbrl",
+          "pit_status": "unverified_current_only"
+        },
+        "gross_margin": 0.5031267142073506,
+        "operating_margin": 0.3373560065825562,
+        "operating_income": 3075000000,
+        "net_income": 2538000000
+      },
+      "LRCX": {
+        "status": "AVAILABLE_CURRENT_ONLY",
+        "revenue": {
+          "value": 23232690000,
+          "period_label": "FY2026 FY",
+          "period_end": "2026-06-28",
+          "authoritative_available_at": "2026-08-07",
+          "source": "sec_xbrl",
+          "pit_status": "unverified_current_only"
+        },
+        "gross_margin": 0.5046900724797688,
+        "operating_margin": 0.35294212594408997,
+        "operating_income": 8199795000,
+        "net_income": 7265396000
+      }
+    }
+  },
+  "primary_company_evidence": {
+    "source_semantics": "company investor-relations releases available by 2026-10-02",
+    "by_symbol": {
+      "NVDA": {
+        "released_at": "2026-08-26",
+        "period": "FY2027 Q2",
+        "period_end": "2026-07-26",
+        "revenue_usd": 96200000000,
+        "revenue_growth_yoy": 1.06,
+        "gross_margin": 0.75,
+        "headline_facts": [
+          "Revenue $96.2B, +106% YoY",
+          "Data Center revenue $89.0B, +117% YoY",
+          "GAAP gross margin 75.0%"
+        ],
+        "source_name": "NVIDIA Investor Relations",
+        "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Second-Quarter-Fiscal-2027/"
+      },
+      "AMD": {
+        "released_at": "2026-08-04",
+        "period": "2026 Q2",
+        "revenue_usd": 11500000000,
+        "gross_margin": 0.54,
+        "operating_income_usd": 2000000000,
+        "headline_facts": [
+          "Revenue $11.5B",
+          "Gross margin 54%",
+          "Operating income $2.0B",
+          "Management said Data Center revenue more than doubled YoY"
+        ],
+        "source_name": "AMD Investor Relations",
+        "source_url": "https://ir.amd.com/news-events/press-releases/detail/1295/amd-reports-second-quarter-2026-financial-results"
+      },
+      "AVGO": {
+        "released_at": "2026-09-02",
+        "period": "FY2026 Q3",
+        "period_end": "2026-08-02",
+        "revenue_usd": 29600000000,
+        "revenue_growth_yoy": 0.86,
+        "operating_income_usd": 16000000000,
+        "forward_guidance": {
+          "period": "FY2026 Q4",
+          "revenue_usd": 34800000000,
+          "revenue_growth_yoy": 0.93
+        },
+        "headline_facts": [
+          "Revenue $29.6B, +86% YoY",
+          "GAAP operating income $16.0B",
+          "Q4 revenue guidance about $34.8B, +93% YoY"
+        ],
+        "source_name": "Broadcom Investor Relations",
+        "source_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-third-quarter-fiscal-year-2026-financial"
+      },
+      "MU": {
+        "released_at": "2026-09-30",
+        "period": "FY2026 Q4",
+        "period_end": "2026-09-03",
+        "revenue_usd": 54229000000,
+        "revenue_prior_quarter_usd": 41456000000,
+        "revenue_prior_year_usd": 11315000000,
+        "gross_margin": 0.868,
+        "operating_income_usd": 43751000000,
+        "forward_guidance": {
+          "period": "FY2027 Q1",
+          "revenue_usd": 61500000000,
+          "revenue_range_usd": 1500000000,
+          "gross_margin_approx": 0.8595
+        },
+        "capital_expenditures_net_q4_usd": 10774000000,
+        "capital_expenditures_net_fy_usd": 27367000000,
+        "headline_facts": [
+          "Q4 revenue $54.229B vs $41.456B prior quarter",
+          "GAAP gross margin 86.8%",
+          "Q1 FY2027 revenue guidance $61.5B ± $1.5B",
+          "FY2026 net capital expenditures $27.367B"
+        ],
+        "source_name": "Micron Investor Relations",
+        "source_url": "https://investors.micron.com/news/press-release/2026/Micron-Technology-Inc--Reports-Record-Fiscal-Fourth-Quarter-and-Full-Year-2026-Results/"
+      },
+      "AMAT": {
+        "released_at": "2026-08-13",
+        "period": "FY2026 Q3",
+        "period_end": "2026-07-26",
+        "revenue_usd": 9120000000,
+        "revenue_growth_yoy": 0.25,
+        "gross_margin": 0.503,
+        "operating_income_usd": 3080000000,
+        "headline_facts": [
+          "Record revenue $9.12B, +25% YoY",
+          "GAAP gross margin 50.3%",
+          "Record GAAP operating income $3.08B"
+        ],
+        "source_name": "Applied Materials Investor Relations",
+        "source_url": "https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-announces-third-quarter-2026-results"
+      },
+      "LRCX": {
+        "released_at": "2026-07-29",
+        "period": "June 2026 quarter",
+        "period_end": "2026-06-28",
+        "revenue_usd": 6722238000,
+        "revenue_growth_qoq": 0.151,
+        "gross_margin": 0.517,
+        "operating_margin": 0.374,
+        "headline_facts": [
+          "Revenue $6.722B, +15.1% QoQ",
+          "GAAP gross margin 51.7%",
+          "GAAP operating margin 37.4%"
+        ],
+        "source_name": "Lam Research Investor Relations",
+        "source_url": "https://investor.lamresearch.com/2026-07-29-Lam-Research-Corporation-Reports-Financial-Results-for-the-Quarter-Ended-June-28%2C-2026"
+      }
+    }
+  },
+  "primary_macro_events": [
+    {
+      "event_id": "US_EMPLOYMENT_2026-10-02",
+      "released_at": "2026-10-02T08:30:00-04:00",
+      "event_type": "macro_labor",
+      "facts": {
+        "nonfarm_payroll_change": 29000,
+        "unemployment_rate": 0.042,
+        "july_august_combined_revision": -60000
+      },
+      "interpretation_boundary": "Time-aligned candidate market-level driver; no rates transmission inferred without direct yield/futures evidence.",
+      "source_name": "U.S. Bureau of Labor Statistics",
+      "source_url": "https://www.bls.gov/news.release/archives/empsit_10022026.htm"
+    }
+  ],
+  "data_quality": {
+    "by_symbol": {
+      "NVDA": [
+        "HEADLINE_REVENUE_ALIGNS_WITH_PRIMARY_RELEASE",
+        "TRQUANT_STRUCTURED_NOT_HISTORICAL_PIT_ELIGIBLE"
+      ],
+      "AMD": [
+        "HEADLINE_REVENUE_ALIGNS_WITH_PRIMARY_RELEASE",
+        "TRQUANT_STRUCTURED_NOT_HISTORICAL_PIT_ELIGIBLE"
+      ],
+      "AVGO": [
+        "TRQUANT_STRUCTURED_FUNDAMENTALS_UNAVAILABLE",
+        "PRIMARY_IR_RELEASE_AVAILABLE"
+      ],
+      "MU": [
+        "TRQUANT_STRUCTURED_PERIOD_DIFFERS_FROM_LATEST_PRIMARY_RELEASE",
+        "TRQUANT_STRUCTURED_LAGS_SEP30_Q4_PRIMARY_RELEASE",
+        "TRQUANT_STRUCTURED_NOT_HISTORICAL_PIT_ELIGIBLE"
+      ],
+      "AMAT": [
+        "HEADLINE_REVENUE_ALIGNS_WITH_PRIMARY_RELEASE",
+        "TRQUANT_STRUCTURED_NOT_HISTORICAL_PIT_ELIGIBLE"
+      ],
+      "LRCX": [
+        "TRQUANT_STRUCTURED_ANNUAL_WHILE_PRIMARY_RELEASE_IS_QUARTERLY",
+        "TRQUANT_STRUCTURED_NOT_HISTORICAL_PIT_ELIGIBLE"
+      ]
+    }
+  },
+  "evidence_availability": {
+    "daily_price_ohlcv": "AVAILABLE",
+    "company_primary_releases": "AVAILABLE",
+    "trquant_structured_fundamentals": "PARTIAL",
+    "synchronized_analyst_revision_panel": "UNAVAILABLE",
+    "theme_etf_flow": "UNAVAILABLE",
+    "signed_flow_ofi": "UNAVAILABLE",
+    "order_book_depth": "UNAVAILABLE",
+    "bid_ask_spread_history": "UNAVAILABLE",
+    "dealer_inventory_gamma": "UNAVAILABLE",
+    "intraday_event_aligned_lead_lag": "UNAVAILABLE",
+    "current_canonical_market_state_for_2026_10_02": "UNAVAILABLE"
+  },
+  "boundaries": [
+    "Common-mode movement is not Crowding.",
+    "Daily lead-lag is not causal transmission.",
+    "Company fundamentals are not a synchronized theme-level expectation revision.",
+    "Volume is not signed flow.",
+    "OHLCV does not identify price impact or market depth.",
+    "A strong business result does not imply an attractive price or explain the full stock return."
+  ]
+}

@@ -2,7 +2,6 @@ import {agentSignal,alignmentRatio,normalizedConcentration,createSeededRandom,ap
 import {runCase01} from './case01-engine.mjs';
 import {deriveCase01RealEvidence} from './case01-evidence.mjs';
 import {deriveCase01EvidenceV2} from './case01-evidence-v2.mjs';
-import {buildCase01MechanismChallenger} from './case01-challenger.mjs';
 
 (() => {
 'use strict';
@@ -69,11 +68,11 @@ function randomShock(){if(simTimeMs<nextShock)return;const a=assets[(simRandom()
 function draw(now){if(!ctx)return;const frameDt=clamp((now-last)/1000,0,.08);last=now;if(!paused){simAccumulator=Math.min(simAccumulator+frameDt,.20);while(simAccumulator>=FIXED_SIM_DT){step(FIXED_SIM_DT);simTimeMs+=FIXED_SIM_DT*1000;frameNo++;randomShock();simAccumulator-=FIXED_SIM_DT}}else simAccumulator=0;ctx.clearRect(0,0,W,H);const bg=ctx.createRadialGradient(W*.5,H*.45,20,W*.5,H*.45,Math.max(W,H)*.72);bg.addColorStop(0,'rgba(15,45,61,.92)');bg.addColorStop(.52,'rgba(7,23,34,.96)');bg.addColorStop(1,'rgba(4,13,20,1)');ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);drawGrid();drawEdges();drawPointer();agents.forEach(drawAgent);drawAssets();drawPulses(frameDt);inspect(now);requestAnimationFrame(draw)}
 document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>applyMode(b.dataset.mode)));
 document.querySelectorAll('[data-inject]').forEach(b=>b.addEventListener('click',()=>{const a=getAsset(selectedAssetId),kind=b.dataset.inject;if(kind==='positive')shock(a,1,1,'user');else if(kind==='negative')shock(a,-1,1,'user');else{const s=kind==='buy'?1:-1;metaorder(a,s,1.25,a.x-70,a.y,a.x+70,a.y,'user')}showAssetInspector(a)}));
-$('noiseSlider')?.addEventListener('input',e=>{noise=Number(e.target.value);$('noiseOut').textContent=noise.toFixed(2)});$('networkSlider')?.addEventListener('input',e=>{network=Number(e.target.value);$('networkOut').textContent=network.toFixed(2)});$('liquiditySlider')?.addEventListener('input',e=>{liquidity=Number(e.target.value);$('liquidityOut').textContent=liquidity.toFixed(2)});$('resetButton')?.addEventListener('click',()=>resetSim(false));$('pauseButton')?.addEventListener('click',e=>{paused=!paused;e.target.textContent=paused?'继续':'暂停'});if(canvas&&ctx){makeAssets();resize();makeAgents();resize();resetSim(false);document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));buildHitboxes();initAnalytics();window.addEventListener('resize',resize,{passive:true});requestAnimationFrame(draw)}
+$('noiseSlider')?.addEventListener('input',e=>{noise=Number(e.target.value);$('noiseOut').textContent=noise.toFixed(2)});$('networkSlider')?.addEventListener('input',e=>{network=Number(e.target.value);$('networkOut').textContent=network.toFixed(2)});$('liquiditySlider')?.addEventListener('input',e=>{liquidity=Number(e.target.value);$('liquidityOut').textContent=liquidity.toFixed(2)});$('resetButton')?.addEventListener('click',()=>resetSim(false));$('pauseButton')?.addEventListener('click',e=>{paused=!paused;e.target.textContent=paused?'继续':'暂停'});if(canvas&&ctx){makeAssets();resize();makeAgents();resize();resetSim(false);document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));buildHitboxes();window.addEventListener('resize',resize,{passive:true});requestAnimationFrame(draw);try{initAnalytics()}catch(err){console.error('Optional analytics init failed; core simulator remains active.',err);const s=$('analyticsStatus');if(s)s.textContent='价格与归因图表暂不可用，市场模拟仍可正常使用。'}}
 
 const CASE01_EVIDENCE_URL='../../cases/evidence/case01-real-2026-10-02.raw.json';
 const CASE01_EVIDENCE_V2_URL='../../cases/evidence/case01-evidence-v2-2026-10-02.raw.json';
-let case01Chart=null,case01TimingChart=null,case01Data=null,case01DataV2=null,case01Runs=null,case01Challenger=null,case01Selected='theme_information_repricing';
+let case01Chart=null,case01TimingChart=null,case01Data=null,case01DataV2=null,case01Runs=null,case01Challenger=null,case01ChallengerBuilder=null,case01Selected='theme_information_repricing';
 const pct=(v,d=2)=>(v>=0?'+':'')+(v*100).toFixed(d)+'%';
 const pp=(v,d=2)=>(v>=0?'+':'')+(v*100).toFixed(d)+' pp';
 
@@ -234,9 +233,19 @@ function renderCase01ChallengeRows(id,rows){
   }).join('');
 }
 
-function renderCase01Challenger(){
+async function ensureCase01ChallengerBuilder(){
+  if(case01ChallengerBuilder)return case01ChallengerBuilder;
+  const mod=await import('./case01-challenger.mjs');
+  case01ChallengerBuilder=mod.buildCase01MechanismChallenger;
+  if(typeof case01ChallengerBuilder!=='function')throw new Error('Case 01 challenger export unavailable');
+  return case01ChallengerBuilder;
+}
+
+async function renderCase01Challenger(){
   if(!case01DataV2||!case01Runs)return;
-  case01Challenger=buildCase01MechanismChallenger({evidenceV2:case01DataV2,runs:case01Runs});
+  try{
+    const build=await ensureCase01ChallengerBuilder();
+    case01Challenger=build({evidenceV2:case01DataV2,runs:case01Runs});
   renderCase01ChallengeRows('case01ChallengeA',case01Challenger.hypotheses.theme_information_repricing.rows);
   renderCase01ChallengeRows('case01ChallengeB',case01Challenger.hypotheses.common_theme_flow.rows);
   const outcome=$('case01ChallengerOutcome');
@@ -244,6 +253,14 @@ function renderCase01Challenger(){
   const va=$('case01VerdictA'),vb=$('case01VerdictB');
   if(va)va.textContent='有直接单名预期证据，但与宏观同步启动和回吐路径冲突';
   if(vb)vb.textContent='路径形态更接近，但直接共同资金流仍未确认';
+  }catch(err){
+    console.error('Optional Case 01 challenger failed; core simulator remains active.',err);
+    const outcome=$('case01ChallengerOutcome');
+    if(outcome)outcome.textContent='机制挑战器暂不可用';
+    const a=$('case01ChallengeA'),b=$('case01ChallengeB');
+    if(a)a.innerHTML='<p>可选机制挑战器加载失败；主模拟器与真实证据仍可使用。</p>';
+    if(b)b.innerHTML='<p>可选机制挑战器加载失败；主模拟器与真实证据仍可使用。</p>';
+  }
 }
 
 async function initCase01Lab(){
@@ -275,7 +292,7 @@ async function initCase01Lab(){
     if(resV2.ok){
       case01DataV2=deriveCase01EvidenceV2(await resV2.json());
       renderCase01EvidenceV2();
-      renderCase01Challenger();
+      await renderCase01Challenger();
       if(status)status.textContent='真实市场数据已固定到 2026-10-02；分时证据、预期证据与 ETF 代理已载入。';
     }else if(status){
       status.textContent='真实市场主快照已载入；增强证据暂时不可用。';

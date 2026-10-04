@@ -2,6 +2,7 @@ import {agentSignal,alignmentRatio,normalizedConcentration,createSeededRandom,ap
 import {runCase01} from './case01-engine.mjs';
 import {deriveCase01RealEvidence} from './case01-evidence.mjs';
 import {deriveCase01EvidenceV2} from './case01-evidence-v2.mjs';
+import {buildCase01MechanismChallenger} from './case01-challenger.mjs';
 
 (() => {
 'use strict';
@@ -72,7 +73,7 @@ $('noiseSlider')?.addEventListener('input',e=>{noise=Number(e.target.value);$('n
 
 const CASE01_EVIDENCE_URL='../../cases/evidence/case01-real-2026-10-02.raw.json';
 const CASE01_EVIDENCE_V2_URL='../../cases/evidence/case01-evidence-v2-2026-10-02.raw.json';
-let case01Chart=null,case01TimingChart=null,case01Data=null,case01DataV2=null,case01Runs=null,case01Selected='theme_information_repricing';
+let case01Chart=null,case01TimingChart=null,case01Data=null,case01DataV2=null,case01Runs=null,case01Challenger=null,case01Selected='theme_information_repricing';
 const pct=(v,d=2)=>(v>=0?'+':'')+(v*100).toFixed(d)+'%';
 const pp=(v,d=2)=>(v>=0?'+':'')+(v*100).toFixed(d)+' pp';
 
@@ -212,6 +213,39 @@ if(bgCanvas&&bctx){resizeBg();window.addEventListener('resize',resizeBg,{passive
   renderCase01TimingChart();
 }
 
+
+const CASE01_CHALLENGE_STATUS={
+  MATCH:{label:'一致',className:'match'},
+  PARTIAL:{label:'部分支持',className:'partial'},
+  CONFLICT:{label:'冲突',className:'conflict'},
+  UNKNOWN:{label:'未知',className:'unknown'},
+  NEUTRAL:{label:'中性',className:'neutral'}
+};
+
+function renderCase01ChallengeRows(id,rows){
+  const el=$(id);
+  if(!el)return;
+  el.innerHTML=rows.map(r=>{
+    const meta=CASE01_CHALLENGE_STATUS[r.status]||CASE01_CHALLENGE_STATUS.UNKNOWN;
+    return '<div class="case01-challenge-row">'
+      +'<span class="case01-challenge-tag '+meta.className+'">'+meta.label+'</span>'
+      +'<div><b>'+r.label+'</b><p>'+r.evidence+'</p><small>'+r.boundary+'</small></div>'
+      +'</div>';
+  }).join('');
+}
+
+function renderCase01Challenger(){
+  if(!case01DataV2||!case01Runs)return;
+  case01Challenger=buildCase01MechanismChallenger({evidenceV2:case01DataV2,runs:case01Runs});
+  renderCase01ChallengeRows('case01ChallengeA',case01Challenger.hypotheses.theme_information_repricing.rows);
+  renderCase01ChallengeRows('case01ChallengeB',case01Challenger.hypotheses.common_theme_flow.rows);
+  const outcome=$('case01ChallengerOutcome');
+  if(outcome)outcome.textContent='两个单机制都不足';
+  const va=$('case01VerdictA'),vb=$('case01VerdictB');
+  if(va)va.textContent='有直接单名预期证据，但与宏观同步启动和回吐路径冲突';
+  if(vb)vb.textContent='路径形态更接近，但直接共同资金流仍未确认';
+}
+
 async function initCase01Lab(){
   const status=$('case01LoadStatus');
   try{
@@ -241,6 +275,7 @@ async function initCase01Lab(){
     if(resV2.ok){
       case01DataV2=deriveCase01EvidenceV2(await resV2.json());
       renderCase01EvidenceV2();
+      renderCase01Challenger();
       if(status)status.textContent='真实市场数据已固定到 2026-10-02；分时证据、预期证据与 ETF 代理已载入。';
     }else if(status){
       status.textContent='真实市场主快照已载入；增强证据暂时不可用。';
